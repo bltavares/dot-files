@@ -12,6 +12,12 @@ set nocompatible  " We don't want vi compatibility.
 " Add recently accessed projects menu (project plugin)
 set viminfo^=!
 set hidden
+
+set showcmd     "show incomplete cmds down the bottom
+set showmode    "show current mode down the bottom
+
+set incsearch   "find the next match as we type the search
+set hlsearch    "hilight searches by default
  
 " Minibuffer Explorer Settings
 "let g:miniBufExplMapWindowNavVim = 1
@@ -26,7 +32,7 @@ map <silent> <m-n> :cn <cr>
 " Change which file opens after executing :Rails command
 let g:rails_default_file='config/database.yml'
  
-syntax enable
+syntax on
 
 set cf  " Enable error files & error jumping.
 set clipboard+=unnamed  " Yanks go on clipboard instead.
@@ -65,6 +71,7 @@ set laststatus=2  " Always show status line.
 " gvim specific
 set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
+set ttymouse=xterm2
 
 " Syntax
 au! BufRead,BufNewFile *.haml         setfiletype haml 
@@ -112,3 +119,16 @@ nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
 nnoremap <leader>b :LustyBufferExplorer<cr>
 nnoremap <leader>t :LustyFilesystemExplorer<cr>
 
+filetype indent on
+
+"key mapping for window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+"key mapping for saving file
+nmap <C-s> :w<CR>
+
+"mark syntax errors with :signs
+let g:syntastic_enable_signs=1
