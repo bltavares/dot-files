@@ -71,7 +71,7 @@ set laststatus=2  " Always show status line.
 " gvim specific
 set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
-set ttymouse=xterm2
+"set ttymouse=xterm2
 
 " Syntax
 au! BufRead,BufNewFile *.haml         setfiletype haml 
@@ -92,8 +92,13 @@ set t_Co=256
 "else
   " For 8-color 16-color terminals or for gvim, just use the
   " regular :colorscheme command.
+set background=dark
 if has('gui_running')
   colorscheme jellybeans
+else
+  "let g:solarized_termcolors=256
+  let g:solarized_termtrans=1
+  colors solarized
 endif
 
 "folding settings
@@ -111,7 +116,7 @@ nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
         set guioptions-=T           " remove the toolbar
         set lines=40                " 40 lines of text instead of 24,
     else
-        set term=builtin_ansi       " Make arrow and other keys work
+        "set term=xterm       " Make arrow and other keys work
     endif
 " }
 
