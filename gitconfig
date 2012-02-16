@@ -1,0 +1,10 @@
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[merge]
+	tool = meld
+[core]
+	editor = vim
+[mergetool]
+	keepBackup = false
