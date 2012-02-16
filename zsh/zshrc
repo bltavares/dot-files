@@ -50,3 +50,6 @@ alias minecraft="java -Xmx1660M -Xms1660M -jar ~/minecraft.jar"
 
 #include RVM if it exist
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+#Seahorse
+export $(gnome-keyring-daemon --start --components ssh)
