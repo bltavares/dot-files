@@ -52,4 +52,4 @@ alias minecraft="java -Xmx1660M -Xms1660M -jar ~/minecraft.jar"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 #Seahorse
-export $(gnome-keyring-daemon --start --components ssh)
+#export $(gnome-keyring-daemon --start --components ssh)
