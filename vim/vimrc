@@ -80,7 +80,7 @@ filetype plugin on
 " IMPORTANT: Uncomment one of the following lines to force
 " using 256 colors (or 88 colors) if your terminal supports it,
 " but does not automatically use 256 colors by default.
-set t_Co=256
+"set t_Co=256
 "set t_Co=88
 "if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
   \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
