@@ -137,3 +137,6 @@ nmap <C-s> :w<CR>
 
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
+
+" Removing backup clutter
+set backupdir=~/.vim/backup,/tmp
