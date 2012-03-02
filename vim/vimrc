@@ -132,6 +132,12 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+"Alphabetize
+"As seen on http://stackoverflow.com/questions/3050797/how-to-alphabetize-a-css-file-in-vim
+":command! SortCSSBraceContents :g#\({\n\)\@<=#.,/}/sort
+":nmap <F7> :g#\({\n\)\@<=#.,/}/sort<CR>
+
+
 "key mapping for saving file
 nmap <C-s> :w<CR>
 
