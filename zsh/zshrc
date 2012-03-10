@@ -56,5 +56,6 @@ if [[ "$TERM" == "xterm" ]]; then
     export TERM=xterm-256color
 fi
 
+export PATH="$HOME/bin:$PATH"
 #Seahorse
 #export $(gnome-keyring-daemon --start --components ssh)
