@@ -48,7 +48,9 @@ alias repos="cd /repos"
 alias be="bundle exec "
 alias minecraft="java -Xmx1660M -Xms1660M -jar ~/minecraft.jar"
 
-#include RVM if it exist
+function say { mplayer -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$1"; }
+
+#include RVM if it exist    
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 if [[ "$TERM" == "xterm" ]]; then
