@@ -227,7 +227,8 @@ __git_ps1_show_upstream ()
 # returns text to add to bash PS1 prompt (includes branch name)
 __git_ps1 ()
 {
-	local g="$(__gitdir)"
+	[ -z "$NO_GIT_PS1" ] || return 
+  local g="$(__gitdir)"
 	if [ -n "$g" ]; then
 		local r=""
 		local b=""
