@@ -146,3 +146,6 @@ let g:syntastic_enable_signs=1
 
 " Removing backup clutter
 set backupdir=~/.vim/backup,/tmp
+
+" Slim and Tmux
+  let g:slime_target = "tmux"
