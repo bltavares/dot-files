@@ -149,3 +149,6 @@ set backupdir=~/.vim/backup,/tmp
 
 " Slim and Tmux
   let g:slime_target = "tmux"
+
+" Numbers.vim
+nnoremap <F3> :NumbersToggle<CR>
