@@ -120,9 +120,9 @@ nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
     endif
 " }
 
-"Lust buffer explorer
-nnoremap <leader>b :LustyBufferExplorer<cr>
-nnoremap <leader>t :LustyFilesystemExplorer<cr>
+"Ctrlp buffer
+nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>t :CtrlP<cr>
 
 filetype indent on
 
@@ -152,3 +152,4 @@ set backupdir=~/.vim/backup,/tmp
 
 " Numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
+
