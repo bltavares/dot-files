@@ -33,6 +33,10 @@ plugins=(battery heroku bundler git_ps1 no_git_ps1 aliases)
 
 source $ZSH/oh-my-zsh.sh
 
+if [[ -f $HOME/.host_specific ]] then
+ source $HOME/.host_specific
+fi
+
 alias tw='t timeline -r'
 rtw () {
  t timeline -l | awk "FNR==$1{ print \$1}" | xargs t retweet
