@@ -19,3 +19,6 @@
 [submodule "vim/bundle/slime.vim"]
 	path = vim/bundle/slime.vim
 	url = https://github.com/jpalardy/vim-slime.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
