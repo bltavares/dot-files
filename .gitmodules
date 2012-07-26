@@ -43,3 +43,6 @@
 [submodule "vim/bundle/guicolorscheme.vim"]
 	path = vim/bundle/guicolorscheme.vim
 	url = https://github.com/vim-scripts/guicolorscheme.vim.git
+[submodule "vim/bundle/color-sampler-pack"]
+	path = vim/bundle/color-sampler-pack
+	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
