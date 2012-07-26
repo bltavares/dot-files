@@ -1,4 +1,5 @@
 "Pathogen
+runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 filetype on  " Automatically detect file types.
