@@ -16,3 +16,6 @@
 [submodule "vim/bundle/rails.vim"]
 	path = vim/bundle/rails.vim
 	url = https://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/slime.vim"]
+	path = vim/bundle/slime.vim
+	url = https://github.com/jpalardy/vim-slime.git
