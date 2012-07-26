@@ -1,3 +1,6 @@
+"Pathogen
+call pathogen#infect()
+
 filetype on  " Automatically detect file types.
 nnoremap ; :
 
@@ -153,3 +156,5 @@ set backupdir=~/.vim/backup,/tmp
 " Numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
 
+let g:Powerline_symbols = 'fancy'
+set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
