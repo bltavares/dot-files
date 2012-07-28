@@ -3,7 +3,6 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 filetype on  " Automatically detect file types.
-nnoremap ; :
 
 " Stupid shift key fixes
 cmap W w                        
