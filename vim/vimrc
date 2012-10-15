@@ -3,47 +3,36 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 filetype on  " Automatically detect file types.
+syntax on
 
 " Stupid shift key fixes
-cmap W w                        
+cmap W w
 cmap WQ wq
 cmap wQ wq
 cmap Q q
 
 set nocompatible  " We don't want vi compatibility.
- 
-" Add recently accessed projects menu (project plugin)
-" set viminfo^=!
 set hidden
-
 set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
-
 set incsearch   "find the next match as we type the search
 set hlsearch    "hilight searches by default
- 
-" Minibuffer Explorer Settings
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1
- 
+
+" Change which file opens after executing :Rails command
+let g:rails_default_file='config/database.yml'
+
 " alt+n or alt+p to navigate between entries in QuickFix
 map <silent> <m-p> :cp <cr>
 map <silent> <m-n> :cn <cr>
- 
-" Change which file opens after executing :Rails command
-let g:rails_default_file='config/database.yml'
- 
-syntax on
-
 set cf  " Enable error files & error jumping.
+
 set history=256  " Number of things to remember in history.
 set autowrite  " Writes on make/shell commands
 set ruler  " Ruler on
 set nu  " Line numbers on
 set nowrap  " Line wrapping off
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
+
 "colorscheme railscasts2 " Uncomment this to set a default theme
 "colorscheme jellybeans 
 
@@ -51,19 +40,19 @@ set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
 set ts=2  " Tabs are 2 spaces
 set bs=2  " Backspace over everything in insert mode
 set shiftwidth=2  " Tabs under smart indent
-set nocp incsearch
+set smarttab
+set expandtab
 set cinoptions=:0,p0,t0
 set cinwords=if,else,while,do,for,switch,case
 set formatoptions=tcqr
 set cindent
 set autoindent
-set smarttab
-set expandtab
  
 " Visual
 set showmatch  " Show matching brackets.
 set mat=5  " Bracket blinking.
 set list
+
 " Show $ at end of line and trailing space as ~
 set lcs=tab:\ \ ,eol:$,trail:~,extends:>,precedes:<
 set novisualbell  " No blinking .
@@ -76,8 +65,9 @@ set mouse=a  " Mouse in all modes
 "set ttymouse=xterm2
 
 " Syntax
-au! BufRead,BufNewFile *.haml         setfiletype haml 
+au! BufRead,BufNewFile *.haml         setfiletype haml
 filetype plugin on
+filetype indent on
 
 " IMPORTANT: Uncomment one of the following lines to force
 " using 256 colors (or 88 colors) if your terminal supports it,
@@ -108,9 +98,6 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
-" NERDtree map
-silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
-
 " GUI Settings {
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
@@ -121,23 +108,19 @@ silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
     endif
 " }
 
+" NERDtree map
+silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
+
 "Ctrlp buffer
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>t :CtrlP<cr>
 
-filetype indent on
 
 "key mapping for window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-"Alphabetize
-"As seen on http://stackoverflow.com/questions/3050797/how-to-alphabetize-a-css-file-in-vim
-":command! SortCSSBraceContents :g#\({\n\)\@<=#.,/}/sort
-":nmap <F7> :g#\({\n\)\@<=#.,/}/sort<CR>
-
 
 "key mapping for saving file
 nmap <C-s> :w<CR>
@@ -150,7 +133,10 @@ set backupdir=~/.vim/backup,/tmp
 set dir=~/.vim/backup,/tmp
 
 " Slim and Tmux
-  let g:slime_target = "tmux"
+let g:slime_target = "tmux"
 
 " Numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
+
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
