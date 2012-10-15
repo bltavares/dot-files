@@ -45,6 +45,11 @@ genpasswd() {
   grep "^[^'A-Z]\{3,7\}$" /usr/share/dict/words | shuf -n4 | tr '\n' ' ' | sed 's/\b\(.\)/\u\1/g' | sed 's/ //g'
 }
 
+camelize() {
+    read phrases
+    echo -e "$phrases" | perl -pe 's/\b(.)/\u\1/g' | sed 's/ //g'
+}
+
 # Customize to your needs...
 #export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl
 
@@ -71,5 +76,6 @@ if [[ "$TERM" == "xterm" ]]; then
 fi
 
 export PATH="$HOME/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 #Seahorse
 #export $(gnome-keyring-daemon --start --components ssh)
