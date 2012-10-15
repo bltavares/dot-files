@@ -38,7 +38,6 @@ let g:rails_default_file='config/database.yml'
 syntax on
 
 set cf  " Enable error files & error jumping.
-set clipboard+=unnamed  " Yanks go on clipboard instead.
 set history=256  " Number of things to remember in history.
 set autowrite  " Writes on make/shell commands
 set ruler  " Ruler on
@@ -111,7 +110,6 @@ set nofoldenable        "dont fold by default
 
 " NERDtree map
 silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
-nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
 
 " GUI Settings {
     " GVIM- (here instead of .gvimrc)
@@ -156,6 +154,3 @@ set dir=~/.vim/backup,/tmp
 
 " Numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
-
-let g:Powerline_symbols = 'fancy'
-set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
