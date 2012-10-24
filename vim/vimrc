@@ -1,3 +1,5 @@
+set encoding=utf-8
+
 "Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -17,6 +19,10 @@ set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
 set incsearch   "find the next match as we type the search
 set hlsearch    "hilight searches by default
+if has("wildmenu")
+  set wildmenu
+  set wim=longest:full,full
+endif
 
 " Change which file opens after executing :Rails command
 let g:rails_default_file='config/database.yml'
@@ -55,6 +61,7 @@ set list
 
 " Show $ at end of line and trailing space as ~
 set lcs=tab:\ \ ,eol:$,trail:~,extends:>,precedes:<
+set showbreak=↪
 set novisualbell  " No blinking .
 set noerrorbells  " No noise.
 set laststatus=2  " Always show status line.
@@ -68,7 +75,6 @@ set mouse=a  " Mouse in all modes
 au! BufRead,BufNewFile *.haml         setfiletype haml
 filetype plugin on
 filetype indent on
-set encoding=utf-8
 
 " IMPORTANT: Uncomment one of the following lines to force
 " using 256 colors (or 88 colors) if your terminal supports it,
@@ -111,6 +117,7 @@ set nofoldenable        "dont fold by default
 
 " NERDtree map
 silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
+silent! nmap <silent> <Leader>o :NERDTreeFind<CR>
 
 "Ctrlp buffer
 nnoremap <leader>b :CtrlPBuffer<cr>
