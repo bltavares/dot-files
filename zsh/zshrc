@@ -64,6 +64,7 @@ alias repos="cd /repos"
 
 alias be="bundle exec "
 alias minecraft="java -Xmx1660M -Xms1660M -jar ~/minecraft.jar"
+alias g="git"
 
 function say { mplayer -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$1"; }
 
