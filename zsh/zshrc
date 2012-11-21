@@ -64,7 +64,12 @@ alias repos="cd /repos"
 
 alias be="bundle exec "
 alias minecraft="java -Xmx1660M -Xms1660M -jar ~/minecraft.jar"
-alias g="hub"
+if which hub > /dev/null; then
+  alias g="hub"
+  eval "$(hub alias -s)"
+else
+  alias g="git"
+fi
 
 function say { mplayer -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$1"; }
 
