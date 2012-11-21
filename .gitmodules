@@ -61,3 +61,9 @@
 [submodule "vim/bundle/rainbow_parentheses"]
 	path = vim/bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "vim/bundle/clj-vim"]
+	path = vim/bundle/clj-vim
+	url = https://github.com/mjwall/clj-vim.git
+[submodule "vim/bundle/vim-tomorrow-theme"]
+	path = vim/bundle/vim-tomorrow-theme
+	url = https://github.com/chriskempson/vim-tomorrow-theme.git

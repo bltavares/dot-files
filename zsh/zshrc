@@ -29,7 +29,7 @@ ZSH_THEME="fringe-no-battery"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(heroku bundler git_ps1 no_git_ps1 aliases)
+plugins=(heroku bundler git_ps1 no_git_ps1 aliases lein)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -64,7 +64,7 @@ alias repos="cd /repos"
 
 alias be="bundle exec "
 alias minecraft="java -Xmx1660M -Xms1660M -jar ~/minecraft.jar"
-alias g="git"
+alias g="hub"
 
 function say { mplayer -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$1"; }
 
