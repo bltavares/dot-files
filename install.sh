@@ -15,6 +15,9 @@ ln -s $HOME/.vim/vimrc $HOME/.vimrc
 [[ -d $HOME/.emacs.d ]] && mv $HOME/.emacs.d $HOME/.emacs.d.bkp
 ln -s $curr_dir/emacs.d $HOME/.emacs.d
 
+[[ -d $HOME/.gitignore_global ]] && mv $HOME/.gitignore_global $HOME/.gitignore_global.bkp
+ln -s $curr_dir/gitignore_global $HOME/.gitignore_global
+
 #gnome-terminal
 gconftool-2 --load $curr_dir/gnome-terminal/config.xml 
 
