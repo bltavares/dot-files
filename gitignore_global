@@ -1,0 +1,110 @@
+### /Users/btavare/.gitignore-boilerplates/Global/vim.gitignore
+
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+
+### /Users/btavare/.gitignore-boilerplates/Global/Emacs.gitignore
+
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+
+### /Users/btavare/.gitignore-boilerplates/Global/SVN.gitignore
+
+.svn/
+
+
+### /Users/btavare/.gitignore-boilerplates/Global/IntelliJ.gitignore
+
+*.iml
+*.ipr
+*.iws
+.idea/
+
+
+### /Users/btavare/.gitignore-boilerplates/Haskell.gitignore
+
+dist
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+.virthualenv
+
+
+### /Users/btavare/.gitignore-boilerplates/Global/OSX.gitignore
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+
+### /Users/btavare/.gitignore-boilerplates/Global/Linux.gitignore
+
+.*
+!.gitignore
+*~
+
+
+### /Users/btavare/.gitignore-boilerplates/Ruby.gitignore
+
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+
+
+### /Users/btavare/.gitignore-boilerplates/Node.gitignore
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+
+
