@@ -12,6 +12,9 @@ ln -s $curr_dir/vim $HOME/.vim
 [[ -f $HOME/.vimrc ]] && mv $HOME/.vimrc $HOME/.vimrc-bkp
 ln -s $HOME/.vim/vimrc $HOME/.vimrc
 
+[[ -d $HOME/.emacs.d ]] && mv $HOME/.emacs.d $HOME/.emacs.d.bkp
+ln -s $curr_dir/emacs.d $HOME/.emacs.d
+
 #gnome-terminal
 gconftool-2 --load $curr_dir/gnome-terminal/config.xml 
 
