@@ -11,13 +11,13 @@ Session.vim
 \#*\#
 /.emacs.desktop
 /.emacs.desktop.lock
-.elc
+*.elc
 auto-save-list
 tramp
 .\#*
 
 # Org-mode
-.org-id-locations
+*.org-id-locations
 *_archive
 
 
