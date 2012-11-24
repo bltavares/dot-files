@@ -148,3 +148,12 @@ nnoremap <F3> :NumbersToggle<CR>
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
+
+" Rainbown parentheses 4evah
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+" We need to reset parentheses when we change the color
+au ColorScheme * RainbowParenthesesToggle
+au ColorScheme * RainbowParenthesesToggle

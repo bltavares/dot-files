@@ -76,3 +76,6 @@
 [submodule "emacs.d/bundle/exec-path-from-shell"]
 	path = emacs.d/bundle/exec-path-from-shell
 	url = https://github.com/purcell/exec-path-from-shell.git
+[submodule "emacs.d/bundle/rainbow-delimiters"]
+	path = emacs.d/bundle/rainbow-delimiters
+	url = https://github.com/jlr/rainbow-delimiters.git
