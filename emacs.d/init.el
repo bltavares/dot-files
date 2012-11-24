@@ -13,7 +13,9 @@
         ))))
 
 (load-theme 'solarized-dark t)
+(global-rainbow-delimiters-mode)
 
 ;;Mac only
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+
