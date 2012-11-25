@@ -61,9 +61,6 @@
 [submodule "vim/bundle/rainbow_parentheses"]
 	path = vim/bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
-[submodule "vim/bundle/clj-vim"]
-	path = vim/bundle/clj-vim
-	url = https://github.com/mjwall/clj-vim.git
 [submodule "vim/bundle/vim-tomorrow-theme"]
 	path = vim/bundle/vim-tomorrow-theme
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
@@ -79,3 +76,9 @@
 [submodule "emacs.d/bundle/rainbow-delimiters"]
 	path = emacs.d/bundle/rainbow-delimiters
 	url = https://github.com/jlr/rainbow-delimiters.git
+[submodule "emacs.d/bundle/paredit"]
+	path = emacs.d/bundle/paredit
+	url = https://github.com/goncha/paredit.git
+[submodule "vim/bundle/paredit.vim"]
+	path = vim/bundle/paredit.vim
+	url = https://github.com/vim-scripts/paredit.vim.git

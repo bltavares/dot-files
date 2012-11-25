@@ -1,11 +1,17 @@
 set encoding=utf-8
 
+let mapleader = "\\"
+let maplocalleader = mapleader
+
 "Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 filetype on  " Automatically detect file types.
 syntax on
+filetype plugin on
+filetype indent on
+filetype plugin indent on
 
 " Stupid shift key fixes
 cmap W w
@@ -37,7 +43,7 @@ set autowrite  " Writes on make/shell commands
 set ruler  " Ruler on
 set nu  " Line numbers on
 set nowrap  " Line wrapping off
-set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
+set timeoutlen=500  " Time to wait after ESC (default causes an annoying delay)
 
 "colorscheme railscasts2 " Uncomment this to set a default theme
 "colorscheme jellybeans 
@@ -73,8 +79,6 @@ set mouse=a  " Mouse in all modes
 
 " Syntax
 au! BufRead,BufNewFile *.haml         setfiletype haml
-filetype plugin on
-filetype indent on
 
 " IMPORTANT: Uncomment one of the following lines to force
 " using 256 colors (or 88 colors) if your terminal supports it,
@@ -123,16 +127,6 @@ silent! nmap <silent> <Leader>o :NERDTreeFind<CR>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>t :CtrlP<cr>
 
-
-"key mapping for window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-"key mapping for saving file
-nmap <C-s> :w<CR>
-
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
 
@@ -157,3 +151,6 @@ au Syntax * RainbowParenthesesLoadBraces
 " We need to reset parentheses when we change the color
 au ColorScheme * RainbowParenthesesToggle
 au ColorScheme * RainbowParenthesesToggle
+
+"Paredit for el
+au BufNewFile,BufRead *.el call PareditInitBuffer()
