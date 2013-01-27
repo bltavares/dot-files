@@ -55,9 +55,6 @@
 [submodule "vim/bundle/pathogen"]
 	path = vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/slim.vim"]
-	path = vim/bundle/slim.vim
-	url = https://github.com/bbommarito/vim-slim.git
 [submodule "vim/bundle/rainbow_parentheses"]
 	path = vim/bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
@@ -88,3 +85,6 @@
 [submodule "emacs.d/bundle/clojure-mode"]
 	path = emacs.d/bundle/clojure-mode
 	url = https://github.com/technomancy/clojure-mode.git
+[submodule "vim/bundle/slim.vim"]
+	path = vim/bundle/slim.vim
+	url = https://github.com/slim-template/vim-slim.git
