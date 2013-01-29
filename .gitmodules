@@ -43,9 +43,6 @@
 [submodule "vim/bundle/guicolorscheme.vim"]
 	path = vim/bundle/guicolorscheme.vim
 	url = https://github.com/vim-scripts/guicolorscheme.vim.git
-[submodule "vim/bundle/color-sampler-pack"]
-	path = vim/bundle/color-sampler-pack
-	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
 [submodule "vim/bundle/mru.vim"]
 	path = vim/bundle/mru.vim
 	url = https://github.com/vim-scripts/mru.vim.git
@@ -88,3 +85,6 @@
 [submodule "vim/bundle/slim.vim"]
 	path = vim/bundle/slim.vim
 	url = https://github.com/slim-template/vim-slim.git
+[submodule "vim/bundle/colour-sampler-pack"]
+	path = vim/bundle/colour-sampler-pack
+	url = https://github.com/vim-scripts/Colour-Sampler-Pack
