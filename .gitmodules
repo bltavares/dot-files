@@ -88,3 +88,6 @@
 [submodule "vim/bundle/colour-sampler-pack"]
 	path = vim/bundle/colour-sampler-pack
 	url = https://github.com/vim-scripts/Colour-Sampler-Pack
+[submodule "vim/bundle/puppet"]
+	path = vim/bundle/puppet
+	url = git://github.com/rodjek/vim-puppet.git
