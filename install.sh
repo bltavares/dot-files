@@ -34,7 +34,7 @@ mv $HOME/.zshrc $HOME/.zshrc-bkp
 ln -s $curr_dir/zsh/zshrc $HOME/.zshrc
 ln -s $curr_dir/zsh/oh-my-zsh/custom $HOME/.oh-my-zsh/custom
 
-$OS = `uname -s`
+OS=`uname -s`
 if [[ "$OS" != "Darwin ]]; then
   cd $HOME
   curl -L https://gist.github.com/bltavares/2706792/raw/post-install.sh | bash
