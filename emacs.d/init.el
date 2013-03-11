@@ -15,6 +15,7 @@
 (load-theme 'solarized-dark t)
 (global-rainbow-delimiters-mode)
 (electric-pair-mode t)
+(add-hook 'clojure-mode-hook 'paredit-mode)
 
 ;;Mac only
 (when (memq window-system '(mac ns))
