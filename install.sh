@@ -34,6 +34,12 @@ mv $HOME/.zshrc $HOME/.zshrc-bkp
 ln -s $curr_dir/zsh/zshrc $HOME/.zshrc
 ln -s $curr_dir/zsh/oh-my-zsh/custom $HOME/.oh-my-zsh/custom
 
+#Custom commands
+mkdir -p $HOME/bin
+for b in $curr_dir/bin/*; do
+  ln -s $b $HOME/bin/`basename $b`
+done
+
 OS=`uname -s`
 if [[ "$OS" != "Darwin" ]]; then
   cd $HOME

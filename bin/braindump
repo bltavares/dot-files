@@ -1,0 +1,47 @@
+#!/bin/sh
+
+if [[ $# == 0 ]]; then
+    echo "$0: please provide a search term." > /dev/stderr
+    exit 1
+fi
+
+PATTERN="/$1/$(printf ' && /%s/' "${@:2}")"
+if which gawk > /dev/null; then
+  COMMAND=gawk
+else
+  COMMAND=awk
+fi
+BRAINDUMP_HOME=${BRAINDUMP_HOME:-$HOME/usr/braindump}
+shopt -s nullglob
+
+$COMMAND '
+    BEGIN {
+        RS = "\n===\n";
+        FS = "\n===\n";
+        OFS = "";
+        ORS = "";
+        IGNORECASE = 1;
+        rc = 2;
+    }
+
+    BEGINFILE {
+        fnprinted = 0;
+    }
+
+    '"$PATTERN"' {
+        rc = 0;
+        if (fnprinted == 0) {
+            print "===\n>>> " FILENAME "\n";
+            fnprinted = 1;
+        }
+        print "===\n" $0 "\n";
+    }
+
+    END {
+        if (rc == 0)
+            print "===\n";
+        exit rc;
+    }
+' $BRAINDUMP_HOME/**{.txt,.md}
+
+exit $?
