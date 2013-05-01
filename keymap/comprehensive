@@ -1,0 +1,21 @@
+default
+partial alphanumeric_keys modifier_keys 
+xkb_symbols "us" {
+
+    name[Group1]= "English (Cohesive)";
+
+    include "us(basic)"
+    include "ctrl(ralt_rctrl)"
+    include "capslock(escape)"
+
+};
+partial alphanumeric_keys modifier_keys 
+xkb_symbols "br" {
+
+    name[Group1]= "English (Cohesive)";
+
+    include "br(abnt2)"
+    include "ctrl(ralt_rctrl)"
+    include "capslock(escape)"
+
+};
