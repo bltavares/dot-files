@@ -8,7 +8,7 @@ fi
 host_num=$((0x`hostname | $MD5    | cut -c1-8` % 216 + 1))
 user_num=$((0x`whoami   | $MD5   | cut -c1-8` % 216 + 1))
 
-PROMPT='[%{$fg_bold[red]%}%t%{$reset_color%}][%{$fg_bold[magenta]%}%n@%m %{${FG[$user_num]}%}~%{${FG[$host_num]}%}> %{$fg_bold[cyan]%}%~%{$reset_color%}]%# %{$fg_bold[blue]%}$(__git_ps1 "(%s) " | sed "s/%/%%/g" )%{$reset_color%}'
+PROMPT='%{$FG[$user_num]%}%n%{$FG[$host_num]%}@%m %{$fg_bold[cyan]%}%~%{$reset_color%} %# %{$fg_bold[blue]%}$(__git_ps1 "(%s) " | sed "s/%/%%/g" )%{$reset_color%}'
 RPROMPT="$(battery_time_remaining | sed -e 's/no battery//')"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}("
