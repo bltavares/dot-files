@@ -35,7 +35,7 @@ ln -s $curr_dir/zsh/zshrc $HOME/.zshrc
 ln -s $curr_dir/zsh/oh-my-zsh/custom $HOME/.oh-my-zsh/custom
 
 #Awesome
-mkdir -p .config
+mkdir -p $HOME/.config
 [[ -d $HOME/.config/awesome ]] && mv $HOME/.config/awesome $HOME/.config/awesome-bkp 
 ln -s $curr_dir/awesome $HOME/.config/awesome
 
