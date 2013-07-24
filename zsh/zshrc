@@ -35,20 +35,20 @@ plugins=(heroku bundler git_ps1 no_git_ps1 aliases lein)
 source $ZSH/oh-my-zsh.sh
 
 if [[ -f $HOME/.host_specific ]] then
- source $HOME/.host_specific
+  source $HOME/.host_specific
 fi
 
 alias tw='t timeline -r'
 rtw () {
- t timeline -l | awk "FNR==$1{ print \$1}" | xargs t retweet
+  t timeline -l | awk "FNR==$1{ print \$1}" | xargs t retweet
 }
 genpasswd() {
   grep "^[^'A-Z]\{3,7\}$" /usr/share/dict/words | shuf -n4 | tr '\n' ' ' | sed 's/\b\(.\)/\u\1/g' | sed 's/ //g'
 }
 
 camelize() {
-    read phrases
-    echo -e "$phrases" | perl -pe 's/\b(.)/\u\1/g' | sed 's/ //g'
+  read phrases
+  echo -e "$phrases" | perl -pe 's/\b(.)/\u\1/g' | sed 's/ //g'
 }
 
 # Customize to your needs...
@@ -72,7 +72,10 @@ else
   alias g="git"
 fi
 
-function say { mplayer -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$1"; }
+function say { 
+lang=${2:-en}
+mplayer -really-quiet "http://translate.google.com/translate_tts?tl=$lang&q=$1"
+}
 
 #include RVM if it exist    
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -86,3 +89,4 @@ if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
 #Seahorse
 #export $(gnome-keyring-daemon --start --components ssh)
 export EDITOR=vim
+export LANG=en_US.UTF-8 LC_CTYPE="en_US.UTF-8"
