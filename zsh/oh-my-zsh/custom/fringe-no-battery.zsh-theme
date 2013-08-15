@@ -24,3 +24,9 @@ if [[ x$NO_AUTOTOP == "x" ]]; then
   print -Pn $PS1; print $1
 fi
 }
+
+function precmd { 
+if [[ x$NO_AUTOTOP == "x" ]]; then
+  tput cup $(($(tput lines))) 0 
+fi 
+}
