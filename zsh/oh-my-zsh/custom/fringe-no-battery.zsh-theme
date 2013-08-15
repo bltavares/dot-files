@@ -17,3 +17,10 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="*"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+function preexec { 
+if [[ x$NO_AUTOTOP == "x" ]]; then
+  tput cuu1; tput el; clear
+  print -Pn $PS1; print $1
+fi
+}
