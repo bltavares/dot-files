@@ -59,7 +59,7 @@ set cinwords=if,else,while,do,for,switch,case
 set formatoptions=tcqr
 set cindent
 set autoindent
- 
+
 " Visual
 set showmatch  " Show matching brackets.
 set mat=5  " Bracket blinking.
@@ -71,7 +71,7 @@ set showbreak=↪
 set novisualbell  " No blinking .
 set noerrorbells  " No noise.
 set laststatus=2  " Always show status line.
- 
+
 " gvim specific
 set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
@@ -86,15 +86,15 @@ au! BufRead,BufNewFile *.haml         setfiletype haml
 "set t_Co=256
 "set t_Co=88
 "if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
-  \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
-  " Use the guicolorscheme plugin to makes 256-color or 88-color
-  " terminal use GUI colors rather than cterm colors.
+      \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
+" Use the guicolorscheme plugin to makes 256-color or 88-color
+" terminal use GUI colors rather than cterm colors.
 "  runtime plugin/guicolorscheme.vim
-  "GuiColorScheme darkspectrum2
+"GuiColorScheme darkspectrum2
 "  GuiColorScheme railscasts2
 "else
-  " For 8-color 16-color terminals or for gvim, just use the
-  " regular :colorscheme command.
+" For 8-color 16-color terminals or for gvim, just use the
+" regular :colorscheme command.
 set background=dark
 if has('gui_running')
   colorscheme jellybeans
@@ -110,13 +110,13 @@ set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 " GUI Settings {
-    " GVIM- (here instead of .gvimrc)
-    if has('gui_running')
-        set guioptions-=T           " remove the toolbar
-        set lines=40                " 40 lines of text instead of 24,
-    else
-        "set term=xterm       " Make arrow and other keys work
-    endif
+" GVIM- (here instead of .gvimrc)
+if has('gui_running')
+  set guioptions-=T           " remove the toolbar
+  set lines=40                " 40 lines of text instead of 24,
+else
+  "set term=xterm       " Make arrow and other keys work
+endif
 " }
 
 " NERDtree map
@@ -125,7 +125,8 @@ silent! nmap <silent> <Leader>o :NERDTreeFind<CR>
 
 "Ctrlp buffer
 nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>t :CtrlP<cr>
+nnoremap <leader>t :CtrlPTag<cr>
+nnoremap <leader>f :CtrlP<cr>
 
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
@@ -155,3 +156,31 @@ au ColorScheme * RainbowParenthesesToggle
 "Paredit for el
 au BufNewFile,BufRead *.el call PareditInitBuffer()
 au BufNewFile,BufRead *.ls call PareditInitBuffer()
+
+"Tagbar
+nnoremap <leader>n :TagbarToggle<cr>
+let g:tagbar_type_ruby = {
+      \ 'kinds' : [
+      \ 'm:modules',
+      \ 'c:classes',
+      \ 'd:describes',
+      \ 'C:contexts',
+      \ 'f:methods',
+      \ 'F:singleton methods'
+      \ ]
+      \ }
+let g:tagbar_type_clojure = {
+      \ 'ctagstype': 'clojure',
+      \ 'kinds' : [
+      \ 'n:namespace' ,
+      \ 'd:definition' ,
+      \ 'f:function' ,
+      \ 'm:macro' ,
+      \ 'i:inline' ,
+      \ 'a:multimethod definition' ,
+      \ 'b:multimethod implementation' ,
+      \ 'c:defonce' ,
+      \ 's:struct' ,
+      \ 'v:intern' ,
+      \]
+      \ }
