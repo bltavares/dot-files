@@ -27,6 +27,10 @@ which gconftool-2 && gconftool-2 --load $curr_dir/gnome-terminal/config.xml
 [[ -f $HOME/.tmux.conf ]] && mv $HOME/.tmux.conf $HOME/.tmux.conf-bkp
 ln -s $curr_dir/tmux.conf $HOME/.tmux.conf
 
+#ctags
+[[ -f $HOME/.ctags ]] && mv $HOME/.ctags $HOME/.ctags-bkp
+ln -s $curr_dir/ctags $HOME/.ctags
+
 #Zshell
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 mv $HOME/.oh-my-zsh/custom $HOME/.oh-my-zsh/custom-bkp
