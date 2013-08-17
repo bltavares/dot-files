@@ -77,6 +77,11 @@ lang=${2:-en}
 mplayer -really-quiet "http://translate.google.com/translate_tts?tl=$lang&q=$1"
 }
 
+function tim {
+tags
+vim
+}
+
 #include RVM if it exist    
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
