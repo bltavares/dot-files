@@ -86,7 +86,7 @@ au! BufRead,BufNewFile *.haml         setfiletype haml
 "set t_Co=256
 "set t_Co=88
 "if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
-      \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
+"      \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
 " Use the guicolorscheme plugin to makes 256-color or 88-color
 " terminal use GUI colors rather than cterm colors.
 "  runtime plugin/guicolorscheme.vim
