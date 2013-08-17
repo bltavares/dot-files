@@ -14,10 +14,10 @@ ln -s $curr_dir/vim $HOME/.vim
 ln -s $HOME/.vim/vimrc $HOME/.vimrc
 
 #Set up emacs
-[[ -d $HOME/.emacs.d ]] && mv $HOME/.emacs.d $HOME/.emacs.d.bkp
+[[ -d $HOME/.emacs.d ]] && mv $HOME/.emacs.d $HOME/.emacs.d-bkp
 ln -s $curr_dir/emacs.d $HOME/.emacs.d
 
-[[ -d $HOME/.gitignore_global ]] && mv $HOME/.gitignore_global $HOME/.gitignore_global.bkp
+[[ -d $HOME/.gitignore_global ]] && mv $HOME/.gitignore_global $HOME/.gitignore_global-bkp
 ln -s $curr_dir/gitignore_global $HOME/.gitignore_global
 
 #gnome-terminal
