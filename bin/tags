@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rm tags 2>/dev/null
+ctagfile=$(basename `pwd`)
+touch /tmp/"$ctagfile"-ctags
+ln -s /tmp/$ctagfile-ctags tags
+ctags
