@@ -376,6 +376,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Chromium" },
       properties = { floating = false } },
+    { rule = { instance = "plugin-container" },
+      properties = { floating = true } },
     { rule = { class = "Exe" },
       properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
@@ -408,6 +410,9 @@ client.connect_signal("manage", function (c, startup)
     end
 
     local titlebars_enabled = true
+    if c.instance == "plugin-container" then 
+      titlebars_enabled = false
+    end
     if titlebars_enabled and (c.type == "normal" or c.type == "dialog") then
         -- buttons for the titlebar
         local buttons = awful.util.table.join(
