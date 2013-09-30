@@ -1,7 +1,9 @@
 (let ((default-directory "~/.emacs.d/bundle/"))
   (dolist (f (directory-files default-directory))
     (when (and (not (equal f ".")) (not (equal f "..")))
-      (add-to-list 'load-path (concat default-directory f))
+      (add-to-list 'load-path (concat default-directory f))))
+  (dolist (f (directory-files default-directory))
+    (when (and (not (equal f ".")) (not (equal f "..")))
       (require (intern f)))))
 
 (let ((themes-directory "~/.emacs.d/themes/"))

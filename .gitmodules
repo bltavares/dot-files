@@ -94,3 +94,12 @@
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "emacs.d/bundle/dash"]
+	path = emacs.d/bundle/dash
+	url = https://github.com/magnars/dash.el.git
+[submodule "emacs.d/bundle/pkg-info"]
+	path = emacs.d/bundle/pkg-info
+	url = https://github.com/lunaryorn/pkg-info.el.git
+[submodule "emacs.d/bundle/s"]
+	path = emacs.d/bundle/s
+	url = https://github.com/magnars/s.el.git
