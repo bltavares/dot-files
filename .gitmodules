@@ -103,3 +103,9 @@
 [submodule "emacs.d/bundle/s"]
 	path = emacs.d/bundle/s
 	url = https://github.com/magnars/s.el.git
+[submodule "vim/bundle/vim-soy"]
+	path = vim/bundle/vim-soy
+	url = https://github.com/duganchen/vim-soy
+[submodule "vim/bundle/vim-less"]
+	path = vim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less
