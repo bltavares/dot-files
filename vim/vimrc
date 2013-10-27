@@ -13,12 +13,6 @@ filetype plugin on
 filetype indent on
 filetype plugin indent on
 
-" Stupid shift key fixes
-cmap W w
-cmap WQ wq
-cmap wQ wq
-cmap Q q
-
 set nocompatible  " We don't want vi compatibility.
 set hidden
 set showcmd     "show incomplete cmds down the bottom
@@ -197,3 +191,6 @@ let g:tagbar_type_puppet = {
 " airline
 let g:airline_left_sep='|'
 let g:airline_right_sep='|'
+"
+ " Auto save on esc
+inoremap <Esc> <Esc>:w<CR>
