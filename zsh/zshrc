@@ -73,6 +73,15 @@ else
   alias g="git"
 fi
 
+switch-branch() {
+  git branch | cut -c 3- | selecta | xargs git checkout
+}
+
+checkout-branch() {
+  branch=${1:-origin}
+  git branch -r | grep "$branch/" | cut -d'/' -f 2- | selecta | xargs -I{} git checkout -b '{}' $branch/'{}'
+}
+
 function say { 
 lang=${2:-en}
 mplayer -really-quiet "http://translate.google.com/translate_tts?tl=$lang&q=$1"
