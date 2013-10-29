@@ -112,3 +112,6 @@
 [submodule "emacs.d/bundle/cider"]
 	path = emacs.d/bundle/cider
 	url = https://github.com/clojure-emacs/cider.git
+[submodule "emacs.d/bundle/epl"]
+	path = emacs.d/bundle/epl
+	url = https://github.com/cask/epl.git
