@@ -73,9 +73,6 @@
 [submodule "vim/bundle/paredit.vim"]
 	path = vim/bundle/paredit.vim
 	url = https://github.com/vim-scripts/paredit.vim.git
-[submodule "emacs.d/bundle/nrepl"]
-	path = emacs.d/bundle/nrepl
-	url = https://github.com/kingtim/nrepl.el.git
 [submodule "emacs.d/bundle/clojure-mode"]
 	path = emacs.d/bundle/clojure-mode
 	url = https://github.com/technomancy/clojure-mode.git
