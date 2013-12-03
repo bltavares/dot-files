@@ -81,6 +81,7 @@ checkout-branch() {
   branch=${1:-origin}
   git branch -r | grep "$branch/" | cut -d'/' -f 2- | selecta | xargs -I{} git checkout -b '{}' $branch/'{}'
 }
+p() { cd $(find ~/Projects ~/repos -type d -maxdepth 1 | selecta) }
 
 function say { 
 lang=${2:-en}

@@ -24,9 +24,6 @@ if has("wildmenu")
   set wim=longest:full,full
 endif
 
-" Change which file opens after executing :Rails command
-let g:rails_default_file='config/database.yml'
-
 " alt+n or alt+p to navigate between entries in QuickFix
 map <silent> <m-p> :cp <cr>
 map <silent> <m-n> :cn <cr>
@@ -74,44 +71,19 @@ set mouse=a  " Mouse in all modes
 " Syntax
 au! BufRead,BufNewFile *.haml         setfiletype haml
 
-" IMPORTANT: Uncomment one of the following lines to force
-" using 256 colors (or 88 colors) if your terminal supports it,
-" but does not automatically use 256 colors by default.
-"set t_Co=256
-"set t_Co=88
-"if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
-"      \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
-" Use the guicolorscheme plugin to makes 256-color or 88-color
-" terminal use GUI colors rather than cterm colors.
-"  runtime plugin/guicolorscheme.vim
-"GuiColorScheme darkspectrum2
-"  GuiColorScheme railscasts2
-"else
-" For 8-color 16-color terminals or for gvim, just use the
-" regular :colorscheme command.
 set background=dark
-if has('gui_running')
-  colorscheme jellybeans
-else
-  "let g:solarized_termcolors=256
-  let g:solarized_termtrans=1
-  colors solarized
-endif
+let g:solarized_termtrans=1
+colors solarized
 
 "folding settings
 set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
-" GUI Settings {
-" GVIM- (here instead of .gvimrc)
 if has('gui_running')
   set guioptions-=T           " remove the toolbar
   set lines=40                " 40 lines of text instead of 24,
-else
-  "set term=xterm       " Make arrow and other keys work
 endif
-" }
 
 " NERDtree map
 silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
@@ -121,6 +93,8 @@ silent! nmap <silent> <Leader>o :NERDTreeFind<CR>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>t :CtrlPTag<cr>
 nnoremap <leader>f :CtrlP<cr>
+let g:ctrlp_max_files = 0
+
 
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
