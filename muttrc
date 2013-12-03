@@ -70,3 +70,4 @@ bind attach <return> view-mailcap
 
 # Accounts
 source ~/.mutt/accounts
+source ~/.mutt/crypt
