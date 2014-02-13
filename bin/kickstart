@@ -1,0 +1,19 @@
+#!/bin/bash
+
+role=$1
+if [ ! -d roles/$role ]; then
+  echo "Role "$role" not present" >&2
+  exit 1
+fi
+
+shift
+
+cat > play.yml <<PLAYBOOK
+---
+- hosts: all
+  roles:
+  - $role
+PLAYBOOK
+
+ansible-playbook play.yml $@
+rm play.yml
