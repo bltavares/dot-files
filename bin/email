@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Password please:"
+read -s email_pw
+while true; do
+  (
+  export email_pw
+  mbsync -V -a
+  )
+  sleep 10
+done
