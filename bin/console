@@ -17,5 +17,10 @@
 
 while true; do
   read -ep "$* >> " e
-  $@ $e || true
+  { if [[ "$e" == !* ]]; then
+      ${e:2}
+    else
+      $@ $e
+    fi
+  } || true
 done
