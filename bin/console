@@ -16,6 +16,6 @@
 # [rspec test result]
 
 while true; do
-  read -p "$* >> " e
+  read -ep "$* >> " e
   $@ $e || true
 done
