@@ -1,0 +1,21 @@
+#!/bin/bash -e
+
+# Console for bigger commands
+#
+# eg:
+# console git
+# git >> status
+# [git status reply...]
+# git >> diff
+# [git diff reply...]
+#
+# console bundle exec
+# bundle exec >> rake test
+# [test result]
+# bundle exec >> rspec
+# [rspec test result]
+
+while true; do
+  read -p "$* >> " e
+  $@ $e || true
+done
