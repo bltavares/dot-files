@@ -18,15 +18,15 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="*"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-function preexec { 
+function preexec {
 if [[ x$NO_AUTOTOP == "x" ]]; then
   tput cuu1; tput el; clear
   print -Pn $PS1; print $1
 fi
 }
 
-function precmd { 
+function precmd {
 if [[ x$NO_AUTOTOP == "x" ]]; then
-  tput cup $(($(tput lines))) 0 
+  tput cup $(($(tput lines))) 0
 fi 
 }
