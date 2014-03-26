@@ -1,11 +1,13 @@
 #!/bin/bash
 
-echo "Password please:"
-read -s email_pw
+channel=${1:?Channel require}
+sleep_time=${2:-10}
+
+read -p "Password please: " -s email_pw < /dev/tty
 while true; do
   (
   export email_pw
-  mbsync -V -a
+  mbsync -V $channel
   )
-  sleep 10
+  sleep $sleep_time
 done
