@@ -115,3 +115,6 @@
 [submodule "emacs.d/bundle/epl"]
 	path = emacs.d/bundle/epl
 	url = https://github.com/cask/epl.git
+[submodule "vim/bundle/SyntaxRange"]
+	path = vim/bundle/SyntaxRange
+	url = https://github.com/vim-scripts/SyntaxRange.git
