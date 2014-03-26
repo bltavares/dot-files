@@ -31,7 +31,7 @@ ZSH_THEME="fringe-no-battery"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(heroku bundler git_ps1 no_git_ps1 aliases lein)
+plugins=(heroku git_ps1 no_git_ps1 aliases lein)
 
 source $ZSH/oh-my-zsh.sh
 
