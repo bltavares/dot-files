@@ -63,6 +63,7 @@ GIT_PS1_SHOWUPSTREAM=true
 
 alias eufori="cd /repos/eufori;clear"
 alias repos="cd /repos"
+alias pw="password"
 
 alias be="bundle exec "
 alias minecraft="java -Xmx1660M -Xms1660M -jar ~/minecraft.jar"
