@@ -15,8 +15,13 @@
 # bundle exec >> rspec
 # [rspec test result]
 
+history_file=$HOME/.$(tr " " "_" <<<"$@")_console_history
+[ -f $history_file ] && history -r $history_file
+
 while true; do
   read -ep "$* >> " e
+  history -s $e
+  history -w $history_file
   { if [[ "$e" == !* ]]; then
       ${e:2}
     else
