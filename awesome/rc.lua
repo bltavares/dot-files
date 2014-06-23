@@ -416,7 +416,7 @@ client.connect_signal("manage", function (c, startup)
         end
     end
 
-    local titlebars_enabled = true
+    local titlebars_enabled = false
     if c.instance == "plugin-container" then 
       titlebars_enabled = false
     end
