@@ -1,15 +1,18 @@
+(defun real-path (name) 
+  (and (not (equal f ".")) (not (equal f ".."))))
+
 (let ((default-directory "~/.emacs.d/bundle/"))
   (dolist (f (directory-files default-directory))
-    (when (and (not (equal f ".")) (not (equal f "..")))
+    (when (real-path f)
       (add-to-list 'load-path (concat default-directory f))))
   (dolist (f (directory-files default-directory))
-    (when (and (not (equal f ".")) (not (equal f "..")))
+    (when (real-path f)
       (require (intern f)))))
 
 (let ((themes-directory "~/.emacs.d/themes/"))
   (when (file-directory-p themes-directory) 
     (dolist (f (directory-files themes-directory))
-      (when (and (not (equal f ".")) (not (equal f "..")))
+      (when (real-path f)
         (add-to-list 'custom-theme-load-path (concat themes-directory f))))))
 
 (load-theme 'solarized-dark t)
