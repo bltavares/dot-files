@@ -97,3 +97,6 @@
 [submodule "vim/bundle/fireplace-vim"]
 	path = vim/bundle/fireplace-vim
 	url = http://github.com/tpope/vim-fireplace.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
