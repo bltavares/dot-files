@@ -10,18 +10,12 @@
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/rails.vim"]
-	path = vim/bundle/rails.vim
-	url = https://github.com/tpope/vim-rails.git
 [submodule "vim/bundle/slime.vim"]
 	path = vim/bundle/slime.vim
 	url = https://github.com/jpalardy/vim-slime.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/snipmate.vim"]
-	path = vim/bundle/snipmate.vim
-	url = https://github.com/msanders/snipmate.vim.git
 [submodule "vim/bundle/numbers.vim"]
 	path = vim/bundle/numbers.vim
 	url = https://github.com/myusuf3/numbers.vim.git
@@ -34,12 +28,6 @@
 [submodule "vim/bundle/markdown.vim"]
 	path = vim/bundle/markdown.vim
 	url = https://github.com/tpope/vim-markdown.git
-[submodule "vim/bundle/haml.vim"]
-	path = vim/bundle/haml.vim
-	url = https://github.com/tpope/vim-haml.git
-[submodule "vim/bundle/guicolorscheme.vim"]
-	path = vim/bundle/guicolorscheme.vim
-	url = https://github.com/vim-scripts/guicolorscheme.vim.git
 [submodule "vim/bundle/mru.vim"]
 	path = vim/bundle/mru.vim
 	url = https://github.com/vim-scripts/mru.vim.git
@@ -52,12 +40,6 @@
 [submodule "vim/bundle/rainbow_parentheses"]
 	path = vim/bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
-[submodule "vim/bundle/vim-tomorrow-theme"]
-	path = vim/bundle/vim-tomorrow-theme
-	url = https://github.com/chriskempson/vim-tomorrow-theme.git
-[submodule "vim/bundle/tomorrow-dawn-theme"]
-	path = vim/bundle/tomorrow-dawn-theme
-	url = https://github.com/bltavares/vim-tomorrow-dawn-theme.git
 [submodule "emacs.d/themes/emacs-color-theme-solarized"]
 	path = emacs.d/themes/emacs-color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
@@ -76,9 +58,6 @@
 [submodule "emacs.d/bundle/clojure-mode"]
 	path = emacs.d/bundle/clojure-mode
 	url = https://github.com/technomancy/clojure-mode.git
-[submodule "vim/bundle/slim.vim"]
-	path = vim/bundle/slim.vim
-	url = https://github.com/slim-template/vim-slim.git
 [submodule "vim/bundle/colour-sampler-pack"]
 	path = vim/bundle/colour-sampler-pack
 	url = https://github.com/vim-scripts/Colour-Sampler-Pack
@@ -100,9 +79,6 @@
 [submodule "vim/bundle/vim-soy"]
 	path = vim/bundle/vim-soy
 	url = https://github.com/duganchen/vim-soy
-[submodule "vim/bundle/vim-less"]
-	path = vim/bundle/vim-less
-	url = https://github.com/groenewege/vim-less
 [submodule "vim/bundle/fugitive.vim"]
 	path = vim/bundle/fugitive.vim
 	url = https://github.com/tpope/vim-fugitive.git
