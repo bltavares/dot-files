@@ -94,3 +94,6 @@
 [submodule "vim/bundle/SyntaxRange"]
 	path = vim/bundle/SyntaxRange
 	url = https://github.com/vim-scripts/SyntaxRange.git
+[submodule "vim/bundle/fireplace-vim"]
+	path = vim/bundle/fireplace-vim
+	url = http://github.com/tpope/vim-fireplace.git
