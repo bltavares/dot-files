@@ -2,4 +2,6 @@
 (setq inhibit-splash-screen t)
 (scroll-bar-mode -1)
 
-(provide 'ui)
+(load-theme 'solarized-dark t)
+
+(provide 'config.ui)

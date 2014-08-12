@@ -103,3 +103,6 @@
 [submodule "vim/bundle/rust.vim"]
 	path = vim/bundle/rust.vim
 	url = https://github.com/wting/rust.vim.git
+[submodule "emacs.d/src/org-mode"]
+	path = emacs.d/src/org-mode
+	url = git://orgmode.org/org-mode.git
