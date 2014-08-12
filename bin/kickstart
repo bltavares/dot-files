@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ $# -eq 0 ]] ; then
+    echo 'Please specify a role!'
+    echo $0 'rolename [ansible_playbook_option1 ansible_playbook_option2 etc]'
+    exit 1
+fi
+
 role=$1
 if [ ! -d roles/$role ]; then
   echo "Role "$role" not present" >&2
@@ -8,12 +14,15 @@ fi
 
 shift
 
-cat > play.yml <<PLAYBOOK
+# Create a name for the temporary yml file using the current process id
+TEMP_PLAYBOOK=.$$.yml
+
+cat > $TEMP_PLAYBOOK <<PLAYBOOK
 ---
-- hosts: all
+- hosts: "{{ group }}"
   roles:
   - $role
 PLAYBOOK
 
-ansible-playbook play.yml $@
-rm play.yml
+ansible-playbook $TEMP_PLAYBOOK $@
+rm $TEMP_PLAYBOOK
