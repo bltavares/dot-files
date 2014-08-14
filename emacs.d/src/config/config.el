@@ -1,4 +1,5 @@
 (require 'config.org-mode)
+(require 'config.magit)
 (require 'config.bundle)
 (require 'config.ui)
 

@@ -106,3 +106,9 @@
 [submodule "emacs.d/src/org-mode"]
 	path = emacs.d/src/org-mode
 	url = git://orgmode.org/org-mode.git
+[submodule "emacs.d/src/magit"]
+	path = emacs.d/src/magit
+	url = git://github.com/magit/magit.git
+[submodule "emacs.d/src/git-modes"]
+	path = emacs.d/src/git-modes
+	url = https://github.com/magit/git-modes.git
