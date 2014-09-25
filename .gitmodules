@@ -1,45 +1,3 @@
-[submodule "vim/bundle/Tabular"]
-	path = vim/bundle/Tabular
-	url = https://github.com/godlygeek/tabular.git
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/slime.vim"]
-	path = vim/bundle/slime.vim
-	url = https://github.com/jpalardy/vim-slime.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/numbers.vim"]
-	path = vim/bundle/numbers.vim
-	url = https://github.com/myusuf3/numbers.vim.git
-[submodule "vim/bundle/surround.vim"]
-	path = vim/bundle/surround.vim
-	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/coffe-script.vim"]
-	path = vim/bundle/coffe-script.vim
-	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/bundle/markdown.vim"]
-	path = vim/bundle/markdown.vim
-	url = https://github.com/tpope/vim-markdown.git
-[submodule "vim/bundle/mru.vim"]
-	path = vim/bundle/mru.vim
-	url = https://github.com/vim-scripts/mru.vim.git
-[submodule "vim/bundle/solarized"]
-	path = vim/bundle/solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/pathogen"]
-	path = vim/bundle/pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/rainbow_parentheses"]
-	path = vim/bundle/rainbow_parentheses
-	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "emacs.d/themes/emacs-color-theme-solarized"]
 	path = emacs.d/themes/emacs-color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
@@ -52,21 +10,9 @@
 [submodule "emacs.d/bundle/paredit"]
 	path = emacs.d/bundle/paredit
 	url = https://github.com/goncha/paredit.git
-[submodule "vim/bundle/paredit.vim"]
-	path = vim/bundle/paredit.vim
-	url = https://github.com/vim-scripts/paredit.vim.git
 [submodule "emacs.d/bundle/clojure-mode"]
 	path = emacs.d/bundle/clojure-mode
 	url = https://github.com/technomancy/clojure-mode.git
-[submodule "vim/bundle/colour-sampler-pack"]
-	path = vim/bundle/colour-sampler-pack
-	url = https://github.com/vim-scripts/Colour-Sampler-Pack
-[submodule "vim/bundle/puppet"]
-	path = vim/bundle/puppet
-	url = git://github.com/rodjek/vim-puppet.git
-[submodule "vim/bundle/tagbar"]
-	path = vim/bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
 [submodule "emacs.d/bundle/dash"]
 	path = emacs.d/bundle/dash
 	url = https://github.com/magnars/dash.el.git
@@ -76,33 +22,12 @@
 [submodule "emacs.d/bundle/s"]
 	path = emacs.d/bundle/s
 	url = https://github.com/magnars/s.el.git
-[submodule "vim/bundle/vim-soy"]
-	path = vim/bundle/vim-soy
-	url = https://github.com/duganchen/vim-soy
-[submodule "vim/bundle/fugitive.vim"]
-	path = vim/bundle/fugitive.vim
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/vim-airline"]
-	path = vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline.git
 [submodule "emacs.d/bundle/cider"]
 	path = emacs.d/bundle/cider
 	url = https://github.com/clojure-emacs/cider.git
 [submodule "emacs.d/bundle/epl"]
 	path = emacs.d/bundle/epl
 	url = https://github.com/cask/epl.git
-[submodule "vim/bundle/SyntaxRange"]
-	path = vim/bundle/SyntaxRange
-	url = https://github.com/vim-scripts/SyntaxRange.git
-[submodule "vim/bundle/fireplace-vim"]
-	path = vim/bundle/fireplace-vim
-	url = http://github.com/tpope/vim-fireplace.git
-[submodule "vim/bundle/vim-javascript"]
-	path = vim/bundle/vim-javascript
-	url = https://github.com/pangloss/vim-javascript.git
-[submodule "vim/bundle/rust.vim"]
-	path = vim/bundle/rust.vim
-	url = https://github.com/wting/rust.vim.git
 [submodule "emacs.d/src/org-mode"]
 	path = emacs.d/src/org-mode
 	url = git://orgmode.org/org-mode.git
