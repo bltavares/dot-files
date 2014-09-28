@@ -4,6 +4,8 @@ set encoding=utf-8
 let mapleader = "\\"
 let maplocalleader = mapleader
 
+set nocompatible  " We don't want vi compatibility.
+
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
@@ -28,7 +30,6 @@ Plug 'vim-scripts/paredit.vim'
 Plug 'wting/rust.vim', { 'for': 'rust' }
 call plug#end()
 
-set nocompatible  " We don't want vi compatibility.
 set hidden
 set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
@@ -188,3 +189,6 @@ let g:tagbar_type_markdown = {
 " airline
 let g:airline_left_sep='|'
 let g:airline_right_sep='|'
+
+" Javascript
+let g:javascript_ignore_javaScriptdoc=1
