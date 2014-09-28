@@ -5,3 +5,5 @@ emacs.d/.cask
 mutt/*
 !mutt/mailcap
 *.elc
+*#*
+*~
