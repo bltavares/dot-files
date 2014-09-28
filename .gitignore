@@ -1,5 +1,6 @@
 vim/plugged
 vim/autoload/plug.vim
+emacs.d/.cask
 \.netrwhist
 mutt/*
 !mutt/mailcap

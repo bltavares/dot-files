@@ -1,9 +1,6 @@
-(require 'config.org-mode)
-(require 'config.magit)
-(require 'config.bundle)
 (require 'config.ui)
 
-(global-rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'electric-pair-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode)
 
