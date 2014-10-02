@@ -23,7 +23,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDtree', 'NERDTreeFind', 'NERDTreeToggle'] }
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-fugitive', { 'on': ['GBlame'] }
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/paredit.vim'
