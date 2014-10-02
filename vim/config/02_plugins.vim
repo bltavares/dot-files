@@ -5,7 +5,7 @@ Plug 'duganchen/vim-soy', { 'for': 'soy' }
 Plug 'godlygeek/Tabular', { 'on': 'Tabularize' }
 Plug 'jpalardy/vim-slime'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPTag'] }
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'majutsushi/tagbar'
 Plug 'myusuf3/numbers.vim'
