@@ -1,8 +1,10 @@
 (require 'config.ui)
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'clojure-mode-hook 'electric-pair-mode)
-(add-hook 'clojure-mode-hook 'paredit-mode)
+
+;; Clojure
+(add-hook 'clojure-mode-hook 'subword-mode)
+(add-hook 'clojure-mode-hook 'smartparens-strict-mode)
 
 ;;Mac only
 (when (memq window-system '(mac ns))
