@@ -1,4 +1,5 @@
 vim/plugged
+vim/doc
 vim/autoload/plug.vim
 emacs.d/.cask
 \.netrwhist
