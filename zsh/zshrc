@@ -35,10 +35,6 @@ plugins=(heroku git_ps1 no_git_ps1 aliases lein)
 
 source $ZSH/oh-my-zsh.sh
 
-if [[ -f $HOME/.host_specific ]] then
-  source $HOME/.host_specific
-fi
-
 alias tw='t timeline -r'
 rtw () {
   t timeline -l | awk "FNR==$1{ print \$1}" | xargs t retweet
@@ -52,17 +48,12 @@ camelize() {
   echo -e "$phrases" | perl -pe 's/\b(.)/\u\1/g' | sed 's/ //g'
 }
 
-# Customize to your needs...
-#export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl
 
-#Git ps1
 GIT_PS1_SHOWDIRTYSTATE=true
-#GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM=true
 
-alias eufori="cd /repos/eufori;clear"
-alias repos="cd /repos"
+alias repos="cd ~/repos"
 alias pw="password"
 
 alias be="bundle exec "
@@ -84,7 +75,7 @@ checkout-branch() {
 }
 p() { cd $(find ~/Projects ~/repos -type d -maxdepth 1 | selecta) }
 
-function say { 
+function say {
 lang=${2:-en}
 mplayer -really-quiet "http://translate.google.com/translate_tts?tl=$lang&q=$1"
 }
@@ -94,15 +85,54 @@ tags
 vim
 }
 
-#include RVM if it exist    
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 if [[ "$TERM" == "xterm" ]]; then
   # No it isn't, it's gnome-terminal
   export TERM=xterm-256color
 fi
 
-if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
-#Seahorse
-#export $(gnome-keyring-daemon --start --components ssh)
 export EDITOR=vim
+
+docker-run() {
+  docker run --rm -i -t -v $(pwd):/data/src -w /data/src "$@"
+}
+
+docker-cleanup() {
+  containers="`docker ps -q -a`"
+
+  if [ -z $containers ]; then
+    echo "No containers to cleanup" && return 1
+  fi
+
+  xargs docker rm <<<"$containers"
+}
+
+docker-info() {
+  containers="`docker ps -q`"
+
+  if [ -z $containers ]; then
+    echo "No containers running" && return 1
+  fi
+
+  xargs docker inspect \
+    --format='{{.Config.Image}}, {{.NetworkSettings.IPAddress}}, {{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}' \
+    <<<"$containers"
+}
+
+dockerize() {
+  alias lein='docker-run -p 9797 bltavares/clojure lein'
+  alias ghci='docker-run zsol/haskell-platform-2013.2.0.0 ghci'
+  go() {
+    docker-run bltavares/go "go $@"
+  }
+  gofmt() {
+    docker-run bltavares/go "gofmt $@"
+  }
+  godoc() {
+    docker-run bltavares/go "godoc $@"
+  }
+}
+
+if [[ -f $HOME/.host_specific ]] then
+  source $HOME/.host_specific
+fi
