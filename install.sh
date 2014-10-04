@@ -32,8 +32,9 @@ install.confs() {
 
 install.zsh() {
   [[ -d $HOME/.oh-my-zsh ]] || git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+  curl -fLo $HOME/.git_prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+  linking $curr_dir/zsh $HOME/.zsh
   linking $curr_dir/zsh/zshrc $HOME/.zshrc
-  linking $curr_dir/zsh/oh-my-zsh/custom $HOME/.oh-my-zsh/custom
 }
 
 install.bins() {
