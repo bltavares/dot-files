@@ -12,6 +12,6 @@
 
 (load-theme 'solarized-dark t)
 
-(fset 'yes-or-no-p 'y-or-no-p) ;; Keep the questions short
+(fset 'yes-or-no-p 'y-or-n-p) ;; Keep the questions short
 
 (provide 'config.ui)
