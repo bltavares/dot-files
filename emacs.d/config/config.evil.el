@@ -1,6 +1,10 @@
 (require 'evil)
 (require 'evil-leader)
+(require 'evil-jumper)
+(require 'evil-numbers)
+(require 'evil-surround)
 
+(global-evil-surround-mode t)
 (global-evil-leader-mode t)
 (evil-mode t)
 
