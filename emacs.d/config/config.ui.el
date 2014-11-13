@@ -8,7 +8,7 @@
 (column-number-mode t)
 (size-indication-mode t)
 
-(global-linum-mode t)
+(add-hook 'prog-mode-hook 'global-relative-line-numbers-mode)
 
 (load-theme 'solarized-dark t)
 

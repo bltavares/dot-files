@@ -1,5 +1,6 @@
 (require 'config.ui)
 (require 'config.ido)
+(require 'config.evil)
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
