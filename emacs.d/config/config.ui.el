@@ -17,4 +17,10 @@
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Keep the questions short
 
+(require 'smooth-scroll)
+(setq scroll-margin 5
+      scroll-conservatively 9999
+      scroll-step 1)
+
 (provide 'config.ui)
+;;; config.ui ends here

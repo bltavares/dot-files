@@ -23,4 +23,5 @@
 (depends-on "rainbow-delimiters")
 (depends-on "relative-line-numbers")
 (depends-on "smartparens")
+(depends-on "smooth-scroll")
 (depends-on "solarized-theme")
