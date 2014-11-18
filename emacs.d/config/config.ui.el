@@ -17,6 +17,25 @@
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Keep the questions short
 
+;; use only spaces and no tabs
+(setq-default indent-tabs-mode nil)
+(setq tab-width 2)
+(blink-cursor-mode -1)
+
+;; don't create backup~ or #auto-save# files
+(setq backup-by-copying t
+      make-backup-files nil
+      auto-save-default nil
+      create-lockfiles nil)
+
+(require 'uniquify)
+(setq
+ ;; When having windows with repeated filenames, uniquify them
+ ;; by the folder they are in rather those annoying <2>,<3>,.. etc
+ uniquify-buffer-name-style 'forward
+ ;; don't screw special buffers
+ uniquify-ignore-buffers-re "^\\*")
+
 (require 'smooth-scroll)
 (setq scroll-margin 5
       scroll-conservatively 9999
