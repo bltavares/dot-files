@@ -1,3 +1,6 @@
+;;; config.ido --- Package
+;;; Commentary:
+;;; Code:
 (require 'ido)
 
 (ido-mode t)
@@ -7,3 +10,4 @@
       confirm-nonexistent-file-or-buffer nil)
 
 (provide 'config.ido)
+;;; config.ido ends here

@@ -1,3 +1,7 @@
+;;; config --- Package
+;;; Commentary:
+;;; Code:
+
 (require 'config.ui)
 (require 'config.ido)
 (require 'config.evil)
@@ -13,3 +17,4 @@
   (exec-path-from-shell-initialize))
 
 (provide 'config)
+;;; config ends here
