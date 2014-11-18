@@ -17,6 +17,8 @@
 (depends-on "neotree")
 (depends-on "org-plus-contrib")
 (depends-on "pallet")
+(depends-on "powerline")
+(depends-on "powerline-evil")
 (depends-on "rainbow-delimiters")
 (depends-on "relative-line-numbers")
 (depends-on "smartparens")
