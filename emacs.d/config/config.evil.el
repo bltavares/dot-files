@@ -37,5 +37,13 @@
             (linum-mode -1)
             (relative-line-numbers-mode t)))
 
+(add-hook 'neotree-mode-hook
+          (lambda ()
+            (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+            (define-key evil-normal-state-local-map (kbd "o") 'neotree-enter)
+            (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+            (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+
 (provide 'config.evil)
 ;;; config.evil ends here
