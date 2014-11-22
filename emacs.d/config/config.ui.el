@@ -1,5 +1,5 @@
 ;;; config.ui --- Package
-                                        ; Commentary:
+;;; Commentary:
 ;;; Code:
 (menu-bar-showhide-tool-bar-menu-customize-disable)
 (setq inhibit-splash-screen t)
