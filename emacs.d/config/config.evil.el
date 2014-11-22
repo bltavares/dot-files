@@ -6,7 +6,7 @@
 (require 'evil-jumper)
 (require 'evil-numbers)
 (require 'evil-surround)
-(require 'fiplr)
+(require 'config.neotree)
 
 (global-evil-surround-mode t)
 (global-evil-leader-mode t)
@@ -23,18 +23,18 @@
 
 (evil-leader/set-key
   "p" 'neotree-toggle
-  "o" 'neotree-find
+  "o" 'neotree-project-dir
   "f" 'fiplr-find-file)
 
 (add-hook 'evil-insert-state-entry-hook
-	  (lambda ()
-	    (relative-line-numbers-mode -1)
-	    (linum-mode t)))
+          (lambda ()
+            (relative-line-numbers-mode -1)
+            (linum-mode t)))
 
 (add-hook 'evil-insert-state-exit-hook
-	  (lambda ()
-	    (linum-mode -1)
-	    (relative-line-numbers-mode t)))
+          (lambda ()
+            (linum-mode -1)
+            (relative-line-numbers-mode t)))
 
 (provide 'config.evil)
 ;;; config.evil ends here
