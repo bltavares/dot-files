@@ -24,7 +24,8 @@
 (evil-leader/set-key
   "p" 'neotree-toggle
   "o" 'neotree-project-dir
-  "f" 'fiplr-find-file)
+  "f" 'fiplr-find-file
+  "b" 'ido-switch-buffer)
 
 (add-hook 'evil-insert-state-entry-hook
           (lambda ()
