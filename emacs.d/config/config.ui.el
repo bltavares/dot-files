@@ -19,7 +19,9 @@
 
 ;; use only spaces and no tabs
 (setq-default indent-tabs-mode nil)
-(setq tab-width 2)
+(setq
+ tab-width 2
+ standard-indent 2)
 (blink-cursor-mode -1)
 
 ;; don't create backup~ or #auto-save# files
