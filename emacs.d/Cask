@@ -17,6 +17,7 @@
 (depends-on "magit")
 (depends-on "neotree")
 (depends-on "org-plus-contrib")
+(depends-on "ox-gfm")
 (depends-on "pallet")
 (depends-on "powerline")
 (depends-on "powerline-evil")

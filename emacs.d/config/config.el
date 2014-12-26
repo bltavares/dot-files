@@ -7,6 +7,7 @@
 (require 'config.evil)
 (require 'config.flycheck)
 (require 'config.powerline)
+(require 'config.org)
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
