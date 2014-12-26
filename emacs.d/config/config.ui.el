@@ -1,6 +1,9 @@
 ;;; config.ui --- Package
 ;;; Commentary:
 ;;; Code:
+(require 'linum)
+(require 'relative-line-numbers)
+
 (menu-bar-showhide-tool-bar-menu-customize-disable)
 (setq inhibit-splash-screen t)
 (scroll-bar-mode -1)
@@ -29,6 +32,15 @@
       make-backup-files nil
       auto-save-default nil
       create-lockfiles nil)
+
+(defun my-relative-line-number-formatter (offset)
+  "Format the relative line number using the linum-format.
+Return the absolute value of OFFSET as string"
+  (format linum-format (abs offset)))
+
+(setq
+ linum-format " %2d\u2502"
+ relative-line-numbers-format 'my-relative-line-number-formatter)
 
 (require 'uniquify)
 (setq
