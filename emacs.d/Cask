@@ -5,6 +5,7 @@
 (depends-on "cider")
 (depends-on "clojure-mode")
 (depends-on "clojure-mode-extra-font-locking")
+(depends-on "color-theme-sanityinc-tomorrow")
 (depends-on "evil")
 (depends-on "evil-jumper")
 (depends-on "evil-leader")
@@ -25,4 +26,3 @@
 (depends-on "relative-line-numbers")
 (depends-on "smartparens")
 (depends-on "smooth-scroll")
-(depends-on "solarized-theme")

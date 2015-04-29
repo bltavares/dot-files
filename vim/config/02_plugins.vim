@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'bling/vim-airline'
 Plug 'duganchen/vim-soy', { 'for': 'soy' }
 Plug 'godlygeek/Tabular', { 'on': 'Tabularize' }

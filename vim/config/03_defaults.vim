@@ -46,7 +46,7 @@ set mouse=a   " Enable mouse
 set mousehide " Hide mouse after chars typed
 
 set background=dark
-colors solarized
+colors Tomorrow-Night
 
 set foldmethod=indent " fold based on indent
 set foldnestmax=3     " Maximum nested folds

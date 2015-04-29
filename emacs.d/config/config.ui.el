@@ -4,6 +4,8 @@
 (require 'linum)
 (require 'relative-line-numbers)
 
+(load-theme 'sanityinc-tomorrow-night t)
+
 (menu-bar-showhide-tool-bar-menu-customize-disable)
 (setq inhibit-splash-screen t)
 (scroll-bar-mode -1)
@@ -15,8 +17,6 @@
 (size-indication-mode t)
 
 (add-hook 'prog-mode-hook 'global-relative-line-numbers-mode)
-
-(load-theme 'solarized-dark t)
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Keep the questions short
 
