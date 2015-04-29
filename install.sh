@@ -21,6 +21,11 @@ install.emacs() {
   linking $curr_dir/emacs.d $HOME/.emacs.d
 }
 
+install.mutt() {
+  linking $curr_dir/mutt $HOME/.mutt
+  linking $curr_dir/muttrc $HOME/.muttrc
+}
+
 install.confs() {
   linking $curr_dir/gitignore_global $HOME/.gitignore_global
   linking $curr_dir/tmux.conf $HOME/.tmux.conf
@@ -44,6 +49,10 @@ install.bins() {
   done
 }
 
+install.weechat() {
+  linking $curr_dir/weechat $HOME/.weechat
+}
+
 #OS=`uname -s`
 #if [[ "$OS" != "Darwin" ]]; then
   #cd $HOME
@@ -56,9 +65,11 @@ install.all() {
   install.vim
   install.confs
   install.zsh
+  install.mutt
+  install.weechat
 }
 
-options=("bins" "emacs" "vim" "confs" "zsh" "all")
+options=("bins" "emacs" "vim" "confs" "zsh" "mutt" "weechat" "all")
 help() {
   echo "install.sh [option]"
   echo "[options] - one of the following:"
