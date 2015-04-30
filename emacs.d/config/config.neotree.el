@@ -16,5 +16,8 @@
           (neotree-find file-name))
       (message "Could not find git project root."))))
 
+(require 'neotree)
+(setq neo-theme 'ascii)
+
 (provide 'config.neotree)
 ;;; config.neotree ends here

@@ -8,7 +8,8 @@
 
 (menu-bar-showhide-tool-bar-menu-customize-disable)
 (setq inhibit-splash-screen t)
-(scroll-bar-mode -1)
+(setq tool-bar-mode -1
+      scroll-bar-mode -1)
 
 (show-paren-mode t)
 
