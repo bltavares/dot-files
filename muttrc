@@ -68,6 +68,8 @@ bind   pager   R    group-reply
 # View attachments properly.
 bind attach <return> view-mailcap
 
+source ~/.mutt/color
+
 # Accounts
 source ~/.mutt/accounts
 source ~/.mutt/crypt
