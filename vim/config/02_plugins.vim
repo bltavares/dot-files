@@ -21,4 +21,5 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/paredit.vim'
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 call plug#end()
