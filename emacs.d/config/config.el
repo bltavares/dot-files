@@ -12,6 +12,7 @@
 (require 'smartparens-config)
 (require 'config.hunspell)
 (require 'config.smartparens)
+(require 'config.rust)
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 

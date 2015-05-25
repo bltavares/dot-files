@@ -19,13 +19,15 @@
 (define-key evil-normal-state-map (kbd "C-w q") 'evil-window-delete)
 (define-key evil-motion-state-map (kbd "C-w q") 'evil-window-delete)
 
+(define-key evil-insert-state-map (kbd "<tab>") #'company-complete)
+
 (evil-ex-define-cmd "Errors" 'flycheck-list-errors)
 
 (evil-leader/set-key
-  "p" 'neotree-toggle
-  "o" 'neotree-project-dir
-  "f" 'fiplr-find-file
-  "b" 'ido-switch-buffer)
+  "p" #'neotree-toggle
+  "o" #'neotree-project-dir
+  "f" #'fiplr-find-file
+  "b" #'ido-switch-buffer)
 
 (add-hook 'evil-insert-state-entry-hook
           (lambda ()
