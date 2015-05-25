@@ -20,4 +20,5 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/paredit.vim'
 Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 call plug#end()
