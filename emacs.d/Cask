@@ -10,6 +10,7 @@
 (depends-on "evil-jumper")
 (depends-on "evil-leader")
 (depends-on "evil-numbers")
+(depends-on "evil-smartparens")
 (depends-on "evil-surround")
 (depends-on "exec-path-from-shell")
 (depends-on "fiplr")

@@ -11,12 +11,14 @@
 (require 'config.org)
 (require 'smartparens-config)
 (require 'config.hunspell)
+(require 'config.smartparens)
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Clojure
-(add-hook 'clojure-mode-hook 'subword-mode)
-(add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+(add-hook 'clojure-mode-hook #'subword-mode)
+(add-hook 'clojure-mode-hook #'smartparens-strict-mode)
+(add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
 
 (setq js-indent-level 2
       paradox-github-token t)
