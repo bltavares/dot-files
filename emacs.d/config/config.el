@@ -13,8 +13,9 @@
 (require 'config.hunspell)
 (require 'config.smartparens)
 (require 'config.rust)
+(require 'zoom-frm)
 
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; Clojure
 (add-hook 'clojure-mode-hook #'subword-mode)
@@ -23,6 +24,11 @@
 
 (setq js-indent-level 2
       paradox-github-token t)
+
+(define-key ctl-x-map [(control ?+)] 'zoom-in/out)
+(define-key ctl-x-map [(control ?-)] 'zoom-in/out)
+(define-key ctl-x-map [(control ?=)] 'zoom-in/out)
+(define-key ctl-x-map [(control ?0)] 'zoom-in/out)
 
 ;;Mac only
 (when (memq window-system '(mac ns))
