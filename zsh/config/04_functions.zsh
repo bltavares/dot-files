@@ -66,3 +66,7 @@ dockerize() {
     docker-run bltavares/go "godoc $@"
   }
 }
+
+my-pass() {
+  PASSWORD_STORE_DIR=${PASSWORD_STORE_DIR:-~/repos/passwords} pass $@
+}
