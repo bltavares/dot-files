@@ -15,8 +15,12 @@ switch-branch() {
 }
 
 checkout-branch() {
-  branch=${1:-origin}
-  git branch -r | grep "$branch/" | cut -d'/' -f 2- | selecta | xargs -I{} git checkout -b '{}' $branch/'{}'
+  if [ -z "$1" ] || git remote | grep -q $1; then
+    branch=${1:-origin}
+    git branch -r | grep "$branch/" | cut -d'/' -f 2- | selecta | xargs -I{} git checkout -b '{}' $branch/'{}'
+  else
+    git checkout -b "$1" origin/"$1"
+  fi
 }
 p() { cd $(find ~/Projects ~/repos -type d -maxdepth 1 | selecta) }
 
