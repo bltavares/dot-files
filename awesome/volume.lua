@@ -19,9 +19,9 @@ function update_volume(widget)
    -- ending colour
    local er, eg, eb = 0xDC, 0xDC, 0xCC
 
-   local ir = volume * (er - sr) + sr
-   local ig = volume * (eg - sg) + sg
-   local ib = volume * (eb - sb) + sb
+   local ir = math.floor(volume * (er - sr) + sr)
+   local ig = math.floor(volume * (eg - sg) + sg)
+   local ib = math.floor(volume * (eb - sb) + sb)
    interpol_colour = string.format("%.2x%.2x%.2x", ir, ig, ib)
    if string.find(status, "on", 1, true) then
        volume = " <span background='#" .. interpol_colour .. "'>   </span>"
