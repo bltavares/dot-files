@@ -1,5 +1,6 @@
 image/*; open -a Firefox.app %s & sleep 1
 video/*; open %s & sleep 30
-text/html; open %s -a Firefox.app & sleep 5
+text/html; elinks -dump -default-mime-type text/html %s; needsterminal; copiousoutput;
+#text/html; open %s -a Firefox.app & sleep 5
 application/pdf; open -a Firefox.app %s & sleep 5
 application/*; open %s & sleep 5
