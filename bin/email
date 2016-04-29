@@ -9,5 +9,6 @@ while true; do
   export email_pw
   mbsync -V $channel
   )
+  echo "Done. Sleeping..."
   sleep $sleep_time
 done
