@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/bash -xe
 
 curr_dir=`pwd`
 
 linking() {
-  rm -r $2 2>/dev/null || true
+  rm -fr $2 2>/dev/null || true
   ln -s $1 $2
 }
 
@@ -19,6 +19,9 @@ install.vim() {
 install.emacs() {
   [[ -d $HOME/.cask ]] || git clone https://github.com/cask/cask.git $HOME/.cask
   linking $curr_dir/emacs.d $HOME/.emacs.d
+
+  [[ -d $HOME/.emacs.d.spacemacs ]] || git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d.spacemacs
+  linking $curr_dir/spacemacs.d $HOME/.spacemacs.d
 }
 
 install.mutt() {
