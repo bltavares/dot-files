@@ -1,11 +1,14 @@
 ;; -*- mode: emacs-lisp -*-
 
+(defun dotspacemacs/system-is-mac ()
+  (eq system-type 'darwin))
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
-   dotspacemacs-distribution 'spacemacs-core
+   dotspacemacs-distribution 'spacemacs
    dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
    dotspacemacs-configuration-layers
    '(
@@ -13,18 +16,31 @@ values."
      ;; To reload use <SPC f e R>
      ;; ----------------------------------------------------------------
      better-defaults
+     syntax-checking
+     gtags
+
+
+     ;; Langs
      emacs-lisp
+     javascript
      markdown
      org
-     syntax-checking
      python
+     ruby
+     rust
+     shell-scripts
+
+     ;; Personal
+     bltavares-vim
+     bltavares-linum
+     bltavares-neotree
      )
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(groovy-mode)
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t)
 
-  (when (spacemacs/system-is-mac)
-      (push 'osx dotspacemacs-configuration-layers)))
+   (when (dotspacemacs/system-is-mac)
+     (push 'osx dotspacemacs-configuration-layers)))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -70,7 +86,7 @@ values."
    dotspacemacs-editing-style 'vim
    dotspacemacs-leader-key "SPC"
    dotspacemacs-emacs-leader-key "M-m"
-   dotspacemacs-major-mode-leader-key nil ;; disabled to retrieve behaviour of , from Vi
+   dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
    dotspacemacs-distinguish-gui-tab nil
    dotspacemacs-command-key ":"
@@ -120,6 +136,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (setq powerline-default-separator nil)
+  (spaceline-compile)
+  (fset 'evil-visual-update-x-selection 'ignore)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
