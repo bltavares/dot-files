@@ -107,4 +107,8 @@ results
 
 npm-debug.log
 
-
+# ctags and global
+tags
+GPATH
+GRTAGS
+GTAGS

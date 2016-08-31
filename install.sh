@@ -33,6 +33,7 @@ install.confs() {
   linking $curr_dir/gitignore_global $HOME/.gitignore_global
   linking $curr_dir/tmux.conf $HOME/.tmux.conf
   linking $curr_dir/ctags $HOME/.ctags
+  linking $curr_dir/blogalrc $HOME/.globalrc
 
   mkdir -p $HOME/.config
   linking $curr_dir/awesome $HOME/.config/awesome
