@@ -1,6 +1,7 @@
 ;;; config.flycheck --- Summary
 ;;; Commentary:
 ;;; Code:
+(require 'seq)
 (require 'flycheck)
 (require 'flycheck-rust)
 

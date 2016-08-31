@@ -3,7 +3,6 @@
 ;;; Code:
 (require 'evil)
 (require 'evil-leader)
-(require 'evil-jumper)
 (require 'evil-numbers)
 (require 'evil-surround)
 (require 'config.neotree)
