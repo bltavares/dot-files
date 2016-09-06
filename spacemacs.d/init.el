@@ -74,8 +74,8 @@ values."
    dotspacemacs-mode-line-unicode-symbols (if (dotspacemacs/system-is-mac) t nil)
    dotspacemacs-smooth-scrolling t
    dotspacemacs-themes '(sanityinc-tomorrow-night
-                         sanityinc-tomorrow-day
                          spacemacs-dark
+                         sanityinc-tomorrow-day
                          spacemacs-light)
    dotspacemacs-default-font '("Source Code Pro"
                                :size 13
