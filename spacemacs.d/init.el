@@ -18,6 +18,7 @@ values."
      better-defaults
      syntax-checking
      gtags
+     eyebrowse
 
 
      ;; Langs
