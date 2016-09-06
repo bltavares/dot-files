@@ -71,7 +71,7 @@ values."
    dotspacemacs-inactive-transparency 90
    dotspacemacs-line-numbers 'relative
    dotspacemacs-maximized-at-startup nil
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols (if (dotspacemacs/system-is-mac) t nil)
    dotspacemacs-smooth-scrolling t
    dotspacemacs-themes '(sanityinc-tomorrow-night
                          sanityinc-tomorrow-day
