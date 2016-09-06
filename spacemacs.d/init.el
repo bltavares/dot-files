@@ -140,6 +140,9 @@ you should place your code here."
   (setq powerline-default-separator nil)
   (spaceline-compile)
   (fset 'evil-visual-update-x-selection 'ignore)
+
+  ;; Disable headings with different sizes on Spacemacs theme
+  (setq spacemacs-theme-org-height nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
