@@ -9,7 +9,7 @@ You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
    dotspacemacs-distribution 'spacemacs
-   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
+   dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
      ;; ----------------------------------------------------------------
