@@ -35,6 +35,7 @@ values."
      bltavares-vim
      bltavares-linum
      bltavares-neotree
+     bltavares-artist
      )
    dotspacemacs-additional-packages '(groovy-mode)
    dotspacemacs-excluded-packages '()
