@@ -1,7 +1,8 @@
 --exclude=.git
 --exclude=log
--R
---tag-relative=yes
+--exclude=target
+--exclude=build
+--exclude=venv
 --exclude=*.min.js
 --exclude=jquery.*.js
 --exclude=jquery-*.js

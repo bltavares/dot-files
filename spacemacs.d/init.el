@@ -1,0 +1,149 @@
+;; -*- mode: emacs-lisp -*-
+
+(defun dotspacemacs/system-is-mac ()
+  (eq system-type 'darwin))
+
+(defun dotspacemacs/layers ()
+  "Configuration Layers declaration.
+You should not put any user code in this function besides modifying the variable
+values."
+  (setq-default
+   dotspacemacs-distribution 'spacemacs
+   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layers
+   '(
+     ;; ----------------------------------------------------------------
+     ;; To reload use <SPC f e R>
+     ;; ----------------------------------------------------------------
+     better-defaults
+     syntax-checking
+     gtags
+     eyebrowse
+
+     ;; Langs
+     emacs-lisp
+     ;; javascript I'm not developing JS for a while
+     markdown
+     org
+     python
+     ;; ruby I'm not developing Ruby for a while
+     rust
+     shell-scripts
+
+     ;; Personal
+     bltavares-vim
+     bltavares-linum
+     bltavares-neotree
+     bltavares-artist
+     )
+   dotspacemacs-additional-packages '(groovy-mode)
+   dotspacemacs-excluded-packages '()
+   dotspacemacs-delete-orphan-packages t)
+
+   (when (dotspacemacs/system-is-mac)
+     (push 'osx dotspacemacs-configuration-layers)))
+
+(defun dotspacemacs/init ()
+  "Initialization function.
+This function is called at the very startup of Spacemacs initialization
+before layers configuration.
+You should not put any user code in there besides modifying the variable
+values."
+  (setq-default
+   ;; Updates
+   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-timeout 5
+   dotspacemacs-check-for-update nil
+   dotspacemacs-verbose-loading nil
+   dotspacemacs-loading-progress-bar t
+
+   ;; Startup
+   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-lists nil
+   dotspacemacs-startup-recent-list-size 5
+   dotspacemacs-scratch-mode 'text-mode
+
+   ;; UI
+   dotspacemacs-active-transparency 90
+   dotspacemacs-colorize-cursor-according-to-state t
+   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-use-non-native nil
+   dotspacemacs-inactive-transparency 90
+   dotspacemacs-line-numbers 'relative
+   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-mode-line-unicode-symbols (if (dotspacemacs/system-is-mac) t nil)
+   dotspacemacs-smooth-scrolling t
+   dotspacemacs-themes '(sanityinc-tomorrow-night
+                         spacemacs-dark
+                         sanityinc-tomorrow-day
+                         spacemacs-light)
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 13
+                               :weight normal
+                               :width normal
+                               :powerline-scale 1.1)
+
+   ;; Experience
+   dotspacemacs-editing-style 'vim
+   dotspacemacs-leader-key "SPC"
+   dotspacemacs-emacs-leader-key "M-m"
+   dotspacemacs-major-mode-leader-key ","
+   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
+   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-command-key ":"
+   dotspacemacs-remap-Y-to-y$ t
+   dotspacemacs-enable-paste-micro-state nil
+   dotspacemacs-which-key-delay 0.4
+   dotspacemacs-which-key-position 'bottom
+   dotspacemacs-smartparens-strict-mode nil
+
+   ;; Layout
+   dotspacemacs-default-layout-name "Default"
+   dotspacemacs-display-default-layout nil
+   dotspacemacs-auto-resume-layouts nil
+
+   dotspacemacs-auto-save-file-location 'cache
+   dotspacemacs-max-rollback-slots 5
+
+   ;; Helm
+   dotspacemacs-use-ido nil
+   dotspacemacs-helm-resize nil
+   dotspacemacs-helm-no-header nil
+   dotspacemacs-helm-position 'bottom
+
+   ;; Others
+
+   ;; TODO Search this
+   dotspacemacs-highlight-delimiters 'all
+   dotspacemacs-persistent-server nil
+   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   dotspacemacs-default-package-repository nil
+   dotspacemacs-whitespace-cleanup 'trailing
+   ))
+
+(defun dotspacemacs/user-init ()
+  "Initialization function for user code.
+It is called immediately after `dotspacemacs/init', before layer configuration
+executes.
+ This function is mostly useful for variables that need to be set
+before packages are loaded. If you are unsure, you should try in setting them in
+`dotspacemacs/user-config' first."
+  )
+
+(defun dotspacemacs/user-config ()
+  "Configuration function for user code.
+This function is called at the very end of Spacemacs initialization after
+layers configuration.
+This is the place where most of your configurations should be done. Unless it is
+explicitly specified that a variable should be set before a package is loaded,
+you should place your code here."
+  (setq powerline-default-separator nil)
+  (spaceline-compile)
+  (fset 'evil-visual-update-x-selection 'ignore)
+
+  ;; Disable headings with different sizes on Spacemacs theme
+  (setq spacemacs-theme-org-height nil)
+  )
+
+;; Do not write anything past this comment. This is where Emacs will
+;; auto-generate custom variable definitions.
