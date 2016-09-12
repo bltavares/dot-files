@@ -20,14 +20,13 @@ values."
      gtags
      eyebrowse
 
-
      ;; Langs
      emacs-lisp
-     javascript
+     ;; javascript I'm not developing JS for a while
      markdown
      org
      python
-     ruby
+     ;; ruby I'm not developing Ruby for a while
      rust
      shell-scripts
 
