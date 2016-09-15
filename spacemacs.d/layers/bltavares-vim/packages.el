@@ -26,4 +26,6 @@
     :config
     (evil-ex-define-cmd "Errors" #'flycheck-list-errors)))
 
+(evil-ex-define-cmd "retab" #'untabify)
+
 ;;; packages.el ends here
