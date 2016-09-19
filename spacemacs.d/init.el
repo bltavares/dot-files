@@ -143,6 +143,8 @@ you should place your code here."
 
   ;; Disable headings with different sizes on Spacemacs theme
   (setq spacemacs-theme-org-height nil)
+
+  (setq create-lockfiles nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
