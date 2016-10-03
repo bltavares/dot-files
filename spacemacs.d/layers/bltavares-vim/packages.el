@@ -8,10 +8,10 @@
   '(flycheck))
 
 ;; Define missing vim keys
-(define-key evil-normal-state-map (kbd "C-6") 'evil-buffer)
-(define-key evil-motion-state-map (kbd "C-6") 'evil-buffer)
-(define-key evil-normal-state-map (kbd "C-w q") 'evil-window-delete)
-(define-key evil-motion-state-map (kbd "C-w q") 'evil-window-delete)
+;(define-key evil-normal-state-map (kbd "C-6") 'evil-buffer)
+;(define-key evil-motion-state-map (kbd "C-6") 'evil-buffer)
+;(define-key evil-normal-state-map (kbd "C-w q") 'evil-window-delete)
+;(define-key evil-motion-state-map (kbd "C-w q") 'evil-window-delete)
 
 ;; (define-key evil-insert-state-map (kbd "<tab>") #'company-complete)
 ;; (evil-leader/set-key
@@ -26,6 +26,6 @@
     :config
     (evil-ex-define-cmd "Errors" #'flycheck-list-errors)))
 
-(evil-ex-define-cmd "retab" #'untabify)
+;(evil-ex-define-cmd "retab" #'untabify)
 
 ;;; packages.el ends here

@@ -18,7 +18,6 @@ values."
      better-defaults
      syntax-checking
      gtags
-     eyebrowse
 
      ;; Langs
      emacs-lisp
@@ -37,8 +36,9 @@ values."
      bltavares-artist
      )
    dotspacemacs-additional-packages '(groovy-mode)
+   dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
-   dotspacemacs-delete-orphan-packages t)
+   dotspacemacs-install-packages 'used-only)
 
    (when (dotspacemacs/system-is-mac)
      (push 'osx dotspacemacs-configuration-layers)))
@@ -62,6 +62,7 @@ values."
    dotspacemacs-startup-lists nil
    dotspacemacs-startup-recent-list-size 5
    dotspacemacs-scratch-mode 'text-mode
+   dotspacemacs-startup-buffer-responsive t
 
    ;; UI
    dotspacemacs-active-transparency 90
@@ -90,12 +91,16 @@ values."
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
    dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-retain-visual-state-on-shift t
+   dotspacemacs-visual-line-move-text nil
+   dotspacemacs-ex-substitute-global nil
    dotspacemacs-command-key ":"
    dotspacemacs-remap-Y-to-y$ t
    dotspacemacs-enable-paste-micro-state nil
    dotspacemacs-which-key-delay 0.4
    dotspacemacs-which-key-position 'bottom
    dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smart-closing-parenthesis nil
 
    ;; Layout
    dotspacemacs-default-layout-name "Default"
@@ -103,15 +108,18 @@ values."
    dotspacemacs-auto-resume-layouts nil
 
    dotspacemacs-auto-save-file-location 'cache
-   dotspacemacs-max-rollback-slots 5
+   dotspacemacs-max-rollback-slots 1
 
    ;; Helm
-   dotspacemacs-use-ido nil
    dotspacemacs-helm-resize nil
    dotspacemacs-helm-no-header nil
    dotspacemacs-helm-position 'bottom
+   dotspacemacs-helm-use-fuzzy 'always
 
    ;; Others
+   dotspacemacs-enable-paste-transient-state nil
+   dotspacemacs-show-transient-state-color-guide t
+   dotspacemacs-smooth-scrolling t
 
    ;; TODO Search this
    dotspacemacs-highlight-delimiters 'all
