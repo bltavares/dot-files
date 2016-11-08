@@ -5,13 +5,16 @@
 ;;; Code:
 
 (defconst bltavares-vim-packages
-  '(flycheck))
+  '(flycheck
+    evil))
 
 ;; Define missing vim keys
-;(define-key evil-normal-state-map (kbd "C-6") 'evil-buffer)
-;(define-key evil-motion-state-map (kbd "C-6") 'evil-buffer)
-;(define-key evil-normal-state-map (kbd "C-w q") 'evil-window-delete)
-;(define-key evil-motion-state-map (kbd "C-w q") 'evil-window-delete)
+(defun bltavares-vim/post-init-evil ()
+  (define-key evil-normal-state-map (kbd "C-6") 'evil-buffer)
+  (define-key evil-motion-state-map (kbd "C-6") 'evil-buffer)
+  (define-key evil-normal-state-map (kbd "C-w q") 'evil-window-delete)
+  (define-key evil-motion-state-map (kbd "C-w q") 'evil-window-delete)
+  (evil-ex-define-cmd "retab" #'untabify))
 
 ;; (define-key evil-insert-state-map (kbd "<tab>") #'company-complete)
 ;; (evil-leader/set-key
@@ -26,6 +29,5 @@
     :config
     (evil-ex-define-cmd "Errors" #'flycheck-list-errors)))
 
-;(evil-ex-define-cmd "retab" #'untabify)
 
 ;;; packages.el ends here
