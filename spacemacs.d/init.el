@@ -19,6 +19,8 @@ values."
      syntax-checking
      gtags
 
+     ivy ;; Replace helm with ivy
+
      ;; Langs
      emacs-lisp
      ;; javascript I'm not developing JS for a while
