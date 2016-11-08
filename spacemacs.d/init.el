@@ -28,6 +28,7 @@ values."
      ;; ruby I'm not developing Ruby for a while
      rust
      shell-scripts
+     graphviz
 
      ;; Personal
      bltavares-vim
