@@ -64,7 +64,7 @@ pocket-docs-download() {
 
 (
     cd $target
-    pocket-inspect | grep '.pdf' | grep "$1\$"| awk -F ' \\| http' '{ print "http"$2 }' | xargs -L 4 -P 4 wget
+    pocket-inspect | grep '.pdf' | grep "$1\$"| awk -F ' \\| http' '{ print "http"$2 }' | xargs -L 4 -P 4 wget -nc
 )
 }
 
