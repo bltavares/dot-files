@@ -23,13 +23,17 @@ values."
 
      ;; Langs
      emacs-lisp
-     ;; javascript I'm not developing JS for a while
-     markdown
-     org
+     (org :variables
+          org-enable-github-support t
+          org-enable-reveal-js-support t
+          org-babel-load-languages '((shell . t)))
+     javascript
      python
-     ;; ruby I'm not developing Ruby for a while
+     ruby
      rust
      shell-scripts
+     markdown
+     yaml
      graphviz
 
      ;; Personal
@@ -38,7 +42,7 @@ values."
      bltavares-neotree
      bltavares-artist
      )
-   dotspacemacs-additional-packages '(groovy-mode)
+   dotspacemacs-additional-packages '(groovy-mode org-toc)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
    dotspacemacs-install-packages 'used-only)
