@@ -42,7 +42,7 @@ values."
      bltavares-neotree
      bltavares-artist
      )
-   dotspacemacs-additional-packages '(groovy-mode org-toc)
+   dotspacemacs-additional-packages '(groovy-mode toc-org)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
    dotspacemacs-install-packages 'used-only)
