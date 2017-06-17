@@ -23,5 +23,5 @@ Plug 'wting/rust.vim', { 'for': 'rust' }
 "Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'tfnico/vim-gradle'
-Plug 'groovyindent-unix', { 'for': 'groovy' }
+"Plug 'groovyindent-unix', { 'for': 'groovy' }
 call plug#end()

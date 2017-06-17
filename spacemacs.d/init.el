@@ -12,11 +12,16 @@ values."
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
+     windows-scripts
+     html
      ;; ----------------------------------------------------------------
      ;; To reload use <SPC f e R>
      ;; ----------------------------------------------------------------
      better-defaults
      syntax-checking
+     (spell-checking :variables
+                     spell-checking-enable-auto-dictionary t
+                     enable-flyspell-auto-completion t)
      gtags
 
      ivy ;; Replace helm with ivy
@@ -35,6 +40,7 @@ values."
      markdown
      yaml
      graphviz
+     go
 
      ;; Personal
      bltavares-vim
