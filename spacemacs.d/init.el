@@ -31,7 +31,10 @@ values."
      (org :variables
           org-enable-github-support t
           org-enable-reveal-js-support t
-          org-babel-load-languages '((shell . t)))
+          org-babel-load-languages '((shell . t) (emacs-lisp . t)))
+     (clojure :variables
+              cider-boot-parameters "repl -s watch refresh")
+     elm
      javascript
      python
      ruby
