@@ -26,6 +26,14 @@ values."
 
      ivy ;; Replace helm with ivy
 
+     ;; Typescript
+     auto-completion
+     html
+     (typescript :variables
+                 typescript-fmt-on-save t
+                 tide-tsserver-executable "/usr/local/bin/tsserver")
+     typescript
+
      ;; Langs
      emacs-lisp
      (org :variables
