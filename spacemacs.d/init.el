@@ -49,8 +49,11 @@ values."
      bltavares-linum
      bltavares-neotree
      bltavares-artist
-     )
-   dotspacemacs-additional-packages '(groovy-mode toc-org)
+     (evil-goggles :variables
+                   evil-goggles-duration 0.100)
+     bltavares-clojure)
+
+   dotspacemacs-additional-packages '(toc-org)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
    dotspacemacs-install-packages 'used-only)
