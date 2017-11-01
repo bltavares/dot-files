@@ -23,7 +23,7 @@ checkout-branch() {
   fi
 }
 
-p() { cd $(find ~/Projects/* ~/repos -type d -maxdepth 1 | hs) }
+p() { cd $(find ~/dev/* ~/repos -type d -maxdepth 1 | hs) }
 
 function say {
   lang=${2:-en}
