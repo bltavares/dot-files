@@ -91,3 +91,7 @@ pocket-video-sync() {
     pocket-video-urls tosync >> ~/read
     mv $HOME/pocket-videos/tosync/* $HOME/pocket-videos/Read
 }
+
+pocket-reset() {
+  : > ~/read > ~/star > ~/add
+}
