@@ -14,7 +14,7 @@ values."
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
-     windows-scripts
+     ;; windows-scripts
      html
      ;; ----------------------------------------------------------------
      ;; To reload use <SPC f e R>
