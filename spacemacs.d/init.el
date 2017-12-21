@@ -56,6 +56,8 @@ values."
      graphviz
      go
 
+     git
+
      ;; Personal
      bltavares-vim
      bltavares-linum
