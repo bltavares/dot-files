@@ -39,10 +39,12 @@
     (as-customer 1)
     (as-of 1)
     (assoc 1)
+    (assoc-if 1)
+    (assoc-in-if 1)
     (fact 1)
     (facts 1)
     (flow 1)
-    (let-entities 3)
+    (let-entities 2)
     (provided 0)))
 
 (add-hook 'clojure-mode-hook #'set-work-clj-indent)
