@@ -45,16 +45,18 @@ values."
           org-enable-reveal-js-support t
           org-babel-load-languages '((shell . t) (emacs-lisp . t)))
      clojure
-     elm
+     nu-clojure
+     ;; elm
      javascript
-     python
+     ;; python
      ruby
      rust
      shell-scripts
      markdown
      yaml
      graphviz
-     go
+     ;; go
+     kotlin
 
      git
 
@@ -65,7 +67,7 @@ values."
      bltavares-artist
      (evil-goggles :variables
                    evil-goggles-duration 0.100)
-     bltavares-clojure)
+     )
 
    dotspacemacs-additional-packages '(toc-org)
    dotspacemacs-frozen-packages '()
@@ -152,6 +154,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-show-transient-state-title t
    dotspacemacs-show-transient-state-color-guide t
    dotspacemacs-mode-line-unicode-symbols (if (dotspacemacs/system-is-mac) t nil)
+   dotspacemacs-mode-line-theme 'spacemacs
    dotspacemacs-smooth-scrolling t
    dotspacemacs-line-numbers 'relative
    dotspacemacs-folding-method 'evil
@@ -175,7 +178,9 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  )
+  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer-elpa-archives)
+  (push '(cider . "melpa-stable") package-pinned-packages)
+)
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
