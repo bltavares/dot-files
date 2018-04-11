@@ -14,8 +14,8 @@ values."
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
-     ;; windows-scripts
      html
+     ;; windows-scripts
      ;; ----------------------------------------------------------------
      ;; To reload use <SPC f e R>
      ;; ----------------------------------------------------------------
@@ -30,13 +30,12 @@ values."
 
      ivy ;; Replace helm with ivy
 
-     ;; Typescript
      auto-completion
-     html
      (typescript :variables
                  typescript-fmt-on-save t
+                 standard-indent 2
+                 typescript-indent-level 2
                  tide-tsserver-executable "/usr/local/bin/tsserver")
-     typescript
 
      ;; Langs
      emacs-lisp
@@ -47,7 +46,8 @@ values."
      clojure
      nu-clojure
      ;; elm
-     javascript
+     (javascript :variables
+                 js-indent-level 2)
      ;; python
      ruby
      rust
