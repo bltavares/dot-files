@@ -32,6 +32,7 @@ install.mutt() {
 install.confs() {
   linking $curr_dir/gitignore_global $HOME/.gitignore_global
   linking $curr_dir/tmux.conf $HOME/.tmux.conf
+  linking $curr_dir/tmux-osx.conf $HOME/.tmux-osx.conf
   linking $curr_dir/ctags $HOME/.ctags
   linking $curr_dir/blogalrc $HOME/.globalrc
 
