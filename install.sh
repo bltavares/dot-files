@@ -17,10 +17,10 @@ install.vim() {
 }
 
 install.emacs() {
-  [[ -d $HOME/.cask ]] || git clone https://github.com/cask/cask.git $HOME/.cask
-  linking $curr_dir/emacs.d $HOME/.emacs.d
+  # [[ -d $HOME/.cask ]] || git clone https://github.com/cask/cask.git $HOME/.cask
+  # linking $curr_dir/emacs.d $HOME/.emacs.d
 
-  [[ -d $HOME/.emacs.d.spacemacs ]] || git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d.spacemacs
+  [[ -d $HOME/.emacs.d.spacemacs ]] || git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
   linking $curr_dir/spacemacs.d $HOME/.spacemacs.d
 }
 
