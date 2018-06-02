@@ -14,6 +14,11 @@ pocket-read() {
   pickpocket-batch-read ~/read $POCKET_CACHE
 }
 
+instapaper-read() {
+    local ignore_urls=~/.pickpocket_skip.urls
+    pickpocket-from-csv $ignore_urls $POCKET_CACHE $1 | tee log
+}
+
 pocket-add() {
   pickpocket-batch-add ~/add $POCKET_CACHE
   echo "Sync..." >&2
