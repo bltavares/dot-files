@@ -29,12 +29,14 @@ values."
      gtags
 
      ivy ;; Replace helm with ivy
+     lsp
 
      auto-completion
      (typescript :variables
                  typescript-fmt-on-save t
                  standard-indent 2
                  typescript-indent-level 2
+                 typescript-backend 'lsp
                  tide-tsserver-executable "/usr/local/bin/tsserver")
 
      ;; Langs
@@ -47,7 +49,9 @@ values."
      nu-clojure
      ;; elm
      (javascript :variables
-                 js-indent-level 2)
+                 js-indent-level 2
+                 javascript-backend 'lsp)
+     react
      ;; python
      ruby
      rust
