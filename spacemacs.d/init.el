@@ -63,6 +63,7 @@ values."
      kotlin
 
      git
+     github
 
      ;; Personal
      bltavares-vim
