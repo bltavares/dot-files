@@ -70,6 +70,10 @@ values."
      bltavares-linum
      bltavares-neotree
      bltavares-artist
+     (bltavares-dart :variables
+                     dart-sdk-path "/Users/bruno/flutter/bin/cache/dart-sdk/"
+                     dart-format-on-save t
+                     dart-enable-analysis-server t)
      (evil-goggles :variables
                    evil-goggles-duration 0.100)
      )
