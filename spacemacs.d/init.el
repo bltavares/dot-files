@@ -197,15 +197,14 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (setq powerline-default-separator nil)
-  (spaceline-compile)
-  (fset 'evil-visual-update-x-selection 'ignore)
-
   ;; Disable headings with different sizes on Spacemacs theme
   (setq spacemacs-theme-org-height nil)
-
+  (setq powerline-default-separator nil)
   (setq create-lockfiles nil)
-  )
+
+  (with-eval-after-load
+    (fset 'evil-visual-update-x-selection 'ignore)
+    (spaceline-compile)))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
