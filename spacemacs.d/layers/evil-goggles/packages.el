@@ -22,7 +22,7 @@
         (evil-goggles-mode -1)
         (evil-goggles-mode))))
 
-(defun evil-goggles/init-evil-goggles ()
+(defun evil-goggles/post-init-evil-goggles ()
   (use-package evil-goggles
     :ensure t
     :config
