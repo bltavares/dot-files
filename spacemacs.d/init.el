@@ -25,6 +25,24 @@ values."
      ;; parinfer
      (spell-checking :variables
                      spell-checking-enable-auto-dictionary t
+                     ispell-dictionary "english"
+                     ispell-local-dictionary-alist '(("brasileiro"
+                                                      "[[:alpha:]]"
+                                                      "[^[:alpha:]]"
+                                                      "[']"
+                                                      t
+                                                      ("-d" "pt_BR"); Dictionary file name
+                                                      nil
+                                                      utf-8)
+
+                                                     ("english"
+                                                      "[[:alpha:]]"
+                                                      "[^[:alpha:]]"
+                                                      "[']"
+                                                      t
+                                                      ("-d" "en_US")
+                                                      nil
+                                                      iso-8859-1))
                      enable-flyspell-auto-completion t)
      gtags
 
@@ -36,7 +54,7 @@ values."
                  typescript-fmt-on-save t
                  standard-indent 2
                  typescript-indent-level 2
-                 typescript-backend 'lsp
+                 typescript-backend 'tide
                  tide-tsserver-executable "/usr/local/bin/tsserver")
 
      ;; Langs
