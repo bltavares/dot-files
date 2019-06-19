@@ -63,7 +63,8 @@ values."
           org-enable-github-support t
           org-enable-reveal-js-support t
           org-babel-load-languages '((shell . t) (emacs-lisp . t)))
-     clojure
+     (clojure :variables
+              clojure-enable-clj-refactor t)
      nu-clojure
      ;; elm
      (javascript :variables
@@ -79,7 +80,10 @@ values."
      graphviz
      ;; go
      kotlin
-
+     (dart :variables
+                     dart-sdk-path "/Users/bruno/flutter/bin/cache/dart-sdk/"
+                     dart-format-on-save t
+                     dart-enable-analysis-server t)
      git
      github
 
