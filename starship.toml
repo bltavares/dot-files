@@ -1,0 +1,7 @@
+add_newline = false
+
+[git_branch]
+symbol = "🌱 "
+
+[line_break]
+disabled = true
