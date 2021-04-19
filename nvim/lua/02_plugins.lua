@@ -18,7 +18,7 @@ paq {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} -- Syntax highlightin
 paq 'p00f/nvim-ts-rainbow'
 
 paq 'nvim-lua/popup.nvim' -- dependency telescope.nvim
-paq 'nvim-lua/plenary.nvim' -- dependency telescope.nvim
+paq 'nvim-lua/plenary.nvim' -- dependency telescope.nvim, flutter.nvim
 paq 'nvim-telescope/telescope.nvim' -- Fuzzy finder
 paq 'nvim-telescope/telescope-project.nvim'
 
@@ -42,6 +42,8 @@ paq 'nvim-lua/lsp-status.nvim'
 
 paq 'simrat39/rust-tools.nvim' -- rust
 paq 'mhinz/vim-crates'
+
+paq 'akinsho/flutter-tools.nvim'
 
 paq 'arcticicestudio/nord-vim' -- theme
 

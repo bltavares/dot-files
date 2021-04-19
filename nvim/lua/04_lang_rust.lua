@@ -1,12 +1,6 @@
 local on_attach = require('lsp.on_attach');
-local lsp_status = require('lsp-status');
 
--- rust
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport =
-    {properties = {'documentation', 'detail', 'additionalTextEdits'}}
-capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities);
+local capabilities = require('lsp.capabilities').create()
 local rust_analyzer = {
     server = {capabilities = capabilities, on_attach = on_attach}
 }
