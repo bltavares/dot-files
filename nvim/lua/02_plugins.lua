@@ -47,5 +47,7 @@ paq 'akinsho/flutter-tools.nvim'
 
 paq 'arcticicestudio/nord-vim' -- theme
 
+-- Initalize systems
 require'telescope'.load_extension('project')
 require('nvim_comment').setup()
+vim.cmd 'colorscheme nord'

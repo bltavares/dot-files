@@ -1,4 +1,3 @@
-vim.cmd 'colorscheme nord'
 vim.cmd('filetype plugin on')
 vim.o.backup = false
 vim.o.clipboard = 'unnamedplus' -- share the OS clipboard
