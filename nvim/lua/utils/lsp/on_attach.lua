@@ -5,6 +5,7 @@ local lsp_status = require('lsp-status')
 local on_attach = function(client, bufnr)
     lsp_status.on_attach(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.g.nvim_tree_lsp_diagnostics = 1
 
     -- Mappings.
     local opts = {noremap = true, silent = true}
