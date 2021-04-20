@@ -62,7 +62,10 @@ paq 'folke/tokyonight.nvim' -- theme
 
 -- Initalize systems
 vim.cmd 'colorscheme tokyonight'
-
 require'telescope'.load_extension('project')
 require('nvim_comment').setup()
 
+-- allow nvim .
+-- https://github.com/kyazdani42/nvim-tree.lua/issues/248
+vim.g.nvim_tree_disable_netrw = 0
+vim.g.nvim_tree_hijack_netrw = 0
