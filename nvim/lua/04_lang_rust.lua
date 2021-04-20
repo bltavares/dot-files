@@ -1,6 +1,6 @@
-local on_attach = require('lsp.on_attach');
+local on_attach = require('utils.lsp.on_attach');
 
-local capabilities = require('lsp.capabilities').create()
+local capabilities = require('utils.lsp.capabilities').create()
 local rust_analyzer = {
     server = {capabilities = capabilities, on_attach = on_attach}
 }

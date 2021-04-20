@@ -25,8 +25,13 @@ paq 'nvim-telescope/telescope-project.nvim'
 paq 'kyazdani42/nvim-tree.lua'
 paq 'godlygeek/tabular'
 paq 'tpope/vim-surround'
+-- lua surround has less features than viml
+-- paq 'blackCauldron7/surround.nvim'
+-- vim.g.surround_mappings_style = "normal"
+-- require"surround".setup{}
 paq 'tpope/vim-sleuth'
 paq 'tpope/vim-abolish'
+paq 'tpope/vim-unimpaired'
 paq 'terrortylor/nvim-comment'
 paq 'tpope/vim-fugitive'
 
@@ -37,17 +42,27 @@ paq 'hrsh7th/vim-vsnip' -- LSP snippet
 paq 'hrsh7th/nvim-compe' -- Autocomplete + LSP
 paq 'glepnir/lspsaga.nvim' -- cute UI LSP
 paq 'nvim-lua/lsp-status.nvim'
+-- https://github.com/kabouzeid/nvim-lspinstall/issues/27
+-- require'lspinstall'.setup()
+-- paq 'kabouzeid/nvim-lspinstall'
 
 -- paq 'liuchengxu/vista.vim' -- requires ctags
 
-paq 'simrat39/rust-tools.nvim' -- rust
+-- rust
+paq 'simrat39/rust-tools.nvim'
 paq 'mhinz/vim-crates'
 
+-- flutter
 paq 'akinsho/flutter-tools.nvim'
 
-paq 'arcticicestudio/nord-vim' -- theme
+-- ui
+paq 'folke/tokyonight.nvim' -- theme
+-- paq 'hoob3rt/lualine.nvim' -- supported by theme
+-- require('lualine').setup { theme = 'tokyonight', lualine_c = {{'filename', file_status = true}, 'LspStatus()'}, }
 
 -- Initalize systems
+vim.cmd 'colorscheme tokyonight'
+
 require'telescope'.load_extension('project')
 require('nvim_comment').setup()
-vim.cmd 'colorscheme nord'
+

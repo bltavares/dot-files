@@ -5,6 +5,8 @@ local wk = require('whichkey_setup')
 utils.set_keymap('n', {silent = true, noremap = true},
                  {{'<C-p>', '<Cmd>Telescope commands<CR>'}})
 
+-- TODO: fugitive keybindings
+-- TODO: session keybindings
 local keymap = {
     ["/"] = {"<Cmd>CommentToggle<CR>", "comment"},
     ["*"] = {'<Cmd>Telescope live_grep<CR>', 'grep'},

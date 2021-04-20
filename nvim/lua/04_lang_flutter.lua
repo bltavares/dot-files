@@ -1,7 +1,7 @@
 local wk = require('whichkey_setup')
 
 local on_attach = function(client, bufnr)
-    require 'lsp.on_attach'(client, bufnr);
+    require 'utils.lsp.on_attach'(client, bufnr);
     local keymap = {
         c = {"<cmd>Telescope flutter commands<CR>", "commands"},
         r = {
@@ -44,7 +44,7 @@ end
 --         })
 -- end
 
-local capabilities = require('lsp.capabilities').create()
+local capabilities = require('utils.lsp.capabilities').create()
 
 -- require'lspconfig'.dartls.setup {
 --     capabilities = capabilities,
