@@ -26,4 +26,3 @@ for _, f in ipairs(fn.split(fn.glob(fn.stdpath('config') .. '/lua/*.lua'), "\n")
 	local config = fn.split(file, '\\.')[1]
 	require(config)
 end
-

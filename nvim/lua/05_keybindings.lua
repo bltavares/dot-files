@@ -3,15 +3,15 @@ local utils = require('utils');
 local wk = require('whichkey_setup')
 
 utils.set_keymap('n', {silent = true, noremap = true},
-                 {{'<C-p>', '<Cmd>Telescope commands<CR>'}})
+    {{'<C-p>', '<Cmd>Telescope commands<CR>'}})
 
 -- TODO: git/fugitive keybindings
 -- TODO: session keybindings
 -- TODO: mode-mapping of localleader
 -- TODO: dap-debug keybindings
+-- TODO: access localleader maps over normal leader through m
 local keymap = {
-    ["/"] = {"<Cmd>CommentToggle<CR>", "comment"},
-    ["*"] = {'<Cmd>Telescope live_grep<CR>', 'grep'},
+    ["/"] = {'<Cmd>Telescope live_grep<CR>', 'grep'},
     q = {
         name = "+vim",
         q = {'<Cmd>qa!<CR>', 'Quit!'},
@@ -75,12 +75,21 @@ local keymap = {
     },
     t = {
         name = "+text",
-        a = {name = "+align", [","] = {"<Cmd>Tabularize /,<CR>", ","}}
+        ["/"] = {"<Cmd>CommentToggle<CR>", "comment"},
     }
 }
 wk.register_keymap('leader', keymap)
 
 local visual_keymap = {
-    ["/"] = {":<c-u>call CommentOperator(visualmode())<cr>", "comment"}
+    ["/"] = {":<c-u>call CommentOperator(visualmode())<cr>", "comment"},
+    t = {
+        name = "+text",
+        a = {name = "+align", 
+            [","] = {":Tabularize /,<CR>", ","},
+            ["-"] = {":Tabularize /-<CR>", "-"},
+            ["|"] = {":Tabularize /|<CR>", "|"},
+            ["="] = {":Tabularize /=<CR>", "="},
+        },
+    }
 };
 wk.register_keymap('leader', visual_keymap, {mode = "v"})
