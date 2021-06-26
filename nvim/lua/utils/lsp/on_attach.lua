@@ -11,8 +11,7 @@ local on_attach = function(client, bufnr)
     local opts = {noremap = true, silent = true}
     utils.buf_set_keymap(bufnr, 'n', opts, {
         {'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>'},
-        -- {'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>'},
-        {'gd', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>"},
+        {'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>'},
         -- {'K', '<Cmd>lua vim.lsp.buf.hover()<CR>'},
         {'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>"},
         {
@@ -22,12 +21,15 @@ local on_attach = function(client, bufnr)
         {
             "<C-b>",
             "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>"
-        }, {'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>'},
+        },
+        {'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>'},
         -- {'<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
         {
             '<C-k>',
             "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>"
         },
+        -- buggy and does not combine with hovering info
+        -- {'gs', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>"},
         {'gs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>"},
         -- {'[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'},
         {
@@ -128,9 +130,10 @@ local on_attach = function(client, bufnr)
     --   autocmd CursorHoldI <buffer> silent! lua vim.lsp.buf.signature_help()
     -- ]], false)
 
-    vim.api.nvim_command [[
-        autocmd CursorHold,CursorHoldI * :lua require('lspsaga.signaturehelp').signature_help()
-    ]]
+    -- does not play well with other lsp
+    -- vim.api.nvim_command [[
+    --     autocmd CursorHold,CursorHoldI * :lua require('lspsaga.signaturehelp').signature_help()
+    -- ]]
 
     -- Set autocommands conditional on server_capabilities
     if client.resolved_capabilities.document_highlight then
