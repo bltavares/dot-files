@@ -60,12 +60,15 @@ paq 'mhinz/vim-crates'
 paq 'akinsho/flutter-tools.nvim'
 
 -- ui
+-- paq 'shaunsingh/moonlight.nvim' -- theme
 paq 'folke/tokyonight.nvim' -- theme
+paq 'norcalli/nvim-colorizer.lua'
 -- paq 'hoob3rt/lualine.nvim' -- supported by theme
 -- require('lualine').setup { theme = 'tokyonight', lualine_c = {{'filename', file_status = true}, 'LspStatus()'}, }
 
 -- Initalize systems
 vim.cmd 'colorscheme tokyonight'
 require'telescope'.load_extension('project')
-require('nvim_comment').setup()
+require'nvim_comment'.setup()
+require'colorizer'.setup()
 vim.g['test#strategy'] = "dispatch"

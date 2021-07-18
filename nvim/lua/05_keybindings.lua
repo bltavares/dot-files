@@ -11,6 +11,7 @@ utils.set_keymap('n', {silent = true, noremap = true},
 -- TODO: dap-debug keybindings
 -- TODO: access localleader maps over normal leader through m
 local keymap = {
+    [";"] = {"<Cmd>CommentToggle<CR>", "comment"},
     ["/"] = {'<Cmd>Telescope live_grep<CR>', 'grep'},
     q = {
         name = "+vim",

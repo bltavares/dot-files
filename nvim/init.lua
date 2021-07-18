@@ -22,6 +22,7 @@ local os_separator = package.config:sub(1,1)
 ---- https://github.com/kdav5758/TrueZen.nvim
 ---- https://github.com/ruifm/gitlinker.nvim
 -- https://github.com/andweeb/presence.nvim
+-- https://github.com/simrat39/symbols-outline.nvim
 
 for _, f in ipairs(fn.split(fn.glob(fn.stdpath('config') .. '/lua/*.lua'), "\n")) do
 	local parts = fn.split(f, os_separator)
