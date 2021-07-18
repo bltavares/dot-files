@@ -42,11 +42,15 @@ paq 'hrsh7th/vim-vsnip' -- LSP snippet
 paq 'hrsh7th/nvim-compe' -- Autocomplete + LSP
 paq 'glepnir/lspsaga.nvim' -- cute UI LSP
 paq 'nvim-lua/lsp-status.nvim'
+paq 'folke/lsp-trouble.nvim'
 -- https://github.com/kabouzeid/nvim-lspinstall/issues/27
 -- require'lspinstall'.setup()
 -- paq 'kabouzeid/nvim-lspinstall'
 
 -- paq 'liuchengxu/vista.vim' -- requires ctags
+
+paq 'tpope/vim-dispatch'
+paq 'vim-test/vim-test'
 
 -- rust
 paq 'simrat39/rust-tools.nvim'
@@ -64,3 +68,4 @@ paq 'folke/tokyonight.nvim' -- theme
 vim.cmd 'colorscheme tokyonight'
 require'telescope'.load_extension('project')
 require('nvim_comment').setup()
+vim.g['test#strategy'] = "dispatch"

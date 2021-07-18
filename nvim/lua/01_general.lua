@@ -63,3 +63,5 @@ vim.o.wildmode = "longest:full,full" -- Start wildmenu with the longest, then th
 
 vim.o.mouse = "a" -- Enable mouse
 vim.g.mousehide = true -- Hide mouse after chars typed
+
+vim.g.neovide_cursor_vfx_mode = "railgun" -- noevide nonsense

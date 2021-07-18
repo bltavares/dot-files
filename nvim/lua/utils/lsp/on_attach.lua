@@ -85,7 +85,8 @@ local on_attach = function(client, bufnr)
                 "<cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>",
                 "current diagnostic"
             },
-            l = {'<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', 'loc list'}
+            l = {'<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', 'loc list'},
+            ["?"] = {'<cmd>LspTroubleDocumentToggle<CR>', 'currenet troubles'},
         }
     }
 

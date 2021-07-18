@@ -71,7 +71,13 @@ local keymap = {
         h = {'<C-w>h', 'move left'},
         j = {'<C-w>j', 'move down'},
         k = {'<C-w>k', 'move top'},
-        l = {'<C-w>l', 'move right'}
+        l = {'<C-w>l', 'move right'},
+        t = {
+            name = "+tab",
+            t = {":tabnext<CR>", "next"},
+            n = {":tabnew<CR>", "new"},
+            c = {":tabclose<CR>", "closenew"},
+        }
     },
     t = {
         name = "+text",
@@ -84,7 +90,7 @@ local visual_keymap = {
     ["/"] = {":<c-u>call CommentOperator(visualmode())<cr>", "comment"},
     t = {
         name = "+text",
-        a = {name = "+align", 
+        a = {name = "+align",
             [","] = {":Tabularize /,<CR>", ","},
             ["-"] = {":Tabularize /-<CR>", "-"},
             ["|"] = {":Tabularize /|<CR>", "|"},
@@ -93,3 +99,19 @@ local visual_keymap = {
     }
 };
 wk.register_keymap('leader', visual_keymap, {mode = "v"})
+
+local localkeymap = {
+    t = {
+        name = "+test",
+        t = {":TestNearest<CR>", "nearest"},
+        f = {":TestFile<CR>", "file"},
+        s = {":TestSuite<CR>", "suite"},
+        l = {":TestLast<CR>", "last"},
+        v = {":TestVisit<CR>", "visit"},
+    },
+}
+wk.register_keymap('localleader', localkeymap, {
+    silent = true,
+    noremap = true,
+    mode = 'n',
+})

@@ -44,3 +44,17 @@ require'lspsaga'.init_lsp_saga {
         scroll_up = '<C-p>'
     }
 }
+
+require("trouble").setup {
+    icons = false,
+    fold_closed = "▸",
+    fold_open = "▾",
+    auto_open = false,
+    auto_close = true,
+    signs = {
+        error = "x",
+        warning = "!",
+        hint = "~",
+        information = ".",
+    }
+}

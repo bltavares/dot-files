@@ -7,6 +7,7 @@ local os_separator = package.config:sub(1,1)
 ---- https://github.com/glepnir/dashboard-nvim
 ---- https://github.com/rmagatti/auto-session
 ---- https://github.com/tpope/vim-obsession
+---- https://github.com/rmagatti/session-lens
 -- lsp
 ---- https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim
 -- indent blankline
@@ -18,6 +19,8 @@ local os_separator = package.config:sub(1,1)
 -- https://github.com/oberblastmeister/neuron.nvim
 -- ui
 ---- https://github.com/edluffy/specs.nvim
+---- https://github.com/kdav5758/TrueZen.nvim
+---- https://github.com/ruifm/gitlinker.nvim
 -- https://github.com/andweeb/presence.nvim
 
 for _, f in ipairs(fn.split(fn.glob(fn.stdpath('config') .. '/lua/*.lua'), "\n")) do
