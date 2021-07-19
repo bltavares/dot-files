@@ -13,6 +13,7 @@ utils.set_keymap('n', {silent = true, noremap = true},
 local keymap = {
     [";"] = {"<Cmd>CommentToggle<CR>", "comment"},
     ["/"] = {'<Cmd>Telescope live_grep<CR>', 'grep'},
+    ["*"] = {"<Cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>", 'find word in project'},
     q = {
         name = "+vim",
         q = {'<Cmd>qa!<CR>', 'Quit!'},
@@ -73,11 +74,12 @@ local keymap = {
         j = {'<C-w>j', 'move down'},
         k = {'<C-w>k', 'move top'},
         l = {'<C-w>l', 'move right'},
+        c = {'<C-w>c', 'close'},
         t = {
             name = "+tab",
             t = {":tabnext<CR>", "next"},
             n = {":tabnew<CR>", "new"},
-            c = {":tabclose<CR>", "closenew"},
+            c = {":tabclose<CR>", "close"},
         }
     },
     t = {

@@ -68,7 +68,8 @@ paq 'norcalli/nvim-colorizer.lua'
 
 -- Initalize systems
 vim.cmd 'colorscheme tokyonight'
-require'telescope'.load_extension('project')
+
 require'nvim_comment'.setup()
 require'colorizer'.setup()
 vim.g['test#strategy'] = "dispatch"
+
