@@ -2,12 +2,6 @@ local fn = vim.fn
 local execute = vim.api.nvim_command
 
 -- TODO
--- paredit ? parinfer?
--- https://github.com/eraserhd/parinfer-rust
--- session?
----- https://github.com/glepnir/dashboard-nvim
----- https://github.com/rmagatti/auto-session
----- https://github.com/rmagatti/session-lens
 -- lsp
 ---- https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim
 -- indent blankline
@@ -19,9 +13,8 @@ local execute = vim.api.nvim_command
 -- https://github.com/oberblastmeister/neuron.nvim
 -- ui
 ---- https://github.com/edluffy/specs.nvim
----- https://github.com/kdav5758/TrueZen.nvim
 ---- https://github.com/ruifm/gitlinker.nvim
--- https://github.com/andweeb/presence.nvim
+---- https://github.com/andweeb/presence.nvim
 -- https://github.com/akinsho/dependency-assist.nvim
 
 -- Auto install paq-nvim if not exists
@@ -42,7 +35,11 @@ paq 'p00f/nvim-ts-rainbow'
 paq 'nvim-lua/popup.nvim' -- dependency telescope.nvim
 paq 'nvim-lua/plenary.nvim' -- dependency telescope.nvim, flutter.nvim
 paq 'nvim-telescope/telescope.nvim' -- Fuzzy finder
-paq 'nvim-telescope/telescope-project.nvim'
+-- session/
+-- paq 'glepnir/dashboard-nvim' -- TODO make an intro screen
+paq 'rmagatti/auto-session'
+paq 'rmagatti/session-lens'
+-- paq 'nvim-telescope/telescope-project.nvim' -- replaced by session-lens
 
 paq 'kyazdani42/nvim-tree.lua'
 paq 'godlygeek/tabular'
@@ -84,6 +81,11 @@ paq 'akinsho/flutter-tools.nvim'
 -- markdown
 paq 'npxbr/glow.nvim' -- TODO add keybinds
 
+-- clojure
+paq 'Olical/conjure'
+paq 'tami5/compe-conjure'
+-- paq 'clojure-vim/vim-jack-in' -- closes terminal
+
 -- ui
 -- paq 'shaunsingh/moonlight.nvim' -- theme
 paq 'folke/tokyonight.nvim' -- theme
@@ -92,6 +94,7 @@ paq 'folke/todo-comments.nvim'
 -- paq 'Famiu/feline.nvim' -- no integration to lsp-status
 paq 'hoob3rt/lualine.nvim' -- supported by theme
 -- paq 'sunjon/shade.nvim' -- dim secondary panes -- issues with telescope TODO switch twlight off
+---- https://github.com/kdav5758/TrueZen.nvim
 paq 'folke/twilight.nvim' -- hihglight context
 
 -- Initalize systems

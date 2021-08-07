@@ -1,4 +1,3 @@
-local utils = require('utils');
 local wk = require('which-key')
 local lsp_status = require('lsp-status')
 
@@ -8,39 +7,30 @@ local on_attach = function(client, bufnr)
     vim.g.nvim_tree_lsp_diagnostics = 1
 
     -- Mappings.
-    local opts = {noremap = true, silent = true}
-    utils.buf_set_keymap(bufnr, 'n', opts, {
-        {'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>'},
-        {'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>'},
-        -- {'K', '<Cmd>lua vim.lsp.buf.hover()<CR>'},
-        {'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>"},
-        {
-            "<C-f>",
-            "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>"
-        },
-        {
-            "<C-b>",
-            "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>"
-        },
-        {'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>'},
-        -- {'<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
-        {
-            '<C-k>',
-            "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>"
-        },
+    local opts = {
+        mode ="n",
+        noremap = true,
+        silent = true,
+        buffer = bufnr,
+    }
+    wk.register({
+        ['gD'] = {'<Cmd>lua vim.lsp.buf.declaration()<CR>', "goto declaration"},
+        ['gd'] = {'<Cmd>lua vim.lsp.buf.definition()<CR>', "goto definition"},
+        ['gi'] = {'<cmd>lua vim.lsp.buf.implementation()<CR>', "goto iplementations"},
+        ['gr'] = {'<cmd>lua vim.lsp.buf.references()<CR>', "goto references"},
+        -- ['K'] = '<Cmd>lua vim.lsp.buf.hover()<CR>',
+        ['K'] = {"<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", "show docs"},
+        -- ['<C-k>'] = '<cmd>lua vim.lsp.buf.signature_help()<CR>',,
+        ['<C-k>'] = {"<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", "signature help"},
+        ["<C-f>"] = {"<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", "scroll action down"},
+        ["<C-b>"] = {"<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", "scroll action up"},
         -- buggy and does not combine with hovering info
-        -- {'gs', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>"},
-        {'gs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>"},
-        -- {'[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'},
-        {
-            '[d',
-            "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>"
-        }, -- {']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'},
-        {
-            ']d',
-            "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>"
-        }, {'gr', '<cmd>lua vim.lsp.buf.references()<CR>'}
-    });
+        -- ['gs'] = "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>" ,
+        ['gs'] = {"<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", "preview definition"},
+        -- ['[d'] = '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',
+        ['[d'] = {"<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", "previous diagnostic"},
+        [']d'] = {"<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", "next diagnostic"},
+    }, opts);
 
     local keymap = {
         p = {
@@ -118,7 +108,7 @@ local on_attach = function(client, bufnr)
         noremap = true,
         silent = true,
         mode = 'n',
-        bufnr = bufnr
+        buffer = bufnr
     })
 
     wk.register(visual_keymap, {
@@ -126,7 +116,7 @@ local on_attach = function(client, bufnr)
         noremap = true,
         silent = true,
         mode = 'v',
-        bufnr = bufnr
+        buffer = bufnr
     })
 
     -- vim.api.nvim_exec([[

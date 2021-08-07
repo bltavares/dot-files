@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
         silent = true,
         noremap = true,
         mode = 'n',
-        bufnr = bufnr
+        buffer = bufnr
     })
 end
 

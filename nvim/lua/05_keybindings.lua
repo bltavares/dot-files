@@ -1,9 +1,14 @@
 local fn = vim.fn
-local utils = require('utils');
 local wk = require('which-key')
 
-utils.set_keymap('n', {silent = true, noremap = true},
-    {{'<C-p>', '<Cmd>Telescope commands<CR>'}})
+wk.register({
+    ['<C-p>'] = {'<Cmd>Telescope commands<CR>', "commands"},
+}, {
+        silent = true,
+        noremap = true,
+        mode = "n",
+    });
+
 
 -- TODO: git/fugitive keybindings
 -- TODO: session keybindings
@@ -31,10 +36,11 @@ local keymap = {
         r = {'<Cmd>luafile %<CR>', 'eval current lua file'},
     },
     b = {
+        name = "+buffers",
         b = {'<Cmd>Telescope buffers<CR>', 'buffers'},
         D = {':bufdo bd<CR>', 'do'}
     },
-    f = { -- set a nested structure
+    f = {
         name = '+find',
         f = {'<Cmd>Telescope find_files<CR>', "files"},
         b = {'<Cmd>Telescope buffers<CR>', 'buffers'},
@@ -56,7 +62,7 @@ local keymap = {
     p = {
         name = "+project",
         s = {
-            "<Cmd>lua require'telescope'.extensions.project.project{}<CR>",
+            "<Cmd>lua require('session-lens').search_session()<CR>",
             "switch"
         },
         t = {'<Cmd>NvimTreeToggle<CR>', 'project tree'},

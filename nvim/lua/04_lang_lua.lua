@@ -17,7 +17,7 @@ require'lspconfig'.sumneko_lua.setup {
       silent = true,
       noremap = true,
       mode = 'n',
-      bufnr = bufnr
+      buffer = bufnr
     })
 
   end,
