@@ -3,10 +3,10 @@ local execute = vim.api.nvim_command
 
 -- TODO
 -- paredit ? parinfer?
+-- https://github.com/eraserhd/parinfer-rust
 -- session?
 ---- https://github.com/glepnir/dashboard-nvim
 ---- https://github.com/rmagatti/auto-session
----- https://github.com/tpope/vim-obsession
 ---- https://github.com/rmagatti/session-lens
 -- lsp
 ---- https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim
@@ -34,9 +34,7 @@ local paq = require'paq-nvim'.paq
 
 paq {'savq/paq-nvim', opt = true} -- Let Paq manage itself
 
--- TODO https://github.com/folke/which-key.nvim
-paq 'liuchengxu/vim-which-key'
-paq 'AckslD/nvim-whichkey-setup.lua'
+paq 'folke/which-key.nvim'
 
 paq {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} -- Syntax highlighting
 paq 'p00f/nvim-ts-rainbow'
@@ -84,7 +82,7 @@ paq 'mhinz/vim-crates'
 paq 'akinsho/flutter-tools.nvim'
 
 -- markdown
--- paq 'npxbr/glow.nvim' -- TODO add keybinds
+paq 'npxbr/glow.nvim' -- TODO add keybinds
 
 -- ui
 -- paq 'shaunsingh/moonlight.nvim' -- theme
@@ -103,6 +101,7 @@ require'symbols-outline'.setup()
 require'nvim_comment'.setup()
 require'colorizer'.setup()
 require'twilight'.setup()
+require'which-key'.setup()
 require'todo-comments'.setup {
   signs = false,
 }

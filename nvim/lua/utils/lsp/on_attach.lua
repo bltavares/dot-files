@@ -1,5 +1,5 @@
 local utils = require('utils');
-local wk = require('whichkey_setup')
+local wk = require('which-key')
 local lsp_status = require('lsp-status')
 
 local on_attach = function(client, bufnr)
@@ -42,7 +42,6 @@ local on_attach = function(client, bufnr)
         }, {'gr', '<cmd>lua vim.lsp.buf.references()<CR>'}
     });
 
-    -- whichkey
     local keymap = {
         p = {
             name = "+project",
@@ -114,14 +113,16 @@ local on_attach = function(client, bufnr)
         }
     end
 
-    wk.register_keymap('localleader', keymap, {
+    wk.register(keymap, {
+        prefix = '<localleader>',
         noremap = true,
         silent = true,
         mode = 'n',
         bufnr = bufnr
     })
 
-    wk.register_keymap('localleader', visual_keymap, {
+    wk.register(visual_keymap, {
+        prefix = '<localleader>',
         noremap = true,
         silent = true,
         mode = 'v',

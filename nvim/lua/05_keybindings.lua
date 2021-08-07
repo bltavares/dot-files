@@ -1,6 +1,6 @@
 local fn = vim.fn
 local utils = require('utils');
-local wk = require('whichkey_setup')
+local wk = require('which-key')
 
 utils.set_keymap('n', {silent = true, noremap = true},
     {{'<C-p>', '<Cmd>Telescope commands<CR>'}})
@@ -92,7 +92,7 @@ local keymap = {
         ["/"] = {"<Cmd>CommentToggle<CR>", "comment"},
     }
 }
-wk.register_keymap('leader', keymap)
+wk.register(keymap, { prefix = '<leader>' })
 
 local visual_keymap = {
     ["/"] = {":<c-u>call CommentOperator(visualmode())<cr>", "comment"},
@@ -106,7 +106,7 @@ local visual_keymap = {
         },
     }
 };
-wk.register_keymap('leader', visual_keymap, {mode = "v"})
+wk.register(visual_keymap, {mode = "v", prefix = '<leader>'})
 
 local localkeymap = {
     t = {
@@ -118,7 +118,8 @@ local localkeymap = {
         v = {":TestVisit<CR>", "visit"},
     },
 }
-wk.register_keymap('localleader', localkeymap, {
+wk.register(localkeymap, {
+    prefix = '<localleader>',
     silent = true,
     noremap = true,
     mode = 'n',

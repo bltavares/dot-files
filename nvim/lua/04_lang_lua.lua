@@ -1,4 +1,4 @@
-local wk = require('whichkey_setup')
+local wk = require('which-key')
 local capabilities = require'utils.lsp.capabilities'.create()
 
 require'lspconfig'.sumneko_lua.setup {
@@ -12,7 +12,8 @@ require'lspconfig'.sumneko_lua.setup {
         f = {"<cmd>luafile %<CR>", "file"},
       }
     }
-    wk.register_keymap('localleader', keymap, {
+    wk.register(keymap, {
+      prefix = '<localleader>',
       silent = true,
       noremap = true,
       mode = 'n',

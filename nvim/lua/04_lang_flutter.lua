@@ -1,4 +1,4 @@
-local wk = require('whichkey_setup')
+local wk = require('which-key')
 
 local on_attach = function(client, bufnr)
     require 'utils.lsp.on_attach'(client, bufnr);
@@ -25,7 +25,8 @@ local on_attach = function(client, bufnr)
             -- }
         }
     }
-    wk.register_keymap('localleader', keymap, {
+    wk.register(keymap, {
+        prefix = '<localleader>',
         silent = true,
         noremap = true,
         mode = 'n',
