@@ -63,7 +63,8 @@ local keymap = {
         T = {'<Cmd>NvimTreeFindFile<CR>', 'show on tree'},
         r = {'<Cmd>NvimTreeRefresh<CR>', 'refresh tree'},
         f = {'<Cmd>Telescope find_files<CR>', 'files'},
-        ["/"] = {'<Cmd>Telescope live_grep<CR>', 'grep'}
+        ["/"] = {'<Cmd>Telescope live_grep<CR>', 'grep'},
+        ["?"] = {'<Cmd>TodoTrouble<CR>', 'todos'},
     },
     w = {
         name = "+window",
@@ -81,6 +82,10 @@ local keymap = {
             n = {":tabnew<CR>", "new"},
             c = {":tabclose<CR>", "close"},
         }
+    },
+    T = {
+        name = "+toggle",
+        t = {"<Cmd>Twilight<CR>", "Twilight"},
     },
     t = {
         name = "+text",

@@ -1,9 +1,25 @@
-local on_attach = require 'utils.lsp.on_attach';
+local wk = require('whichkey_setup')
 local capabilities = require'utils.lsp.capabilities'.create()
 
 require'lspconfig'.sumneko_lua.setup {
   cmd = {'lua-language-server'};
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    require 'utils.lsp.on_attach'(client, bufnr);
+
+    local keymap = {
+      e = {
+        name = "+eval",
+        f = {"<cmd>luafile %<CR>", "file"},
+      }
+    }
+    wk.register_keymap('localleader', keymap, {
+      silent = true,
+      noremap = true,
+      mode = 'n',
+      bufnr = bufnr
+    })
+
+  end,
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -31,3 +47,4 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
+

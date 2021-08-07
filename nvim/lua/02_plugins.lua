@@ -1,6 +1,29 @@
 local fn = vim.fn
 local execute = vim.api.nvim_command
 
+-- TODO
+-- paredit ? parinfer?
+-- session?
+---- https://github.com/glepnir/dashboard-nvim
+---- https://github.com/rmagatti/auto-session
+---- https://github.com/tpope/vim-obsession
+---- https://github.com/rmagatti/session-lens
+-- lsp
+---- https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim
+-- indent blankline
+-- debug
+---- https://github.com/mfussenegger/nvim-dap
+---- https://github.com/theHamsta/nvim-dap-virtual-text
+-- https://github.com/windwp/nvim-autopairs
+-- https://github.com/lewis6991/spellsitter.nvim
+-- https://github.com/oberblastmeister/neuron.nvim
+-- ui
+---- https://github.com/edluffy/specs.nvim
+---- https://github.com/kdav5758/TrueZen.nvim
+---- https://github.com/ruifm/gitlinker.nvim
+-- https://github.com/andweeb/presence.nvim
+-- https://github.com/akinsho/dependency-assist.nvim
+
 -- Auto install paq-nvim if not exists
 local install_path = fn.stdpath('data') .. '/site/pack/paqs/opt/paq-nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -11,6 +34,7 @@ local paq = require'paq-nvim'.paq
 
 paq {'savq/paq-nvim', opt = true} -- Let Paq manage itself
 
+-- TODO https://github.com/folke/which-key.nvim
 paq 'liuchengxu/vim-which-key'
 paq 'AckslD/nvim-whichkey-setup.lua'
 
@@ -33,7 +57,7 @@ paq 'tpope/vim-sleuth'
 paq 'tpope/vim-abolish'
 paq 'tpope/vim-unimpaired'
 paq 'terrortylor/nvim-comment'
-paq 'tpope/vim-fugitive'
+-- paq 'tpope/vim-fugitive' -- slow startup
 
 paq 'neovim/nvim-lspconfig' -- Bult-in LSP
 -- paq 'ray-x/lsp_signature.nvim' -- LSP Signature support -- replaced by lspsaga
@@ -41,13 +65,13 @@ paq 'nvim-lua/lsp_extensions.nvim' -- LSP type inlay hints
 paq 'hrsh7th/vim-vsnip' -- LSP snippet
 paq 'hrsh7th/nvim-compe' -- Autocomplete + LSP
 paq 'glepnir/lspsaga.nvim' -- cute UI LSP
-paq 'nvim-lua/lsp-status.nvim'
+paq 'nvim-lua/lsp-status.nvim' -- for Statusline
 paq 'folke/lsp-trouble.nvim'
+paq 'simrat39/symbols-outline.nvim' -- replaces Vista
 -- https://github.com/kabouzeid/nvim-lspinstall/issues/27
 -- require'lspinstall'.setup()
 -- paq 'kabouzeid/nvim-lspinstall'
 
--- paq 'liuchengxu/vista.vim' -- requires ctags
 
 paq 'tpope/vim-dispatch'
 paq 'vim-test/vim-test'
@@ -59,17 +83,27 @@ paq 'mhinz/vim-crates'
 -- flutter
 paq 'akinsho/flutter-tools.nvim'
 
+-- markdown
+-- paq 'npxbr/glow.nvim' -- TODO add keybinds
+
 -- ui
 -- paq 'shaunsingh/moonlight.nvim' -- theme
 paq 'folke/tokyonight.nvim' -- theme
 paq 'norcalli/nvim-colorizer.lua'
--- paq 'hoob3rt/lualine.nvim' -- supported by theme
--- require('lualine').setup { theme = 'tokyonight', lualine_c = {{'filename', file_status = true}, 'LspStatus()'}, }
+paq 'folke/todo-comments.nvim'
+-- paq 'Famiu/feline.nvim' -- no integration to lsp-status
+paq 'hoob3rt/lualine.nvim' -- supported by theme
+-- paq 'sunjon/shade.nvim' -- dim secondary panes -- issues with telescope TODO switch twlight off
+paq 'folke/twilight.nvim' -- hihglight context
 
 -- Initalize systems
 vim.cmd 'colorscheme tokyonight'
 
+require'symbols-outline'.setup()
 require'nvim_comment'.setup()
 require'colorizer'.setup()
+require'twilight'.setup()
+require'todo-comments'.setup {
+  signs = false,
+}
 vim.g['test#strategy'] = "dispatch"
-
