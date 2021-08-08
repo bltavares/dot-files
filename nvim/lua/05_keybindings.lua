@@ -62,9 +62,11 @@ local keymap = {
     p = {
         name = "+project",
         s = {
-            "<Cmd>lua require('session-lens').search_session()<CR>",
+            '<Cmd>lua require"telescope".extensions.project.project{ display_type = "full" }<CR>',
             "switch"
         },
+        a = {'<Cmd>lua project_add_cwd()<CR>', 'add project'},
+        A = {'<Cmd>lua project_add_cwd(vim.loop.cwd())<CR>', 'add current pwd'},
         t = {'<Cmd>NvimTreeToggle<CR>', 'project tree'},
         T = {'<Cmd>NvimTreeFindFile<CR>', 'show on tree'},
         r = {'<Cmd>NvimTreeRefresh<CR>', 'refresh tree'},
@@ -115,6 +117,7 @@ local visual_keymap = {
 wk.register(visual_keymap, {mode = "v", prefix = '<leader>'})
 
 local localkeymap = {
+    ["="] = {"gg=G``", "format"},
     t = {
         name = "+test",
         t = {":TestNearest<CR>", "nearest"},

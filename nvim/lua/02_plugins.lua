@@ -37,9 +37,10 @@ paq 'nvim-lua/plenary.nvim' -- dependency telescope.nvim, flutter.nvim
 paq 'nvim-telescope/telescope.nvim' -- Fuzzy finder
 -- session/
 -- paq 'glepnir/dashboard-nvim' -- TODO make an intro screen
-paq 'rmagatti/auto-session'
-paq 'rmagatti/session-lens'
--- paq 'nvim-telescope/telescope-project.nvim' -- replaced by session-lens
+-- paq 'rmagatti/auto-session' -- broken on windows
+-- paq 'rmagatti/session-lens'
+paq 'nvim-telescope/telescope-project.nvim'
+paq 'ahmedkhalf/lsp-rooter.nvim'
 
 paq 'kyazdani42/nvim-tree.lua'
 paq 'godlygeek/tabular'
@@ -105,6 +106,7 @@ require'nvim_comment'.setup()
 require'colorizer'.setup()
 require'twilight'.setup()
 require'which-key'.setup()
+require'lsp-rooter'.setup()
 require'todo-comments'.setup {
   signs = false,
 }

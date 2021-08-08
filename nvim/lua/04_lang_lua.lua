@@ -9,7 +9,7 @@ require'lspconfig'.sumneko_lua.setup {
     local keymap = {
       e = {
         name = "+eval",
-        f = {"<cmd>luafile %<CR>", "file"},
+        f = {"<cmd>luafile %<CR><cmd>echo 'Evaled' @%<cr>", "file"},
       }
     }
     wk.register(keymap, {
@@ -49,3 +49,8 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
+function _G.dump(...)
+    local objects = vim.tbl_map(vim.inspect, {...})
+    print(unpack(objects))
+    return ...
+end
