@@ -7,29 +7,47 @@ local on_attach = function(client, bufnr)
     vim.g.nvim_tree_lsp_diagnostics = 1
 
     -- Mappings.
-    local opts = {
-        mode ="n",
-        noremap = true,
-        silent = true,
-        buffer = bufnr,
-    }
+    local opts = {mode = "n", noremap = true, silent = true, buffer = bufnr}
     wk.register({
         ['gD'] = {'<Cmd>lua vim.lsp.buf.declaration()<CR>', "goto declaration"},
         ['gd'] = {'<Cmd>lua vim.lsp.buf.definition()<CR>', "goto definition"},
-        ['gi'] = {'<cmd>lua vim.lsp.buf.implementation()<CR>', "goto iplementations"},
+        ['gi'] = {
+            '<cmd>lua vim.lsp.buf.implementation()<CR>', "goto iplementations"
+        },
         ['gr'] = {'<cmd>lua vim.lsp.buf.references()<CR>', "goto references"},
         -- ['K'] = '<Cmd>lua vim.lsp.buf.hover()<CR>',
-        ['K'] = {"<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", "show docs"},
+        ['K'] = {
+            "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>",
+            "show docs"
+        },
         -- ['<C-k>'] = '<cmd>lua vim.lsp.buf.signature_help()<CR>',,
-        ['<C-k>'] = {"<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", "signature help"},
-        ["<C-f>"] = {"<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", "scroll action down"},
-        ["<C-b>"] = {"<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", "scroll action up"},
+        ['<C-k>'] = {
+            "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>",
+            "signature help"
+        },
+        ["<C-f>"] = {
+            "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
+            "scroll action down"
+        },
+        ["<C-b>"] = {
+            "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
+            "scroll action up"
+        },
         -- buggy and does not combine with hovering info
         -- ['gs'] = "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>" ,
-        ['gs'] = {"<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", "preview definition"},
+        ['gs'] = {
+            "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>",
+            "preview definition"
+        },
         -- ['[d'] = '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',
-        ['[d'] = {"<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", "previous diagnostic"},
-        [']d'] = {"<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", "next diagnostic"},
+        ['[d'] = {
+            "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>",
+            "previous diagnostic"
+        },
+        [']d'] = {
+            "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>",
+            "next diagnostic"
+        }
     }, opts);
 
     local keymap = {
@@ -77,9 +95,12 @@ local on_attach = function(client, bufnr)
                 "current diagnostic"
             },
             l = {'<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', 'loc list'},
-            L = {'<cmd>lua vim.lsp.diagnostic.set_loclist({workspace = true})<CR>', 'workspace list'},
+            L = {
+                '<cmd>lua vim.lsp.diagnostic.set_loclist({workspace = true})<CR>',
+                'workspace list'
+            },
             o = {'<cmd>SymbolsOutline<CR>', 'outline'},
-            ["?"] = {'<cmd>LspTroubleDocumentToggle<CR>', 'current troubles'},
+            ["?"] = {'<cmd>LspTroubleDocumentToggle<CR>', 'current troubles'}
         }
     }
 

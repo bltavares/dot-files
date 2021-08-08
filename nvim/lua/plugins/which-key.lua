@@ -1,14 +1,9 @@
 local fn = vim.fn
 local wk = require('which-key')
+require'which-key'.setup()
 
-wk.register({
-    ['<C-p>'] = {'<Cmd>Telescope commands<CR>', "commands"},
-}, {
-        silent = true,
-        noremap = true,
-        mode = "n",
-    });
-
+wk.register({['<C-p>'] = {'<Cmd>Telescope commands<CR>', "commands"}},
+            {silent = true, noremap = true, mode = "n"});
 
 -- TODO: git/fugitive keybindings
 -- TODO: session keybindings
@@ -18,7 +13,10 @@ wk.register({
 local keymap = {
     [";"] = {"<Cmd>CommentToggle<CR>", "comment"},
     ["/"] = {'<Cmd>Telescope live_grep<CR>', 'grep'},
-    ["*"] = {"<Cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>", 'find word in project'},
+    ["*"] = {
+        "<Cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>",
+        'find word in project'
+    },
     q = {
         name = "+vim",
         q = {'<Cmd>qa!<CR>', 'Quit!'},
@@ -33,7 +31,7 @@ local keymap = {
             '<Cmd>e ' .. fn.stdpath('config') .. '/lua/02_plugins.lua<CR>',
             'plugins'
         },
-        r = {'<Cmd>luafile %<CR>', 'eval current lua file'},
+        r = {'<Cmd>luafile %<CR>', 'eval current lua file'}
     },
     b = {
         name = "+buffers",
@@ -72,7 +70,7 @@ local keymap = {
         r = {'<Cmd>NvimTreeRefresh<CR>', 'refresh tree'},
         f = {'<Cmd>Telescope find_files<CR>', 'files'},
         ["/"] = {'<Cmd>Telescope live_grep<CR>', 'grep'},
-        ["?"] = {'<Cmd>TodoTrouble<CR>', 'todos'},
+        ["?"] = {'<Cmd>TodoTrouble<CR>', 'todos'}
     },
     w = {
         name = "+window",
@@ -88,30 +86,25 @@ local keymap = {
             name = "+tab",
             t = {":tabnext<CR>", "next"},
             n = {":tabnew<CR>", "new"},
-            c = {":tabclose<CR>", "close"},
+            c = {":tabclose<CR>", "close"}
         }
     },
-    T = {
-        name = "+toggle",
-        t = {"<Cmd>Twilight<CR>", "Twilight"},
-    },
-    t = {
-        name = "+text",
-        ["/"] = {"<Cmd>CommentToggle<CR>", "comment"},
-    }
+    T = {name = "+toggle", t = {"<Cmd>Twilight<CR>", "Twilight"}},
+    t = {name = "+text", ["/"] = {"<Cmd>CommentToggle<CR>", "comment"}}
 }
-wk.register(keymap, { prefix = '<leader>' })
+wk.register(keymap, {prefix = '<leader>'})
 
 local visual_keymap = {
     ["/"] = {":<c-u>call CommentOperator(visualmode())<cr>", "comment"},
     t = {
         name = "+text",
-        a = {name = "+align",
+        a = {
+            name = "+align",
             [","] = {":Tabularize /,<CR>", ","},
             ["-"] = {":Tabularize /-<CR>", "-"},
             ["|"] = {":Tabularize /|<CR>", "|"},
-            ["="] = {":Tabularize /=<CR>", "="},
-        },
+            ["="] = {":Tabularize /=<CR>", "="}
+        }
     }
 };
 wk.register(visual_keymap, {mode = "v", prefix = '<leader>'})
@@ -124,12 +117,12 @@ local localkeymap = {
         f = {":TestFile<CR>", "file"},
         s = {":TestSuite<CR>", "suite"},
         l = {":TestLast<CR>", "last"},
-        v = {":TestVisit<CR>", "visit"},
-    },
+        v = {":TestVisit<CR>", "visit"}
+    }
 }
 wk.register(localkeymap, {
     prefix = '<localleader>',
     silent = true,
     noremap = true,
-    mode = 'n',
+    mode = 'n'
 })

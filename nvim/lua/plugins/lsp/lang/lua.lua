@@ -1,10 +1,11 @@
+
 local wk = require('which-key')
-local capabilities = require'utils.lsp.capabilities'.create()
+local capabilities = require'plugins.lsp.capabilities'.create()
 
 require'lspconfig'.sumneko_lua.setup {
   cmd = {'lua-language-server'};
   on_attach = function(client, bufnr)
-    require 'utils.lsp.on_attach'(client, bufnr);
+    require 'plugins.lsp.on_attach'(client, bufnr);
 
     local keymap = {
       e = {

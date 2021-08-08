@@ -1,14 +1,11 @@
--- highlight on yank
-vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
-
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {'rust', 'dart', 'lua'},
+    ensure_installed = {'rust', 'dart', 'lua', 'comment'},
     highlight = {enable = true},
     indent = {enable = true},
     rainbow = {
         enable = true,
         extended_mode = true -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-    },
+    }
     -- https://github.com/windwp/nvim-ts-autotag
     -- autotag = {
     --     enable = true,
@@ -25,5 +22,5 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 -- vim.o.foldlevel = 0
 -- vim.o.foldlevelstart = 0
-vim.o.foldnestmax=3   -- Maximum nested folds
+vim.o.foldnestmax = 3 -- Maximum nested folds
 vim.o.foldenable = false -- dont fold by default

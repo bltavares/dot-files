@@ -1,5 +1,5 @@
-local on_attach = require 'utils.lsp.on_attach';
-local capabilities = require'utils.lsp.capabilities'.create()
+local on_attach = require 'plugins.lsp.on_attach';
+local capabilities = require'plugins.lsp.capabilities'.create()
 
 -- TODO syntax highlight with treesitter
 require'lspconfig'.terraformls.setup{

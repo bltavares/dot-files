@@ -1,7 +1,7 @@
-local wk = require('which-key')
 
 local on_attach = function(client, bufnr)
-    require 'utils.lsp.on_attach'(client, bufnr);
+    require 'plugins.lsp.on_attach'(client, bufnr);
+    local wk = require('which-key')
     local keymap = {
         c = {"<cmd>Telescope flutter commands<CR>", "commands"},
         r = {
@@ -45,7 +45,7 @@ end
 --         })
 -- end
 
-local capabilities = require('utils.lsp.capabilities').create()
+local capabilities = require('plugins.lsp.capabilities').create()
 
 -- require'lspconfig'.dartls.setup {
 --     capabilities = capabilities,
@@ -67,8 +67,6 @@ require("flutter-tools").setup {
     widget_guides = {enabled = true},
     lsp = {on_attach = on_attach, capabilities = capabilities}
 }
-
-require("telescope").load_extension("flutter")
 
 -- In order for neovim to launch certain executables on Windows, it must append .cmd to the command name. A fix is in the works upstream, but until this is mainlined please the following somewhere in your init.vim (lua heredoc) or init.lua:
 vim.loop.spawn = (function()

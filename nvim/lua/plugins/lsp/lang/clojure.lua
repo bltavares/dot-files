@@ -1,12 +1,12 @@
 local wk = require('which-key')
-local capabilities = require'utils.lsp.capabilities'.create()
+local capabilities = require'plugins.lsp.capabilities'.create()
 
 -- TODO
 -- https://github.com/guns/vim-sexp
 -- https://github.com/eraserhd/parinfer-rust
 require'lspconfig'.clojure_lsp.setup{
   on_attach = function(client, bufnr)
-    require 'utils.lsp.on_attach'(client, bufnr);
+    require 'plugins.lsp.on_attach'(client, bufnr);
 
     local keymap = {
       s = {
