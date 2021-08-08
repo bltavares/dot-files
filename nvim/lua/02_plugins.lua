@@ -93,7 +93,8 @@ paq 'folke/tokyonight.nvim' -- theme
 paq 'norcalli/nvim-colorizer.lua'
 paq 'folke/todo-comments.nvim'
 -- paq 'Famiu/feline.nvim' -- no integration to lsp-status
-paq 'hoob3rt/lualine.nvim' -- supported by theme
+-- paq 'hoob3rt/lualine.nvim' -- supported by theme -- no responses
+paq 'shadmansaleh/lualine.nvim'
 -- paq 'sunjon/shade.nvim' -- dim secondary panes -- issues with telescope TODO switch twlight off
 ---- https://github.com/kdav5758/TrueZen.nvim
 paq 'folke/twilight.nvim' -- hihglight context
