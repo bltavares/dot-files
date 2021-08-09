@@ -2,7 +2,7 @@ local fn = vim.fn
 local wk = require('which-key')
 require'which-key'.setup()
 
-wk.register({['<C-p>'] = {'<Cmd>Telescope commands<CR>', "commands"}},
+wk.register({['<C-p>'] = {"<Cmd>lua require('telescope.builtin').commands()<CR>", "commands"}},
             {silent = true, noremap = true, mode = "n"});
 
 -- TODO: git/fugitive keybindings
@@ -12,9 +12,9 @@ wk.register({['<C-p>'] = {'<Cmd>Telescope commands<CR>', "commands"}},
 -- TODO: access localleader maps over normal leader through m
 local keymap = {
     [";"] = {"<Cmd>CommentToggle<CR>", "comment"},
-    ["/"] = {'<Cmd>Telescope live_grep<CR>', 'grep'},
+    ["/"] = {"<Cmd>lua require('telescope.builtin').live_grep()<CR>", 'grep'},
     ["*"] = {
-        "<Cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>",
+        "<Cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('()<cword>') }<CR>",
         'find word in project'
     },
     q = {
@@ -35,26 +35,26 @@ local keymap = {
     },
     b = {
         name = "+buffers",
-        b = {'<Cmd>Telescope buffers<CR>', 'buffers'},
+        b = {"<Cmd>lua require('telescope.builtin').buffers()<CR>", 'buffers'},
         D = {':bufdo bd<CR>', 'do'}
     },
     f = {
         name = '+find',
-        f = {'<Cmd>Telescope find_files<CR>', "files"},
-        b = {'<Cmd>Telescope buffers<CR>', 'buffers'},
-        h = {'<Cmd>Telescope help_tags<CR>', 'help tags'},
+        f = {"<Cmd>lua require('telescope.builtin').find_files()<CR>", "files"},
+        b = {"<Cmd>lua require('telescope.builtin').buffers()<CR>", 'buffers'},
+        h = {"<Cmd>lua require('telescope.builtin').help_tags()<CR>", 'help tags'},
         c = {
             name = '+commands',
-            c = {'<Cmd>Telescope commands<CR>', 'commands'},
-            h = {'<Cmd>Telescope command_history<CR>', 'history'}
+            c = {"<Cmd>lua require('telescope.builtin').commands()<CR>", 'commands'},
+            h = {"<Cmd>lua require('telescope.builtin').command_history()<CR>", 'history'}
         },
-        q = {'<Cmd>Telescope quickfix<CR>', 'quickfix'},
+        q = {"<Cmd>lua require('telescope.builtin').quickfix()<CR>", 'quickfix'},
         g = {
             name = '+git',
-            g = {'<Cmd>Telescope git_commits<CR>', 'commits'},
-            c = {'<Cmd>Telescope git_bcommits<CR>', 'bcommits'},
-            b = {'<Cmd>Telescope git_branches<CR>', 'branches'},
-            s = {'<Cmd>Telescope git_status<CR>', 'status'}
+            g = {"<Cmd>lua require('telescope.builtin').git_commits()<CR>", 'commits'},
+            c = {"<Cmd>lua require('telescope.builtin').git_bcommits()<CR>", 'bcommits'},
+            b = {"<Cmd>lua require('telescope.builtin').git_branches()<CR>", 'branches'},
+            s = {"<Cmd>lua require('telescope.builtin').git_status()<CR>", 'status'}
         }
     },
     p = {
@@ -68,8 +68,8 @@ local keymap = {
         t = {'<Cmd>NvimTreeToggle<CR>', 'project tree'},
         T = {'<Cmd>NvimTreeFindFile<CR>', 'show on tree'},
         r = {'<Cmd>NvimTreeRefresh<CR>', 'refresh tree'},
-        f = {'<Cmd>Telescope find_files<CR>', 'files'},
-        ["/"] = {'<Cmd>Telescope live_grep<CR>', 'grep'},
+        f = {"<Cmd>lua require('telescope.builtin').find_files()<CR>", 'files'},
+        ["/"] = {"<Cmd>lua require('telescope.builtin').live_grep()<CR>", 'grep'},
         ["?"] = {'<Cmd>TodoTrouble<CR>', 'todos'}
     },
     w = {

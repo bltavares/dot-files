@@ -3,7 +3,7 @@ local on_attach = function(client, bufnr)
     require 'plugins.lsp.on_attach'(client, bufnr);
     local wk = require('which-key')
     local keymap = {
-        c = {"<cmd>Telescope flutter commands<CR>", "commands"},
+        c = {"<cmd>lua require('telescope').extensions.flutter.commands()<CR>", "commands"},
         r = {
             r = {"<cmd>FlutterReload<CR>", "reload"},
             R = {"<cmd>FlutterRestart<CR>", "restart"},

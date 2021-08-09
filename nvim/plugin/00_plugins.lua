@@ -1,5 +1,4 @@
 local fn = vim.fn
-local execute = vim.api.nvim_command
 
 -- TODO
 -- lsp
@@ -24,12 +23,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
         'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
         install_path
     })
+    vim.cmd [[packadd packer.nvim]]
 end
 
-vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function(use)
 
-    use {'wbthomason/packer.nvim', opt = true} -- Let packer manage itself
+    use 'wbthomason/packer.nvim' -- Let packer manage itself
 
     use {
         'folke/which-key.nvim',
@@ -39,7 +38,7 @@ require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim', -- Fuzzy finder
         module = 'telescope',
-        cmd = 'Telescope',
+        -- cmd = 'Telescope', -- BUG https://github.com/wbthomason/packer.nvim/issues/299
         config = function() require 'plugins.telescope' end,
         requires = {
             'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim',
@@ -62,9 +61,9 @@ require('packer').startup(function(use)
     -- use 'blackCauldron7/surround.nvim'
     -- vim.g.surround_mappings_style = "normal"
     -- require"surround".setup{}
-    use 'tpope/vim-sleuth'
-    use 'tpope/vim-abolish'
-    use 'tpope/vim-unimpaired'
+    use 'tpope/vim-sleuth' -- use correct expandtab/shiftwidth
+    use 'tpope/vim-abolish' -- smart search/replace
+    use 'tpope/vim-unimpaired' -- better % pairing
     use {
         'terrortylor/nvim-comment',
         cmd = {'CommentToggle', 'CommentOperator'},
@@ -91,9 +90,8 @@ require('packer').startup(function(use)
     use {
         'hrsh7th/nvim-compe', -- Autocomplete + LSP
         config = function() require 'plugins.compe' end,
-        requires = {'hrsh7th/nvim-compe'}
+        requires = {'hrsh7th/vim-vsnip'}
     }
-    use 'hrsh7th/vim-vsnip' -- LSP snippet
 
     use {
         'folke/lsp-trouble.nvim',
