@@ -178,7 +178,7 @@ require('packer').startup(function(use)
         'shadmansaleh/lualine.nvim',
         after = 'tokyonight.nvim',
         config = function() require 'plugins.statusline' end,
-        requires = {'nvim-lua/lsp-status.nvim'}
+        requires = {'nvim-lua/lsp-status.nvim', "nvim-treesitter/nvim-treesitter"}
     }
     use {
         'nvim-lua/lsp-status.nvim', -- for Statusline
