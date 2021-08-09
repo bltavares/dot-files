@@ -53,7 +53,7 @@ require('packer').startup(function(use)
     use {
         'kyazdani42/nvim-tree.lua',
         cmd = {'NvimTreeToggle', 'NvimTreeFindFile', 'NvimTreeRefresh'},
-        config = function() require 'plugins.nvim-tree' end
+        setup = function() require 'plugins.nvim-tree' end
     }
     use {'godlygeek/tabular', cmd = "Tabularize"}
     use 'tpope/vim-surround'
