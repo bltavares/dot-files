@@ -5,7 +5,7 @@ local LspStatus = function()
 end
 
 local TreeSitter = function()
-    return require("nvim-treesitter").statusline() or ""
+    return require("nvim-treesitter").statusline(45) or ""
 end
 
 require("lualine").setup {
