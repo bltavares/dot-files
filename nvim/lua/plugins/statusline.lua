@@ -15,15 +15,17 @@ require("lualine").setup {
         section_separators = "",
         component_separators = ""
     },
+    extensions = {"quickfix", "nvim-tree"},
     sections = {
         lualine_a = {"mode"},
         lualine_b = {"branch"},
         lualine_c = {{"filename", file_status = true}},
         lualine_x = {
+            TreeSitter,
             {"diagnostics", sources = {"nvim_lsp"}}, "encoding", "fileformat",
             "filetype"
         },
-        lualine_y = {TreeSitter, "progress"},
-        lualine_z = {"location", LspStatus}
+        lualine_y = {"location"},
+        lualine_z = {LspStatus},
     }
 }
