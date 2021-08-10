@@ -15,6 +15,10 @@ local fn = vim.fn
 ---- https://github.com/ruifm/gitlinker.nvim
 ---- https://github.com/andweeb/presence.nvim
 -- https://github.com/akinsho/dependency-assist.nvim
+-- Crazy good box drawing
+--    use "gyim/vim-boxdraw"
+-- Better increment/decrement
+--    use "monaqa/dial.nvim"
 
 -- Auto install packer if not exists
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
