@@ -94,6 +94,20 @@ local keymap = {
 }
 wk.register(keymap, {prefix = '<leader>'})
 
+if vim.g.neovide then
+    local gui_keymap = {
+        T = {
+            f = {
+                name = "+font",
+                ["+"] = {"<CMD>lua FontIncrease()<CR>", "+"},
+                ["-"] = {"<CMD>lua FontDecrease()<CR>", "-"},
+                ["0"] = {"<CMD>lua FontReset()<CR>", "reset"},
+            }
+        }
+    };
+    wk.register(gui_keymap, {prefix = '<leader>'})
+end
+
 local visual_keymap = {
     ["/"] = {":<c-u>call CommentOperator(visualmode())<cr>", "comment"},
     t = {
