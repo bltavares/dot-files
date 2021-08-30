@@ -40,8 +40,14 @@ require('packer').startup(function(use)
     }
 
     use {
+        'guns/vim-sexp',
+        requires = { 'folke/which-key.nvim' },
+        config = function() require 'plugins.vim-sexp' end
+    }
+
+    use {
         'nvim-telescope/telescope.nvim', -- Fuzzy finder
-        module = 'telescope',
+        -- module = 'telescope',
         -- cmd = 'Telescope', -- BUG https://github.com/wbthomason/packer.nvim/issues/299
         config = function() require 'plugins.telescope' end,
         requires = {
@@ -100,7 +106,7 @@ require('packer').startup(function(use)
     use {
         'folke/lsp-trouble.nvim',
         cmd = {'Trouble', 'TroubleToggle', 'LspTroubleDocumentToggle'},
-        config = function() require'trouble'.setup() end
+        config = function() require'trouble'.setup({ icons = false }) end
     }
     use {
         'simrat39/symbols-outline.nvim', -- replaces Vista
