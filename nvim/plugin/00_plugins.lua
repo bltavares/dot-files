@@ -88,6 +88,11 @@ require('packer').startup(function(use)
         config = function() require 'plugins.lsp' end,
         requires = {'folke/which-key.nvim', 'nvim-lua/lsp-status.nvim'}
     }
+    use {
+        'jose-elias-alvarez/null-ls.nvim',
+        config = function() require 'plugins.null-ls' end,
+        requires = {'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig'},
+    }
     -- use 'ray-x/lsp_signature.nvim' -- LSP Signature support -- replaced by lspsaga
     use {
         'nvim-lua/lsp_extensions.nvim', -- LSP type inlay hints
@@ -99,6 +104,8 @@ require('packer').startup(function(use)
         requires = {'neovim/nvim-lspconfig'}
     }
 
+    -- TODO: migrate to nvim-comp
+    -- TODO: https://github.com/PaterJason/cmp-conjure
     use {
         'hrsh7th/nvim-compe', -- Autocomplete + LSP
         config = function() require 'plugins.compe' end,
