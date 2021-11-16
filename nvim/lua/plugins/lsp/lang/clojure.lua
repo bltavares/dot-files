@@ -14,8 +14,8 @@ require'lspconfig'.clojure_lsp.setup{
         -- c = {"<CMD>Lein<CR>", "jackin"},
         c = {"<CMD>ConjureConnect<CR>", "connect"},
         s = {"<CMD>ConjureLogSplit<CR>", "log buffer"},
-        r = {"<CMD>ConjureCljRefreshChanged", "refresh namespaces"},
-        R = {"<CMD>ConjureCljRefreshAll", "Force refresh namespaces"},
+        r = {"<CMD>ConjureCljRefreshChanged<CR>", "refresh namespaces"},
+        R = {"<CMD>ConjureCljRefreshAll<CR>", "Force refresh namespaces"},
       },
       l = {
         name = "+log",
