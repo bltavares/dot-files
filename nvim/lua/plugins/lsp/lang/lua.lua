@@ -1,4 +1,3 @@
-
 local wk = require('which-key')
 local capabilities = require'plugins.lsp.capabilities'.create()
 

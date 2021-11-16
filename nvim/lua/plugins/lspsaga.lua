@@ -4,7 +4,7 @@ require'lspsaga'.init_lsp_saga {
     hint_sign = '•h',
     infor_sign = '•i',
     code_action_icon = '?',
-    dianostic_header_icon = '»',
+    diagnostic_header_icon = '»',
     code_action_prompt = {
         enable = true,
         sign = true,

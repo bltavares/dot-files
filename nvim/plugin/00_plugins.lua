@@ -63,7 +63,7 @@ require('packer').startup(function(use)
     use {
         'kyazdani42/nvim-tree.lua',
         cmd = {'NvimTreeToggle', 'NvimTreeFindFile', 'NvimTreeRefresh'},
-        setup = function() require 'plugins.nvim-tree' end
+        config = function() require 'plugins.nvim-tree' end
     }
     use {'godlygeek/tabular', cmd = "Tabularize"}
     use 'tpope/vim-surround'
@@ -92,7 +92,7 @@ require('packer').startup(function(use)
         config = function() require 'plugins.inlay-hints' end
     }
     use {
-        'glepnir/lspsaga.nvim', -- cute UI LSP
+        'tami5/lspsaga.nvim', -- cute UI LSP
         config = function() require 'plugins.lspsaga' end,
         requires = {'neovim/nvim-lspconfig'}
     }
@@ -183,9 +183,8 @@ require('packer').startup(function(use)
     }
 
     -- use 'Famiu/feline.nvim' -- no integration to lsp-status
-    -- use 'hoob3rt/lualine.nvim' -- supported by theme -- no responses
     use {
-        'shadmansaleh/lualine.nvim',
+        'nvim-lualine/lualine.nvim',
         after = 'tokyonight.nvim',
         config = function() require 'plugins.statusline' end,
         requires = {'nvim-lua/lsp-status.nvim', "nvim-treesitter/nvim-treesitter"}
