@@ -117,7 +117,10 @@ local visual_keymap = {
             [","] = {":Tabularize /,<CR>", ","},
             ["-"] = {":Tabularize /-<CR>", "-"},
             ["|"] = {":Tabularize /|<CR>", "|"},
-            ["="] = {":Tabularize /=<CR>", "="}
+            ["="] = {":Tabularize /=<CR>", "="},
+            ["{"] = {"vi{<C-v>$:EasyAlign\\ g/^\\S/<CR>", "{}"}, -- TODO
+            ["["] = {"vi[<C-v>$:EasyAlign\\ g/^\\S/<CR>", "[]"},
+            ["("] = {"vi(<C-v>$:EasyAlign\\ g/^\\S/<CR>", "()"},
         }
     }
 };

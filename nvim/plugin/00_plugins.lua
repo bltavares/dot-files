@@ -66,6 +66,8 @@ require('packer').startup(function(use)
         config = function() require 'plugins.nvim-tree' end
     }
     use {'godlygeek/tabular', cmd = "Tabularize"}
+    use {'junegunn/vim-easy-align'}
+
     use 'tpope/vim-surround'
     -- lua surround has less features than viml
     -- use 'blackCauldron7/surround.nvim'
