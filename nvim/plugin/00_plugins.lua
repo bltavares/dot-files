@@ -86,7 +86,11 @@ require('packer').startup(function(use)
     use {
         'neovim/nvim-lspconfig', -- Bult-in LSP
         config = function() require 'plugins.lsp' end,
-        requires = {'folke/which-key.nvim', 'nvim-lua/lsp-status.nvim'}
+        requires = {
+            'folke/which-key.nvim',
+            'nvim-lua/lsp-status.nvim',
+            'hrsh7th/cmp-nvim-lsp',
+        },
     }
     use {
         'jose-elias-alvarez/null-ls.nvim',
@@ -105,11 +109,17 @@ require('packer').startup(function(use)
     }
 
     -- TODO: migrate to nvim-comp
-    -- TODO: https://github.com/PaterJason/cmp-conjure
     use {
-        'hrsh7th/nvim-compe', -- Autocomplete + LSP
-        config = function() require 'plugins.compe' end,
-        requires = {'hrsh7th/vim-vsnip'}
+        'hrsh7th/nvim-cmp', -- Autocomplete + LSP
+        config = function() require 'plugins.cmp' end,
+        requires = {
+            'hrsh7th/vim-vsnip',
+            'hrsh7th/cmp-vsnip',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+        }
     }
 
     use {
@@ -164,8 +174,12 @@ require('packer').startup(function(use)
     }
 
     -- clojure
-    use {'Olical/conjure', ft = {'clojure'}}
-    use {'tami5/compe-conjure', after = {'conjure'}}
+    -- TODO validate cmp-conjure loading order
+    use {
+        'PaterJason/cmp-conjure',
+        requires = {'Olical/conjure', 'hrsh7th/nvim-cmp'},
+        ft = {'clojure'}
+    }
     -- use 'clojure-vim/vim-jack-in' -- Issues: closes terminal after start
 
     -- ui
