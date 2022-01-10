@@ -22,7 +22,7 @@ require("lualine").setup {
         lualine_c = {{"filename", file_status = true}},
         lualine_x = {
             TreeSitter,
-            {"diagnostics", sources = {"nvim_lsp"}}, "encoding", "fileformat",
+            {"diagnostics", sources = {"nvim_diagnostic"}}, "encoding", "fileformat",
             "filetype"
         },
         lualine_y = {"location"},
