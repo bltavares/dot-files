@@ -11,7 +11,7 @@ require'lspconfig'.clojure_lsp.setup{
     local keymap = {
       s = {
         name = "+repl",
-        -- c = {"<CMD>Lein<CR>", "jackin"},
+        j = {"<CMD>Lein<CR>", "jackin"},
         c = {"<CMD>ConjureConnect<CR>", "connect"},
         s = {"<CMD>ConjureLogSplit<CR>", "log buffer"},
         r = {"<CMD>ConjureCljRefreshChanged<CR>", "refresh namespaces"},

@@ -19,6 +19,9 @@ local fn = vim.fn
 --    use "gyim/vim-boxdraw"
 -- Better increment/decrement
 --    use "monaqa/dial.nvim"
+-- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/13
+-- https://github.com/petertriho/nvim-scrollbar?utm_source=pocket_mylist
+-- Fix Cmd-v on neovide: inoremap <D-v> <C-W>"
 
 -- Auto install packer if not exists
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
@@ -124,7 +127,7 @@ require('packer').startup(function(use)
 
     use {
         'folke/lsp-trouble.nvim',
-        cmd = {'Trouble', 'TroubleToggle', 'LspTroubleDocumentToggle'},
+        cmd = {'Trouble', 'TroubleToggle'},
         config = function() require'trouble'.setup({ icons = false }) end
     }
     use {
@@ -180,7 +183,11 @@ require('packer').startup(function(use)
         requires = {'Olical/conjure', 'hrsh7th/nvim-cmp'},
         ft = {'clojure'}
     }
-    -- use 'clojure-vim/vim-jack-in' -- Issues: closes terminal after start
+    use {
+      'clojure-vim/vim-jack-in',
+      requires = {'tpope/vim-dispatch', 'radenling/vim-dispatch-neovim'},
+      ft = {'clojure'}
+    }
 
     -- ui
     -- use 'shaunsingh/moonlight.nvim' -- theme
