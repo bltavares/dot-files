@@ -4,7 +4,6 @@ local lsp_status = require('lsp-status')
 local on_attach = function(client, bufnr)
     lsp_status.on_attach(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    vim.g.nvim_tree_lsp_diagnostics = 1
 
     -- Mappings.
     local opts = {mode = "n", noremap = true, silent = true, buffer = bufnr}
@@ -115,10 +114,10 @@ local on_attach = function(client, bufnr)
     }
 
     -- Set some keybinds conditional on server capabilities
-    if client.resolved_capabilities.document_formatting then
-        keymap['r']['='] = {"<cmd>lua vim.lsp.buf.formatting()<CR>", 'format'}
+    if client.server_capabilities.documentFormatting then
+        keymap['r']['='] = {"<cmd>lua vim.lsp.buf.format { async = true }<CR>", 'format'}
     end
-    if client.resolved_capabilities.document_range_formatting then
+    if client.server_capabilities.documentRangeFormatting then
         visual_keymap['r']['='] = {
             "<cmd>lua vim.lsp.buf.range_formatting()<CR>", 'format'
         }
@@ -151,7 +150,7 @@ local on_attach = function(client, bufnr)
     -- ]]
 
     -- Set autocommands conditional on server_capabilities
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.documentHighlight then
         vim.api.nvim_command [[
     hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
     hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow

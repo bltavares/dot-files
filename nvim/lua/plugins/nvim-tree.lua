@@ -3,28 +3,32 @@ require'nvim-tree'.setup {
     -- https://github.com/kyazdani42/nvim-tree.lua/issues/248
     -- disable_netrw = 0
     -- hijack_netrw = 0
-    show_icons = {git = true, folders = true, files = false},
-    git_hl = true,
-    auto_open = true,
-    auto_close = true,
-    indent_markers = true,
-    group_empty = true,
-    icons = {
-        git = {
-            unstaged = "~",
-            staged = "+",
-            unmerged = "!",
-            renamed = "≈",
-            untracked = "?",
-            deleted = "-"
+    diagnostics = { enable = true },
+    open_on_setup = true,
+    renderer = {
+        highlight_git = true,
+        group_empty = true,
+        indent_markers = { enable = true },
+        icons = {
+            show = {git = true, folder = true, file = false},
+            glyphs = {
+                git = {
+                    unstaged = "~",
+                    staged = "+",
+                    unmerged = "!",
+                    renamed = "≈",
+                    untracked = "?",
+                    deleted = "-"
+                },
+                folder = {
+                    default = "▸",
+                    open = "▾",
+                    empty = "▸",
+                    empty_open = "▾",
+                    symlink = "▸",
+                    symlink_open = "▾"
+                }
+            },
         },
-        folder = {
-            default = "▸",
-            open = "▾",
-            empty = "▸",
-            empty_open = "▾",
-            symlink = "▸",
-            symlink_open = "▾"
-        }
-    }
+    },
 }
