@@ -106,7 +106,8 @@ require('packer').startup(function(use)
         config = function() require 'plugins.inlay-hints' end
     }
     use {
-        'tami5/lspsaga.nvim', -- cute UI LSP
+        'glepnir/lspsaga.nvim', -- cute UI LSP
+        branch = 'main',
         config = function() require 'plugins.lspsaga' end,
         requires = {'neovim/nvim-lspconfig'}
     }
