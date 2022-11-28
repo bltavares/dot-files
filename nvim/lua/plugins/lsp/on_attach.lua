@@ -16,35 +16,26 @@ local on_attach = function(client, bufnr)
         ['gr'] = {'<cmd>lua vim.lsp.buf.references()<CR>', "goto references"},
         -- ['K'] = '<Cmd>lua vim.lsp.buf.hover()<CR>',
         ['K'] = {
-            "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>",
+            "<cmd>Lspsaga hover_doc<CR>",
             "show docs"
         },
-        -- ['<C-k>'] = '<cmd>lua vim.lsp.buf.signature_help()<CR>',,
         ['<C-k>'] = {
-            "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>",
+            "<cmd>lua vim.lsp.buf.signature_help()<CR>",
             "signature help"
-        },
-        ["<C-f>"] = {
-            "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
-            "scroll action down"
-        },
-        ["<C-b>"] = {
-            "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
-            "scroll action up"
         },
         -- buggy and does not combine with hovering info
         -- ['gs'] = "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>" ,
         ['gs'] = {
-            "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>",
+            "<cmd>lua vim.lsp.buf.signature_help()<CR>",
             "preview definition"
         },
         -- ['[d'] = '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',
         ['[d'] = {
-            "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>",
+            "<cmd>Lspsaga diagnostic_jump_prev<CR>",
             "previous diagnostic"
         },
         [']d'] = {
-            "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>",
+            "<cmd>Lspsaga diagnostic_jump_next<CR>",
             "next diagnostic"
         }
     }, opts);
@@ -71,14 +62,14 @@ local on_attach = function(client, bufnr)
                 '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'type definitions'
             },
             h = {
-                "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>",
+                "<cmd>Lspsaga lsp_finder<CR>",
                 'find reference'
             },
             -- r = {'<cmd>lua vim.lsp.buf.rename()<CR>', 'rename'},
-            r = {"<cmd>lua require('lspsaga.rename').rename()<CR>", 'rename'},
+            r = {"<cmd>Lspsaga rename<CR>", 'rename'},
             -- a = {'<cmd>lua vim.lsp.buf.code_actions()<CR>', 'action'},
             a = {
-                "<cmd>lua require('lspsaga.codeaction').code_action()<CR>",
+                "<cmd>Lspsaga code_action<CR>",
                 'action'
             },
             -- e = {
@@ -86,11 +77,11 @@ local on_attach = function(client, bufnr)
             --     'line diagnostic'
             -- },
             e = {
-                "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>",
+                "<cmd>Lspsaga show_line_diagnostics<CR>",
                 'line diagnostic'
             },
             E = {
-                "<cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>",
+                "<cmd>Lspsaga show_cursor_diagnostics<CR>",
                 "current diagnostic"
             },
             l = {'<cmd>lua vim.diagnostic.setloclist()<CR>', 'loc list'},
@@ -107,17 +98,17 @@ local on_attach = function(client, bufnr)
         r = {
             name = "+refactor",
             a = {
-                "<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>",
+                "<cmd>Lspsaga code_action<CR>",
                 "action"
             }
         }
     }
 
     -- Set some keybinds conditional on server capabilities
-    if client.server_capabilities.documentFormatting then
+    if client.server_capabilities.documentFormattingProvider then
         keymap['r']['='] = {"<cmd>lua vim.lsp.buf.format { async = true }<CR>", 'format'}
     end
-    if client.server_capabilities.documentRangeFormatting then
+    if client.server_capabilities.documentRangeFormattingProvider then
         visual_keymap['r']['='] = {
             "<cmd>lua vim.lsp.buf.range_formatting()<CR>", 'format'
         }
@@ -139,28 +130,33 @@ local on_attach = function(client, bufnr)
         buffer = bufnr
     })
 
-    -- vim.api.nvim_exec([[
-    --   autocmd CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics()
-    --   autocmd CursorHoldI <buffer> silent! lua vim.lsp.buf.signature_help()
-    -- ]], false)
-
-    -- does not play well with other lsp
-    -- vim.api.nvim_command [[
-    --     autocmd CursorHold,CursorHoldI * :lua require('lspsaga.signaturehelp').signature_help()
-    -- ]]
+    -- Shows documentation on cursor movement (noisy)
+    vim.api.nvim_command [[
+        autocmd CursorHold,CursorHoldI * :lua vim.lsp.buf.signature_help()
+    ]]
 
     -- Set autocommands conditional on server_capabilities
-    if client.server_capabilities.documentHighlight then
+    if client.server_capabilities.documentHighlightProvider then
         vim.api.nvim_command [[
-    hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-    hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-    hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-    augroup lsp_document_highlight
-    autocmd! * <buffer>
-    autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-    augroup END
-      ]]
+    hi LspReferenceRead  cterm=bold ctermbg=red gui=bold guifg=LightYellow
+    hi LspReferenceWrite cterm=bold ctermbg=red gui=bold guifg=red
+    hi LspReferenceText  cterm=underline gui=underline
+    ]]
+
+        vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+        vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
+        vim.api.nvim_create_autocmd("CursorHold", {
+            callback = vim.lsp.buf.document_highlight,
+            buffer = bufnr,
+            group = "lsp_document_highlight",
+            desc = "Document Highlight",
+        })
+        vim.api.nvim_create_autocmd("CursorMoved", {
+            callback = vim.lsp.buf.clear_references,
+            buffer = bufnr,
+            group = "lsp_document_highlight",
+            desc = "Clear All the References",
+        })
     end
 end
 

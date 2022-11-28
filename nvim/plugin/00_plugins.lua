@@ -232,4 +232,12 @@ require('packer').startup(function(use)
         cmd = {"Twilight"},
         config = function() require'twilight'.setup() end
     }
+
+    use {
+        'antoinemadec/FixCursorHold.nvim',
+        setup = function()
+            print('There')
+            vim.g.cursorhold_updatetime = 100
+        end,
+    }
 end)
