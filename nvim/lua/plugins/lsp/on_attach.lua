@@ -130,10 +130,11 @@ local on_attach = function(client, bufnr)
         buffer = bufnr
     })
 
-    -- Shows documentation on cursor movement (noisy)
-    vim.api.nvim_command [[
-        autocmd CursorHold,CursorHoldI * :lua vim.lsp.buf.signature_help()
-    ]]
+    -- Shows documentation on cursor movement 
+    -- (noisy and does not integrate with document_highlight)
+    -- vim.api.nvim_command [[
+    --     autocmd CursorHold,CursorHoldI * :lua vim.lsp.buf.signature_help()
+    -- ]]
 
     -- Set autocommands conditional on server_capabilities
     if client.server_capabilities.documentHighlightProvider then
