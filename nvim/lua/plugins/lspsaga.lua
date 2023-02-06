@@ -1,6 +1,46 @@
-require'lspsaga'.init_lsp_saga {
+-- Reset the icons as I dont like them
+local kind = {
+    File =  "",
+    Module = "",
+    Namespace = "",
+    Package = "",
+    Class = "",
+    Method = "",
+    Property = "",
+    Field = "",
+    Constructor = "",
+    Enum = "",
+    Interface = "",
+    Function = "",
+    Variable = "",
+    Constant = "",
+    String = "",
+    Number = "",
+    Boolean = "",
+    Array = "",
+    Object = "",
+    Key = "",
+    Null = "",
+    EnumMember = "",
+    Struct = "",
+    Event = "",
+    Operator = "",
+    TypeParameter = "",
+    TypeAlias = "",
+    Parameter = "",
+    StaticMethod = "",
+    Macro = "",
+    Text = "",
+    Snippet = "",
+    Folder = "",
+    Unit = "",
+    Value = "",
+}
+
+require'lspsaga'.setup {
     -- diagnostic_header_icon = '»',
     -- error, warn, info, hint
+    symbol_in_winbar = { separator = '»' },
     diagnostic_header = { '•e', '•w', '•i', '•h', },
     code_action_icon = '?',
     code_action_lightbulb = {
@@ -22,5 +62,6 @@ require'lspsaga'.init_lsp_saga {
         quit = '<esc>',
         scroll_down = '<C-n>',
         scroll_up = '<C-p>'
-    }
+    },
+    ui = { kind = kind }
 }
