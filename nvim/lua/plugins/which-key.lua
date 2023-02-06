@@ -11,6 +11,7 @@ wk.register({['<C-p>'] = {"<Cmd>lua require('telescope.builtin').commands()<CR>"
 -- TODO: dap-debug keybindings
 -- TODO: access localleader maps over normal leader through m
 local keymap = {
+  [" "] = {"<Cmd>lua require('telescope.builtin').resume()<CR>", "resume panel"},
   [";"] = {"<Cmd>CommentToggle<CR>", "comment"},
   ["/"] = {"<Cmd>lua require('telescope.builtin').live_grep()<CR>", 'grep'},
   ["*"] = {
