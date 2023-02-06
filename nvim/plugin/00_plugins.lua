@@ -70,6 +70,11 @@ require('packer').startup(function(use)
     }
     use {'godlygeek/tabular', cmd = "Tabularize"}
     use {'junegunn/vim-easy-align'}
+    use {
+        'johmsalas/text-case.nvim',
+        requires = { 'folke/which-key.nvim', 'nvim-telescope/telescope.nvim' },
+        config = function() require'plugins.textcase' end
+    }
 
     use 'tpope/vim-surround'
     -- lua surround has less features than viml
