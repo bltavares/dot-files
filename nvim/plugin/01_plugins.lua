@@ -259,4 +259,28 @@ require('lazy').setup({
             vim.g.cursorhold_updatetime = 100
         end,
     },
+
+    -- Autocompletion AI
+     {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                --- use cmp instead
+                -- suggestion = { enabled = false },
+                -- panel = { enabled = false },
+            })
+        end,
+    }
+
+    -- use {
+    --     "zbirenbaum/copilot-cmp",
+    --     after = { "copilot.lua" },
+    --     config = function ()
+    --         require("copilot_cmp").setup()
+    --     end
+    -- }
+    --
+
 })
