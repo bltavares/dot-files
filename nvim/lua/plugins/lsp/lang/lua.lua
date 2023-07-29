@@ -1,7 +1,7 @@
 local wk = require('which-key')
 local capabilities = require'plugins.lsp.capabilities'.create()
 
-require'lspconfig'.sumneko_lua.setup {
+require'lspconfig'.lua_ls.setup {
   cmd = {vim.fn.exepath('lua-language-server')};
   on_attach = function(client, bufnr)
     require 'plugins.lsp.on_attach'(client, bufnr);
@@ -36,10 +36,7 @@ require'lspconfig'.sumneko_lua.setup {
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        },
+        library = vim.api.nvim_get_runtime_file("", true),
       },
       -- Do not send telemetry ata containing a randomized but unique identifier
       telemetry = {
