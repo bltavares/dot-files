@@ -71,7 +71,7 @@ require('lazy').setup({
     },
     {
         "projekt0n/circles.nvim",
-        requires = {"nvim-tree/nvim-web-devicons"},
+        dependencies = {"nvim-tree/nvim-web-devicons"},
         config = function() require("circles").setup() end
     },
     {
@@ -125,8 +125,13 @@ require('lazy').setup({
         'glepnir/lspsaga.nvim', -- cute UI LSP
         branch = 'main',
         config = function() require 'plugins.lspsaga' end,
-        dependencies = {'neovim/nvim-lspconfig'},
-    },
+        dependencies = {
+            'neovim/nvim-lspconfig',
+            'nvim-tree/nvim-web-devicons', -- fuck this shit ARRRRG
+            --Please make sure you install markdown and markdown_inline parser
+            'nvim-treesitter/nvim-treesitter',
+        }
+    }
 
     -- TODO: migrate to nvim-comp
     {
