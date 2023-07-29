@@ -22,6 +22,8 @@ local fn = vim.fn
 -- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/13
 -- https://github.com/petertriho/nvim-scrollbar?utm_source=pocket_mylist
 -- Fix Cmd-v on neovide: inoremap <D-v> <C-W>"
+-- treesitter semantic join
+-- https://github.com/Wansmer/treesj
 
 -- Auto install lazy if not exists
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
