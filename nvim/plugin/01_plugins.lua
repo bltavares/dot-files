@@ -69,7 +69,11 @@ require('lazy').setup({
         'ahmedkhalf/lsp-rooter.nvim',
         config = function() require'lsp-rooter'.setup() end
     },
-
+    {
+        "projekt0n/circles.nvim",
+        requires = {"nvim-tree/nvim-web-devicons"},
+        config = function() require("circles").setup() end
+    },
     {
         'kyazdani42/nvim-tree.lua',
         cmd = {'NvimTreeToggle', 'NvimTreeFindFile', 'NvimTreeRefresh'},
