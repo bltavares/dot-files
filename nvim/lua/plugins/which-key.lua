@@ -154,3 +154,4 @@ wk.register(localkeymap, {
   noremap = true,
   mode = 'n'
 })
+

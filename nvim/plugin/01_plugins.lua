@@ -24,6 +24,10 @@ local fn = vim.fn
 -- Fix Cmd-v on neovide: inoremap <D-v> <C-W>"
 -- treesitter semantic join
 -- https://github.com/Wansmer/treesj
+--
+-- Replace null-ls?
+-- https://github.com/mfussenegger/nvim-lint
+-- https://github.com/mhartington/formatter.nvim (?maybe)
 
 -- Auto install lazy if not exists
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
