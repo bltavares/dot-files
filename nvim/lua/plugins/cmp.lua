@@ -1,51 +1,54 @@
--- autocomplete with lsp integration -- intelisense
-vim.o.completeopt = "menuone,noselect"
 -- vim.o.completeopt = "menu,menuone,noselect"
 local cmp = require'cmp'
 
 cmp.setup({
-		snippet = {
-				expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body)
-				end,
-		},
-		mapping = {
-				['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-				['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-				['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-				['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-				['<C-e>'] = cmp.mapping({
-						i = cmp.mapping.abort(),
-						c = cmp.mapping.close(),
-				}),
-				['<CR>'] = cmp.mapping.confirm({ select = true }),
-		},
-		sources = cmp.config.sources({
-				{ name = 'nvim_lsp' },
-				{ name = 'vsnip' },
-				{ name = 'conjure' },
+	snippet = {
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body)
+		end,
+	},
+	formatting = {
+		format = function(entry, vim_item)
+			vim_item.menu = string.format('[%s]', entry.source.name)
+			return vim_item
+		end
+	},
+	mapping = cmp.mapping.preset.insert({
+		['<C-d>'] = cmp.mapping.scroll_docs(-4),
+		['<C-f>'] = cmp.mapping.scroll_docs(4),
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-e>'] = cmp.mapping.abort(),
+		['<CR>'] = cmp.mapping.confirm({ select = true }),
+	}),
+	sources = cmp.config.sources({
+		{ name = 'nvim_lsp' },
+		{ name = 'vsnip' },
+		{ name = 'conjure' },
 		}, {
-						{ name = 'buffer' },
-				})
+			{ name = 'buffer' },
+	})
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
-		sources = {
-				{ name = 'buffer' }
-		}
+cmp.setup.cmdline({ '/', '?' }, {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = 'buffer' }
+	}
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-		sources = cmp.config.sources({
-				{ name = 'path' }
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = 'path' }
 		}, {
-						{ name = 'cmdline' }
-				})
+			{ name = 'cmdline' }
+	})
 })
 
 
 vim.api.nvim_command [[
 autocmd FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }
 ]]
+
