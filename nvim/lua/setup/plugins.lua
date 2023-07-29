@@ -121,11 +121,9 @@ require('lazy').setup({
         config = function() require 'config.inlay-hints' end
     },
     {
-        'glepnir/lspsaga.nvim', -- cute UI LSP
-        branch = 'main',
+        'nvimdev/lspsaga.nvim', -- cute UI LSP
         config = function() require 'config.lspsaga' end,
         dependencies = {
-            'neovim/nvim-lspconfig',
             'nvim-tree/nvim-web-devicons', -- fuck this shit ARRRRG
             --Please make sure you install markdown and markdown_inline parser
             'nvim-treesitter/nvim-treesitter',
