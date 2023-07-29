@@ -29,7 +29,7 @@ local keymap = {
     name = "+editor",
     e = {'<Cmd>e ' .. fn.stdpath('config') .. '/plugin/01_general.lua<CR>', 'edit'},
     p = {
-      '<Cmd>e ' .. fn.stdpath('config') .. '/plugin/00_plugins.lua<CR>',
+      '<Cmd>e ' .. fn.stdpath('config') .. '/plugin/00_config.lua<CR>',
       'plugins'
     },
     r = {'<Cmd>luafile %<CR>', 'eval current lua file'}

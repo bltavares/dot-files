@@ -1,6 +1,6 @@
 
 local on_attach = function(client, bufnr)
-    require 'plugins.lsp.on_attach'(client, bufnr);
+    require 'config.lsp.on_attach'(client, bufnr);
     local wk = require('which-key')
     local keymap = {
         c = {"<cmd>lua require('telescope').extensions.flutter.commands()<CR>", "commands"},
@@ -45,7 +45,7 @@ end
 --         })
 -- end
 
-local capabilities = require('plugins.lsp.capabilities').create()
+local capabilities = require('config.lsp.capabilities').create()
 
 -- require'lspconfig'.dartls.setup {
 --     capabilities = capabilities,

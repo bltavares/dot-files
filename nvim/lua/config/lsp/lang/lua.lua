@@ -1,10 +1,10 @@
 local wk = require('which-key')
-local capabilities = require'plugins.lsp.capabilities'.create()
+local capabilities = require'config.lsp.capabilities'.create()
 
 require'lspconfig'.lua_ls.setup {
   cmd = {vim.fn.exepath('lua-language-server')};
   on_attach = function(client, bufnr)
-    require 'plugins.lsp.on_attach'(client, bufnr);
+    require 'config.lsp.on_attach'(client, bufnr);
 
     local keymap = {
       e = {

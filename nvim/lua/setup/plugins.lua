@@ -28,7 +28,6 @@ local fn = vim.fn
 -- Replace null-ls?
 -- https://github.com/mfussenegger/nvim-lint
 -- https://github.com/mhartington/formatter.nvim (?maybe)
-
 -- Auto install lazy if not exists
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -46,20 +45,20 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
     {
         'folke/which-key.nvim',
-        config = function() require 'plugins.which-key' end
+        config = function() require 'config.which-key' end
     },
 
     {
         'guns/vim-sexp',
         dependencies = { 'folke/which-key.nvim' },
-        config = function() require 'plugins.vim-sexp' end
+        config = function() require 'config.vim-sexp' end
     },
 
     {
         'nvim-telescope/telescope.nvim', -- Fuzzy finder
         -- module = 'telescope',
         -- cmd = 'Telescope', -- BUG https://github.com/wbthomason/packer.nvim/issues/299
-        config = function() require 'plugins.telescope' end,
+        config = function() require 'config.telescope' end,
         dependencies = {
             'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-project.nvim'
@@ -77,14 +76,14 @@ require('lazy').setup({
     {
         'kyazdani42/nvim-tree.lua',
         cmd = {'NvimTreeToggle', 'NvimTreeFindFile', 'NvimTreeRefresh'},
-        config = function() require 'plugins.nvim-tree' end
+        config = function() require 'config.nvim-tree' end
     },
     {'godlygeek/tabular', cmd = "Tabularize"},
     {'junegunn/vim-easy-align'},
     {
         'johmsalas/text-case.nvim',
         dependencies = { 'folke/which-key.nvim', 'nvim-telescope/telescope.nvim' },
-        config = function() require'plugins.textcase' end
+        config = function() require'config.textcase' end
     },
 
     'tpope/vim-surround',
@@ -104,7 +103,7 @@ require('lazy').setup({
 
     {
         'neovim/nvim-lspconfig', -- Bult-in LSP
-        config = function() require 'plugins.lsp' end,
+        config = function() require 'config.lsp' end,
         dependencies = {
             'folke/which-key.nvim',
             'nvim-lua/lsp-status.nvim',
@@ -113,30 +112,30 @@ require('lazy').setup({
     },
     {
         'jose-elias-alvarez/null-ls.nvim',
-        config = function() require 'plugins.null-ls' end,
+        config = function() require 'config.null-ls' end,
         dependencies = {'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig'},
     },
     -- 'ray-x/lsp_signature.nvim' -- LSP Signature support -- replaced by lspsaga
     {
         'nvim-lua/lsp_extensions.nvim', -- LSP type inlay hints
-        config = function() require 'plugins.inlay-hints' end
+        config = function() require 'config.inlay-hints' end
     },
     {
         'glepnir/lspsaga.nvim', -- cute UI LSP
         branch = 'main',
-        config = function() require 'plugins.lspsaga' end,
+        config = function() require 'config.lspsaga' end,
         dependencies = {
             'neovim/nvim-lspconfig',
             'nvim-tree/nvim-web-devicons', -- fuck this shit ARRRRG
             --Please make sure you install markdown and markdown_inline parser
             'nvim-treesitter/nvim-treesitter',
         }
-    }
+    },
 
     -- TODO: migrate to nvim-comp
     {
         'hrsh7th/nvim-cmp', -- Autocomplete + LSP
-        config = function() require 'plugins.cmp' end,
+        config = function() require 'config.cmp' end,
         dependencies = {
             'hrsh7th/vim-vsnip',
             'hrsh7th/cmp-vsnip',
@@ -179,7 +178,7 @@ require('lazy').setup({
             'neovim/nvim-lspconfig', 'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim'
         },
-        config = function() require 'plugins.rust-tools' end
+        config = function() require 'config.rust-tools' end
     },
     {'mhinz/vim-crates', ft = "toml", cmd = {"CratesUp", "CratesToggle"}},
 
@@ -188,7 +187,7 @@ require('lazy').setup({
         'akinsho/flutter-tools.nvim',
         ft = {"flutter", "dart"},
         dependencies = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim'},
-        config = function() require 'plugins.flutter-tools' end
+        config = function() require 'config.flutter-tools' end
     },
 
     -- markdown
@@ -230,19 +229,19 @@ require('lazy').setup({
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
-        config = function() require 'plugins.treesitter' end,
+        config = function() require 'config.treesitter' end,
         dependencies = {'p00f/nvim-ts-rainbow'},
     },
 
     -- 'Famiu/feline.nvim' -- no integration to lsp-status
     {
         'nvim-lualine/lualine.nvim',
-        config = function() require 'plugins.statusline' end,
+        config = function() require 'config.statusline' end,
         dependencies = {'nvim-lua/lsp-status.nvim', "nvim-treesitter/nvim-treesitter", "tokyonight.nvim"},
     },
     {
         'nvim-lua/lsp-status.nvim', -- for Statusline
-        config = function() require 'plugins.lsp-status' end
+        config = function() require 'config.lsp-status' end
     },
 
     -- 'sunjon/shade.nvim' -- dim secondary panes -- issues with telescope TODO switch twlight off

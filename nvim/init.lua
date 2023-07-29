@@ -7,3 +7,7 @@
 --       return spawn(full_path, options, on_exit)
 --   end
 -- end)()
+
+require('setup.general')
+require('setup.plugins')
+require('setup.gui')
