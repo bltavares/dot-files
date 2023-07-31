@@ -7,6 +7,11 @@ linking() {
   ln -s $1 $2
 }
 
+install.nvim() {
+  mkdir -p $HOME/.config
+  linking $curr_dir/nvim $HOME/.config/nvim
+}
+
 install.vim() {
   mkdir -p vim/autoload
   curl -fLo vim/autoload/plug.vim \
@@ -74,7 +79,7 @@ install.all() {
   install.weechat
 }
 
-options=("bins" "emacs" "vim" "confs" "zsh" "mutt" "weechat" "all")
+options=("bins" "emacs" "vim" "nvim" "confs" "zsh" "mutt" "weechat" "all")
 help() {
   echo "install.sh [option]"
   echo "[options] - one of the following:"
