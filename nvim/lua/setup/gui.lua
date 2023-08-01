@@ -5,7 +5,7 @@ if vim.g.neovide then
     local step = 1;
     -- local font = "CaskaydiaCove Nerd Font Mono"
     -- local font = "JetBrainsMono Nerd Font Mono"
-    local font = "FuraCode Nerd Font Mono"
+    local font = "FiraCode Nerd Font Mono"
     vim.o.guifont = font .. ":h" .. font_size
 
     _G.FontIncrease = function ()
