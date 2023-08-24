@@ -63,6 +63,11 @@ install.weechat() {
   linking $curr_dir/weechat $HOME/.weechat
 }
 
+install.zellij() {
+  mkdir -p $HOME/.config
+  linking $curr_dir/zellij $HOME/.config/zellij
+}
+
 #OS=`uname -s`
 #if [[ "$OS" != "Darwin" ]]; then
   #cd $HOME
@@ -77,9 +82,10 @@ install.all() {
   install.zsh
   install.mutt
   install.weechat
+  install.zellij
 }
 
-options=("bins" "emacs" "vim" "nvim" "confs" "zsh" "mutt" "weechat" "all")
+options=("bins" "emacs" "vim" "nvim" "confs" "zsh" "mutt" "weechat" "zellij" "all")
 help() {
   echo "install.sh [option]"
   echo "[options] - one of the following:"
