@@ -12,37 +12,8 @@ install.nvim() {
   linking $curr_dir/nvim $HOME/.config/nvim
 }
 
-install.vim() {
-  mkdir -p vim/autoload
-  curl -fLo vim/autoload/plug.vim \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-  linking $curr_dir/vim $HOME/.vim
-  linking $curr_dir/vim/vimrc $HOME/.vimrc
-}
-
-install.emacs() {
-  # [[ -d $HOME/.cask ]] || git clone https://github.com/cask/cask.git $HOME/.cask
-  # linking $curr_dir/emacs.d $HOME/.emacs.d
-
-  [[ -d $HOME/.emacs.d.spacemacs ]] || git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
-  linking $curr_dir/spacemacs.d $HOME/.spacemacs.d
-}
-
-install.mutt() {
-  linking $curr_dir/mutt $HOME/.mutt
-  linking $curr_dir/muttrc $HOME/.muttrc
-}
-
 install.confs() {
   linking $curr_dir/gitignore_global $HOME/.gitignore_global
-  linking $curr_dir/tmux.conf $HOME/.tmux.conf
-  linking $curr_dir/tmux-osx.conf $HOME/.tmux-osx.conf
-  linking $curr_dir/ctags $HOME/.ctags
-  linking $curr_dir/blogalrc $HOME/.globalrc
-
-  mkdir -p $HOME/.config
-  linking $curr_dir/awesome $HOME/.config/awesome
 }
 
 install.zsh() {
@@ -52,6 +23,11 @@ install.zsh() {
   linking $curr_dir/zsh/zshrc $HOME/.zshrc
 }
 
+install.zellij() {
+  mkdir -p $HOME/.config
+  linking $curr_dir/zellij $HOME/.config/zellij
+}
+
 install.bins() {
   mkdir -p $HOME/bin
   for b in $curr_dir/bin/*; do
@@ -59,33 +35,15 @@ install.bins() {
   done
 }
 
-install.weechat() {
-  linking $curr_dir/weechat $HOME/.weechat
-}
-
-install.zellij() {
-  mkdir -p $HOME/.config
-  linking $curr_dir/zellij $HOME/.config/zellij
-}
-
-#OS=`uname -s`
-#if [[ "$OS" != "Darwin" ]]; then
-  #cd $HOME
-  #curl -L https://gist.github.com/bltavares/2706792/raw/post-install.sh | bash
-#fi
-
 install.all() {
   install.bins
-  install.emacs
-  install.vim
   install.confs
   install.zsh
-  install.mutt
-  install.weechat
+  install.nvim
   install.zellij
 }
 
-options=("bins" "emacs" "vim" "nvim" "confs" "zsh" "mutt" "weechat" "zellij" "all")
+options=("bins" "nvim" "confs" "zsh" "zellij" "all")
 help() {
   echo "install.sh [option]"
   echo "[options] - one of the following:"
