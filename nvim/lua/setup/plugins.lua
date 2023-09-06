@@ -1,5 +1,3 @@
-local fn = vim.fn
-
 -- TODO
 -- lsp
 ---- https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim
@@ -141,6 +139,7 @@ require('lazy').setup({
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
+            "PaterJason/cmp-conjure",
         },
     },
 
@@ -196,11 +195,14 @@ require('lazy').setup({
     },
 
     -- clojure
-    -- TODO validate cmp-conjure loading order
     {
-        'PaterJason/cmp-conjure',
-        dependencies = {'Olical/conjure', 'hrsh7th/nvim-cmp'},
-        ft = {'clojure'},
+        "Olical/conjure",
+        dependencies = { "PaterJason/cmp-conjure" },
+        ft = { "clojure" },
+        config = function()
+            require("conjure.main").main()
+            require("conjure.mapping")["on-filetype"]()
+        end,
     },
     {
       'clojure-vim/vim-jack-in',

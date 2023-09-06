@@ -1,5 +1,5 @@
 -- vim.o.completeopt = "menu,menuone,noselect"
-local cmp = require'cmp'
+local cmp = require 'cmp'
 
 cmp.setup({
 	snippet = {
@@ -21,11 +21,11 @@ cmp.setup({
 		['<CR>'] = cmp.mapping.confirm({ select = true }),
 	}),
 	sources = cmp.config.sources({
+		{ name = 'conjure' },
 		{ name = 'nvim_lsp' },
 		{ name = 'vsnip' },
-		{ name = 'conjure' },
-		}, {
-			{ name = 'buffer' },
+	}, {
+		{ name = 'buffer' },
 	})
 })
 
@@ -42,8 +42,8 @@ cmp.setup.cmdline(':', {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
 		{ name = 'path' }
-		}, {
-			{ name = 'cmdline' }
+	}, {
+		{ name = 'cmdline' }
 	})
 })
 
@@ -51,4 +51,3 @@ cmp.setup.cmdline(':', {
 vim.api.nvim_command [[
 autocmd FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }
 ]]
-
