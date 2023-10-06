@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {'rust', 'dart', 'lua', 'comment'},
+    ensure_installed = {'rust', 'dart', 'lua', 'comment', 'markdown', 'markdown_inline', 'yaml','hcl',},
     highlight = {enable = true},
     indent = {enable = true},
     rainbow = {
