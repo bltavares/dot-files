@@ -208,6 +208,10 @@ require('lazy').setup({
             require("conjure.main").main()
             require("conjure.mapping")["on-filetype"]()
         end,
+        init = function()
+            vim.g['conjure#filetypes'] = { "clojure" }
+            vim.g['conjure#client#clojure#nrepl#mapping#refresh_all'] = "rA"
+        end,
     },
     {
       'clojure-vim/vim-jack-in',

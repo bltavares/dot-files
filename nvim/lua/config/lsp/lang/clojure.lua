@@ -25,6 +25,9 @@ require'lspconfig'.clojure_lsp.setup{
         r = "reset",
         R = "reset & close",
       },
+      r = {
+        A = "Refresh All!",
+      },
       e = {
         name = "+eval",
         b = "buffer",
