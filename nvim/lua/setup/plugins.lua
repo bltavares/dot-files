@@ -149,10 +149,12 @@ require('lazy').setup({
         cmd = {'Trouble', 'TroubleToggle'},
         config = function() require'trouble'.setup({ icons = false }) end
     },
+
     {
-        'simrat39/symbols-outline.nvim', -- replaces Vista
-        cmd = {'SymbolsOutline', 'SymbolsOutlineOpen'},
-        config = function() require'symbols-outline'.setup() end
+        "hedyhli/outline.nvim",
+        lazy = true,
+        cmd = { "Outline", "OutlineOpen" },
+        opts = { }
     },
 
     -- https://github.com/kabouzeid/nvim-lspinstall/issues/27
