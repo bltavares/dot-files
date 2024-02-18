@@ -6,15 +6,6 @@ require'nvim-treesitter.configs'.setup {
         enable = true,
         extended_mode = true -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
     }
-    -- https://github.com/windwp/nvim-ts-autotag
-    -- autotag = {
-    --     enable = true,
-    --     filetypes = { "html" , "xml" },
-    --   }
-    -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
-    -- context_commentstring = {
-    --     enable = true
-    --   }
 }
 
 -- Experimental: Breaks on insert, starts unfolded but folds on first type

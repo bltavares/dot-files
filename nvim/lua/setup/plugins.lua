@@ -1,31 +1,3 @@
--- TODO
--- lsp
----- https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim
--- indent blankline
--- debug
----- https://github.com/mfussenegger/nvim-dap
----- https://github.com/theHamsta/nvim-dap-virtual-text
--- https://github.com/windwp/nvim-autopairs
--- https://github.com/lewis6991/spellsitter.nvim
--- https://github.com/oberblastmeister/neuron.nvim
--- ui
----- https://github.com/edluffy/specs.nvim
----- https://github.com/ruifm/gitlinker.nvim
----- https://github.com/andweeb/presence.nvim
--- https://github.com/akinsho/dependency-assist.nvim
--- Crazy good box drawing
---    "gyim/vim-boxdraw"
--- Better increment/decrement
---    "monaqa/dial.nvim"
--- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/13
--- https://github.com/petertriho/nvim-scrollbar?utm_source=pocket_mylist
--- Fix Cmd-v on neovide: inoremap <D-v> <C-W>"
--- treesitter semantic join
--- https://github.com/Wansmer/treesj
---
--- Replace null-ls?
--- https://github.com/mfussenegger/nvim-lint
--- https://github.com/mhartington/formatter.nvim (?maybe)
 -- Auto install lazy if not exists
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -89,11 +61,8 @@ require('lazy').setup({
         config = function() require'config.textcase' end
     },
 
+    -- TODO search for lua versions
     'tpope/vim-surround',
-    -- lua surround has less features than viml
-    -- 'blackCauldron7/surround.nvim'
-    -- vim.g.surround_mappings_style = "normal"
-    -- require"surround".setup{},
     'tpope/vim-sleuth', -- use correct expandtab/shiftwidth
     'tpope/vim-abolish', -- smart search/replace
     'tpope/vim-unimpaired', -- better % pairing
@@ -118,18 +87,15 @@ require('lazy').setup({
         config = function() require 'config.null-ls' end,
         dependencies = {'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig'},
     },
-    -- 'ray-x/lsp_signature.nvim' -- LSP Signature support -- replaced by lspsaga
     {
         'nvimdev/lspsaga.nvim', -- cute UI LSP
         config = function() require 'config.lspsaga' end,
         dependencies = {
             'nvim-tree/nvim-web-devicons', -- fuck this shit ARRRRG
-            --Please make sure you install markdown and markdown_inline parser
             'nvim-treesitter/nvim-treesitter',
         }
     },
 
-    -- TODO: migrate to nvim-comp
     {
         'hrsh7th/nvim-cmp', -- Autocomplete + LSP
         config = function() require 'config.cmp' end,
@@ -156,10 +122,6 @@ require('lazy').setup({
         cmd = { "Outline", "OutlineOpen" },
         opts = { }
     },
-
-    -- https://github.com/kabouzeid/nvim-lspinstall/issues/27
-    -- require'lspinstall'.setup()
-    -- 'kabouzeid/nvim-lspinstall'
 
     -- Test
     {'tpope/vim-dispatch', cmd = {'Dispatch', 'Make', 'Focus', 'Start'}},
@@ -218,7 +180,6 @@ require('lazy').setup({
     },
 
     -- ui
-    -- 'shaunsingh/moonlight.nvim' -- theme
     -- Syntax highlighting
     {
         'folke/tokyonight.nvim', -- theme
@@ -240,7 +201,6 @@ require('lazy').setup({
         dependencies = {'p00f/nvim-ts-rainbow'},
     },
 
-    -- 'Famiu/feline.nvim' -- no integration to lsp-status
     {
         'nvim-lualine/lualine.nvim',
         config = function() require 'config.statusline' end,
@@ -251,8 +211,6 @@ require('lazy').setup({
         config = function() require 'config.lsp-status' end
     },
 
-    -- 'sunjon/shade.nvim' -- dim secondary panes -- issues with telescope TODO switch twlight off
-    ---- https://github.com/kdav5758/TrueZen.nvim
     {
         'folke/twilight.nvim', -- hihglight context
         cmd = {"Twilight"},

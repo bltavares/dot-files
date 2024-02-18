@@ -1,0 +1,98 @@
+-- TODO
+-- Migrate from old config = require'x'.setup() end to just using the opts = {}
+-- Automatic language installer on TS
+    --Please make sure you install markdown and markdown_inline parser
+-- 'ray-x/lsp_signature.nvim' -- LSP Signature support -- replaced by lspsaga
+-- lsp
+---- https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim
+-- indent blankline
+-- debug
+---- https://github.com/mfussenegger/nvim-dap
+---- https://github.com/theHamsta/nvim-dap-virtual-text
+-- https://github.com/windwp/nvim-autopairs
+-- https://github.com/lewis6991/spellsitter.nvim
+-- https://github.com/oberblastmeister/neuron.nvim
+-- ui
+---- https://github.com/edluffy/specs.nvim
+---- https://github.com/ruifm/gitlinker.nvim
+---- https://github.com/andweeb/presence.nvim
+-- https://github.com/akinsho/dependency-assist.nvim
+-- Crazy good box drawing
+--    "gyim/vim-boxdraw"
+-- Better increment/decrement
+--    "monaqa/dial.nvim"
+-- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/13
+-- https://github.com/petertriho/nvim-scrollbar?utm_source=pocket_mylist
+-- Fix Cmd-v on neovide: inoremap <D-v> <C-W>"
+-- treesitter semantic join
+-- https://github.com/Wansmer/treesj
+--
+-- https://github.com/phelipetls/jsonpath.nvim *for yaml? also*
+-- 
+-- https://github.com/rouge8/neotest-rust
+-- https://github.com/stevearc/aerial.nvim
+-- https://github.com/stevearc/dressing.nvim
+--
+
+-- https://github.com/mfussenegger/nvim-lint
+-- https://github.com/mhartington/formatter.nvim (?maybe)
+-- https://github.com/nvimdev/guard.nvim
+-- https://github.com/stevearc/conform.nvim *lazyvim*
+-- https://github.com/niuiic/format.nvim
+-- https://github.com/lukas-reineke/lsp-format.nvim
+
+    -- https://github.com/windwp/nvim-ts-autotag
+    -- autotag = {
+    --     enable = true,
+    --     filetypes = { "html" , "xml" },
+    --   }
+    -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+    -- context_commentstring = {
+    --     enable = true
+    --   }
+-- https://github.com/mrcjkb/rustaceanvim
+
+
+-- TODO
+-- lsp
+---- https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim
+-- indent blankline
+-- debug
+---- https://github.com/mfussenegger/nvim-dap
+---- https://github.com/theHamsta/nvim-dap-virtual-text
+-- https://github.com/windwp/nvim-autopairs
+-- https://github.com/lewis6991/spellsitter.nvim
+-- https://github.com/oberblastmeister/neuron.nvim
+-- ui
+---- https://github.com/edluffy/specs.nvim
+---- https://github.com/ruifm/gitlinker.nvim
+---- https://github.com/andweeb/presence.nvim
+-- https://github.com/akinsho/dependency-assist.nvim
+-- Crazy good box drawing
+--    "gyim/vim-boxdraw"
+-- Better increment/decrement
+--    "monaqa/dial.nvim"
+-- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/13
+-- https://github.com/petertriho/nvim-scrollbar?utm_source=pocket_mylist
+-- Fix Cmd-v on neovide: inoremap <D-v> <C-W>"
+-- treesitter semantic join
+-- https://github.com/Wansmer/treesj
+--
+-- Replace null-ls?
+-- https://github.com/mfussenegger/nvim-lint
+-- https://github.com/mhartington/formatter.nvim (?maybe)
+
+## VIM
+    -- lua surround has less features than vim-surround
+    -- 'blackCauldron7/surround.nvim'
+    -- vim.g.surround_mappings_style = "normal"
+    -- require"surround".setup{},
+
+
+## UI
+    -- https://github.com/RRethy/vim-illuminate (solved manually already, do I need a plugin?)
+    -- 'shaunsingh/moonlight.nvim' -- theme
+    -- 'Famiu/feline.nvim' -- no integration to lsp-status
+    -- 'sunjon/shade.nvim' -- dim secondary panes -- issues with telescope
+    -- https://github.com/kdav5758/TrueZen.nvim
+    -- "zbirenbaum/copilot-cmp"
