@@ -90,7 +90,10 @@ local keymap = {
       c = {":tabclose<CR>", "close"}
     }
   },
-  T = {name = "+toggle", t = {"<Cmd>Twilight<CR>", "Twilight"}},
+  T = {name = "+toggle",
+    t = {"<Cmd>Twilight<CR>", "Twilight"},
+    i = {"<Cmd>lua vim.lsp.inlay_hint(0)<CR>", "Inlay Hints"},
+  },
   t = {name = "+text",
     ["/"] = {"<Cmd>CommentToggle<CR>", "comment"},
     a = {

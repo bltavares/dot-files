@@ -4,6 +4,7 @@ local lsp_status = require('lsp-status')
 local on_attach = function(client, bufnr)
     lsp_status.on_attach(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.lsp.inlay_hint(bufnr, true)
 
     -- Mappings.
     local opts = {mode = "n", noremap = true, silent = true, buffer = bufnr}

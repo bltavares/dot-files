@@ -120,10 +120,6 @@ require('lazy').setup({
     },
     -- 'ray-x/lsp_signature.nvim' -- LSP Signature support -- replaced by lspsaga
     {
-        'nvim-lua/lsp_extensions.nvim', -- LSP type inlay hints
-        config = function() require 'config.inlay-hints' end
-    },
-    {
         'nvimdev/lspsaga.nvim', -- cute UI LSP
         config = function() require 'config.lspsaga' end,
         dependencies = {
