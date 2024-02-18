@@ -236,15 +236,20 @@ require('lazy').setup({
                 -- panel = { enabled = false },
             })
         end,
+    },
+
+
+    -- Devcontainers
+    {
+        'esensar/nvim-dev-container',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        config = function()
+            require('devcontainer').setup {
+                container_runtime = "docker",
+                attach_mounts = {
+                    always = true
+                },
+            }
+        end
     }
-
-    -- use {
-    --     "zbirenbaum/copilot-cmp",
-    --     after = { "copilot.lua" },
-    --     config = function ()
-    --         require("copilot_cmp").setup()
-    --     end
-    -- }
-    --
-
 })
