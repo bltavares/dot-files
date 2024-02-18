@@ -133,16 +133,24 @@ require('lazy').setup({
     },
 
     -- rust
+
     {
-        'simrat39/rust-tools.nvim',
+        'mrcjkb/rustaceanvim',
+        version = '^4', -- Recommended
+        ft = { 'rust' },
         dependencies = {
             'folke/which-key.nvim', 'nvim-lua/lsp-status.nvim',
             'neovim/nvim-lspconfig', 'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim'
         },
-        config = function() require 'config.rust-tools' end
+        init = function() require 'config.rustaceanvim' end,
     },
-    {'mhinz/vim-crates', ft = "toml", cmd = {"CratesUp", "CratesToggle"}},
+    {
+        'saecki/crates.nvim',
+        event = { "BufRead Cargo.toml" },
+        config = function() require'config.crates' end,
+        requires = { 'hrsh7th/nvim-cmp', },
+    },
 
     -- flutter
     {
