@@ -31,8 +31,8 @@ require('lazy').setup({
 
     {
         'nvim-telescope/telescope.nvim', -- Fuzzy finder
-        -- module = 'telescope',
-        -- cmd = 'Telescope', -- BUG https://github.com/wbthomason/packer.nvim/issues/299
+        module = 'telescope',
+        cmd = 'Telescope',
         config = function() require 'config.telescope' end,
         dependencies = {
             'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim',
