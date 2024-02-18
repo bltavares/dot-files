@@ -114,7 +114,7 @@ require('lazy').setup({
         },
     },
     {
-        'jose-elias-alvarez/null-ls.nvim',
+        'nvimtools/none-ls.nvim',
         config = function() require 'config.null-ls' end,
         dependencies = {'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig'},
     },
