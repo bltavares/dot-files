@@ -1,8 +1,6 @@
 local wk = require('which-key')
-local lsp_status = require('lsp-status')
 
 local on_attach = function(client, bufnr)
-    lsp_status.on_attach(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     vim.lsp.inlay_hint.enable(bufnr, true)
 

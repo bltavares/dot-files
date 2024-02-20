@@ -89,7 +89,6 @@ require('lazy').setup({
         config = function() require 'config.lsp' end,
         dependencies = {
             'folke/which-key.nvim',
-            'nvim-lua/lsp-status.nvim',
             'hrsh7th/cmp-nvim-lsp',
         },
     },
@@ -105,6 +104,12 @@ require('lazy').setup({
             'nvim-tree/nvim-web-devicons', -- fuck this shit ARRRRG
             'nvim-treesitter/nvim-treesitter',
         }
+    },
+    {
+        "j-hui/fidget.nvim",
+        event = {"VeryLazy"},
+        opts = {
+        },
     },
 
     -- completion
@@ -167,7 +172,7 @@ require('lazy').setup({
         -- version = '^4', -- Recommended
         ft = { 'rust' },
         dependencies = {
-            'folke/which-key.nvim', 'nvim-lua/lsp-status.nvim',
+            'folke/which-key.nvim',
             'neovim/nvim-lspconfig', 'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim'
         },
@@ -241,11 +246,7 @@ require('lazy').setup({
     {
         'nvim-lualine/lualine.nvim',
         config = function() require 'config.statusline' end,
-        dependencies = {'nvim-lua/lsp-status.nvim', "nvim-treesitter/nvim-treesitter", "tokyonight.nvim"},
-    },
-    {
-        'nvim-lua/lsp-status.nvim', -- for Statusline
-        config = function() require 'config.lsp-status' end
+        dependencies = {"nvim-treesitter/nvim-treesitter", "tokyonight.nvim"},
     },
 
     {

@@ -1,4 +1,3 @@
-local lsp_status = require('lsp-status');
 local cmp_nvim_lsp = require('cmp_nvim_lsp');
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
@@ -11,7 +10,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 
 local create = function()
     local capabilities = cmp_nvim_lsp.default_capabilities()
-    return vim.tbl_extend('keep', capabilities, lsp_status.capabilities);
+    return capabilities
 end
 
 return {create = create}

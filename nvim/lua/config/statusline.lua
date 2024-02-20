@@ -1,8 +1,11 @@
-local lsp_status = require("lsp-status")
-local LspStatus = function()
-    if #vim.lsp.buf_get_clients() > 0 then return lsp_status.status() end
-    return ""
+local function LspStatus()
+  local names = vim.tbl_map(function(server)
+    return server.name
+  end, vim.lsp.get_clients({ bufnr = 0 }))
+
+  return #names > 0 and "%#Conditional#" .. "[✔ " .. table.concat(names, " ") .. "]" or ""
 end
+
 
 local TreeSitter = function()
     return require("nvim-treesitter").statusline(45) or ""
