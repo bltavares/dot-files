@@ -22,4 +22,6 @@ if vim.g.neovide then
         font_size = 16
         vim.o.guifont = font .. ":h" .. font_size
     end
+
+    vim.g.neovide_input_macos_alt_is_meta = true
 end
