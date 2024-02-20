@@ -89,6 +89,7 @@ require('lazy').setup({
         config = function() require 'config.lsp' end,
         dependencies = {
             'folke/which-key.nvim',
+            'j-hui/fidget.nvim',
             'hrsh7th/cmp-nvim-lsp',
         },
     },
