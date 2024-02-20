@@ -124,19 +124,34 @@ require('lazy').setup({
     },
 
     -- Test
-    {'tpope/vim-dispatch', cmd = {'Dispatch', 'Make', 'Focus', 'Start'}},
-    {
-        'vim-test/vim-test',
-        dependencies = {'tpope/vim-dispatch'},
-        cmd = {'TestNearest', 'TestFile', 'TestSuite', 'TestLast', 'TestVisit'},
-        init = function() vim.g['test#strategy'] = "dispatch" end
+    -- PR https://github.com/nvim-neotest/neotest/pull/368
+    { 
+        "bltavares/neotest",
+        branch = "wip",
+        dependencies = {
+            -- deps
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            -- adatpers
+            'sidlatau/neotest-dart',
+            'bltavares/rustaceanvim',
+            "nvim-neotest/neotest-go",
+        },
+        cmd = {"Neotest"},
+        config = function() require'config.neotest' end,
     },
 
     -- rust
 
+    -- PR
+    -- https://github.com/mrcjkb/rustaceanvim/pull/245
+    -- https://github.com/mrcjkb/rustaceanvim/pull/246
+    -- https://github.com/mrcjkb/rustaceanvim/pull/247
     {
-        'mrcjkb/rustaceanvim',
-        version = '^4', -- Recommended
+        'bltavares/rustaceanvim',
+        branch = "wip",
+        -- version = '^4', -- Recommended
         ft = { 'rust' },
         dependencies = {
             'folke/which-key.nvim', 'nvim-lua/lsp-status.nvim',
@@ -186,6 +201,7 @@ require('lazy').setup({
       dependencies = {'tpope/vim-dispatch', 'radenling/vim-dispatch-neovim'},
       ft = {'clojure'},
     },
+    {'tpope/vim-dispatch', cmd = {'Dispatch', 'Make', 'Focus', 'Start'}},
 
     -- ui
     -- Syntax highlighting
