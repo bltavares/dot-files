@@ -51,6 +51,6 @@ require'lspconfig'.lua_ls.setup {
 
 function _G.dump(...)
     local objects = vim.tbl_map(vim.inspect, {...})
-    print(table.unpack(objects))
+    print(unpack(objects))
     return ...
 end
