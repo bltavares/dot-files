@@ -31,7 +31,6 @@ require('lazy').setup({
 
     {
         'nvim-telescope/telescope.nvim', -- Fuzzy finder
-        module = 'telescope',
         cmd = 'Telescope',
         config = function() require 'config.telescope' end,
         dependencies = {

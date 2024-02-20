@@ -1,7 +1,7 @@
 local wk = require('which-key');
 
 wk.register({
-  P = {'<CMD>Glow<CR>', 'Preview'},
+  P = { '<CMD>Glow<CR>', 'Preview' },
 }, {
     prefix = '<localleader>',
     buffer = 0,
