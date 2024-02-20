@@ -48,11 +48,15 @@ require('lazy').setup({
         dependencies = {"nvim-tree/nvim-web-devicons"},
         config = function() require("circles").setup() end
     },
+    
+    -- Files
     {
-        'kyazdani42/nvim-tree.lua',
+        'nvim-tree/nvim-tree.lua',
         cmd = {'NvimTreeToggle', 'NvimTreeFindFile', 'NvimTreeRefresh'},
         config = function() require 'config.nvim-tree' end
     },
+
+    -- Text manupulation
     {'godlygeek/tabular', cmd = "Tabularize"},
     {'junegunn/vim-easy-align'},
     {
@@ -60,7 +64,14 @@ require('lazy').setup({
         dependencies = { 'folke/which-key.nvim', 'nvim-telescope/telescope.nvim' },
         config = function() require'config.textcase' end
     },
-
+    {
+        'Wansmer/treesj',
+        cmd = {"TSJToggle", "TSJSplit", "TSJJoin", },
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        opts = { 
+            use_default_keymaps = false,
+        },
+    },
     -- TODO search for lua versions
     'tpope/vim-surround',
     'tpope/vim-sleuth', -- use correct expandtab/shiftwidth
@@ -73,6 +84,7 @@ require('lazy').setup({
     },
     -- 'tpope/vim-fugitive' -- slow startup
 
+    -- LSP
     {
         'neovim/nvim-lspconfig', -- Bult-in LSP
         config = function() require 'config.lsp' end,
@@ -96,6 +108,7 @@ require('lazy').setup({
         }
     },
 
+    -- completion
     {
         'hrsh7th/nvim-cmp', -- Autocomplete + LSP
         config = function() require 'config.cmp' end,
@@ -110,6 +123,7 @@ require('lazy').setup({
         },
     },
 
+    -- Project navigation
     {
         'folke/lsp-trouble.nvim',
         cmd = {'Trouble', 'TroubleToggle'},

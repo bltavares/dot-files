@@ -96,6 +96,11 @@ local keymap = {
   },
   t = {name = "+text",
     ["/"] = {"<Cmd>CommentToggle<CR>", "comment"},
+    l = {name = "+line",
+      l = {"<Cmd>TSJToggle<CR>", "toggle"},
+      s = {"<Cmd>TSJSplit<CR>", "split"},
+      j = {"<Cmd>TSJJoin<CR>", "join"},
+    },
     a = {
       name = "+align",
       a = {"<PLUG>(EasyAlign)", "interactive"},
