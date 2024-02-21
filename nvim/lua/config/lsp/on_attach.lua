@@ -134,30 +134,6 @@ local on_attach = function(client, bufnr)
     -- vim.api.nvim_command [[
     --     autocmd CursorHold,CursorHoldI * :lua vim.lsp.buf.signature_help()
     -- ]]
-
-    -- Set autocommands conditional on server_capabilities
-    if client.server_capabilities.documentHighlightProvider then
-        vim.api.nvim_command [[
-    hi LspReferenceRead  cterm=bold ctermbg=red gui=bold guifg=LightYellow
-    hi LspReferenceWrite cterm=bold ctermbg=red gui=bold guifg=red
-    hi LspReferenceText  cterm=underline gui=underline
-    ]]
-
-        vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-        vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
-        vim.api.nvim_create_autocmd("CursorHold", {
-            callback = vim.lsp.buf.document_highlight,
-            buffer = bufnr,
-            group = "lsp_document_highlight",
-            desc = "Document Highlight",
-        })
-        vim.api.nvim_create_autocmd("CursorMoved", {
-            callback = vim.lsp.buf.clear_references,
-            buffer = bufnr,
-            group = "lsp_document_highlight",
-            desc = "Clear All the References",
-        })
-    end
 end
 
 return on_attach;

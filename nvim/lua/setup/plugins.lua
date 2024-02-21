@@ -86,6 +86,26 @@ require('lazy').setup({
         'JoosepAlviste/nvim-ts-context-commentstring',
         opts = { enable_autocmd = false },
     },
+    {
+        'RRethy/vim-illuminate',
+        lazy = true,
+        enabled = true,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+        },
+        cmd = {"IlluminatePause", "IlluminateResume", "IlluminateToggle", "IlluminatePauseBuf", "IlluminateResumeBuf", "IlluminateToggleBuf"},
+        event = { 'CursorMoved', 'InsertLeave' },
+        config = function()
+            require 'illuminate'.configure {
+                filetypes_denylist = {
+                    'neotree',
+                    'neo-tree',
+                    'Telescope',
+                    'telescope',
+                }
+            }
+        end
+    },
     -- 'tpope/vim-fugitive' -- slow startup
 
     -- LSP
