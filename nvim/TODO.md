@@ -5,8 +5,6 @@
 - Migrate to use `return { } ` plugin files for lazy split
 
 ## lsp
-- https://github.com/VidocqH/lsp-lens.nvim
-- Automatic language installer on TS
 - https://github.com/ray-x/lsp_signature.nvim -- LSP Signature support -- replaced by lspsaga
 - https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim
 
@@ -26,8 +24,6 @@ autotag = {
 ## UI
 - https://github.com/petertriho/nvim-scrollbar
 - https://github.com/stevearc/dressing.nvim -- already using lsp saga - worth it?
-- https://github.com/RRethy/vim-illuminate (solved manually already, do I need a plugin?)
-- https://github.com/kdav5758/TrueZen.nvim
 - Fix Cmd-v on neovide: inoremap <D-v> <C-W>"
 
 ### Theme

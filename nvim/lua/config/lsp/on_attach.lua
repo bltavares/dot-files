@@ -5,14 +5,14 @@ local on_attach = function(client, bufnr)
     vim.lsp.inlay_hint.enable(bufnr, true)
 
     -- Mappings.
-    local opts = {mode = "n", noremap = true, silent = true, buffer = bufnr}
+    local opts = { mode = "n", noremap = true, silent = true, buffer = bufnr }
     wk.register({
-        ['gD'] = {'<Cmd>lua vim.lsp.buf.declaration()<CR>', "goto declaration"},
-        ['gd'] = {'<Cmd>lua vim.lsp.buf.definition()<CR>', "goto definition"},
+        ['gD'] = { '<Cmd>lua vim.lsp.buf.declaration()<CR>', "goto declaration" },
+        ['gd'] = { '<Cmd>lua vim.lsp.buf.definition()<CR>', "goto definition" },
         ['gi'] = {
             '<cmd>lua vim.lsp.buf.implementation()<CR>', "goto iplementations"
         },
-        ['gr'] = {'<cmd>lua vim.lsp.buf.references()<CR>', "goto references"},
+        ['gr'] = { '<cmd>lua vim.lsp.buf.references()<CR>', "goto references" },
         -- ['K'] = '<Cmd>lua vim.lsp.buf.hover()<CR>',
         ['K'] = {
             "<cmd>Lspsaga hover_doc<CR>",
@@ -65,7 +65,7 @@ local on_attach = function(client, bufnr)
                 'find reference'
             },
             -- r = {'<cmd>lua vim.lsp.buf.rename()<CR>', 'rename'},
-            r = {"<cmd>Lspsaga rename<CR>", 'rename'},
+            r = { "<cmd>Lspsaga rename<CR>", 'rename' },
             -- a = {'<cmd>lua vim.lsp.buf.code_actions()<CR>', 'action'},
             a = {
                 "<cmd>Lspsaga code_action<CR>",
@@ -83,13 +83,13 @@ local on_attach = function(client, bufnr)
                 "<cmd>Lspsaga show_cursor_diagnostics<CR>",
                 "current diagnostic"
             },
-            l = {'<cmd>lua vim.diagnostic.setloclist()<CR>', 'loc list'},
+            l = { '<cmd>lua vim.diagnostic.setloclist()<CR>', 'loc list' },
             L = {
                 '<cmd>lua vim.diagnostic.setloclist({workspace = true})<CR>',
                 'workspace list'
             },
-            o = {'<cmd>SymbolsOutline<CR>', 'outline'},
-            ["?"] = {'<cmd>Trouble document_diagnostics<CR>', 'current troubles'}
+            o = { '<cmd>SymbolsOutline<CR>', 'outline' },
+            ["?"] = { '<cmd>Trouble document_diagnostics<CR>', 'current troubles' }
         }
     }
 
@@ -105,7 +105,7 @@ local on_attach = function(client, bufnr)
 
     -- Set some keybinds conditional on server capabilities
     if client.server_capabilities.documentFormattingProvider then
-        keymap['r']['='] = {"<cmd>lua vim.lsp.buf.format { async = true }<CR>", 'format'}
+        keymap['r']['='] = { "<cmd>lua vim.lsp.buf.format { async = true }<CR>", 'format' }
     end
     if client.server_capabilities.documentRangeFormattingProvider then
         visual_keymap['r']['='] = {
@@ -129,7 +129,7 @@ local on_attach = function(client, bufnr)
         buffer = bufnr
     })
 
-    -- Shows documentation on cursor movement 
+    -- Shows documentation on cursor movement
     -- (noisy and does not integrate with document_highlight)
     -- vim.api.nvim_command [[
     --     autocmd CursorHold,CursorHoldI * :lua vim.lsp.buf.signature_help()
