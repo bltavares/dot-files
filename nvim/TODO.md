@@ -9,7 +9,7 @@
 - https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim
 
 ## Text
-- https://github.com/kylechui/nvim-surround
+- https://github.com/kylechui/nvim-surround -- tpop/vim-surround in lua :)
 
 - https://github.com/monaqa/dial.nvim -- Better increment/decrement
 - https://github.com/windwp/nvim-autopairs
@@ -22,7 +22,6 @@ autotag = {
 }
 
 ## UI
-- https://github.com/petertriho/nvim-scrollbar
 - https://github.com/stevearc/dressing.nvim -- already using lsp saga - worth it?
 - Fix Cmd-v on neovide: inoremap <D-v> <C-W>"
 
@@ -32,27 +31,23 @@ autotag = {
 ## Languages
 
 ### Yaml / k8s
-- https://github.com/phelipetls/jsonpath.nvim *for yaml? also*
+-- missing yaml support https://github.com/phelipetls/jsonpath.nvim/issues/1
+- https://github.com/phelipetls/jsonpath.nvim 
 - https://github.com/b0o/SchemaStore.nvim
 
 ### debug
 - https://github.com/mfussenegger/nvim-dap
 - https://github.com/theHamsta/nvim-dap-virtual-text
 
-### Lint
-- https://github.com/mfussenegger/nvim-lint
-
-### Formatting
-- https://github.com/mhartington/formatter.nvim (?maybe)
-- https://github.com/nvimdev/guard.nvim
-- https://github.com/stevearc/conform.nvim *lazyvim*
-- https://github.com/niuiic/format.nvim
-- https://github.com/lukas-reineke/lsp-format.nvim
-
 ## Git
-- https://github.com/NeogitOrg/neogit
-- https://github.com/linrongbin16/gitlinker.nvim
-- https://github.com/lewis6991/gitsigns.nvim
+- https://github.com/NeogitOrg/neogit -- too much
 
 ## AI
 - https://github.com/zbirenbaum/copilot-cmp
+
+-- relying of none-ls as it has Code actions and these don't
+### Lint
+- https://github.com/mfussenegger/nvim-lint
+
+### Formatting 
+- https://github.com/stevearc/conform.nvim
