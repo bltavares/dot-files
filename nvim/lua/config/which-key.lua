@@ -104,6 +104,7 @@ local keymap = {
       s = {"<Cmd>TSJSplit<CR>", "split"},
       j = {"<Cmd>TSJJoin<CR>", "join"},
     },
+    g = {"<Cmd>GitLink<CR>", "git link"},
     a = {
       name = "+align",
       a = {"<PLUG>(EasyAlign)", "interactive"},
@@ -143,7 +144,8 @@ local visual_keymap = {
       ["{"] = {":EasyAlign\\ g/^\\S/<CR>", "{}"},
       ["["] = {":EasyAlign\\ g/^\\S/<CR>", "[]"},
       ["("] = {":EasyAlign\\ g/^\\S/<CR>", "()"},
-    }
+    },
+    g = {"<Cmd>GitLink<CR>", "git link"},
   },
   -- T = {name="+toggle",
   --   z = {"<Cmd>TZNarrow<CR>", "Narrow"},

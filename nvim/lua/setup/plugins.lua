@@ -294,6 +294,11 @@ require('lazy').setup({
         cmd = { "Twilight" },
         config = function() require 'twilight'.setup() end
     },
+    {
+        'linrongbin16/gitlinker.nvim',
+        cmd = { "GitLink" },
+        opts = {},
+    },
     -- BUG https://github.com/pocco81/true-zen.nvim/issues/125
     -- {'pocco81/true-zen.nvim',
     --     cmd={"TZAtaraxis", "TZNarrow"},
