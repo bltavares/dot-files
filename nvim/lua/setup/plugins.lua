@@ -107,10 +107,15 @@ require('lazy').setup({
         }
     },
     {
-        "j-hui/fidget.nvim",
+        "j-hui/fidget.nvim", -- LSP status
         event = {"VeryLazy"},
-        opts = {
-        },
+        opts = {},
+    },
+    {
+        'VidocqH/lsp-lens.nvim', -- lsp fn references virtualtext
+        cmd = {"LspLensToggle", "LspLensOn", "LspLensOff"},
+        event = {"VeryLazy"},
+        config = function () require'config.lsp-lens' end
     },
 
     -- completion

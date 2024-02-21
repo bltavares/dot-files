@@ -93,6 +93,7 @@ local keymap = {
   T = {name = "+toggle",
     t = {"<Cmd>Twilight<CR>", "Twilight"},
     i = {"<Cmd>lua vim.lsp.inlay_hint(0)<CR>", "Inlay Hints"},
+    r = {"<Cmd>LspLensToggle<CR>", "Fn References"},
   },
   t = {name = "+text",
     ["/"] = {"<Cmd>CommentToggle<CR>", "comment"},
