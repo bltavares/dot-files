@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     {
-        'folke/which-key.nvim',
+        'folke/which-key.nvim', -- Keybindings helper
         event = "VeryLazy",
         init = function()
             vim.o.timeout = true
@@ -24,7 +24,7 @@ require('lazy').setup({
     },
 
     {
-        'guns/vim-sexp',
+        'guns/vim-sexp', -- TODO lua version
         dependencies = { 'folke/which-key.nvim' },
         config = function() require 'config.vim-sexp' end
     },
@@ -43,7 +43,7 @@ require('lazy').setup({
         config = function() require'lsp-rooter'.setup() end
     },
     {
-        "projekt0n/circles.nvim",
+        "projekt0n/circles.nvim", -- replace web-dev-icons with circles
         dependencies = {"nvim-tree/nvim-web-devicons"},
         config = function() require("circles").setup() end
     },
@@ -56,15 +56,15 @@ require('lazy').setup({
     },
 
     -- Text manupulation
-    {'godlygeek/tabular', cmd = "Tabularize"},
-    {'junegunn/vim-easy-align'},
+    {'godlygeek/tabular', cmd = "Tabularize"}, -- TODO lua version
+    {'junegunn/vim-easy-align'}, -- TODO: lazy loading and lua version
     {
-        'johmsalas/text-case.nvim',
+        'johmsalas/text-case.nvim', -- change text cases
         dependencies = { 'folke/which-key.nvim', 'nvim-telescope/telescope.nvim' },
         config = function() require'config.textcase' end
     },
     {
-        'Wansmer/treesj',
+        'Wansmer/treesj', -- Semantic split/join
         cmd = {"TSJToggle", "TSJSplit", "TSJJoin", },
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
         opts = { 
@@ -91,10 +91,11 @@ require('lazy').setup({
             'folke/which-key.nvim',
             'j-hui/fidget.nvim',
             'hrsh7th/cmp-nvim-lsp',
+            'VidocqH/lsp-lens.nvim',
         },
     },
     {
-        'nvimtools/none-ls.nvim',
+        'nvimtools/none-ls.nvim', -- LSP for non-lsp tools
         config = function() require 'config.null-ls' end,
         dependencies = {'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig'},
     },
@@ -141,7 +142,7 @@ require('lazy').setup({
     },
 
     {
-        "hedyhli/outline.nvim",
+        "hedyhli/outline.nvim", -- LSP based buffer object/fn outlines
         lazy = true,
         cmd = { "Outline", "OutlineOpen" },
         opts = { }
@@ -185,7 +186,7 @@ require('lazy').setup({
         init = function() require 'config.rustaceanvim' end,
     },
     {
-        'saecki/crates.nvim',
+        'saecki/crates.nvim', -- version finder helper on Cargo.toml
         event = { "BufRead Cargo.toml" },
         config = function() require'config.crates' end,
         requires = { 'hrsh7th/nvim-cmp', },
@@ -200,8 +201,9 @@ require('lazy').setup({
     },
 
     -- markdown
+    -- TODO add keybinds
     {
-        'npxbr/glow.nvim', -- TODO add keybinds
+        'npxbr/glow.nvim', -- Preview .md rendering 
         cmd = {'Glow'},
         ft = "markdown"
     },
@@ -221,32 +223,31 @@ require('lazy').setup({
         end,
     },
     {
-      'clojure-vim/vim-jack-in',
+      'clojure-vim/vim-jack-in', -- allow dispatching nrepl from vim
       dependencies = {'tpope/vim-dispatch', 'radenling/vim-dispatch-neovim'},
       ft = {'clojure'},
     },
     {'tpope/vim-dispatch', cmd = {'Dispatch', 'Make', 'Focus', 'Start'}},
 
     -- ui
-    -- Syntax highlighting
     {
         'folke/tokyonight.nvim', -- theme
         config = function() vim.cmd 'colorscheme tokyonight' end
     },
     {
-        'norcalli/nvim-colorizer.lua',
+        'norcalli/nvim-colorizer.lua', -- colorize #abc123 colors
         config = function() require'colorizer'.setup() end
     },
     {
-        'folke/todo-comments.nvim',
+        'folke/todo-comments.nvim', -- Colorize and find things to do
         cmd = {'TodoTrouble', 'TodoQuickFix', 'TodoLocList', 'TodoTelescope'},
         config = function() require'todo-comments'.setup {signs = false} end
     },
     {
-        'nvim-treesitter/nvim-treesitter',
+        'nvim-treesitter/nvim-treesitter', -- Syntax highlighting and query engine
         build = ':TSUpdate',
         config = function() require 'config.treesitter' end,
-        dependencies = {'p00f/nvim-ts-rainbow'},
+        dependencies = {'p00f/nvim-ts-rainbow'}, -- TODO Outdated
     },
 
     {
@@ -256,13 +257,12 @@ require('lazy').setup({
     },
 
     {
-        'folke/twilight.nvim', -- hihglight context
+        'folke/twilight.nvim', -- hihglight TS context
         cmd = {"Twilight"},
         config = function() require'twilight'.setup() end
     },
-
     {
-        'antoinemadec/FixCursorHold.nvim',
+        'antoinemadec/FixCursorHold.nvim', -- Fixes for CursorHold events. Allegedly not needed anymore. But stil useful (2024-02)
         init = function()
             vim.g.cursorhold_updatetime = 100
         end,
@@ -281,7 +281,6 @@ require('lazy').setup({
             })
         end,
     },
-
 
     -- Devcontainers
     {
