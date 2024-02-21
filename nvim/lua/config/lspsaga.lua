@@ -63,5 +63,9 @@ require'lspsaga'.setup {
         scroll_down = '<C-n>',
         scroll_up = '<C-p>'
     },
-    ui = { kind = kind }
+    ui = { kind = kind },
+    -- behaviour
+    code_action = {
+        extend_gitsigns = true,
+    },
 }

@@ -130,6 +130,7 @@ require('lazy').setup({
         dependencies = {
             'nvim-tree/nvim-web-devicons', -- fuck this shit ARRRRG
             'nvim-treesitter/nvim-treesitter',
+            'lewis6991/gitsigns.nvim',
         }
     },
     {
@@ -298,6 +299,12 @@ require('lazy').setup({
         'linrongbin16/gitlinker.nvim',
         cmd = { "GitLink" },
         opts = {},
+    },
+    {
+        'lewis6991/gitsigns.nvim', -- TODO keymaps
+        cmd = {"Gitsigns"},
+        opts = {},
+        requires = {'folke/lsp-trouble.nvim',}
     },
     -- BUG https://github.com/pocco81/true-zen.nvim/issues/125
     -- {'pocco81/true-zen.nvim',

@@ -90,6 +90,11 @@ local keymap = {
       c = {":tabclose<CR>", "close"}
     }
   },
+  g = {name="+git",
+    l = {"<Cmd>GitLink<CR>", "link"},
+    b = {"<Cmd>Gitsigns toggle_current_line_blame<CR>", "blame"},
+    g = {"<Cmd>Gitsigns toggle_signs<CR>", "signs"},
+  },
   T = {name = "+toggle",
     t = {"<Cmd>Twilight<CR>", "Twilight"},
     i = {"<Cmd>lua vim.lsp.inlay_hint(0)<CR>", "Inlay hints"},
@@ -104,7 +109,6 @@ local keymap = {
       s = {"<Cmd>TSJSplit<CR>", "split"},
       j = {"<Cmd>TSJJoin<CR>", "join"},
     },
-    g = {"<Cmd>GitLink<CR>", "git link"},
     a = {
       name = "+align",
       a = {"<PLUG>(EasyAlign)", "interactive"},
@@ -145,9 +149,11 @@ local visual_keymap = {
       ["["] = {":EasyAlign\\ g/^\\S/<CR>", "[]"},
       ["("] = {":EasyAlign\\ g/^\\S/<CR>", "()"},
     },
-    g = {"<Cmd>GitLink<CR>", "git link"},
   },
-  -- T = {name="+toggle",
+  g = {name="+git",
+    l = {"<Cmd>GitLink<CR>", "git link"},
+  },
+    -- T = {name="+toggle",
   --   z = {"<Cmd>TZNarrow<CR>", "Narrow"},
   -- },
 };
