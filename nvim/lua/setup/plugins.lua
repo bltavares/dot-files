@@ -259,6 +259,20 @@ require('lazy').setup({
     },
     { 'tpope/vim-dispatch', cmd = { 'Dispatch', 'Make', 'Focus', 'Start' } },
 
+    -- yaml/yml
+    {
+        "bltavares/yaml-companion.nvim",
+        ft = { "yaml" },
+        requires = {
+            { "neovim/nvim-lspconfig" },
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-telescope/telescope.nvim" },
+        },
+        config = function()
+            require("telescope").load_extension("yaml_schema")
+        end,
+    },
+
     -- ui
     {
         'folke/tokyonight.nvim', -- theme
@@ -302,9 +316,9 @@ require('lazy').setup({
     },
     {
         'lewis6991/gitsigns.nvim', -- TODO keymaps
-        cmd = {"Gitsigns"},
+        cmd = { "Gitsigns" },
         opts = {},
-        requires = {'folke/lsp-trouble.nvim',}
+        requires = { 'folke/lsp-trouble.nvim', }
     },
     -- BUG https://github.com/pocco81/true-zen.nvim/issues/125
     -- {'pocco81/true-zen.nvim',
