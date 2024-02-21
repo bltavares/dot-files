@@ -247,7 +247,7 @@ require('lazy').setup({
         'nvim-treesitter/nvim-treesitter', -- Syntax highlighting and query engine
         build = ':TSUpdate',
         config = function() require 'config.treesitter' end,
-        dependencies = {'p00f/nvim-ts-rainbow'}, -- TODO Outdated
+        dependencies = {'HiPhish/rainbow-delimiters.nvim'},
     },
 
     {
