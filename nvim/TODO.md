@@ -22,15 +22,8 @@ autotag = {
     enable = true,
     filetypes = { "html" , "xml" },
 }
-- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
-```lua
-context_commentstring = {
-    enable = true
-}
-```
 
 ## UI
-- https://github.com/lukas-reineke/indent-blankline.nvim 
 - https://github.com/petertriho/nvim-scrollbar
 - https://github.com/stevearc/dressing.nvim -- already using lsp saga - worth it?
 - https://github.com/RRethy/vim-illuminate (solved manually already, do I need a plugin?)

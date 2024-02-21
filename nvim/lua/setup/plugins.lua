@@ -47,7 +47,7 @@ require('lazy').setup({
         dependencies = {"nvim-tree/nvim-web-devicons"},
         config = function() require("circles").setup() end
     },
-    
+
     -- Files
     {
         'nvim-tree/nvim-tree.lua',
@@ -78,8 +78,13 @@ require('lazy').setup({
     'tpope/vim-unimpaired', -- better % pairing
     {
         'terrortylor/nvim-comment',
-        cmd = {'CommentToggle', 'CommentOperator'},
-        config = function() require'nvim_comment'.setup() end
+        cmd = { 'CommentToggle', 'CommentOperator' },
+        config = function() require 'config.nvim-comment' end,
+        dependencies = {'JoosepAlviste/nvim-ts-context-commentstring'},
+    },
+    {
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        opts = { enable_autocmd = false },
     },
     -- 'tpope/vim-fugitive' -- slow startup
 
@@ -253,9 +258,13 @@ require('lazy').setup({
     {
         'nvim-lualine/lualine.nvim',
         config = function() require 'config.statusline' end,
-        dependencies = {"nvim-treesitter/nvim-treesitter", "tokyonight.nvim"},
+        dependencies = { "nvim-treesitter/nvim-treesitter", "tokyonight.nvim" },
     },
-
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {}
+    },
     {
         'folke/twilight.nvim', -- hihglight TS context
         cmd = {"Twilight"},
