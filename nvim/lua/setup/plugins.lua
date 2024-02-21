@@ -287,9 +287,14 @@ require('lazy').setup({
     },
     {
         'folke/twilight.nvim', -- hihglight TS context
-        cmd = {"Twilight"},
-        config = function() require'twilight'.setup() end
+        cmd = { "Twilight" },
+        config = function() require 'twilight'.setup() end
     },
+    -- BUG https://github.com/pocco81/true-zen.nvim/issues/125
+    -- {'pocco81/true-zen.nvim',
+    --     cmd={"TZAtaraxis", "TZNarrow"},
+    --     opts = {}
+    -- },
     {
         'antoinemadec/FixCursorHold.nvim', -- Fixes for CursorHold events. Allegedly not needed anymore. But stil useful (2024-02)
         init = function()

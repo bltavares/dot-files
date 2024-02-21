@@ -95,6 +95,7 @@ local keymap = {
     i = {"<Cmd>lua vim.lsp.inlay_hint(0)<CR>", "Inlay hints"},
     I = {"<Cmd>IlluminateToggle<CR>", "Illuminate reference"},
     r = {"<Cmd>LspLensToggle<CR>", "Fn references"},
+    -- z = {"<Cmd>TZAtaraxis<CR>", "zen"},
   },
   t = {name = "+text",
     ["/"] = {"<Cmd>CommentToggle<CR>", "comment"},
@@ -143,7 +144,10 @@ local visual_keymap = {
       ["["] = {":EasyAlign\\ g/^\\S/<CR>", "[]"},
       ["("] = {":EasyAlign\\ g/^\\S/<CR>", "()"},
     }
-  }
+  },
+  -- T = {name="+toggle",
+  --   z = {"<Cmd>TZNarrow<CR>", "Narrow"},
+  -- },
 };
 wk.register(visual_keymap, {mode = "v", prefix = '<leader>'})
 
