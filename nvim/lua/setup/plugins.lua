@@ -172,6 +172,10 @@ require('lazy').setup({
         cmd = { "Outline", "OutlineOpen" },
         opts = {}
     },
+    {
+        "petertriho/nvim-scrollbar",
+        opts = {},
+    },
 
     -- Test
     -- PR https://github.com/nvim-neotest/neotest/pull/368
