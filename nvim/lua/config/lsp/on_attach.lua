@@ -2,7 +2,9 @@ local wk = require('which-key')
 
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    vim.lsp.inlay_hint.enable(bufnr, true)
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(bufnr, true)
+    end
 
     -- Mappings.
     local opts = { mode = "n", noremap = true, silent = true, buffer = bufnr }
