@@ -3,6 +3,7 @@ require'nvim-tree'.setup {
     -- https://github.com/kyazdani42/nvim-tree.lua/issues/248
     -- disable_netrw = 0
     -- hijack_netrw = 0
+    sync_root_with_cwd = true,
     diagnostics = { enable = true },
     renderer = {
         highlight_git = true,
