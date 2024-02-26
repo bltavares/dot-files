@@ -163,11 +163,12 @@ local localkeymap = {
   ["="] = {"gg=G``", "format"},
   t = {
     name = "+test",
-    t = {":TestNearest<CR>", "nearest"},
-    f = {":TestFile<CR>", "file"},
-    s = {":TestSuite<CR>", "suite"},
-    l = {":TestLast<CR>", "last"},
-    v = {":TestVisit<CR>", "visit"}
+    t = {"<Cmd>Neotest run<CR>", "nearest"},
+    f = {"<Cmd>Neotest run file<CR>", "file"},
+    l = {"<Cmd>Neotest run last<CR>", "last"},
+    s = {"<Cmd>Neotest summary<CR>", "suite"},
+    o = {"<Cmd>Neotest output<CR>", "output"},
+    O = {"<Cmd>Neotest output-panel<CR>", "output"},
   }
 }
 wk.register(localkeymap, {
