@@ -28,6 +28,11 @@ install.zellij() {
   linking $curr_dir/zellij $HOME/.config/zellij
 }
 
+install.wezterm() {
+  mkdir -p $HOME/.config
+  linking $curr_dir/wezterm $HOME/.config/wezterm
+}
+
 install.bins() {
   mkdir -p $HOME/bin
   for b in $curr_dir/bin/*; do
@@ -41,9 +46,10 @@ install.all() {
   install.zsh
   install.nvim
   install.zellij
+  install.wezterm
 }
 
-options=("bins" "nvim" "confs" "zsh" "zellij" "all")
+options=("bins" "nvim" "confs" "zsh" "zellij" "wezterm" "all")
 help() {
   echo "install.sh [option]"
   echo "[options] - one of the following:"
