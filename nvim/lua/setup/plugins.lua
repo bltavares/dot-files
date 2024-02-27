@@ -190,7 +190,7 @@ require('lazy').setup({
             "nvim-treesitter/nvim-treesitter",
             -- adatpers
             'sidlatau/neotest-dart',
-            'bltavares/rustaceanvim',
+            'mrcjkb/rustaceanvim',
             "nvim-neotest/neotest-go",
         },
         cmd = { "Neotest" },
@@ -198,14 +198,8 @@ require('lazy').setup({
     },
 
     -- rust
-
-    -- PR
-    -- https://github.com/mrcjkb/rustaceanvim/pull/245
-    -- https://github.com/mrcjkb/rustaceanvim/pull/246
-    -- https://github.com/mrcjkb/rustaceanvim/pull/247
     {
-        'bltavares/rustaceanvim',
-        branch = "wip",
+        'mrcjkb/rustaceanvim',
         -- version = '^4', -- Recommended
         ft = { 'rust' },
         dependencies = {
