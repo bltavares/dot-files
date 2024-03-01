@@ -78,7 +78,7 @@ require('lazy').setup({
     'tpope/vim-unimpaired', -- better % pairing
     {
         'terrortylor/nvim-comment',
-        cmd = { 'CommentToggle', 'CommentOperator' },
+        cmd = { 'CommentToggle' },
         config = function() require 'config.nvim-comment' end,
         dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
     },
@@ -296,9 +296,9 @@ require('lazy').setup({
     },
     {
         'lewis6991/gitsigns.nvim', -- TODO keymaps
-        cmd = {"Gitsigns"},
+        cmd = { "Gitsigns" },
         opts = {},
-        requires = {'folke/lsp-trouble.nvim',}
+        requires = { 'folke/lsp-trouble.nvim', }
     },
     -- BUG https://github.com/pocco81/true-zen.nvim/issues/125
     -- {'pocco81/true-zen.nvim',
