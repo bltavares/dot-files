@@ -1,0 +1,48 @@
+{
+  "name": "bltavares-dotfiles",
+  "dockerFile": "Dockerfile",
+  "context": "${localWorkspaceFolder}",
+  "build": {
+    "args": {
+      "USER_UID": "${localEnv:USER_UID}",
+      "USER_GID": "${localEnv:USER_GID}"
+    }
+  },
+  // run arguments passed to docker
+  "runArgs": [
+    "--security-opt",
+    "label=disable"
+  ],
+  "containerEnv": {
+    // extensions to preload before other extensions
+    "PRELOAD_EXTENSIONS": "mkhl.direnv"
+  },
+  // disable command overriding and updating remote user ID
+  "overrideCommand": false,
+  "userEnvProbe": "loginShell",
+  "updateRemoteUserUID": false,
+  "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && nix develop --accept-flake-config --command bash -c 'echo done building nix dev environment'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mkhl.direnv",
+        "jnoortheen.nix-ide"
+        // extra extensions
+        //"fsevenm.run-it-on",
+      ],
+      "settings": {
+        "nix.enableLanguageServer": true,
+        "nix.serverPath": "nil",
+        "nix.serverSettings": {
+          "nil": {
+            "formatting": {
+              "command": [
+                "alejandra"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
