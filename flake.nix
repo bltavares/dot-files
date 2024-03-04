@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    nil = { 
+    nil = {
       url = "github:oxalica/nil";
       inputs.nixpkgs.follows = "nixpkgs";
     };

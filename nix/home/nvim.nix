@@ -9,5 +9,4 @@
   ];
 
   xdg.configFile."nvim".source = config.lib.mine.mkLink config "nvim";
-
 }

@@ -1,5 +1,9 @@
 {...}: {
-  perSystem = {pkgs, inputs', ...}: {
+  perSystem = {
+    pkgs,
+    inputs',
+    ...
+  }: {
     devShells = {
       rust = pkgs.mkShell {
         nativeBuildInputs = [
