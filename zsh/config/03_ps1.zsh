@@ -11,8 +11,13 @@ bindkey -s $nbsp '^u'
 host_num=$((0x`hostname | $MD5 | cut -c1-8` % 216 + 1))
 user_num=$((0x`whoami   | $MD5 | cut -c1-8` % 216 + 1))
 
+ps1_name=""
+if [[ -n "$name" ]]; then
+  ps1_name="($name) "
+fi
+
 setopt PROMPT_SUBST
-PROMPT='%{$FG[$user_num]%}%n%{$FG[$host_num]%}@%m %{$fg_bold[cyan]%}%~%{$reset_color%} %#%{$fg_bold[blue]%}$(__git_ps1 " (%s)")%{$reset_color%}$nbsp'
+PROMPT='$ps1_name%{$FG[$user_num]%}%n%{$FG[$host_num]%}@%m %{$fg_bold[cyan]%}%~%{$reset_color%} %#%{$fg_bold[blue]%}$(__git_ps1 " (%s)")%{$reset_color%}$nbsp'
 
 function preexec {
   if [[ x$NO_AUTOTOP == "x" ]]; then

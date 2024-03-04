@@ -6,6 +6,7 @@
   }: {
     devShells = {
       rust = pkgs.mkShell {
+        name = "rust";
         nativeBuildInputs = [
           (inputs'.fenix.packages.stable.withComponents [
             "cargo"

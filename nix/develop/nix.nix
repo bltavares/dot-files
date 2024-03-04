@@ -26,6 +26,7 @@
 
     devShells = {
       nix = pkgs.mkShell {
+        name = "nix";
         nativeBuildInputs = [
           flake-checker
           nil
