@@ -1,6 +1,7 @@
 {
   config,
   flake,
+  pkgs,
   ...
 }: {
   programs.zsh.enable = true;
@@ -12,4 +13,11 @@
 
   programs.zoxide.enable = true;
   programs.zellij.enable = true;
+  programs.ripgrep.enable = true;
+
+  home.packages = [
+    pkgs.jq
+    pkgs.jless
+    pkgs.zenith
+  ];
 }
