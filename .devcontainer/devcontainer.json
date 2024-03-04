@@ -21,7 +21,7 @@
   "overrideCommand": false,
   "userEnvProbe": "loginShell",
   "updateRemoteUserUID": false,
-  "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && nix develop --accept-flake-config --command bash -c 'echo done building nix dev environment'",
+  "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && sudo env \"PATH=$PATH\" nix run nixpkgs#cachix use nix-community && nix develop --accept-flake-config --command bash -c 'echo done building nix dev environment'",
   "customizations": {
     "vscode": {
       "extensions": [
