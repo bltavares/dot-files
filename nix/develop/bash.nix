@@ -1,11 +1,11 @@
 {...}: {
   perSystem = {pkgs, ...}: {
     devShells = {
-      lua = pkgs.mkShell {
-        name = "lua";
+      bash = pkgs.mkShell {
+        name = "bash";
         nativeBuildInputs = [
-          pkgs.lua-language-server
-          pkgs.stylua
+          pkgs.shfmt
+          pkgs.shellcheck
         ];
       };
     };

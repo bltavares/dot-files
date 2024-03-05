@@ -7,9 +7,8 @@
   }: {
     treefmt = {
       projectRootFile = "flake.nix";
-
-      programs.alejandra.enable = true;
       programs.stylua.enable = true;
+      programs.alejandra.enable = true;
     };
 
     devShells.treefmt = pkgs.mkShell {
