@@ -1,7 +1,7 @@
-vim.o.clipboard = 'unnamedplus' -- share the OS clipboard
-vim.o.encoding = 'utf8'
+vim.o.clipboard = "unnamedplus" -- share the OS clipboard
+vim.o.encoding = "utf8"
 vim.o.modelines = 0
-vim.o.path = '.,**'
+vim.o.path = ".,**"
 vim.o.scrolloff = 10
 vim.o.smartcase = true -- ignore case if uppercase present on search
 vim.o.splitbelow = true -- keep new screens split below
@@ -15,16 +15,16 @@ vim.o.cursorline = true -- highlight the current line on buffer
 vim.o.showmatch = true -- Show matching brackets.
 vim.o.termguicolors = true
 
-vim.wo.signcolumn = 'yes' -- permanent sign column to avoid jitter on UI
+vim.wo.signcolumn = "yes" -- permanent sign column to avoid jitter on UI
 vim.wo.relativenumber = true -- set both for hybrid numbers
 vim.wo.number = true -- set both for hybrid numbers
 
 -- leaders
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ','
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 -- indentation
-vim.cmd('filetype plugin indent on')
+vim.cmd("filetype plugin indent on")
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
@@ -65,4 +65,4 @@ vim.o.mouse = "a" -- Enable mouse
 vim.g.mousehide = true -- Hide mouse after chars typed
 
 -- highlight on yank
-vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
+vim.cmd("au TextYankPost * silent! lua vim.highlight.on_yank()")

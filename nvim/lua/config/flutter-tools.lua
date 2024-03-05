@@ -1,37 +1,36 @@
-
 local on_attach = function(client, bufnr)
-    require 'config.lsp.on_attach'(client, bufnr);
-    local wk = require('which-key')
-    local keymap = {
-        c = {"<cmd>lua require('telescope').extensions.flutter.commands()<CR>", "commands"},
-        r = {
-            r = {"<cmd>FlutterReload<CR>", "reload"},
-            R = {"<cmd>FlutterRestart<CR>", "restart"},
-            D = {
-                name = "+devices",
-                r = {"<cmd>FlutterRun<CR>", "run"},
-                d = {"<cmd>FlutterDevices<CR>", "devices"},
-                e = {"<cmd>FlutterEmulators<CR>", "emulators"},
-                t = {"<cmd>FlutterDevTools<CR>", "dev tools"},
-                q = {"<cmd>FlutterQuite<CR>", "quit"}
-            },
-            O = {"<cmd>FlutterOutline<CR>", "outline"}
-            -- o = {
-            --     "<cmd>lua require('lsp_extensions.dart.outline').loclist({})<CR>",
-            --     "outline"
-            -- },
-            -- O = {
-            --     "<cmd>lua FlutterTelescopeOutline<CR>", "telescope outline"
-            -- }
-        }
-    }
-    wk.register(keymap, {
-        prefix = '<localleader>',
-        silent = true,
-        noremap = true,
-        mode = 'n',
-        buffer = bufnr
-    })
+  require("config.lsp.on_attach")(client, bufnr)
+  local wk = require("which-key")
+  local keymap = {
+    c = { "<cmd>lua require('telescope').extensions.flutter.commands()<CR>", "commands" },
+    r = {
+      r = { "<cmd>FlutterReload<CR>", "reload" },
+      R = { "<cmd>FlutterRestart<CR>", "restart" },
+      D = {
+        name = "+devices",
+        r = { "<cmd>FlutterRun<CR>", "run" },
+        d = { "<cmd>FlutterDevices<CR>", "devices" },
+        e = { "<cmd>FlutterEmulators<CR>", "emulators" },
+        t = { "<cmd>FlutterDevTools<CR>", "dev tools" },
+        q = { "<cmd>FlutterQuite<CR>", "quit" },
+      },
+      O = { "<cmd>FlutterOutline<CR>", "outline" },
+      -- o = {
+      --     "<cmd>lua require('lsp_extensions.dart.outline').loclist({})<CR>",
+      --     "outline"
+      -- },
+      -- O = {
+      --     "<cmd>lua FlutterTelescopeOutline<CR>", "telescope outline"
+      -- }
+    },
+  }
+  wk.register(keymap, {
+    prefix = "<localleader>",
+    silent = true,
+    noremap = true,
+    mode = "n",
+    buffer = bufnr,
+  })
 end
 
 -- FlutterTelescopeOutline = function()
@@ -45,7 +44,7 @@ end
 --         })
 -- end
 
-local capabilities = require('config.lsp.capabilities').create()
+local capabilities = require("config.lsp.capabilities").create()
 
 -- require'lspconfig'.dartls.setup {
 --     capabilities = capabilities,
@@ -60,10 +59,10 @@ local capabilities = require('config.lsp.capabilities').create()
 --     on_attach = on_attach
 -- }
 
-require("flutter-tools").setup {
-    experimental = {
-        lsp_derive_paths = true -- experimental: Attempt to find the user's flutter SDK
-    },
-    widget_guides = {enabled = true},
-    lsp = {on_attach = on_attach, capabilities = capabilities}
-}
+require("flutter-tools").setup({
+  experimental = {
+    lsp_derive_paths = true, -- experimental: Attempt to find the user's flutter SDK
+  },
+  widget_guides = { enabled = true },
+  lsp = { on_attach = on_attach, capabilities = capabilities },
+})

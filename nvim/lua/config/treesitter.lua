@@ -1,12 +1,12 @@
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = {'rust', 'dart', 'lua', 'comment', 'markdown', 'markdown_inline', 'yaml','hcl', },
-    highlight = {enable = true},
-    indent = {enable = true},
-    rainbow = {
-        enable = true,
-        extended_mode = true -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-    }
-}
+require("nvim-treesitter.configs").setup({
+  ensure_installed = { "rust", "dart", "lua", "comment", "markdown", "markdown_inline", "yaml", "hcl" },
+  highlight = { enable = true },
+  indent = { enable = true },
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+  },
+})
 
 -- Experimental: Breaks on insert, starts unfolded but folds on first type
 vim.o.foldmethod = "expr"

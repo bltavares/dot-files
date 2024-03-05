@@ -8,6 +8,6 @@
 --   end
 -- end)()
 
-require('setup.general')
-require('setup.plugins')
-require('setup.gui')
+require("setup.general")
+require("setup.plugins")
+require("setup.gui")
