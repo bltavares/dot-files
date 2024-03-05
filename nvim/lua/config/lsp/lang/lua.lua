@@ -1,25 +1,24 @@
-local wk = require('which-key')
-local capabilities = require'config.lsp.capabilities'.create()
+local wk = require("which-key")
+local capabilities = require("config.lsp.capabilities").create()
 
-require'lspconfig'.lua_ls.setup {
-  cmd = {vim.fn.exepath('lua-language-server')};
+require("lspconfig").lua_ls.setup({
+  cmd = { vim.fn.exepath("lua-language-server") },
   on_attach = function(client, bufnr)
-    require 'config.lsp.on_attach'(client, bufnr);
+    require("config.lsp.on_attach")(client, bufnr)
 
     local keymap = {
       e = {
         name = "+eval",
-        f = {"<cmd>luafile %<CR><cmd>echo 'Evaled' @%<cr>", "file"},
-      }
+        f = { "<cmd>luafile %<CR><cmd>echo 'Evaled' @%<cr>", "file" },
+      },
     }
     wk.register(keymap, {
-      prefix = '<localleader>',
+      prefix = "<localleader>",
       silent = true,
       noremap = true,
-      mode = 'n',
-      buffer = bufnr
+      mode = "n",
+      buffer = bufnr,
     })
-
   end,
   capabilities = capabilities,
   settings = {
@@ -29,13 +28,13 @@ require'lspconfig'.lua_ls.setup {
       },
       runtime = {
         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
+        version = "LuaJIT",
         -- Setup your lua path
-        path = vim.split(package.path, ';'),
+        path = vim.split(package.path, ";"),
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { "vim" },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
@@ -47,10 +46,10 @@ require'lspconfig'.lua_ls.setup {
       },
     },
   },
-}
+})
 
 function _G.dump(...)
-    local objects = vim.tbl_map(vim.inspect, {...})
-    print(unpack(objects))
-    return ...
+  local objects = vim.tbl_map(vim.inspect, { ... })
+  print(unpack(objects))
+  return ...
 end

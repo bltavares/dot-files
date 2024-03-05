@@ -1,40 +1,39 @@
-require'nvim-tree'.setup {
-    -- allow nvim .
-    -- https://github.com/kyazdani42/nvim-tree.lua/issues/248
-    -- disable_netrw = 0
-    -- hijack_netrw = 0
-    sync_root_with_cwd = true,
-    diagnostics = { enable = true },
-    renderer = {
-        highlight_git = true,
-        group_empty = true,
-        indent_markers = { enable = true },
-        icons = {
-            show = {git = true, folder = true, file = false},
-            glyphs = {
-                git = {
-                    unstaged = "~",
-                    staged = "+",
-                    unmerged = "!",
-                    renamed = "≈",
-                    untracked = "?",
-                    deleted = "-"
-                },
-                folder = {
-                    default = "▸",
-                    open = "▾",
-                    empty = "▸",
-                    empty_open = "▾",
-                    symlink = "▸",
-                    symlink_open = "▾"
-                }
-            },
+require("nvim-tree").setup({
+  -- allow nvim .
+  -- https://github.com/kyazdani42/nvim-tree.lua/issues/248
+  -- disable_netrw = 0
+  -- hijack_netrw = 0
+  sync_root_with_cwd = true,
+  diagnostics = { enable = true },
+  renderer = {
+    highlight_git = true,
+    group_empty = true,
+    indent_markers = { enable = true },
+    icons = {
+      show = { git = true, folder = true, file = false },
+      glyphs = {
+        git = {
+          unstaged = "~",
+          staged = "+",
+          unmerged = "!",
+          renamed = "≈",
+          untracked = "?",
+          deleted = "-",
         },
+        folder = {
+          default = "▸",
+          open = "▾",
+          empty = "▸",
+          empty_open = "▾",
+          symlink = "▸",
+          symlink_open = "▾",
+        },
+      },
     },
-}
+  },
+})
 
 local function open_nvim_tree(data)
-
   -- buffer is a [No Name]
   local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 
