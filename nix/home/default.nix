@@ -25,8 +25,7 @@
     });
 
     legacyPackages.homeConfigurations."bruno.tavares@nu21m1" = self.nixos-flake.lib.mkHomeConfiguration pkgs ({pkgs, ...}: {
-      imports =
-        develop;
+      imports = develop;
       home.stateVersion = "23.11";
       home.username = "bruno.tavares";
       home.homeDirectory = "/Users/bruno.tavares";

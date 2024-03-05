@@ -3,6 +3,7 @@
     ./nix.nix
     ./rust.nix
     ./lua.nix
+    ./clojure.nix
     ./treefmt.nix
   ];
 
