@@ -1,4 +1,4 @@
-rtw () {
+rtw() {
   t timeline -l | awk "FNR==$1{ print \$1}" | xargs t retweet
 }
 genpasswd() {
@@ -23,21 +23,24 @@ checkout-branch() {
   fi
 }
 
-p() { cd $(find ~/dev/* ~/repos -type d -maxdepth 1 | hs) }
+p() { cd $(find ~/dev/* ~/repos -type d -maxdepth 1 | hs); }
 
 function say {
   lang=${2:-en}
   mplayer -really-quiet "http://translate.google.com/translate_tts?tl=$lang&q=$1"
 }
 
-function tim { tags; vim }
+function tim {
+  tags
+  vim
+}
 
 docker-run() {
   docker run --rm -i -t -v $(pwd):/data/src -w /data/src "$@"
 }
 
 docker-cleanup() {
-  containers="`docker ps -q -a`"
+  containers="$(docker ps -q -a)"
 
   if [ -z $containers ]; then
     echo "No containers to cleanup" && return 1
@@ -47,7 +50,7 @@ docker-cleanup() {
 }
 
 docker-info() {
-  containers="`docker ps -q`"
+  containers="$(docker ps -q)"
 
   if [ -z $containers ]; then
     echo "No containers running" && return 1

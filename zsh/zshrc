@@ -1,4 +1,4 @@
-for file in ~/.zsh/config/*.zsh; do
+for file in ~/.zsh/config/*.sh; do
   source $file
 done
 unset file

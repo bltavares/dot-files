@@ -9,6 +9,8 @@
       projectRootFile = "flake.nix";
       programs.stylua.enable = true;
       programs.alejandra.enable = true;
+      programs.shfmt.enable = true;
+      # programs.shellcheck.enable = true;
     };
 
     devShells.treefmt = pkgs.mkShell {

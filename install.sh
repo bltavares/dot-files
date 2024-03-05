@@ -1,6 +1,6 @@
 #!/bin/bash -xe
 
-curr_dir=`pwd`
+curr_dir=$(pwd)
 
 linking() {
   rm -fr $2 2>/dev/null || true
@@ -36,7 +36,7 @@ install.wezterm() {
 install.bins() {
   mkdir -p $HOME/bin
   for b in $curr_dir/bin/*; do
-    linking $b $HOME/bin/`basename $b`
+    linking $b $HOME/bin/$(basename $b)
   done
 }
 
@@ -58,11 +58,12 @@ help() {
   done
 }
 
-command=$1; shift
-if [[ "${options[*]}" =~ "${command:-not-found}" ]]; then
- install.$command "$@"
+command=$1
+shift
+if [[ ${options[*]} =~ ${command:-not-found} ]]; then
+  install.$command "$@"
 else
- help
+  help
 fi
 
 touch $HOME/.baseline_dotfiles
