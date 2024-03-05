@@ -12,6 +12,8 @@
   home.file.".git_prompt.sh".source = flake.inputs.git-prompt;
 
   programs.zoxide.enable = true;
+  programs.eza.enable = true;
+  programs.atuin.enable = true;
   programs.zellij.enable = true;
   programs.ripgrep.enable = true;
 
@@ -19,5 +21,7 @@
     pkgs.jq
     pkgs.jless
     pkgs.zenith
+    pkgs.gnumake
+    pkgs.mmake
   ];
 }
