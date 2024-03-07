@@ -10,21 +10,31 @@
     ];
   in {
     legacyPackages.homeConfigurations."devcontainer" = self.nixos-flake.lib.mkHomeConfiguration pkgs ({pkgs, ...}: {
-      imports = develop;
       home.stateVersion = "23.11";
       home.username = "code";
       home.homeDirectory = "/home/code";
+
+      imports = develop;
     });
 
     legacyPackages.homeConfigurations."bltavares@wintermute" = self.nixos-flake.lib.mkHomeConfiguration pkgs ({pkgs, ...}: {
-      imports = develop;
-    });
-
-    legacyPackages.homeConfigurations."bltavares@weasel" = self.nixos-flake.lib.mkHomeConfiguration pkgs ({pkgs, config, ...}: {
-      imports = develop;
       home.stateVersion = "23.11";
       home.username = "bltavares";
       home.homeDirectory = "/home/bltavares";
+
+      imports = develop;
+    });
+
+    legacyPackages.homeConfigurations."bltavares@weasel" = self.nixos-flake.lib.mkHomeConfiguration pkgs ({
+      pkgs,
+      config,
+      ...
+    }: {
+      home.stateVersion = "23.11";
+      home.username = "bltavares";
+      home.homeDirectory = "/home/bltavares";
+
+      imports = develop;
 
       #home.file.".vscode-server/server-env-setup" = ../../bin/nix-vscode-server-env-setup;
       home.file.".vscode-server-insiders/server-env-setup".source = ../../bin/nix-vscode-server-env-setup;
@@ -32,10 +42,11 @@
     });
 
     legacyPackages.homeConfigurations."bruno.tavares@nu21m1" = self.nixos-flake.lib.mkHomeConfiguration pkgs ({pkgs, ...}: {
-      imports = develop;
       home.stateVersion = "23.11";
       home.username = "bruno.tavares";
       home.homeDirectory = "/Users/bruno.tavares";
+
+      imports = develop;
     });
 
     packages.activate-devcontainer =

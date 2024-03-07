@@ -2,7 +2,7 @@ local wk = require("which-key")
 local capabilities = require("config.lsp.capabilities").create()
 
 require("lspconfig").lua_ls.setup({
-  cmd = { vim.fn.exepath("lua-language-server") },
+  cmd = { vim.fn.exepath("lua-language-server") or "lua-language-server" },
   on_attach = function(client, bufnr)
     require("config.lsp.on_attach")(client, bufnr)
 

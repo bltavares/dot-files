@@ -4,7 +4,6 @@
   timeZone = "America/Sao_Paulo";
   defaultLocale = "en_US.UTF-8";
 in {
-  imports = [<nixpkgs/nixos/modules/virtualisation/lxc-container.nix>];
   system.stateVersion = "23.11";
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
@@ -27,14 +26,15 @@ in {
     git
     curl
     vim
-    zsh
   ];
+  programs.zsh.enable = true;
 
   users = {
     users."${user}" = {
       isNormalUser = true;
       extraGroups = ["wheel"];
       initialPassword = "nixos";
+      shell = pkgs.zsh;
     };
   };
 
