@@ -47,6 +47,14 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # OS
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    ## WSL
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
   };
 
   nixConfig = {

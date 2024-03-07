@@ -16,12 +16,19 @@
       home.homeDirectory = "/home/code";
     });
 
-    legacyPackages.homeConfigurations."nixos@nixos" = self.nixos-flake.lib.mkHomeConfiguration pkgs ({pkgs, ...}: {
-      imports =
-        develop
-        ++ [
-          ./hosts/ct.nix
-        ];
+    legacyPackages.homeConfigurations."bltavares@wintermute" = self.nixos-flake.lib.mkHomeConfiguration pkgs ({pkgs, ...}: {
+      imports = develop;
+    });
+
+    legacyPackages.homeConfigurations."bltavares@weasel" = self.nixos-flake.lib.mkHomeConfiguration pkgs ({pkgs, config, ...}: {
+      imports = develop;
+      home.stateVersion = "23.11";
+      home.username = "bltavares";
+      home.homeDirectory = "/home/bltavares";
+
+      #home.file.".vscode-server/server-env-setup" = ../../bin/nix-vscode-server-env-setup;
+      home.file.".vscode-server-insiders/server-env-setup".source = ../../bin/nix-vscode-server-env-setup;
+      home.file."repos".source = config.lib.file.mkOutOfStoreSymlink "/mnt/f/repos";
     });
 
     legacyPackages.homeConfigurations."bruno.tavares@nu21m1" = self.nixos-flake.lib.mkHomeConfiguration pkgs ({pkgs, ...}: {
