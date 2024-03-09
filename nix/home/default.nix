@@ -7,6 +7,7 @@
 
       ./nvim.nix
       ./terminal.nix
+      ./develop.nix
     ];
   in {
     legacyPackages.homeConfigurations."devcontainer" = self.nixos-flake.lib.mkHomeConfiguration pkgs ({pkgs, ...}: {

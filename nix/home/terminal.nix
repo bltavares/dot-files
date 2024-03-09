@@ -14,7 +14,6 @@
   programs.zoxide.enable = true;
   programs.eza.enable = true;
   programs.atuin.enable = true;
-  programs.zellij.enable = true;
   programs.ripgrep.enable = true;
 
   home.packages = [
@@ -24,4 +23,7 @@
     pkgs.gnumake
     pkgs.mmake
   ];
+
+  programs.zellij.enable = true;
+  xdg.configFile."zellij".source = config.lib.mine.mkLink config "zellij";
 }
