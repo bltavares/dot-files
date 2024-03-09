@@ -20,8 +20,6 @@ in {
   time.timeZone = timeZone;
   i18n.defaultLocale = defaultLocale;
 
-  services.openssh.enable = true;
-
   environment.systemPackages = with pkgs; [
     git
     curl

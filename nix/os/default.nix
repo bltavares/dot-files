@@ -3,6 +3,8 @@
     system = "x86_64-linux";
     modules = [
       (inputs.nixpkgs-stable + "/nixos/modules/virtualisation/lxc-container.nix")
+      ./modules/remote.nix
+      ./modules/develop.nix
       ./wintermute.nix
     ];
   };
