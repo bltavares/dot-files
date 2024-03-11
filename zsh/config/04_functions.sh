@@ -78,3 +78,21 @@ dockerize() {
 my-pass() {
   PASSWORD_STORE_DIR=${PASSWORD_STORE_DIR:-~/repos/passwords} pass $@
 }
+
+use-env() {
+  if [[ -z "$1" ]]; then
+    if [[ -f flake.nix ]]; then
+      if nix develop --command zsh; then
+        return 0
+      fi
+    fi
+    if [[ -f Cargo.toml ]]; then
+      exec nix develop ~/repos/dot-files#rust --command zsh
+    fi
+    if [[ -f deps.edn ]]; then
+      exec nix develop ~/repos/dot-files#clojure --command zsh
+    fi
+  else
+    nix develop ~/repos/dot-files#"$1" --command zsh
+  fi
+}
