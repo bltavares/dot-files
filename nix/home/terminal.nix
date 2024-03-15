@@ -15,6 +15,9 @@
   programs.eza.enable = true;
   programs.atuin.enable = true;
   programs.ripgrep.enable = true;
+  programs.bat.enable = true;
+  programs.bottom.enable = true;
+  programs.fzf.enable = true;
 
   home.packages = [
     pkgs.jq
@@ -22,6 +25,7 @@
     pkgs.zenith
     pkgs.gnumake
     pkgs.mmake
+    pkgs.moreutils
   ];
 
   programs.zellij.enable = true;

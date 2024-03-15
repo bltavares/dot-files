@@ -16,6 +16,7 @@
             "rustfmt"
           ])
           pkgs.rust-analyzer
+          pkgs.bacon
         ];
       };
     };

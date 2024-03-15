@@ -5,6 +5,10 @@
     ./lua.nix
     ./bash.nix
     ./clojure.nix
+    ./wasm.nix
+    ./containers.nix
+    ./k8s.nix
+    ./go.nix
     ./treefmt.nix
   ];
 
