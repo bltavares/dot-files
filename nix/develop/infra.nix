@@ -6,6 +6,7 @@
         nativeBuildInputs = [
           pkgs.packer
           pkgs.pulumi
+          pkgs.aws-env
         ];
       };
     };

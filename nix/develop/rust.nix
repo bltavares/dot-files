@@ -15,8 +15,12 @@
             "rustc"
             "rustfmt"
           ])
-          pkgs.rust-analyzer
           pkgs.bacon
+          pkgs.cargo-nextest
+          pkgs.cargo-udeps
+          pkgs.cargo-watch
+          pkgs.rust-analyzer
+          pkgs.systemfd
         ];
       };
     };

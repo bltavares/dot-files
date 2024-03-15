@@ -20,12 +20,12 @@
   programs.fzf.enable = true;
 
   home.packages = [
-    pkgs.jq
-    pkgs.jless
-    pkgs.zenith
-    pkgs.gnumake
-    pkgs.mmake
+    pkgs.amber
+    pkgs.heatseeker
+    pkgs.hwatch
     pkgs.moreutils
+    pkgs.watchexec
+    pkgs.zenith
   ];
 
   programs.zellij.enable = true;

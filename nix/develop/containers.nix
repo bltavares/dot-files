@@ -5,6 +5,7 @@
         name = "containers";
         nativeBuildInputs = [
           pkgs.dive
+          pkgs.aws-env
         ];
       };
     };

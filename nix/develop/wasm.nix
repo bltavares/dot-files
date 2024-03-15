@@ -7,6 +7,7 @@
           pkgs.binaryen
           pkgs.wasm-pack
           pkgs.wasm-tools
+          pkgs.wasm-bindgen-cli
         ];
       };
     };
