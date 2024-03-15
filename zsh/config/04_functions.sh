@@ -80,7 +80,7 @@ my-pass() {
 }
 
 use-env() {
-  if [[ -z "$1" ]]; then
+  if [[ -z $1 ]]; then
     if [[ -f flake.nix ]]; then
       if nix develop --command zsh; then
         return 0
