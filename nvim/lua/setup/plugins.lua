@@ -333,6 +333,14 @@ require("lazy").setup({
   },
 
   {
+    "code-biscuits/nvim-biscuits",
+    opts = {
+      cursor_line_only = true,
+    },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+
+  {
     "nvim-lualine/lualine.nvim",
     config = function()
       require("config.statusline")

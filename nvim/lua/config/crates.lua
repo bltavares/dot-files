@@ -8,7 +8,7 @@ require("crates").setup({
       enabled = true,
     },
   },
-  on_attach = function(bufnr)
+  on_attach = function(_)
     require("cmp").setup.buffer({ sources = { { name = "crates" } } })
   end,
 })
