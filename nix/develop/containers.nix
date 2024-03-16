@@ -1,11 +1,15 @@
 {...}: {
-  perSystem = {pkgs, ...}: {
+  perSystem = {
+    pkgs,
+    inputs',
+    ...
+  }: {
     devShells = {
       containers = pkgs.mkShell {
         name = "containers";
         nativeBuildInputs = [
           pkgs.dive
-          pkgs.aws-env
+          inputs'.bltavares-nixpkgs.legacyPackages.aws-env
         ];
       };
     };
