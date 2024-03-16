@@ -19,7 +19,12 @@
   }: {
     devShells.default = pkgs.mkShell {
       name = "dotfiles";
-      inputsFrom = [config.devShells.nix config.devShells.lua config.devShells.treefmt];
+      inputsFrom = [
+        config.devShells.nix
+        config.devShells.lua
+        config.devShells.bash
+        config.devShells.treefmt
+      ];
     };
   };
 }

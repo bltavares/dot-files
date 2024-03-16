@@ -150,7 +150,11 @@ require("lazy").setup({
     config = function()
       require("config.null-ls")
     end,
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "neovim/nvim-lspconfig",
+      "gbprod/none-ls-shellcheck.nvim",
+    },
   },
   {
     "nvimdev/lspsaga.nvim", -- cute UI LSP
