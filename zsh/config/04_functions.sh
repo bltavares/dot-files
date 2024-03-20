@@ -89,7 +89,7 @@ use-env() {
     if [[ -f Cargo.toml ]]; then
       exec nix develop ~/repos/dot-files#rust --command zsh
     fi
-    if [[ -f deps.edn ]]; then
+    if [[ -f deps.edn || -f project.clj ]]; then
       exec nix develop ~/repos/dot-files#clojure --command zsh
     fi
   else
