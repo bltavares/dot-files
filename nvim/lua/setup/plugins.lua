@@ -219,10 +219,8 @@ require("lazy").setup({
   },
 
   -- Test
-  -- PR https://github.com/nvim-neotest/neotest/pull/368
   {
-    "bltavares/neotest",
-    branch = "wip",
+    "nvim-neotest/neotest",
     dependencies = {
       -- deps
       "nvim-lua/plenary.nvim",
