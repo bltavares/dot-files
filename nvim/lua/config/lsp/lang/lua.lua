@@ -1,8 +1,18 @@
 local wk = require("which-key")
 local capabilities = require("config.lsp.capabilities").create()
 
+local function locateLSP()
+  local _, path = pcall(vim.fn.exepath, "lua-language-server")
+  if path and path ~= "" then
+    return { path }
+  end
+  return { "lua-language-server" }
+end
+
+_G.locateLSP = locateLSP
+
 require("lspconfig").lua_ls.setup({
-  cmd = { vim.fn.exepath("lua-language-server") or "lua-language-server" },
+  cmd = locateLSP(),
   on_attach = function(client, bufnr)
     require("config.lsp.on_attach")(client, bufnr)
 
