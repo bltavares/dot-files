@@ -84,6 +84,8 @@ use-env() {
     if [[ -f flake.nix ]]; then
       if nix develop --command zsh; then
         return 0
+      else
+        export name='none'
       fi
     fi
     if [[ -f Cargo.toml ]]; then
