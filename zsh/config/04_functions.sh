@@ -92,7 +92,10 @@ use-env() {
       exec nix develop ~/repos/dot-files#rust --profile ~/.cache/nix/dotfiles-rust --command zsh
     fi
     if [[ -f deps.edn || -f project.clj ]]; then
-      exec nix develop ~/repos/dot-files#clojure --profile ~/.cache/nix/dotfiles-clj --command zsh
+      exec nix develop ~/repos/dot-files#clojure --profile ~/.cache/nix/dotfiles-clojure --command zsh
+    fi
+    if [[ -f go.mod ]]; then
+      exec nix develop ~/repos/dot-files#go --profile ~/.cache/nix/dotfiles-go --command zsh
     fi
   else
     nix develop ~/repos/dot-files#"$1" --profile ~/.cache/nix/dotfiles-"$1" --command zsh
