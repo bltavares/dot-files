@@ -30,4 +30,7 @@
 
   programs.zellij.enable = true;
   xdg.configFile."zellij".source = config.lib.mine.mkLink config "zellij";
+
+  programs.starship.enable = true;
+  xdg.configFile."starship.toml".source = config.lib.mine.mkLink config "starship.toml";
 }
