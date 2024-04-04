@@ -142,7 +142,7 @@ if vim.g.neovide then
 end
 
 local visual_keymap = {
-  ["/"] = { ":<c-u>CommentToggle<cr>", "comment" },
+  ["/"] = { ":CommentToggle<cr>", "comment" },
   t = {
     name = "+text",
     a = {
