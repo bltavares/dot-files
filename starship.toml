@@ -9,13 +9,13 @@ $shell\
 $env_var\
 $username\
 $sudo\
+$directory \
 $character\
 """
 
 right_format = """
 $singularity\
 $kubernetes\
-$directory\
 $vcsh\
 $fossil_branch\
 $git_branch\
