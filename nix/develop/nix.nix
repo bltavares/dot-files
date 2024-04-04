@@ -30,6 +30,7 @@
         nativeBuildInputs = [
           flake-checker
           nil
+          pkgs.alejandra
         ];
       };
     };

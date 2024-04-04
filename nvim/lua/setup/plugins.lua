@@ -150,7 +150,11 @@ require("lazy").setup({
     config = function()
       require("config.null-ls")
     end,
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "neovim/nvim-lspconfig",
+      "gbprod/none-ls-shellcheck.nvim",
+    },
   },
   {
     "nvimdev/lspsaga.nvim", -- cute UI LSP
@@ -215,10 +219,8 @@ require("lazy").setup({
   },
 
   -- Test
-  -- PR https://github.com/nvim-neotest/neotest/pull/368
   {
-    "bltavares/neotest",
-    branch = "wip",
+    "nvim-neotest/neotest",
     dependencies = {
       -- deps
       "nvim-lua/plenary.nvim",
@@ -326,6 +328,14 @@ require("lazy").setup({
       require("config.treesitter")
     end,
     dependencies = { "HiPhish/rainbow-delimiters.nvim" },
+  },
+
+  {
+    "code-biscuits/nvim-biscuits",
+    opts = {
+      cursor_line_only = true,
+    },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
 
   {

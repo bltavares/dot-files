@@ -14,14 +14,23 @@
   programs.zoxide.enable = true;
   programs.eza.enable = true;
   programs.atuin.enable = true;
-  programs.zellij.enable = true;
   programs.ripgrep.enable = true;
+  programs.bat.enable = true;
+  programs.bottom.enable = true;
+  programs.fzf.enable = true;
 
   home.packages = [
-    pkgs.jq
-    pkgs.jless
+    pkgs.amber
+    pkgs.heatseeker
+    pkgs.hwatch
+    pkgs.moreutils
+    pkgs.watchexec
     pkgs.zenith
-    pkgs.gnumake
-    pkgs.mmake
   ];
+
+  programs.zellij.enable = true;
+  xdg.configFile."zellij".source = config.lib.mine.mkLink config "zellij";
+
+  programs.starship.enable = true;
+  xdg.configFile."starship.toml".source = config.lib.mine.mkLink config "starship.toml";
 }

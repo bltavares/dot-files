@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./overlays.nix ./develop ./home];
+  imports = [./overlays.nix ./develop ./home ./os];
 }

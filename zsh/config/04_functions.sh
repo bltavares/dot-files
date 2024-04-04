@@ -78,3 +78,26 @@ dockerize() {
 my-pass() {
   PASSWORD_STORE_DIR=${PASSWORD_STORE_DIR:-~/repos/passwords} pass $@
 }
+
+use-env() {
+  if [[ -z $1 ]]; then
+    if [[ -f flake.nix ]]; then
+      if nix develop --command zsh; then
+        return 0
+      else
+        export name='none'
+      fi
+    fi
+    if [[ -f Cargo.toml ]]; then
+      exec nix develop ~/repos/dot-files#rust --profile ~/.cache/nix/dotfiles-rust --command zsh
+    fi
+    if [[ -f deps.edn || -f project.clj ]]; then
+      exec nix develop ~/repos/dot-files#clojure --profile ~/.cache/nix/dotfiles-clojure --command zsh
+    fi
+    if [[ -f go.mod ]]; then
+      exec nix develop ~/repos/dot-files#go --profile ~/.cache/nix/dotfiles-go --command zsh
+    fi
+  else
+    nix develop ~/repos/dot-files#"$1" --profile ~/.cache/nix/dotfiles-"$1" --command zsh
+  fi
+}
