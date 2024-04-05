@@ -4,18 +4,28 @@
     system = "x86_64-linux";
     modules = [
       (inputs.nixpkgs-stable + "/nixos/modules/virtualisation/lxc-container.nix")
+      ./modules/nix.nix
+      ./modules/user.nix
       ./modules/remote.nix
       ./modules/develop.nix
       ./wintermute.nix
     ];
+    specialArgs = {
+      inherit inputs;
+    };
   };
 
   flake.nixosConfigurations.weasel = inputs.nixpkgs-stable.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
       inputs.nixos-wsl.nixosModules.wsl
+      ./modules/nix.nix
+      ./modules/user.nix
       ./weasel.nix
     ];
+    specialArgs = {
+      inherit inputs;
+    };
   };
 
   flake.darwinConfigurations.nu21m1 = inputs.nix-darwin.lib.darwinSystem {
