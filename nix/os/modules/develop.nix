@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   # TODO Docker
 
-  # qemu-user-static support (for NixOS)
+  # TODO qemu-user-static support (for NixOS)
   boot.binfmt.emulatedSystems =
     if pkgs.stdenv.isAarch64
     then ["x86_64-linux"]

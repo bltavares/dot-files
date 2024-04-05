@@ -4,6 +4,8 @@
     system = "x86_64-linux";
     modules = [
       (inputs.nixpkgs-stable + "/nixos/modules/virtualisation/lxc-container.nix")
+      ./modules/nix.nix
+      ./modules/user.nix
       ./modules/remote.nix
       ./modules/develop.nix
       ./wintermute.nix
@@ -14,6 +16,8 @@
     system = "x86_64-linux";
     modules = [
       inputs.nixos-wsl.nixosModules.wsl
+      ./modules/nix.nix
+      ./modules/user.nix
       ./weasel.nix
     ];
   };
