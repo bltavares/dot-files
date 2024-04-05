@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   nix = {
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     registry.nixpkgs.flake = inputs.nixpkgs;
@@ -19,4 +23,11 @@
       trusted-users = ["root"];
     };
   };
+
+  # Minimal flake dependencies + some editor
+  environment.systemPackages = with pkgs; [
+    git
+    curl
+    vim
+  ];
 }
