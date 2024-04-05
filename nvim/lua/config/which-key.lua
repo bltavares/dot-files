@@ -105,6 +105,7 @@ local keymap = {
     i = { "<Cmd>lua vim.lsp.inlay_hint(0)<CR>", "Inlay hints" },
     I = { "<Cmd>IlluminateToggle<CR>", "Illuminate reference" },
     r = { "<Cmd>LspLensToggle<CR>", "Fn references" },
+    w = { "<Cmd>IBLToggle<CR>", "Whitespace marks (ident)" },
     -- z = {"<Cmd>TZAtaraxis<CR>", "zen"},
   },
   t = {
