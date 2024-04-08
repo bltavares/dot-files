@@ -10,6 +10,7 @@
     ./k8s.nix
     ./go.nix
     ./treefmt.nix
+    ./python.nix
   ];
 
   perSystem = {
