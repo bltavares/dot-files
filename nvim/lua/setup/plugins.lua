@@ -381,18 +381,18 @@ require("lazy").setup({
   },
 
   -- Autocompletion AI
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        --- use cmp instead
-        -- suggestion = { enabled = false },
-        -- panel = { enabled = false },
-      })
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require("copilot").setup({
+  --       --- use cmp instead
+  --       -- suggestion = { enabled = false },
+  --       -- panel = { enabled = false },
+  --     })
+  --   end,
+  -- },
 
   -- Devcontainers
   {
