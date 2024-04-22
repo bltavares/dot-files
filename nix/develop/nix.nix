@@ -31,6 +31,8 @@
           flake-checker
           nil
           pkgs.alejandra
+          pkgs.nix-output-monitor
+          pkgs.nix-inspect
         ];
       };
     };
