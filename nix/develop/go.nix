@@ -8,6 +8,7 @@
           pkgs.gopls
           pkgs.go-tools
           pkgs.delve
+          pkgs.golint
         ];
       };
     };
