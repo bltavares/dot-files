@@ -172,7 +172,7 @@ local localkeymap = {
     t = { "<Cmd>Neotest run<CR>", "nearest" },
     f = { "<Cmd>Neotest run file<CR>", "file" },
     l = { "<Cmd>Neotest run last<CR>", "last" },
-    s = { "<Cmd>Neotest summary<CR>", "suite" },
+    s = { "<Cmd>Neotest summary<CR>", "summary" },
     o = { "<Cmd>Neotest output<CR>", "output" },
     O = { "<Cmd>Neotest output-panel<CR>", "output" },
   },
