@@ -13,35 +13,17 @@
     "--security-opt",
     "label=disable"
   ],
-  "containerEnv": {
-    // extensions to preload before other extensions
-    "PRELOAD_EXTENSIONS": "mkhl.direnv"
-  },
   // disable command overriding and updating remote user ID
   "overrideCommand": false,
   "userEnvProbe": "loginShell",
   "updateRemoteUserUID": false,
-  "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && sudo env \"PATH=$PATH\" nix run nixpkgs#cachix use nix-community && nix develop --accept-flake-config --command bash -c 'echo done building nix dev environment'",
+  "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
   "customizations": {
     "vscode": {
       "extensions": [
-        "mkhl.direnv",
-        "jnoortheen.nix-ide"
-        // extra extensions
-        //"fsevenm.run-it-on",
+        "mkhl.direnv"
       ],
       "settings": {
-        "nix.enableLanguageServer": true,
-        "nix.serverPath": "nil",
-        "nix.serverSettings": {
-          "nil": {
-            "formatting": {
-              "command": [
-                "alejandra"
-              ]
-            }
-          }
-        }
       }
     }
   }

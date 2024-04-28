@@ -131,7 +131,7 @@ symbol = "[▶ ](blue italic)"
 
 [localip]
 ssh_only = true
-format = " ◯[$localipv4](bold magenta)"
+format = "◯[$localipv4](bold magenta)@"
 disabled = false
 
 [time]

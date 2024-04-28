@@ -1,3 +1,3 @@
-#FROM ghcr.io/xtruder/nix-devcontainer:v1
-FROM bltavares/nix-devcontainer
-VOLUME /nix
+FROM homebrew/brew
+COPY ./homebrew /opt/homebrew
+RUN cd /opt/homebrew && bash devcontainer.sh

@@ -33,6 +33,11 @@ install.wezterm() {
   linking $curr_dir/wezterm $HOME/.config/wezterm
 }
 
+install.starship() {
+  mkdir -p $HOME/.config
+  linking $curr_dir/starship.toml $HOME/.config/starship.toml
+}
+
 install.bins() {
   mkdir -p $HOME/bin
   for b in $curr_dir/bin/*; do
@@ -47,9 +52,10 @@ install.all() {
   install.nvim
   install.zellij
   install.wezterm
+  install.starship
 }
 
-options=("bins" "nvim" "confs" "zsh" "zellij" "wezterm" "all")
+options=("bins" "nvim" "confs" "zsh" "zellij" "wezterm" "starship" "all")
 help() {
   echo "install.sh [option]"
   echo "[options] - one of the following:"
