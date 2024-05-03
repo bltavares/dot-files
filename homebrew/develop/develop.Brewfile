@@ -31,6 +31,6 @@ brew "zellij"
 brew "starship"
 brew "zsh"
 
-brew "neovim", head: true
+brew "neovim", args: ["HEAD"]
 
 brew "devcontainer"
