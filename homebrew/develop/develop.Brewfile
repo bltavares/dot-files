@@ -18,6 +18,7 @@ brew "hwatch"
 brew "moreutils"
 brew "watchexec"
 brew "zenith"
+brew "gh"
 
 brew "zoxide"
 brew "eza"
