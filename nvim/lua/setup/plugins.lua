@@ -310,10 +310,11 @@ require("lazy").setup({
     end,
   },
   {
-    "norcalli/nvim-colorizer.lua", -- colorize #abc123 colors
-    config = function()
-      require("colorizer").setup()
-    end,
+    'brenoprata10/nvim-highlight-colors', -- colorize #abc123 colors
+    opts = {
+      render = 'virtual',
+      virtual_symbol = '■',
+    },
   },
   {
     "folke/todo-comments.nvim", -- Colorize and find things to do
