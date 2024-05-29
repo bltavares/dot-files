@@ -6,5 +6,6 @@ cat \
 	develop/develop.Brewfile \
 	develop/bash.Brewfile \
 	develop/clojure.Brewfile \
+	develop/lua.Brewfile \
 	develop/rust.Brewfile |
 	brew bundle $operation --file=-
