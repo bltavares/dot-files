@@ -42,14 +42,17 @@ require("lazy").setup({
     dependencies = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-project.nvim",
+      "ahmedkhalf/project.nvim",
     },
   },
   {
-    "ahmedkhalf/lsp-rooter.nvim",
-    config = function()
-      require("lsp-rooter").setup()
-    end,
+    -- "ahmedkhalf/project.nvim",
+    -- TODO: Temporary switch to fork
+    -- https://github.com/ahmedkhalf/project.nvim/pull/153
+    "LennyPhoenix/project.nvim",
+    branch = "fix-get_clients",
+    main = "project_nvim",
+    opts = {},
   },
   {
     "projekt0n/circles.nvim", -- replace web-dev-icons with circles

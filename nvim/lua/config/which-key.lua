@@ -64,11 +64,9 @@ local keymap = {
   p = {
     name = "+project",
     s = {
-      '<Cmd>lua require"telescope".extensions.project.project{ display_type = "full" }<CR>',
+      '<Cmd>lua require"telescope".extensions.projects.projects{}<CR>',
       "switch",
     },
-    a = { "<Cmd>lua project_add_cwd()<CR>", "add project" },
-    A = { "<Cmd>lua project_add_cwd(vim.loop.cwd())<CR>", "add current pwd" },
     t = { "<Cmd>NvimTreeToggle<CR>", "project tree" },
     T = { "<Cmd>NvimTreeFindFile<CR>", "show on tree" },
     r = { "<Cmd>NvimTreeRefresh<CR>", "refresh tree" },
