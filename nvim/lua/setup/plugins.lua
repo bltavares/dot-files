@@ -42,7 +42,8 @@ require("lazy").setup({
     dependencies = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
-      "ahmedkhalf/project.nvim",
+      "LennyPhoenix/project.nvim",
+      -- "ahmedkhalf/project.nvim",
     },
   },
   {
@@ -263,7 +264,7 @@ require("lazy").setup({
     config = function()
       require("config.crates")
     end,
-    requires = { "hrsh7th/nvim-cmp" },
+    dependencies = { "hrsh7th/nvim-cmp" },
   },
 
   -- flutter
@@ -371,7 +372,7 @@ require("lazy").setup({
     "lewis6991/gitsigns.nvim", -- TODO keymaps
     cmd = { "Gitsigns" },
     opts = {},
-    requires = { "folke/lsp-trouble.nvim" },
+    dependencies = { "folke/lsp-trouble.nvim" },
   },
   -- BUG https://github.com/pocco81/true-zen.nvim/issues/125
   -- {'pocco81/true-zen.nvim',
