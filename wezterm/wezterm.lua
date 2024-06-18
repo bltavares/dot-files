@@ -68,5 +68,9 @@ wezterm.plugin.require("https://github.com/nekowinston/wezterm-bar").apply_to_co
   clock = { enabled = false },
 })
 
+
+-- Avoid changing the terminal size when increasing text size on videocalls
+config.adjust_window_size_when_changing_font_size = false
+
 -- and finally, return the configuration to wezterm
 return config
