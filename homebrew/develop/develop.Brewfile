@@ -36,3 +36,6 @@ brew "zsh"
 brew "neovim", args: ["HEAD"]
 
 brew "devcontainer"
+
+tap "bruceadams/utilities"
+brew "bruceadams/utilities/yj"

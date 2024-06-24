@@ -1,6 +1,8 @@
 # infra
 brew "packer"
 brew "pulumi"
-## TODO brew "aws-env"
 brew "helm"
 brew "istioctl"
+
+tap "bltavares/tap"
+brew "bltavares/tap/aws-env"
