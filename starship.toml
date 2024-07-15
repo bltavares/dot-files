@@ -287,5 +287,8 @@ format = " spack [$symbol$environment]($style)"
 
 [kubernetes]
 disabled = false
+format= 'k8s [$symbol$context( \($namespace\))]($style) '
 detect_extensions = ['yaml']
 detect_files = ['project.clj']
+# Not setting it would enable it always in v1.19.0: https://github.com/starship/starship/issues/5978
+detect_env_vars = ['INVALID']
