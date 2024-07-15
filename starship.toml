@@ -86,7 +86,6 @@ $status\
 $os\
 $container\
 $battery\
-$time\
 """
 
 add_newline = true
