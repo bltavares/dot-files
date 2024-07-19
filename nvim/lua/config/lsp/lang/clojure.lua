@@ -7,57 +7,47 @@ local capabilities = require("config.lsp.capabilities").create()
 require("lspconfig").clojure_lsp.setup({
   on_attach = function(client, bufnr)
     require("config.lsp.on_attach")(client, bufnr)
+    wk.add({
+      { buffer = bufnr, remap = false },
+      {
+        { "<localleader>e", group = "eval" },
+        { "<localleader>e!", desc = "replace" },
+        { "<localleader>eb", desc = "buffer" },
+        { "<localleader>ee", desc = "at point" },
+        { "<localleader>er", desc = "outer" },
+        { "<localleader>ew", desc = "inspect" },
+      },
+      {
+        { "<localleader>l", group = "log" },
+        { "<localleader>lR", desc = "reset & close" },
+        { "<localleader>lr", desc = "reset" },
+        { "<localleader>ls", desc = "split" },
+        { "<localleader>lt", desc = "tab" },
+        { "<localleader>lv", desc = "vertical" },
+        { "<localleader>rA", desc = "Refresh All!" },
+      },
+      {
 
-    local keymap = {
-      s = {
-        name = "+repl",
-        j = { "<CMD>Lein<CR>", "jackin" },
-        c = { "<CMD>ConjureConnect<CR>", "connect" },
-        s = { "<CMD>ConjureLogSplit<CR>", "log buffer" },
-        r = { "<CMD>ConjureCljRefreshChanged<CR>", "refresh namespaces" },
-        R = { "<CMD>ConjureCljRefreshAll<CR>", "Force refresh namespaces" },
+        { "<localleader>s", group = "repl" },
+        { "<localleader>sR", "<CMD>ConjureCljRefreshAll<CR>", desc = "Force refresh namespaces" },
+        { "<localleader>sc", "<CMD>ConjureConnect<CR>", desc = "connect" },
+        { "<localleader>sj", "<CMD>Lein<CR>", desc = "jackin" },
+        { "<localleader>sr", "<CMD>ConjureCljRefreshChanged<CR>", desc = "refresh namespaces" },
+        { "<localleader>ss", "<CMD>ConjureLogSplit<CR>", desc = "log buffer" },
       },
-      l = {
-        name = "+log",
-        s = "split",
-        v = "vertical",
-        t = "tab",
-        r = "reset",
-        R = "reset & close",
+      {
+        { "<localleader>t", group = "test" },
+        { "<localleader>tN", desc = "alternate ns" },
+        { "<localleader>tT", "<CMD>ConjureCljRunAlternatNsTests<CR>", desc = "alternate ns" },
+        { "<localleader>ta", desc = "all lodead" },
+        { "<localleader>tc", desc = "at point" },
+        { "<localleader>tf", "<CMD>ConjureCljRunCurrentNsTests<CR>", desc = "file" },
+        { "<localleader>tl", '<CMD>echo "Not Available in clj"<CR>', desc = "last" },
+        { "<localleader>tn", desc = "namespace" },
+        { "<localleader>ts", "<CMD>ConjureCljRunAllTests<CR>", desc = "suite" },
+        { "<localleader>tt", "<CMD>ConjureCljRunCurrentTest<CR>", desc = "nearest" },
+        { "<localleader>tv", '<CMD>echo "Not Available in clj"<CR>', desc = "visit" },
       },
-      r = {
-        A = "Refresh All!",
-      },
-      e = {
-        name = "+eval",
-        b = "buffer",
-        e = "at point",
-        r = "outer",
-        w = "inspect",
-        ["!"] = "replace",
-      },
-      t = {
-        name = "+test",
-
-        n = "namespace",
-        a = "all lodead",
-        c = "at point",
-        N = "alternate ns",
-
-        t = { "<CMD>ConjureCljRunCurrentTest<CR>", "nearest" },
-        f = { "<CMD>ConjureCljRunCurrentNsTests<CR>", "file" },
-        s = { "<CMD>ConjureCljRunAllTests<CR>", "suite" },
-        T = { "<CMD>ConjureCljRunAlternatNsTests<CR>", "alternate ns" },
-        l = { '<CMD>echo "Not Available in clj"<CR>', "last" },
-        v = { '<CMD>echo "Not Available in clj"<CR>', "visit" },
-      },
-    }
-    wk.register(keymap, {
-      prefix = "<localleader>",
-      silent = true,
-      noremap = true,
-      mode = "n",
-      buffer = bufnr,
     })
   end,
   capabilities = capabilities,

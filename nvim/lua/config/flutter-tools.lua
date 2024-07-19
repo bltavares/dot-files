@@ -1,35 +1,22 @@
 local on_attach = function(client, bufnr)
   require("config.lsp.on_attach")(client, bufnr)
   local wk = require("which-key")
-  local keymap = {
-    c = { "<cmd>lua require('telescope').extensions.flutter.commands()<CR>", "commands" },
-    r = {
-      r = { "<cmd>FlutterReload<CR>", "reload" },
-      R = { "<cmd>FlutterRestart<CR>", "restart" },
-      D = {
-        name = "+devices",
-        r = { "<cmd>FlutterRun<CR>", "run" },
-        d = { "<cmd>FlutterDevices<CR>", "devices" },
-        e = { "<cmd>FlutterEmulators<CR>", "emulators" },
-        t = { "<cmd>FlutterDevTools<CR>", "dev tools" },
-        q = { "<cmd>FlutterQuite<CR>", "quit" },
-      },
-      O = { "<cmd>FlutterOutline<CR>", "outline" },
-      -- o = {
-      --     "<cmd>lua require('lsp_extensions.dart.outline').loclist({})<CR>",
-      --     "outline"
-      -- },
-      -- O = {
-      --     "<cmd>lua FlutterTelescopeOutline<CR>", "telescope outline"
-      -- }
+  wk.add({
+    { buffer = bufnr, remap = false },
+    {
+      { "<localleader>c", "<cmd>lua require('telescope').extensions.flutter.commands()<CR>", desc = "commands" },
+      { "<localleader>rO", "<cmd>FlutterOutline<CR>", desc = "outline" },
+      { "<localleader>rR", "<cmd>FlutterRestart<CR>", desc = "restart" },
+      { "<localleader>rr", "<cmd>FlutterReload<CR>", desc = "reload" },
     },
-  }
-  wk.register(keymap, {
-    prefix = "<localleader>",
-    silent = true,
-    noremap = true,
-    mode = "n",
-    buffer = bufnr,
+    {
+      { "<localleader>rD", group = "devices" },
+      { "<localleader>rDd", "<cmd>FlutterDevices<CR>", desc = "devices" },
+      { "<localleader>rDe", "<cmd>FlutterEmulators<CR>", desc = "emulators" },
+      { "<localleader>rDq", "<cmd>FlutterQuite<CR>", desc = "quit" },
+      { "<localleader>rDr", "<cmd>FlutterRun<CR>", desc = "run" },
+      { "<localleader>rDt", "<cmd>FlutterDevTools<CR>", desc = "dev tools" },
+    },
   })
 end
 

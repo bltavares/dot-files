@@ -7,20 +7,11 @@ vim.g.rustaceanvim = {
     on_attach = function(client, bufnr)
       require("config.lsp.on_attach")(client, bufnr)
       on_attach(client, bufnr)
-      local keymap = {
-        e = {
-          name = "+eval",
-          r = { "<Cmd>RustLsp runnables<CR>", "run" },
-          R = { "<Cmd>RustLsp! runnables<CR>", "last" },
-        },
-      }
-
-      wk.register(keymap, {
-        prefix = "<localleader>",
-        silent = true,
-        noremap = true,
-        mode = "n",
-        buffer = bufnr,
+      wk.add({
+        { buffer = bufnr, remap = false },
+        { "<localleader>e", group = "eval" },
+        { "<localleader>eR", "<Cmd>RustLsp! runnables<CR>", desc = "last" },
+        { "<localleader>er", "<Cmd>RustLsp runnables<CR>", desc = "run" },
       })
     end,
     capabilities = capabilities,

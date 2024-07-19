@@ -16,18 +16,10 @@ require("lspconfig").lua_ls.setup({
   on_attach = function(client, bufnr)
     require("config.lsp.on_attach")(client, bufnr)
 
-    local keymap = {
-      e = {
-        name = "+eval",
-        f = { "<cmd>luafile %<CR><cmd>echo 'Evaled' @%<cr>", "file" },
-      },
-    }
-    wk.register(keymap, {
-      prefix = "<localleader>",
-      silent = true,
-      noremap = true,
-      mode = "n",
-      buffer = bufnr,
+    wk.add({
+      { buffer = bufnr, remap = false },
+      { "<localleader>e", group = "eval" },
+      { "<localleader>ef", "<cmd>luafile %<CR><cmd>echo 'Evaled' @%<cr>", desc = "file" },
     })
   end,
   capabilities = capabilities,

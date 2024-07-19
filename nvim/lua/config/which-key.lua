@@ -2,182 +2,194 @@ local fn = vim.fn
 local wk = require("which-key")
 require("which-key").setup()
 
-wk.register(
-  { ["<C-p>"] = { "<Cmd>lua require('telescope.builtin').commands()<CR>", "commands" } },
-  { silent = true, noremap = true, mode = "n" }
-)
+wk.add({
+  { "<C-p>", "<Cmd>lua require('telescope.builtin').commands()<CR>", desc = "commands", remap = false },
+})
 
 -- TODO: git/fugitive keybindings
 -- TODO: session keybindings
 -- TODO: mode-mapping of localleader
 -- TODO: dap-debug keybindings
 -- TODO: access localleader maps over normal leader through m
-local keymap = {
-  [" "] = { "<Cmd>lua require('telescope.builtin').resume()<CR>", "resume panel" },
-  [";"] = { "<Cmd>CommentToggle<CR>", "comment" },
-  ["/"] = { "<Cmd>lua require('telescope.builtin').live_grep()<CR>", "grep" },
-  ["*"] = {
-    "<Cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('()<cword>') }<CR>",
-    "find word in project",
-  },
-  q = {
-    name = "+vim",
-    q = { "<Cmd>qa!<CR>", "Quit!" },
-    r = {
-      "<Cmd>luafile " .. fn.stdpath("config") .. "/init.lua<CR>",
-      "Reload",
+wk.add({
+  {
+    {
+      "<leader> ",
+      "<Cmd>lua require('telescope.builtin').resume()<CR>",
+      desc = "resume panel",
+    },
+    {
+      "<leader>*",
+      "<Cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>",
+      desc = "find word in project",
+    },
+    {
+      "<leader>/",
+      "<Cmd>lua require('telescope.builtin').live_grep()<CR>",
+      desc = "grep",
+    },
+    {
+      "<leader>;",
+      "<Cmd>CommentToggle<CR>",
+      desc = "comment",
     },
   },
-  e = {
-    name = "+editor",
-    e = { "<Cmd>e " .. fn.stdpath("config") .. "/plugin/01_general.lua<CR>", "edit" },
-    p = {
-      "<Cmd>e " .. fn.stdpath("config") .. "/plugin/00_config.lua<CR>",
-      "plugins",
+  {
+    { "<leader>T", group = "toggle" },
+    {
+      "<leader>TI",
+      "<Cmd>IlluminateToggle<CR>",
+      desc = "Illuminate reference",
     },
-    r = { "<Cmd>luafile %<CR>", "eval current lua file" },
-  },
-  b = {
-    name = "+buffers",
-    b = { "<Cmd>lua require('telescope.builtin').buffers()<CR>", "buffers" },
-    D = { ":bufdo bd<CR>", "do" },
-  },
-  f = {
-    name = "+find",
-    f = { "<Cmd>lua require('telescope.builtin').find_files()<CR>", "files" },
-    b = { "<Cmd>lua require('telescope.builtin').buffers()<CR>", "buffers" },
-    h = { "<Cmd>lua require('telescope.builtin').help_tags()<CR>", "help tags" },
-    c = {
-      name = "+commands",
-      c = { "<Cmd>lua require('telescope.builtin').commands()<CR>", "commands" },
-      h = { "<Cmd>lua require('telescope.builtin').command_history()<CR>", "history" },
+    {
+      "<leader>Ti",
+      "<Cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>",
+      desc = "Inlay hints",
     },
-    q = { "<Cmd>lua require('telescope.builtin').quickfix()<CR>", "quickfix" },
-    g = {
-      name = "+git",
-      g = { "<Cmd>lua require('telescope.builtin').git_commits()<CR>", "commits" },
-      c = { "<Cmd>lua require('telescope.builtin').git_bcommits()<CR>", "bcommits" },
-      b = { "<Cmd>lua require('telescope.builtin').git_branches()<CR>", "branches" },
-      s = { "<Cmd>lua require('telescope.builtin').git_status()<CR>", "status" },
+    {
+      "<leader>Tr",
+      "<Cmd>LspLensToggle<CR>",
+      desc = "Fn references",
+    },
+    { "<leader>Tt", "<Cmd>Twilight<CR>", desc = "Twilight" },
+    {
+      "<leader>Tw",
+      "<Cmd>IBLToggle<CR>",
+      desc = "Whitespace marks (ident)",
     },
   },
-  p = {
-    name = "+project",
-    s = {
-      '<Cmd>lua require"telescope".extensions.projects.projects{}<CR>',
-      "switch",
-    },
-    t = { "<Cmd>NvimTreeToggle<CR>", "project tree" },
-    T = { "<Cmd>NvimTreeFindFile<CR>", "show on tree" },
-    r = { "<Cmd>NvimTreeRefresh<CR>", "refresh tree" },
-    f = { "<Cmd>lua require('telescope.builtin').find_files()<CR>", "files" },
-    ["/"] = { "<Cmd>lua require('telescope.builtin').live_grep()<CR>", "grep" },
-    ["?"] = { "<Cmd>TodoTrouble<CR>", "todos" },
+  {
+    { "<leader>b", group = "buffers" },
+    { "<leader>bD", ":bufdo bd<CR>", desc = "do" },
+    { "<leader>bb", "<Cmd>lua require('telescope.builtin').buffers()<CR>", desc = "buffers" },
   },
-  w = {
-    name = "+window",
-    v = { "<Cmd>vsplit<CR>", "vertical split" },
-    s = { "<Cmd>split<CR>", "horizontal split" },
-    m = { "<Cmd>only<CR>", "maximize split" },
-    h = { "<C-w>h", "move left" },
-    j = { "<C-w>j", "move down" },
-    k = { "<C-w>k", "move top" },
-    l = { "<C-w>l", "move right" },
-    c = { "<C-w>c", "close" },
-    t = {
-      name = "+tab",
-      t = { ":tabnext<CR>", "next" },
-      n = { ":tabnew<CR>", "new" },
-      c = { ":tabclose<CR>", "close" },
+  {
+    { "<leader>e", group = "editor" },
+    { "<leader>ee", "<Cmd>e /Users/bruno.tavares/.config/nvim/plugin/01_general.lua<CR>", desc = "edit" },
+    { "<leader>ep", "<Cmd>e /Users/bruno.tavares/.config/nvim/plugin/00_config.lua<CR>", desc = "plugins" },
+    {
+      "<leader>er",
+      "<Cmd>luafile %<CR>",
+      desc = "eval current lua file",
     },
   },
-  g = {
-    name = "+git",
-    l = { "<Cmd>GitLink<CR>", "link" },
-    b = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "blame" },
-    g = { "<Cmd>Gitsigns toggle_signs<CR>", "signs" },
+  {
+    { "<leader>f", group = "find" },
+    { "<leader>fb", "<Cmd>lua require('telescope.builtin').buffers()<CR>", desc = "buffers" },
   },
-  T = {
-    name = "+toggle",
-    t = { "<Cmd>Twilight<CR>", "Twilight" },
-    i = { "<Cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>", "Inlay hints" },
-    I = { "<Cmd>IlluminateToggle<CR>", "Illuminate reference" },
-    r = { "<Cmd>LspLensToggle<CR>", "Fn references" },
-    w = { "<Cmd>IBLToggle<CR>", "Whitespace marks (ident)" },
-    -- z = {"<Cmd>TZAtaraxis<CR>", "zen"},
+  {
+    { "<leader>fc", group = "commands" },
+    { "<leader>fcc", "<Cmd>lua require('telescope.builtin').commands()<CR>", desc = "commands" },
+    { "<leader>fch", "<Cmd>lua require('telescope.builtin').command_history()<CR>", desc = "history" },
+    { "<leader>ff", "<Cmd>lua require('telescope.builtin').find_files()<CR>", desc = "files" },
   },
-  t = {
-    name = "+text",
-    ["/"] = { "<Cmd>CommentToggle<CR>", "comment" },
-    l = {
-      name = "+line",
-      l = { "<Cmd>TSJToggle<CR>", "toggle" },
-      s = { "<Cmd>TSJSplit<CR>", "split" },
-      j = { "<Cmd>TSJJoin<CR>", "join" },
-    },
-    a = {
-      name = "+align",
-      a = { "<PLUG>(EasyAlign)", "interactive" },
-      ["{"] = { "vi{<C-v>$:EasyAlign\\ g/^\\S/<CR>", "{}" },
-      ["["] = { "vi[<C-v>$:EasyAlign\\ g/^\\S/<CR>", "[]" },
-      ["("] = { "vi(<C-v>$:EasyAlign\\ g/^\\S/<CR>", "()" },
-    },
+  {
+    { "<leader>fg", group = "git" },
+    { "<leader>fgb", "<Cmd>lua require('telescope.builtin').git_branches()<CR>", desc = "branches" },
+    { "<leader>fgc", "<Cmd>lua require('telescope.builtin').git_bcommits()<CR>", desc = "bcommits" },
+    { "<leader>fgg", "<Cmd>lua require('telescope.builtin').git_commits()<CR>", desc = "commits" },
+    { "<leader>fgs", "<Cmd>lua require('telescope.builtin').git_status()<CR>", desc = "status" },
+    { "<leader>fh", "<Cmd>lua require('telescope.builtin').help_tags()<CR>", desc = "help tags" },
+    { "<leader>fq", "<Cmd>lua require('telescope.builtin').quickfix()<CR>", desc = "quickfix" },
   },
-}
-wk.register(keymap, { prefix = "<leader>" })
+  {
+    { "<leader>g", group = "git" },
+    { "<leader>gb", "<Cmd>Gitsigns toggle_current_line_blame<CR>", desc = "blame" },
+    { "<leader>gg", "<Cmd>Gitsigns toggle_signs<CR>", desc = "signs" },
+    { "<leader>gl", "<Cmd>GitLink<CR>", desc = "link" },
+  },
+  {
+    { "<leader>p", group = "project" },
+    { "<leader>p/", "<Cmd>lua require('telescope.builtin').live_grep()<CR>", desc = "grep" },
+    { "<leader>p?", "<Cmd>TodoTrouble<CR>", desc = "todos" },
+    { "<leader>pT", "<Cmd>NvimTreeFindFile<CR>", desc = "show on tree" },
+    { "<leader>pf", "<Cmd>lua require('telescope.builtin').find_files()<CR>", desc = "files" },
+    { "<leader>pr", "<Cmd>NvimTreeRefresh<CR>", desc = "refresh tree" },
+    { "<leader>ps", '<Cmd>lua require"telescope".extensions.projects.projects{}<CR>', desc = "switch" },
+    { "<leader>pt", "<Cmd>NvimTreeToggle<CR>", desc = "project tree" },
+  },
+  {
+    { "<leader>q", group = "vim" },
+    { "<leader>qq", "<Cmd>qa!<CR>", desc = "Quit!" },
+    { "<leader>qr", "<Cmd>luafile /Users/bruno.tavares/.config/nvim/init.lua<CR>", desc = "Reload" },
+  },
+  {
+    { "<leader>t", group = "text" },
+    { "<leader>t/", "<Cmd>CommentToggle<CR>", desc = "comment" },
+  },
+  {
+    { "<leader>ta", group = "align" },
+    { "<leader>ta(", "vi(<C-v>$:EasyAlign\\ g/^\\S/<CR>", desc = "()" },
+    { "<leader>ta[", "vi[<C-v>$:EasyAlign\\ g/^\\S/<CR>", desc = "[]" },
+    { "<leader>taa", "<PLUG>(EasyAlign)", desc = "interactive" },
+    { "<leader>ta{", "vi{<C-v>$:EasyAlign\\ g/^\\S/<CR>", desc = "{}" },
+  },
+  {
+    { "<leader>tl", group = "line" },
+    { "<leader>tlj", "<Cmd>TSJJoin<CR>", desc = "join" },
+    { "<leader>tll", "<Cmd>TSJToggle<CR>", desc = "toggle" },
+    { "<leader>tls", "<Cmd>TSJSplit<CR>", desc = "split" },
+  },
+  {
+    { "<leader>w", group = "window" },
+    { "<leader>wc", "<C-w>c", desc = "close" },
+    { "<leader>wh", "<C-w>h", desc = "move left" },
+    { "<leader>wj", "<C-w>j", desc = "move down" },
+    { "<leader>wk", "<C-w>k", desc = "move top" },
+    { "<leader>wl", "<C-w>l", desc = "move right" },
+    { "<leader>wm", "<Cmd>only<CR>", desc = "maximize split" },
+    { "<leader>ws", "<Cmd>split<CR>", desc = "horizontal split" },
+  },
+  {
+    { "<leader>wt", group = "tab" },
+    { "<leader>wtc", ":tabclose<CR>", desc = "close" },
+    { "<leader>wtn", ":tabnew<CR>", desc = "new" },
+    { "<leader>wtt", ":tabnext<CR>", desc = "next" },
+    { "<leader>wv", "<Cmd>vsplit<CR>", desc = "vertical split" },
+  },
+})
 
 if vim.g.neovide then
-  local gui_keymap = {
-    T = {
-      f = {
-        name = "+font",
-        ["+"] = { "<CMD>lua FontIncrease()<CR>", "+" },
-        ["-"] = { "<CMD>lua FontDecrease()<CR>", "-" },
-        ["0"] = { "<CMD>lua FontReset()<CR>", "reset" },
-      },
-    },
-  }
-  wk.register(gui_keymap, { prefix = "<leader>" })
+  wk.add({
+    { "<leader>Tf", group = "font" },
+    { "<leader>Tf+", "<CMD>lua FontIncrease()<CR>", desc = "+" },
+    { "<leader>Tf-", "<CMD>lua FontDecrease()<CR>", desc = "-" },
+    { "<leader>Tf0", "<CMD>lua FontReset()<CR>", desc = "reset" },
+  })
 end
 
-local visual_keymap = {
-  ["/"] = { ":CommentToggle<cr>", "comment" },
-  t = {
-    name = "+text",
-    a = {
-      name = "+align",
-      a = { "<PLUG>(EasyAlign)", "interactive" },
-      [","] = { ":Tabularize /,<CR>", "," },
-      ["-"] = { ":Tabularize /-<CR>", "-" },
-      ["|"] = { ":Tabularize /|<CR>", "|" },
-      ["="] = { ":Tabularize /=<CR>", "=" },
-      ["{"] = { ":EasyAlign\\ g/^\\S/<CR>", "{}" },
-      ["["] = { ":EasyAlign\\ g/^\\S/<CR>", "[]" },
-      ["("] = { ":EasyAlign\\ g/^\\S/<CR>", "()" },
-    },
+wk.add({
+  mode = { "v" },
+  { "<leader>/", ":CommentToggle<cr>", desc = "comment" },
+  {
+    { "<leader>g", group = "git" },
+    { "<leader>gl", "<Cmd>GitLink<CR>", desc = "git link" },
   },
-  g = { name = "+git", l = { "<Cmd>GitLink<CR>", "git link" } },
-  -- T = {name="+toggle",
-  --   z = {"<Cmd>TZNarrow<CR>", "Narrow"},
-  -- },
-}
-wk.register(visual_keymap, { mode = "v", prefix = "<leader>" })
+  {
+    { "<leader>t", group = "text" },
+  },
+  {
+    { "<leader>ta", group = "align" },
+    { "<leader>ta(", ":EasyAlign\\ g/^\\S/<CR>", desc = "()" },
+    { "<leader>ta,", ":Tabularize /,<CR>", desc = "," },
+    { "<leader>ta-", ":Tabularize /-<CR>", desc = "-" },
+    { "<leader>ta=", ":Tabularize /=<CR>", desc = "=" },
+    { "<leader>ta[", ":EasyAlign\\ g/^\\S/<CR>", desc = "[]" },
+    { "<leader>taa", "<PLUG>(EasyAlign)", desc = "interactive" },
+    { "<leader>ta{", ":EasyAlign\\ g/^\\S/<CR>", desc = "{}" },
+    { "<leader>ta|", ":Tabularize /|<CR>", desc = "|" },
+  },
+})
 
-local localkeymap = {
-  ["="] = { "gg=G``", "format" },
-  t = {
-    name = "+test",
-    t = { "<Cmd>Neotest run<CR>", "nearest" },
-    f = { "<Cmd>Neotest run file<CR>", "file" },
-    l = { "<Cmd>Neotest run last<CR>", "last" },
-    s = { "<Cmd>Neotest summary<CR>", "summary" },
-    o = { "<Cmd>Neotest output<CR>", "output" },
-    O = { "<Cmd>Neotest output-panel<CR>", "output" },
+wk.add({
+  { "<localleader>=", "gg=G``", desc = "format", remap = false },
+  {
+    { "<localleader>t", group = "test", remap = false },
+    { "<localleader>tO", "<Cmd>Neotest output-panel<CR>", desc = "output", remap = false },
+    { "<localleader>tf", "<Cmd>Neotest run file<CR>", desc = "file", remap = false },
+    { "<localleader>tl", "<Cmd>Neotest run last<CR>", desc = "last", remap = false },
+    { "<localleader>to", "<Cmd>Neotest output<CR>", desc = "output", remap = false },
+    { "<localleader>ts", "<Cmd>Neotest summary<CR>", desc = "summary", remap = false },
+    { "<localleader>tt", "<Cmd>Neotest run<CR>", desc = "nearest", remap = false },
   },
-}
-wk.register(localkeymap, {
-  prefix = "<localleader>",
-  silent = true,
-  noremap = true,
-  mode = "n",
 })
