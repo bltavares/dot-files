@@ -39,3 +39,5 @@ brew "devcontainer"
 
 tap "bruceadams/utilities"
 brew "bruceadams/utilities/yj"
+
+brew "cosign"
