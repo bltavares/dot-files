@@ -42,16 +42,15 @@ require("lazy").setup({
     dependencies = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
-      "LennyPhoenix/project.nvim",
+      "bltavares/project.nvim",
       -- "ahmedkhalf/project.nvim",
     },
   },
   {
     -- "ahmedkhalf/project.nvim",
-    -- TODO: Temporary switch to fork
-    -- https://github.com/ahmedkhalf/project.nvim/pull/153
-    "LennyPhoenix/project.nvim",
-    branch = "fix-get_clients",
+    -- TODO: Temporary switch to fork for fixes
+    "bltavares/project.nvim",
+    branch = "fixes",
     main = "project_nvim",
     opts = {},
   },
