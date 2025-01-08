@@ -1,12 +1,13 @@
 local wk = require("which-key")
 local capabilities = require("config.lsp.capabilities").create()
+local on_attach = require("config.lsp.on_attach")
 
 -- TODO
 -- https://github.com/guns/vim-sexp
 -- https://github.com/eraserhd/parinfer-rust
 require("lspconfig").clojure_lsp.setup({
   on_attach = function(client, bufnr)
-    require("config.lsp.on_attach")(client, bufnr)
+    on_attach(client, bufnr)
     wk.add({
       { buffer = bufnr, remap = false },
       {

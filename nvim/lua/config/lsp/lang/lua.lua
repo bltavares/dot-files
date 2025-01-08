@@ -1,5 +1,6 @@
 local wk = require("which-key")
 local capabilities = require("config.lsp.capabilities").create()
+local on_attach = require("config.lsp.on_attach")
 
 local function locateLSP()
   local _, path = pcall(vim.fn.exepath, "lua-language-server")
@@ -14,8 +15,7 @@ _G.locateLSP = locateLSP
 require("lspconfig").lua_ls.setup({
   cmd = locateLSP(),
   on_attach = function(client, bufnr)
-    require("config.lsp.on_attach")(client, bufnr)
-
+    on_attach(client, bufnr)
     wk.add({
       { buffer = bufnr, remap = false },
       { "<localleader>e", group = "eval" },

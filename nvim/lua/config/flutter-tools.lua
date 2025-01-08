@@ -1,5 +1,7 @@
-local on_attach = function(client, bufnr)
-  require("config.lsp.on_attach")(client, bufnr)
+local on_attach = require("config.lsp.on_attach")
+
+local local_on_attach = function(client, bufnr)
+  on_attach(client, bufnr)
   local wk = require("which-key")
   wk.add({
     { buffer = bufnr, remap = false },
@@ -51,5 +53,5 @@ require("flutter-tools").setup({
     lsp_derive_paths = true, -- experimental: Attempt to find the user's flutter SDK
   },
   widget_guides = { enabled = true },
-  lsp = { on_attach = on_attach, capabilities = capabilities },
+  lsp = { on_attach = local_on_attach, capabilities = capabilities },
 })

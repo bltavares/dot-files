@@ -5,7 +5,6 @@ local wk = require("which-key")
 vim.g.rustaceanvim = {
   server = {
     on_attach = function(client, bufnr)
-      require("config.lsp.on_attach")(client, bufnr)
       on_attach(client, bufnr)
       wk.add({
         { buffer = bufnr, remap = false },
