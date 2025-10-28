@@ -45,6 +45,11 @@ install.bins() {
   done
 }
 
+install.mise() {
+  mkdir -p $HOME/.config
+  linking $curr_dir/mise $HOME/.config/mise
+}
+
 install.all() {
   install.bins
   install.confs
@@ -53,9 +58,10 @@ install.all() {
   install.zellij
   install.wezterm
   install.starship
+  install.mise
 }
 
-options=("bins" "nvim" "confs" "zsh" "zellij" "wezterm" "starship" "all")
+options=("bins" "nvim" "confs" "zsh" "zellij" "wezterm" "starship" "mise" "all")
 help() {
   echo "install.sh [option]"
   echo "[options] - one of the following:"
