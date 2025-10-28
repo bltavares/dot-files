@@ -1,5 +1,4 @@
 local wk = require("which-key")
-local capabilities = require("config.lsp.capabilities").create()
 local on_attach = require("config.lsp.on_attach")
 
 local function locateLSP()
@@ -12,7 +11,13 @@ end
 
 _G.locateLSP = locateLSP
 
-require("lspconfig").lua_ls.setup({
+function _G.dump(...)
+  local objects = vim.tbl_map(vim.inspect, { ... })
+  print(unpack(objects))
+  return ...
+end
+
+return {
   cmd = locateLSP(),
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
@@ -22,7 +27,6 @@ require("lspconfig").lua_ls.setup({
       { "<localleader>ef", "<cmd>luafile %<CR><cmd>echo 'Evaled' @%<cr>", desc = "file" },
     })
   end,
-  capabilities = capabilities,
   settings = {
     Lua = {
       hint = {
@@ -48,10 +52,4 @@ require("lspconfig").lua_ls.setup({
       },
     },
   },
-})
-
-function _G.dump(...)
-  local objects = vim.tbl_map(vim.inspect, { ... })
-  print(unpack(objects))
-  return ...
-end
+}

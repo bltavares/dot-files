@@ -35,7 +35,7 @@ end
 
 local capabilities = require("config.lsp.capabilities").create()
 
--- require'lspconfig'.dartls.setup {
+-- vim.lsp.config("dartls", {
 --     capabilities = capabilities,
 --     init_options = {closingLabels = true, outline = true},
 --     callbacks = {
