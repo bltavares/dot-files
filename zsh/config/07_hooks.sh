@@ -1,9 +1,9 @@
-if which direnv &>/dev/null; then
-  # https://github.com/direnv/direnv/issues/68
-  export DIRENV_LOG_FORMAT=
-  # export DIRENV_LOG_FORMAT=$'\033[2mdirenv: %s\033[0m'
-  eval "$(direnv hook zsh)"
-fi
+# if which direnv &>/dev/null; then
+#   # https://github.com/direnv/direnv/issues/68
+#   export DIRENV_LOG_FORMAT=
+#   # export DIRENV_LOG_FORMAT=$'\033[2mdirenv: %s\033[0m'
+#   eval "$(direnv hook zsh)"
+# fi
 
 if which atuin &>/dev/null; then
   eval "$(atuin init zsh --disable-up-arrow)"
