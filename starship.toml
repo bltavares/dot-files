@@ -3,7 +3,6 @@
 format = """
 $cmd_duration\
 $hostname\
-$localip\
 $shlvl\
 $shell\
 $env_var\
@@ -131,7 +130,7 @@ symbol = "[▶ ](blue italic)"
 [localip]
 ssh_only = true
 format = "◯[$localipv4](bold magenta)@"
-disabled = false
+disabled = true
 
 [time]
 disabled = false
@@ -295,3 +294,6 @@ detect_env_vars = ['INVALID']
 
 [container]
 disabled = true
+
+[hostname]
+format = '[$ssh_symbol$hostname]($style)@'
