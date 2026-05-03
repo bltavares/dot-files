@@ -1,6 +1,7 @@
 local wk = require("which-key")
 local on_attach = require("config.lsp.on_attach")
 
+-- Workaround for windows executable path files
 local function locateLSP()
   local _, path = pcall(vim.fn.exepath, "lua-language-server")
   if path and path ~= "" then
