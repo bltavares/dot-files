@@ -1,16 +1,35 @@
-require("nvim-treesitter.configs").setup({
-  ensure_installed = { "rust", "dart", "lua", "comment", "markdown", "markdown_inline", "yaml", "hcl", "go" },
-  highlight = { enable = true },
-  indent = { enable = true },
-  rainbow = {
-    enable = true,
-    extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-  },
+local ensure_installed = {
+  "comment",
+  "dart",
+  "go",
+  "hcl",
+  "lua",
+  "markdown",
+  "markdown_inline",
+  "rust",
+  "yaml",
+}
+vim.defer_fn(function() require("nvim-treesitter").install(ensure_installed) end, 1000)
+require("nvim-treesitter").update()
+
+-- auto-start highlights & indentation
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "User: enable treesitter highlighting",
+  callback = function(ctx)
+    -- highlights
+    local hasStarted = pcall(vim.treesitter.start) -- errors for filetypes with no parser
+
+    -- indent
+    local noIndent = {}
+    if hasStarted and not vim.list_contains(noIndent, ctx.match) then
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
 })
 
 -- Experimental: Breaks on insert, starts unfolded but folds on first type
 vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 -- vim.o.foldlevel = 0
 -- vim.o.foldlevelstart = 0
 vim.o.foldnestmax = 3 -- Maximum nested folds
