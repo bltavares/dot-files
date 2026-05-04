@@ -1,0 +1,15 @@
+[tools]
+make = "latest"
+"github:tj/mmake" = "latest"
+
+jq = "latest"
+yq = "latest"
+ripgrep = "latest"
+
+gh = "latest"
+
+cargo-binstall = "latest"
+"cargo:heatseeker" = "latest"  # fuzzyfinder
+"cargo:cargo-wipe" = "latest"  # reduce disk usage
+# TODO: Find a crossplat to moreutils
+# moreutils = "latest" TODO: find in register
