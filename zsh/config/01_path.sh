@@ -1,9 +1,4 @@
-export PATH="$HOME/bin:$HOME/.cask/bin:$PATH"
+#!/bin/bash
 
-if [[ -e /home/linuxbrew ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-if [[ -e /opt/homebrew/bin ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/bin:$PATH"

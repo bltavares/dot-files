@@ -1,7 +1,9 @@
-alias tw='t timeline -r'
-alias pw='password'
-alias be='bundle exec'
-alias minecraft='java -Xmx1660M -Xms1660M -jar ~/minecraft.jar'
+#!/bin/bash
+
 alias g='git'
-alias spacemacs='emacsclient -nw'
-alias dshell='docker run --rm -ti --entrypoint /bin/sh'
+alias vim='nvim'
+alias ls='eza'
+alias make='mmake'
+alias watch='hwatch'
+alias top='btm'
+alias htop='btm'

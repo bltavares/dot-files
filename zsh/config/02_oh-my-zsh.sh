@@ -1,5 +1,4 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-plugins=(rust)
+#!/bin/bash
 
+ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh

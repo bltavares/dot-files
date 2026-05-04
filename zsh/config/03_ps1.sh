@@ -1,21 +1,17 @@
-OS=$(uname -s)
-if [[ "Darwin" == "$OS" ]]; then
-  MD5="md5"
-else
-  MD5="md5sum"
+#!/bin/bash
+
+## Set PS1
+if which starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
 fi
 
-nbsp=$'\u00A0'
+## Make non-break character clear on paste
+nbsp=$'\u00A0' # TODO: add this to starship.toml
 bindkey -s $nbsp '^u'
 
-host_num=$((0x$(hostname | $MD5 | cut -c1-8) % 216 + 1))
-user_num=$((0x$(whoami | $MD5 | cut -c1-8) % 216 + 1))
-
-setopt PROMPT_SUBST
-PROMPT='%{$FG[$user_num]%}%n%{$FG[$host_num]%}@%m %{$fg_bold[cyan]%}%~%{$reset_color%} %#%{$fg_bold[blue]%}$(__git_ps1 " (%s)")%{$reset_color%}$nbsp'
-
+## Move line up on terminal after submit
 function preexec {
-  if [[ x$NO_AUTOTOP == "x" ]]; then
+  if [[ -z "$NO_AUTOTOP" ]]; then
     tput cuu1
     tput el
     clear
@@ -25,11 +21,7 @@ function preexec {
 }
 
 function precmd {
-  if [[ x$NO_AUTOTOP == "x" ]]; then
+  if [[ -z "$NO_AUTOTOP" ]]; then
     tput cup $(($(tput lines))) 0
   fi
 }
-
-if which starship >/dev/null 2>&1; then
-  eval "$(starship init zsh)"
-fi
