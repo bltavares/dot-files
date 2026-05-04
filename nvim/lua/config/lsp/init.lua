@@ -19,7 +19,8 @@ vim.lsp.enable({
   "gopls",
   "lua_ls",
   "nomad_lsp",
-  "terraformls"
+  "terraformls",
+  "tombi",
 })
 
 -- incomplete lsp
