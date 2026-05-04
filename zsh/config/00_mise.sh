@@ -1,7 +1,8 @@
 #!/bin/bash
 
 ## Setup global host config
-export MISE_SYSTEM_CONFIG_DIR="${HOME}/.config/mise/hosts/${HOSTNAME}"
+export HOST="$(hostname | tr '[:upper:]' '[:lower:]')"
+export MISE_SYSTEM_CONFIG_DIR="${HOME}/.config/mise/hosts/${HOST}"
 if [[ -z "$X_MISE_GLOBAL" && -d "$MISE_SYSTEM_CONFIG_DIR" ]]; then
   which mise > /dev/null && \
     X_MISE_GLOBAL=on exec mise en

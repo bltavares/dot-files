@@ -1,6 +1,6 @@
 [tools]
 make = "latest"
-"github:tj/mmake" = "latest"
+"go:github.com/tj/mmake/cmd/mmake" = "latest"
 
 jq = "latest"
 yq = "latest"

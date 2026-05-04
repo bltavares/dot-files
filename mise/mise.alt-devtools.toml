@@ -1,7 +1,7 @@
 [tools]
 bat = "latest"  # less
-jless = "latest"  # less with jq
-hwatch = "latest"  # watch
+jless = { version = "latest", os = ["linux", "macos"] }  # less with jq
+"cargo:hwatch" = "latest"  # watch
 bottom = "latest"  # top
 "github:dalance/amber" = "latest"  # text replace
 fd = "latest"  # find
