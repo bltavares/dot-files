@@ -1,0 +1,8 @@
+[tools]
+lua-language-server = "latest"
+stylua = "latest"
+
+shellcheck = "latest"
+shfmt = "latest"
+
+tombi = "latest"
