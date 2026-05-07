@@ -1,7 +1,7 @@
 # Generate from falsepreset with `starship preset jetpack -o ~/.config/starship.toml`
 # and a few modifications
 format = """
-($mise${env_var.MISE_ENV}${env_var.VIMSHELL}$fill$git_metrics\n)$cmd_duration\
+($mise${env_var.MISE_ENV}${env_var.VIMSHELL}$cmd_duration$fill$git_metrics\n)\
 ${env_var.X_COLOR_PS1}\
 $shlvl\
 $shell\
@@ -72,7 +72,7 @@ repo_root_format = ' [$before_root_path]($before_repo_root_style)[$repo_root]($r
 
 [cmd_duration]
 min_time = 500
-format = "[$duration ](italic bright-yellow)"
+format = "[ $duration](italic bright-yellow)"
 
 [jobs]
 format = "[ $symbol$number]($style)"
