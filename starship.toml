@@ -2,12 +2,12 @@
 # and a few modifications
 format = """
 $cmd_duration\
-$hostname\
+${env_var.X_COLOR_PS1}\
 $shlvl\
 $shell\
-$username\
 $sudo\
-$env_var\
+${env_var.MISE_ENV}\
+${env_var.VIMSHELL}\
 $mise\
 $directory \
 $character\
@@ -308,3 +308,6 @@ disabled = true
 # TODO per-host style when supported https://github.com/starship/starship/pull/3014
 format = '[$ssh_symbol$hostname]($style)@'
 ssh_only = false
+
+[env_var.X_COLOR_PS1]
+format = '$env_value'
