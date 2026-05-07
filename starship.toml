@@ -14,72 +14,17 @@ $character\
 """
 
 right_format = """
-$singularity\
-$kubernetes\
-$vcsh\
-$fossil_branch\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$hg_branch\
-$pijul_channel\
-$docker_context\
 $package\
-$c\
-$cmake\
-$cobol\
-$daml\
 $dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$fennel\
 $golang\
-$guix_shell\
-$haskell\
-$haxe\
-$helm\
-$java\
-$julia\
-$kotlin\
-$gradle\
-$lua\
-$nim\
 $nodejs\
-$ocaml\
-$opa\
-$perl\
-$php\
-$pulumi\
-$purescript\
-$python\
-$raku\
-$rlang\
-$red\
-$ruby\
 $rust\
-$scala\
-$solidity\
-$swift\
 $terraform\
-$vlang\
-$vagrant\
-$zig\
-$buf\
-$nix_shell\
-$conda\
-$meson\
-$spack\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
-$crystal\
 $custom\
 $jobs\
 $status\
@@ -105,13 +50,6 @@ style = "italic bright-purple"
 symbol = "◇┈"
 disabled = false
 
-[username]
-style_user = "yellow bold"
-style_root = "purple bold italic"
-format = "[$user]($style) ▻ "
-disabled = false
-show_always = true
-
 [directory]
 home_symbol = "⌂"
 truncation_length = 2
@@ -135,7 +73,7 @@ format = "◯[$localipv4](bold magenta)@"
 disabled = true
 
 [time]
-disabled = false
+disabled = true
 format = "[ $time]($style)"
 time_format = "%R"
 utc_time_offset = "local"
