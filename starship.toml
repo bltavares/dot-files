@@ -91,7 +91,7 @@ $battery\
 add_newline = true
 
 [character]
-format = "$symbol "
+format = "$symbol\u00A0"
 success_symbol = "[◉](bold italic bright-yellow)"
 error_symbol = "[⊘](italic purple)"
 

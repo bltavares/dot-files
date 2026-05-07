@@ -6,7 +6,7 @@ if which starship >/dev/null 2>&1; then
 fi
 
 ## Make non-break character clear on paste
-nbsp=$'\u00A0' # TODO: add this to starship.toml
+nbsp=$'\u00A0'
 bindkey -s $nbsp '^u'
 
 ## Move line up on terminal after submit
