@@ -184,4 +184,4 @@ format = '[\([mise]($style dimmed)\)](grey)'
 format = '$env_value '
 
 [env_var.MISE_ENV]
-format = ' \([env: $env_value](fg:blue dimmed)\)'
+format = ' \([env: $env_value](fg:green dimmed)\)'
