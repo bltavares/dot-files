@@ -1,5 +1,6 @@
 [tools]
 make = "latest"
+go = "latest"
 "go:github.com/tj/mmake/cmd/mmake" = "latest"
 
 jq = "latest"
@@ -8,6 +9,7 @@ ripgrep = "latest"
 
 gh = "latest"
 
+rust = "latest"
 cargo-binstall = "latest"
 "cargo:heatseeker" = "latest"  # fuzzyfinder
 "cargo:cargo-wipe" = "latest"  # reduce disk usage
