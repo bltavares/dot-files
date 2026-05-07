@@ -160,7 +160,7 @@ end
 
 wk.add({
   mode = { "v" },
-  { "<leader>/", ":CommentToggle<cr>", desc = "comment" },
+  { "<leader>;", ":CommentToggle<cr>", desc = "comment" },
   {
     { "<leader>g", group = "git" },
     { "<leader>gl", "<Cmd>GitLink<CR>", desc = "git link" },
