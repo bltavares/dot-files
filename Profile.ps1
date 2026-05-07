@@ -1,4 +1,8 @@
 $Env:SHELL = 'pwsh'
+if (-not $ENV:SHLVL) {
+  $ENV:SHLVL = 0
+}
+$ENV:SHLVL = [int]$ENV:SHLVL + 1
 
 Try {
   if (-not $ENV:X_MISE_GLOBAL)  {

@@ -30,6 +30,19 @@ $battery\
 
 add_newline = true
 
+[shell]
+disabled = false
+powershell_indicator = '_'
+zsh_indicator = '%_'
+format = '[$indicator]($style)'
+
+[shlvl]
+disabled = false
+format = '[$symbol]($style)'
+repeat = true
+symbol = '❯'
+repeat_offset = 1
+
 [fill]
 symbol = ' '
 
@@ -168,7 +181,7 @@ disabled = false
 format = '[\([mise]($style dimmed)\)](grey)'
 
 [env_var.X_COLOR_PS1]
-format = '$env_value'
+format = '$env_value '
 
 [env_var.MISE_ENV]
 format = ' \([env: $env_value](fg:blue dimmed)\)'

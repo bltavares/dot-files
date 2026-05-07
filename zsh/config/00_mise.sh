@@ -20,14 +20,22 @@ x() {
 		return
 	fi
 
+	set -x
+	typeset -aU X_MISE_ENV
 	if [[ -z "$MISE_ENV" ]]; then
-		declare -a MISE_ENV=("$@")
+		declare -a X_MISE_ENV=("$@")
 	else
-		IFS="," read -r -A MISE_ENV <<<"$MISE_ENV"
-		MISE_ENV+=("$@")
+		IFS="," read -r -A X_MISE_ENV <<<"$MISE_ENV"
+		X_MISE_ENV+=("$@")
 	fi
 
-	MISE_ENV="${MISE_ENV[*]// /,}" MISE_SHELL=zsh mise en
+	if [[ -n "$X_MISE_LOCAL" ]]; then
+		# exec to replace a (x .) active
+		echo replacing mise en
+		X_MISE_LOCAL=on MISE_ENV="${X_MISE_ENV[*]// /,}" MISE_SHELL=zsh exec mise en
+	fi
+
+	X_MISE_LOCAL=on MISE_ENV="${X_MISE_ENV[*]// /,}" MISE_SHELL=zsh mise en
 }
 
 xo() {
