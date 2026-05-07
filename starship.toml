@@ -5,7 +5,6 @@ format = """
 ${env_var.X_COLOR_PS1}\
 $shlvl\
 $shell\
-$sudo\
 $directory \
 $character\
 """
@@ -59,12 +58,6 @@ vimcmd_visual_symbol = "▼"
 [env_var.VIMSHELL] # vim subshell
 format = "[$env_value]($style)"
 style = 'green italic'
-
-[sudo]
-format = "[$symbol]($style)"
-style = "bold bright-purple"
-symbol = "◇┈"
-disabled = false
 
 [directory]
 home_symbol = "⌂"
