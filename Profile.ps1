@@ -1,10 +1,11 @@
+$Env:SHELL = 'pwsh'
 
 Try {
   if (-not $ENV:X_MISE_GLOBAL)  {
     $ENV:X_MISE_GLOBAL = $True
     $ENV:MISE_GITHUB_USE_GIT_CREDENTIALS = $True
     $ENV:MISE_SYSTEM_CONFIG_DIR = "${ENV:USERPROFILE}\.config\mise\hosts\$($ENV:COMPUTERNAME.ToLower())"
-    mise en -s pwsh
+    mise en -s 'pwsh -NoLogo'
     return
   }
 }
@@ -12,7 +13,10 @@ Catch {
 
 }
 
+Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
+
+New-Alias -Name vim -Value nvim
 
 #f45873b3-b655-43a6-b217-97c00aa0db58 PowerToys CommandNotFound module
 
