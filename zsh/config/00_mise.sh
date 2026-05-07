@@ -1,14 +1,11 @@
 #!/bin/bash
 
 ## Setup global host config
-(
-	TARGET="$(hostname | tr '[:upper:]' '[:lower:]')"
-	export MISE_SYSTEM_CONFIG_DIR="${HOME}/.config/mise/hosts/${TARGET}"
-	if [[ -z "$X_MISE_GLOBAL" && -d "$MISE_SYSTEM_CONFIG_DIR" ]]; then
-		which mise >/dev/null &&
-			X_MISE_GLOBAL=on exec mise en
-	fi
-)
+export MISE_SYSTEM_CONFIG_DIR="${HOME}/.config/mise/hosts/$(hostname | tr '[:upper:]' '[:lower:]')"
+if [[ -z "$X_MISE_GLOBAL" && -d "$MISE_SYSTEM_CONFIG_DIR" ]]; then
+	which mise >/dev/null &&
+		X_MISE_GLOBAL=on exec mise en
+fi
 
 x() {
 	if [[ $# -eq 0 ]]; then
