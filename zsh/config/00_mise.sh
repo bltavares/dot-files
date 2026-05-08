@@ -20,7 +20,6 @@ x() {
 		return
 	fi
 
-	set -x
 	typeset -aU X_MISE_ENV
 	if [[ -z "$MISE_ENV" ]]; then
 		declare -a X_MISE_ENV=("$@")
