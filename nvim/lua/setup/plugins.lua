@@ -270,10 +270,14 @@ require("lazy").setup({
     {
       "saecki/crates.nvim", -- version finder helper on Cargo.toml
       event = { "BufRead Cargo.toml" },
-      config = function()
-        require("config.crates")
-      end,
-      dependencies = { "hrsh7th/nvim-cmp" },
+      opts = {
+        lsp = {
+          enabled = true,
+        },
+        actions = true,
+        completion = true,
+        hover = true,
+      }
     },
 
     -- flutter
