@@ -16,17 +16,18 @@ require("lazy").setup({
   rocks = {
     enabled = false,
   },
-  spec = { {
-    "folke/which-key.nvim", -- Keybindings helper
-    event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
-    config = function()
-      require("config.which-key")
-    end,
-  },
+  spec = {
+    {
+      "folke/which-key.nvim", -- Keybindings helper
+      event = "VeryLazy",
+      init = function()
+        vim.o.timeout = true
+        vim.o.timeoutlen = 300
+      end,
+      config = function()
+        require("config.which-key")
+      end,
+    },
 
     {
       "guns/vim-sexp", -- TODO lua version
@@ -34,20 +35,6 @@ require("lazy").setup({
       config = function()
         require("config.vim-sexp")
       end,
-    },
-
-    {
-      "nvim-telescope/telescope.nvim", -- Fuzzy finder
-      cmd = "Telescope",
-      config = function()
-        require("config.telescope")
-      end,
-      dependencies = {
-        "nvim-lua/popup.nvim",
-        "nvim-lua/plenary.nvim",
-        "bltavares/project.nvim",
-        -- "ahmedkhalf/project.nvim",
-      },
     },
     {
       "DrKJeff16/project.nvim",
@@ -74,11 +61,8 @@ require("lazy").setup({
     { "godlygeek/tabular", cmd = "Tabularize" }, -- TODO lua version
     { "junegunn/vim-easy-align" }, -- TODO: lazy loading and lua version
     {
-      "johmsalas/text-case.nvim",                     -- change text cases
-      dependencies = { "folke/which-key.nvim", "nvim-telescope/telescope.nvim" },
-      config = function()
-        require("config.textcase")
-      end,
+      "johmsalas/text-case.nvim", -- change text cases TODO replace with vim-abolish?
+      setup = {}, -- TODO check for snacks integration in the future/for-
     },
     {
       "Wansmer/treesj", -- Semantic split/join
@@ -104,33 +88,6 @@ require("lazy").setup({
     {
       "JoosepAlviste/nvim-ts-context-commentstring", -- changes comment string based on location for embedded langs in same file
       opts = { enable_autocmd = false },
-    },
-    {
-      "RRethy/vim-illuminate",
-      lazy = true,
-      enabled = true,
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-      },
-      cmd = {
-        "IlluminatePause",
-        "IlluminateResume",
-        "IlluminateToggle",
-        "IlluminatePauseBuf",
-        "IlluminateResumeBuf",
-        "IlluminateToggleBuf",
-      },
-      event = { "CursorMoved", "InsertLeave" },
-      config = function()
-        require("illuminate").configure({
-          filetypes_denylist = {
-            "neotree",
-            "neo-tree",
-            "Telescope",
-            "telescope",
-          },
-        })
-      end,
     },
     -- 'tpope/vim-fugitive' -- slow startup
 
@@ -264,7 +221,6 @@ require("lazy").setup({
         "neovim/nvim-lspconfig",
         "nvim-lua/popup.nvim",
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
       },
       init = function()
         require("config.rustaceanvim")
@@ -288,7 +244,7 @@ require("lazy").setup({
       -- waiting for https://github.com/nvim-flutter/flutter-tools.nvim/pull/512
       "akinsho/flutter-tools.nvim",
       ft = { "flutter", "dart" },
-      dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+      dependencies = { "nvim-lua/plenary.nvim" },
       config = function()
         require("config.flutter-tools")
       end,
@@ -339,7 +295,7 @@ require("lazy").setup({
     },
     {
       "folke/todo-comments.nvim", -- Colorize and find things to do
-      cmd = { "TodoTrouble", "TodoQuickFix", "TodoLocList", "TodoTelescope" },
+      cmd = { "TodoTrouble", "TodoQuickFix", "TodoLocList" },
       dependencies = { "nvim-lua/plenary.nvim" },
       opts = {
         signs = false,
@@ -370,14 +326,28 @@ require("lazy").setup({
       dependencies = { "nvim-treesitter/nvim-treesitter", "tokyonight.nvim" },
     },
     {
-      "lukas-reineke/indent-blankline.nvim",
-      main = "ibl",
-      opts = {},
-    },
-    {
-      "folke/twilight.nvim", -- hihglight TS context
-      cmd = { "Twilight" },
-      opts = {},
+      "folke/snacks.nvim",
+      priority = 1000,
+      lazy = false,
+      opts = {
+        bigfile = {},
+        dim = {},
+        indent = {
+          animate = {
+            enabled = false,
+          },
+        },
+        input = {},
+        notifier = {},
+        picker = {},
+        scope = {},
+        toggle = {},
+        words = {},
+        zen = {},
+      },
+      init = function()
+        require("config.snacks")
+      end,
     },
     {
       "linrongbin16/gitlinker.nvim",
@@ -390,11 +360,6 @@ require("lazy").setup({
       opts = {},
       dependencies = { "folke/lsp-trouble.nvim" },
     },
-    -- BUG https://github.com/pocco81/true-zen.nvim/issues/125
-    -- {'pocco81/true-zen.nvim',
-    --     cmd={"TZAtaraxis", "TZNarrow"},
-    --     opts = {}
-    -- },
 
     -- Devcontainers
     {

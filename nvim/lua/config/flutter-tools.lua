@@ -6,7 +6,8 @@ local local_on_attach = function(client, bufnr)
   wk.add({
     { buffer = bufnr, remap = false },
     {
-      { "<localleader>c", "<cmd>lua require('telescope').extensions.flutter.commands()<CR>", desc = "commands" },
+      -- https://github.com/nvim-flutter/flutter-tools.nvim/pull/512
+      --{ "<localleader>c", "<cmd>lua require('telescope').extensions.flutter.commands()<CR>", desc = "commands" },
       { "<localleader>rO", "<cmd>FlutterOutline<CR>", desc = "outline" },
       { "<localleader>rR", "<cmd>FlutterRestart<CR>", desc = "restart" },
       { "<localleader>rr", "<cmd>FlutterReload<CR>", desc = "reload" },
@@ -21,17 +22,6 @@ local local_on_attach = function(client, bufnr)
     },
   })
 end
-
--- FlutterTelescopeOutline = function()
---     require('lsp_extensions.dart.outline').telescope(
---         {
---             telescope_opts = {
---                 borderchars = {
---                     '▃', '▐', '▀', '▍', '▃', '▃', '▀', '▀'
---                 }
---             }
---         })
--- end
 
 local capabilities = require("config.lsp.capabilities").create()
 

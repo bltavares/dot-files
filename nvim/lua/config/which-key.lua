@@ -3,7 +3,7 @@ local wk = require("which-key")
 require("which-key").setup()
 
 wk.add({
-  { "<C-p>", "<Cmd>lua require('telescope.builtin').commands()<CR>", desc = "commands", remap = false },
+  { "<C-p>", "<Cmd>lua Snacks.picker.commands()<CR>", desc = "commands", remap = false },
 })
 
 -- TODO: git/fugitive keybindings
@@ -14,18 +14,18 @@ wk.add({
 wk.add({
   {
     {
-      "<leader> ",
-      "<Cmd>lua require('telescope.builtin').resume()<CR>",
+      "<leader><space>",
+      "<Cmd>lua Snacks.picker.resume()<CR>",
       desc = "resume panel",
     },
     {
       "<leader>*",
-      "<Cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>",
+      "<Cmd>lua Snacks.picker.grep_word()<CR>",
       desc = "find word in project",
     },
     {
       "<leader>/",
-      "<Cmd>lua require('telescope.builtin').live_grep()<CR>",
+      "<Cmd>lua Snacks.picker.grep()<CR>",
       desc = "grep",
     },
     {
@@ -42,26 +42,15 @@ wk.add({
       desc = "Illuminate reference",
     },
     {
-      "<leader>Ti",
-      "<Cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>",
-      desc = "Inlay hints",
-    },
-    {
       "<leader>Tr",
       "<Cmd>LspLensToggle<CR>",
       desc = "Fn references",
-    },
-    { "<leader>Tt", "<Cmd>Twilight<CR>", desc = "Twilight" },
-    {
-      "<leader>Tw",
-      "<Cmd>IBLToggle<CR>",
-      desc = "Whitespace marks (ident)",
     },
   },
   {
     { "<leader>b", group = "buffers" },
     { "<leader>bD", ":bufdo bd<CR>", desc = "do" },
-    { "<leader>bb", "<Cmd>lua require('telescope.builtin').buffers()<CR>", desc = "buffers" },
+    { "<leader>bb", "<Cmd>lua Snacks.picker.buffers()<CR>", desc = "buffers" },
   },
   {
     { "<leader>e", group = "editor" },
@@ -70,22 +59,22 @@ wk.add({
   },
   {
     { "<leader>f", group = "find" },
-    { "<leader>fb", "<Cmd>lua require('telescope.builtin').buffers()<CR>", desc = "buffers" },
+    { "<leader>fb", "<Cmd>lua Snacks.picker.buffers()<CR>", desc = "buffers" },
   },
   {
     { "<leader>fc", group = "commands" },
-    { "<leader>fcc", "<Cmd>lua require('telescope.builtin').commands()<CR>", desc = "commands" },
-    { "<leader>fch", "<Cmd>lua require('telescope.builtin').command_history()<CR>", desc = "history" },
-    { "<leader>ff", "<Cmd>lua require('telescope.builtin').find_files()<CR>", desc = "files" },
+    { "<leader>fcc", "<Cmd>lua Snacks.picker.commands()<CR>", desc = "commands" },
+    { "<leader>fch", "<Cmd>lua Snacks.picker.command_history()<CR>", desc = "history" },
+    { "<leader>ff", "<Cmd>lua Snacks.picker.files()<CR>", desc = "files" },
   },
   {
     { "<leader>fg", group = "git" },
-    { "<leader>fgb", "<Cmd>lua require('telescope.builtin').git_branches()<CR>", desc = "branches" },
-    { "<leader>fgc", "<Cmd>lua require('telescope.builtin').git_bcommits()<CR>", desc = "bcommits" },
-    { "<leader>fgg", "<Cmd>lua require('telescope.builtin').git_commits()<CR>", desc = "commits" },
-    { "<leader>fgs", "<Cmd>lua require('telescope.builtin').git_status()<CR>", desc = "status" },
-    { "<leader>fh", "<Cmd>lua require('telescope.builtin').help_tags()<CR>", desc = "help tags" },
-    { "<leader>fq", "<Cmd>lua require('telescope.builtin').quickfix()<CR>", desc = "quickfix" },
+    { "<leader>fgb", "<Cmd>lua Snacks.picker.git_branches()<CR>", desc = "branches" },
+    { "<leader>fgc", "<Cmd>lua Snacks.picker.git_bcommits()<CR>", desc = "bcommits" },
+    { "<leader>fgg", "<Cmd>lua Snacks.picker.git_commits()<CR>", desc = "commits" },
+    { "<leader>fgs", "<Cmd>lua Snacks.picker.git_status()<CR>", desc = "status" },
+    { "<leader>fh", "<Cmd>lua Snacks.picker.help()<CR>", desc = "help tags" },
+    { "<leader>fq", "<Cmd>lua Snacks.picker.qflist()<CR>", desc = "quickfix" },
   },
   {
     { "<leader>g", group = "git" },
@@ -95,12 +84,12 @@ wk.add({
   },
   {
     { "<leader>p", group = "project" },
-    { "<leader>p/", "<Cmd>lua require('telescope.builtin').live_grep()<CR>", desc = "grep" },
+    { "<leader>p/", "<Cmd>lua Snacks.picker.live_grep()<CR>", desc = "grep" },
     { "<leader>p?", "<Cmd>TodoTrouble<CR>", desc = "todos" },
     { "<leader>pT", "<Cmd>NvimTreeFindFile<CR>", desc = "show on tree" },
-    { "<leader>pf", "<Cmd>lua require('telescope.builtin').find_files()<CR>", desc = "files" },
+    { "<leader>pf", "<Cmd>lua Snacks.picker.files()<CR>", desc = "files" },
     { "<leader>pr", "<Cmd>NvimTreeRefresh<CR>", desc = "refresh tree" },
-    { "<leader>ps", '<Cmd>lua require"telescope".extensions.projects.projects{}<CR>', desc = "switch" },
+    { "<leader>ps", "<Cmd>ProjectSnacks<CR>", desc = "switch" },
     { "<leader>pt", "<Cmd>NvimTreeToggle<CR>", desc = "project tree" },
   },
   {
