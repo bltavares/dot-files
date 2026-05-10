@@ -1,7 +1,7 @@
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local cmp = require("blink.cmp")
 
 local create = function()
-  local capabilities = cmp_nvim_lsp.default_capabilities()
+  local capabilities = cmp.get_lsp_capabilities()
   return capabilities
 end
 

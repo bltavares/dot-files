@@ -100,7 +100,7 @@ require("lazy").setup({
       dependencies = {
         "folke/which-key.nvim",
         "j-hui/fidget.nvim",
-        "hrsh7th/cmp-nvim-lsp",
+        "saghen/blink.cmp",
         "VidocqH/lsp-lens.nvim",
       },
     },
@@ -151,18 +151,29 @@ require("lazy").setup({
 
     -- completion
     {
-      "hrsh7th/nvim-cmp", -- Autocomplete + LSP
-      config = function()
-        require("config.cmp")
-      end,
-      dependencies = {
-        "hrsh7th/vim-vsnip",
-        "hrsh7th/cmp-vsnip",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "PaterJason/cmp-conjure",
+      "saghen/blink.cmp",
+      version = "1.*", -- required to download pre-built bins
+      opts = {
+        keymap = {
+          preset = "default",
+          ["<CR>"] = { "accept", "fallback" }, -- allow accept with Enter
+        },
+        completion = {
+          ghost_text = {
+            enabled = true,
+            show_with_menu = false,
+          },
+          menu = {
+            auto_show = false,
+            draw = {
+              columns = {
+                { "kind_icon" },
+                { "label", "label_description", gap = 1 },
+                { "source_name" }, -- additional source field
+              },
+            },
+          },
+        },
       },
     },
 
@@ -261,8 +272,9 @@ require("lazy").setup({
     -- clojure
     {
       "Olical/conjure",
-      dependencies = { "PaterJason/cmp-conjure" },
       ft = { "clojure" },
+      -- https://github.com/PaterJason/cmp-conjure/pull/6
+      -- dependencies = { "saghen/blink.compat", "PaterJason/cmp-conjure" },
       config = function()
         require("conjure.main").main()
         require("conjure.mapping")["on-filetype"]()
