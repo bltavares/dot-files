@@ -54,8 +54,8 @@ wk.add({
   },
   {
     { "<leader>e", group = "editor" },
-    { "<leader>ee", "<Cmd>e ~/.config/nvim/lua/setup/general.lua<CR>", desc = "edit" },
-    { "<leader>ep", "<Cmd>e ~/.config/nvim/lua/setup/plugins.lua<CR>", desc = "plugins" },
+    { "<leader>ee", "<Cmd>lua vim.cmd.edit(vim.fn.stdpath('config') .. '/lua/setup/general.lua')<CR>", desc = "edit" },
+    { "<leader>ep", "<Cmd>lua vim.cmd.edit(vim.fn.stdpath('config') .. '/lua/setup/plugins.lua')<CR>", desc = "plugins" },
   },
   {
     { "<leader>f", group = "find" },
@@ -95,7 +95,7 @@ wk.add({
   {
     { "<leader>q", group = "vim" },
     { "<leader>qq", "<Cmd>qa!<CR>", desc = "Quit!" },
-    { "<leader>qr", "<Cmd>luafile ~/.config/nvim/init.lua<CR>", desc = "Reload" },
+    { "<leader>qr", "<Cmd>lua loadfile(vim.fn.stdpath('config') .. 'init.lua')<CR>", desc = "Reload" },
   },
   {
     { "<leader>t", group = "text" },
