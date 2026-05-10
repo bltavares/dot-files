@@ -17,7 +17,13 @@ local is_windows = function()
 end
 
 if is_windows() then
-  config.default_prog = { "pwsh" }
+  config.default_prog = { "pwsh", "-NoLogo", }
+  config.keys = {
+    { key = "!", mods = "CTRL|SHIFT", action = wezterm.action.SpawnCommandInNewTab { domain = { DomainName = "local" } } },
+    { key = "@", mods = "CTRL|SHIFT", action = wezterm.action.SpawnCommandInNewTab { domain = { DomainName = "WSL:Debian" } } },
+    { key = "#", mods = "CTRL|SHIFT", action = wezterm.action.SpawnCommandInNewTab { domain = { DomainName = "SSH:gibson.internal" } } },
+    { key = ' ', mods = 'CTRL',       action = wezterm.action.SendKey { key = ' ', mods = 'CTRL', }, } -- workaround for native nvim.exe shortcut
+  }
 end
 
 -- This is where you actually apply your config choices
