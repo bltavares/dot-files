@@ -50,12 +50,10 @@ require("lazy").setup({
       },
     },
     {
-      -- "ahmedkhalf/project.nvim",
-      -- TODO: Temporary switch to fork for fixes
-      "bltavares/project.nvim",
-      branch = "fixes",
-      main = "project_nvim",
-      opts = {},
+      "DrKJeff16/project.nvim",
+      opts = {
+        snacks = { enabled = true },
+      },
     },
     {
       "projekt0n/circles.nvim", -- replace web-dev-icons with circles

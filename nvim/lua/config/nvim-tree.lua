@@ -4,6 +4,11 @@ require("nvim-tree").setup({
   -- disable_netrw = 0
   -- hijack_netrw = 0
   sync_root_with_cwd = true,
+  respect_buf_cwd = true, -- project.nvim
+  update_focused_file = {
+    enable = true, -- project.nvim
+    update_root = true, --project.nvim
+  },
   diagnostics = { enable = true },
   renderer = {
     highlight_git = true,
@@ -53,4 +58,5 @@ local function open_nvim_tree(data)
   require("nvim-tree.api").tree.open()
 end
 
+-- Open nvim-tree when a dir is passed and it's not a file
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
