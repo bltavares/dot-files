@@ -65,13 +65,8 @@ wk.add({
   },
   {
     { "<leader>e", group = "editor" },
-    { "<leader>ee", "<Cmd>e /Users/bruno.tavares/.config/nvim/plugin/01_general.lua<CR>", desc = "edit" },
-    { "<leader>ep", "<Cmd>e /Users/bruno.tavares/.config/nvim/plugin/00_config.lua<CR>", desc = "plugins" },
-    {
-      "<leader>er",
-      "<Cmd>luafile %<CR>",
-      desc = "eval current lua file",
-    },
+    { "<leader>ee", "<Cmd>e ~/.config/nvim/lua/setup/general.lua<CR>", desc = "edit" },
+    { "<leader>ep", "<Cmd>e ~/.config/nvim/lua/setup/plugins.lua<CR>", desc = "plugins" },
   },
   {
     { "<leader>f", group = "find" },
@@ -95,7 +90,7 @@ wk.add({
   {
     { "<leader>g", group = "git" },
     { "<leader>gb", "<Cmd>Gitsigns toggle_current_line_blame<CR>", desc = "blame" },
-    { "<leader>gg", "<Cmd>Gitsigns toggle_signs<CR>", desc = "signs" },
+    { "<leader>gs", "<Cmd>Gitsigns toggle_signs<CR>", desc = "signs" },
     { "<leader>gl", "<Cmd>GitLink<CR>", desc = "link" },
   },
   {
@@ -111,7 +106,7 @@ wk.add({
   {
     { "<leader>q", group = "vim" },
     { "<leader>qq", "<Cmd>qa!<CR>", desc = "Quit!" },
-    { "<leader>qr", "<Cmd>luafile /Users/bruno.tavares/.config/nvim/init.lua<CR>", desc = "Reload" },
+    { "<leader>qr", "<Cmd>luafile ~/.config/nvim/init.lua<CR>", desc = "Reload" },
   },
   {
     { "<leader>t", group = "text" },

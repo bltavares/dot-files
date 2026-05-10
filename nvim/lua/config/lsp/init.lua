@@ -6,6 +6,12 @@ vim.lsp.config("*", {
   on_attach = on_attach,
 })
 
+vim.diagnostic.config({
+  virtual_text = { prefix = " » " },
+  underline = true,
+  signs = true,
+})
+
 -- Does not work, client is not fully attached when event triggers
 -- vim.api.nvim_create_autocmd('LspAttach', {
 --   callback = function(ev)

@@ -60,7 +60,7 @@ require("lazy").setup({
     {
       "projekt0n/circles.nvim", -- replace web-dev-icons with circles
       dependencies = { "nvim-tree/nvim-web-devicons" },
-      opts = {}
+      opts = {},
     },
 
     -- Files
@@ -73,8 +73,8 @@ require("lazy").setup({
     },
 
     -- Text manupulation
-    { "godlygeek/tabular",      cmd = "Tabularize" }, -- TODO lua version
-    { "junegunn/vim-easy-align" },                    -- TODO: lazy loading and lua version
+    { "godlygeek/tabular", cmd = "Tabularize" }, -- TODO lua version
+    { "junegunn/vim-easy-align" }, -- TODO: lazy loading and lua version
     {
       "johmsalas/text-case.nvim",                     -- change text cases
       dependencies = { "folke/which-key.nvim", "nvim-telescope/telescope.nvim" },
@@ -104,7 +104,7 @@ require("lazy").setup({
       dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
     },
     {
-      "JoosepAlviste/nvim-ts-context-commentstring",
+      "JoosepAlviste/nvim-ts-context-commentstring", -- changes comment string based on location for embedded langs in same file
       opts = { enable_autocmd = false },
     },
     {
@@ -221,13 +221,13 @@ require("lazy").setup({
     },
 
     {
-      "hedyhli/outline.nvim", -- LSP based buffer object/fn outlines
+      "hedyhli/outline.nvim", -- LSP based buffer object/fn outlines - alternative to `gO`
       lazy = true,
       cmd = { "Outline", "OutlineOpen" },
       opts = {},
     },
     {
-      "petertriho/nvim-scrollbar",
+      "petertriho/nvim-scrollbar", -- UI decoration minimap
       opts = {},
     },
 
@@ -238,7 +238,12 @@ require("lazy").setup({
         -- deps
         "nvim-neotest/nvim-nio",
         "nvim-lua/plenary.nvim",
-        "antoinemadec/FixCursorHold.nvim",
+        {
+          "antoinemadec/FixCursorHold.nvim", -- https://github.com/antoinemadec/FixCursorHold.nvim/issues/13
+          init = function()
+            vim.g.cursorhold_updatetime = 100
+          end,
+        },
         "nvim-treesitter/nvim-treesitter",
         -- adatpers
         "sidlatau/neotest-dart",
@@ -273,15 +278,16 @@ require("lazy").setup({
       opts = {
         lsp = {
           enabled = true,
+          actions = true,
+          completion = true,
+          hover = true,
         },
-        actions = true,
-        completion = true,
-        hover = true,
-      }
+      },
     },
 
     -- flutter
     {
+      -- waiting for https://github.com/nvim-flutter/flutter-tools.nvim/pull/512
       "akinsho/flutter-tools.nvim",
       ft = { "flutter", "dart" },
       dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
@@ -327,10 +333,10 @@ require("lazy").setup({
       end,
     },
     {
-      'brenoprata10/nvim-highlight-colors', -- colorize #abc123 colors
+      "brenoprata10/nvim-highlight-colors", -- colorize #abc123 colors
       opts = {
-        render = 'virtual',
-        virtual_symbol = '■',
+        render = "virtual",
+        virtual_symbol = "■",
       },
     },
     {
@@ -351,7 +357,7 @@ require("lazy").setup({
     },
 
     {
-      "code-biscuits/nvim-biscuits",
+      "code-biscuits/nvim-biscuits", -- scope context virtual text
       opts = {
         cursor_line_only = true,
       },
@@ -390,26 +396,6 @@ require("lazy").setup({
     -- {'pocco81/true-zen.nvim',
     --     cmd={"TZAtaraxis", "TZNarrow"},
     --     opts = {}
-    -- },
-    {
-      "antoinemadec/FixCursorHold.nvim", -- Fixes for CursorHold events. Allegedly not needed anymore. But stil useful (2024-02)
-      init = function()
-        vim.g.cursorhold_updatetime = 100
-      end,
-    },
-
-    -- Autocompletion AI
-    -- {
-    --   "zbirenbaum/copilot.lua",
-    --   cmd = "Copilot",
-    --   event = "InsertEnter",
-    --   config = function()
-    --     require("copilot").setup({
-    --       --- use cmp instead
-    --       -- suggestion = { enabled = false },
-    --       -- panel = { enabled = false },
-    --     })
-    --   end,
     -- },
 
     -- Devcontainers
