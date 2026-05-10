@@ -9,7 +9,7 @@ vim.diagnostic.config({
 }, neotest_ns)
 
 require("neotest").setup({
-  log_level = vim.log.levels.DEBUG,
+  -- log_level = vim.log.levels.DEBUG,
   adapters = {
     require("rustaceanvim.neotest"),
     require("neotest-go"),
