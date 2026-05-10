@@ -11,6 +11,9 @@ vim.g.rustaceanvim = {
         { "<localleader>e", group = "eval" },
         { "<localleader>eR", "<Cmd>RustLsp! runnables<CR>", desc = "last" },
         { "<localleader>er", "<Cmd>RustLsp runnables<CR>", desc = "run" },
+        { "<localleader>ed", "<Cmd>RustLsp debug<CR>", desc = "debug" },
+        { "<localleader>eD", "<Cmd>RustLsp debuggables<CR>", desc = "debuggables" },
+        { "J", "<Cmd>RustLsp joinLines<CR>", desc = "join" },
       })
     end,
     capabilities = capabilities,

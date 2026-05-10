@@ -131,6 +131,8 @@ wk.add({
     { "<leader>wtt", ":tabnext<CR>", desc = "next" },
     { "<leader>wv", "<Cmd>vsplit<CR>", desc = "vertical split" },
   },
+  { "cr", group = "coercion" }, -- vim-abolish
+  { "<localleader>d", group = "debug" },
 })
 
 if vim.g.neovide then

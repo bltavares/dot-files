@@ -7,3 +7,7 @@ tombi = "latest"
 "cargo:systemfd" = "latest"
 watchexec = "latest"
 "cargo:bacon" = "latest"
+
+[tools. "github:vadimcn/codelldb"]
+version = "latest"
+bin_path = "extension/adapter"
