@@ -54,7 +54,6 @@ config.freetype_load_target = "HorizontalLcd"
 
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 if is_windows() then
-  config.win32_system_backdrop = "Mica"
   config.window_padding = {
     top = "0.3cell",
     left = "1.0cell",
