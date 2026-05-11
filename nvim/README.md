@@ -1,22 +1,24 @@
 # neovim
 
-- Using [packer](https://github.com/wbthomason/packer.nvim) for lazy-loading & plugin management
-- Using [telescope](https://github.com/nvim-telescope/telescope.nvim) for fuzzy-finding and navigation
+Requires 0.12
+
+- Using `lazy` for package management
+  - Not using neovim native pack as lazy loading is not present
+- Using `snacks.picker` for fuzzy-finding and navigation
 - Using [which-key](https://github.com/folke/which-key.nvim) bound to `<SPC>` and `,` just like spacemacs
-  - Mode bindings are only mapped if lsp is working (lazy-loading)
-- Using neovim 0.5 native LSP & treesitter for everything
 - Cross-platform support (w/ [neovide](https://github.com/Kethku/neovide) vfx) with **strong** preferene to vim/lua-only plugins
   - No node/python plugins allowed
 
 To install the dependencies:
 
 ```sh
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless "+Lazy! sync" +qa
 ```
 
 ## Languages
 
-The following dependenceis are needed for propper language support:
+The following dependencies are needed for propper language support.
+Use `mise` for easy setup.
 
 ### Clojure
 
@@ -25,7 +27,7 @@ The following dependenceis are needed for propper language support:
 ### Lua
 
 - [lua-language-server](https://github.com/sumneko/lua-language-server/)
-- TODO: formatting support
+- stylua
 
 ### Flutter
 
@@ -38,4 +40,3 @@ The following dependenceis are needed for propper language support:
 ### Rust 
 
 - [rust-analyzer](https://github.com/rust-analyzer/rust-analyzer)
-
