@@ -47,6 +47,7 @@ config.skip_close_confirmation_for_processes_named = {
   "powershell.exe",
   "wsl.exe",
   "wslhost.exe",
+  "mise.exe",
 }
 
 config.enable_scroll_bar = false
