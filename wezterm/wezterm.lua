@@ -54,6 +54,7 @@ config.freetype_load_target = "HorizontalLcd"
 
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 if is_windows() then
+  config.hide_tab_bar_if_only_one_tab = false
   config.window_padding = {
     top = "0.3cell",
     left = "1.0cell",
@@ -81,6 +82,7 @@ if is_windows() then
     },
   }
 else
+  config.hide_tab_bar_if_only_one_tab = true
   config.window_background_opacity = 0.9666666
   config.window_padding = {
     top = "1.5cell",
@@ -89,7 +91,6 @@ else
     bottom = "0.5cell",
   }
 end
-config.hide_tab_bar_if_only_one_tab = true
 config.macos_window_background_blur = 30
 
 wezterm.plugin.require("https://github.com/nekowinston/wezterm-bar").apply_to_config(config, {
@@ -97,7 +98,6 @@ wezterm.plugin.require("https://github.com/nekowinston/wezterm-bar").apply_to_co
   dividers = false,
   clock = { enabled = false },
 })
-
 
 -- Avoid changing the terminal size when increasing text size on videocalls
 config.adjust_window_size_when_changing_font_size = false
