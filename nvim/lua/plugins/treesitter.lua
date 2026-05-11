@@ -1,0 +1,53 @@
+return {
+  {
+    "nvim-treesitter/nvim-treesitter", -- Syntax highlighting and query engine (archived as of 2026-04)
+    build = ":TSUpdate",
+    dependencies = { "HiPhish/rainbow-delimiters.nvim" },
+    config = function()
+      local ensure_installed = {
+        "comment",
+        "dart",
+        "go",
+        "hcl",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "rust",
+        "yaml",
+      }
+      vim.defer_fn(function()
+        require("nvim-treesitter").install(ensure_installed)
+      end, 1000)
+      require("nvim-treesitter").update()
+
+      -- auto-start highlights & indentation
+      vim.api.nvim_create_autocmd("FileType", {
+        desc = "User: enable treesitter highlighting",
+        callback = function(ctx)
+          -- highlights
+          local hasStarted = pcall(vim.treesitter.start) -- errors for filetypes with no parser
+          -- indent
+          local noIndent = {}
+          if hasStarted and not vim.list_contains(noIndent, ctx.match) then
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
+      })
+
+      -- Experimental: Breaks on insert, starts unfolded but folds on first type
+      vim.o.foldmethod = "expr"
+      vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      -- vim.o.foldlevel = 0
+      -- vim.o.foldlevelstart = 0
+      vim.o.foldnestmax = 3 -- Maximum nested folds
+      vim.o.foldenable = false -- dont fold by default
+    end,
+  },
+  {
+    "code-biscuits/nvim-biscuits", -- scope context virtual text
+    opts = {
+      cursor_line_only = true,
+    },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+}
