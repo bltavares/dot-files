@@ -19,9 +19,9 @@ end
 if is_windows() then
   config.default_prog = { "pwsh", "-NoLogo", }
   config.keys = {
-    { key = "!", mods = "CTRL|SHIFT", action = wezterm.action.SpawnCommandInNewTab { domain = { DomainName = "local" } } },
-    { key = "@", mods = "CTRL|SHIFT", action = wezterm.action.SpawnCommandInNewTab { domain = { DomainName = "WSL:Debian" } } },
-    { key = "#", mods = "CTRL|SHIFT", action = wezterm.action.SpawnCommandInNewTab { domain = { DomainName = "SSH:gibson.internal" } } },
+    { key = "!", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab { DomainName = "local" } },
+    { key = "@", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab { DomainName = "WSL:Debian" } },
+    { key = "#", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab { DomainName = "SSH:gibson.internal" } },
     { key = ' ', mods = 'CTRL',       action = wezterm.action.SendKey { key = ' ', mods = 'CTRL', }, } -- workaround for native nvim.exe shortcut
   }
 end
@@ -53,20 +53,45 @@ config.enable_scroll_bar = false
 config.freetype_load_target = "HorizontalLcd"
 
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.win32_system_backdrop = "Acrylic"
 if is_windows() then
-  config.window_background_opacity = 0.73
+  config.win32_system_backdrop = "Mica"
+  config.window_padding = {
+    top = "0.3cell",
+    left = "1.0cell",
+    right = "1.0cell",
+    bottom = "0.3cell",
+  }
+  config.tab_bar_style = {
+    window_hide = wezterm.format {
+      { Text = ' \u{eaba} ' },
+    },
+    window_hide_hover = wezterm.format {
+      { Text = ' \u{eaba} ' },
+    },
+    window_maximize = wezterm.format {
+      { Text = ' \u{eab9} ' },
+    },
+    window_maximize_hover = wezterm.format {
+      { Text = ' \u{eab9} ' },
+    },
+    window_close = wezterm.format {
+      { Text = ' \u{eab8} ' },
+    },
+    window_close_hover = wezterm.format {
+      { Text = ' \u{eab8} ' },
+    },
+  }
 else
   config.window_background_opacity = 0.9666666
+  config.window_padding = {
+    top = "1.5cell",
+    left = "1.5cell",
+    right = "1.5cell",
+    bottom = "0.5cell",
+  }
 end
 config.hide_tab_bar_if_only_one_tab = true
 config.macos_window_background_blur = 30
-config.window_padding = {
-  top = "1.5cell",
-  left = "1.5cell",
-  right = "1.5cell",
-  bottom = "0.5cell",
-}
 
 wezterm.plugin.require("https://github.com/nekowinston/wezterm-bar").apply_to_config(config, {
   position = "top",
