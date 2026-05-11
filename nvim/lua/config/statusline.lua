@@ -3,7 +3,7 @@ local function LspStatus()
     return server.name
   end, vim.lsp.get_clients({ bufnr = 0 }))
 
-  return #names > 0 and "%#Conditional#" .. "[✔ " .. table.concat(names, " ") .. "]" or ""
+  return #names > 0 and "%#Conditional#" .. "[✓ " .. table.concat(names, " ") .. "]" or ""
 end
 
 require("lualine").setup({
