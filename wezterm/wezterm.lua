@@ -17,12 +17,12 @@ local is_windows = function()
 end
 
 if is_windows() then
-  config.default_prog = { "pwsh", "-NoLogo", }
+  config.default_prog = { "pwsh", "-NoLogo" }
   config.keys = {
-    { key = "!", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab { DomainName = "local" } },
-    { key = "@", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab { DomainName = "WSL:Debian" } },
-    { key = "#", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab { DomainName = "SSH:gibson.internal" } },
-    { key = ' ', mods = 'CTRL',       action = wezterm.action.SendKey { key = ' ', mods = 'CTRL', }, } -- workaround for native nvim.exe shortcut
+    { key = "!", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab({ DomainName = "local" }) },
+    { key = "@", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab({ DomainName = "WSL:Debian" }) },
+    { key = "#", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab({ DomainName = "SSH:gibson.internal" }) },
+    { key = " ", mods = "CTRL", action = wezterm.action.SendKey({ key = " ", mods = "CTRL" }) }, -- workaround for native nvim.exe shortcut
   }
 end
 
@@ -62,24 +62,24 @@ if is_windows() then
     bottom = "0.3cell",
   }
   config.tab_bar_style = {
-    window_hide = wezterm.format {
-      { Text = ' \u{eaba} ' },
-    },
-    window_hide_hover = wezterm.format {
-      { Text = ' \u{eaba} ' },
-    },
-    window_maximize = wezterm.format {
-      { Text = ' \u{eab9} ' },
-    },
-    window_maximize_hover = wezterm.format {
-      { Text = ' \u{eab9} ' },
-    },
-    window_close = wezterm.format {
-      { Text = ' \u{eab8} ' },
-    },
-    window_close_hover = wezterm.format {
-      { Text = ' \u{eab8} ' },
-    },
+    window_hide = wezterm.format({
+      { Text = " \u{eaba} " },
+    }),
+    window_hide_hover = wezterm.format({
+      { Text = " \u{eaba} " },
+    }),
+    window_maximize = wezterm.format({
+      { Text = " \u{eab9} " },
+    }),
+    window_maximize_hover = wezterm.format({
+      { Text = " \u{eab9} " },
+    }),
+    window_close = wezterm.format({
+      { Text = " \u{eab8} " },
+    }),
+    window_close_hover = wezterm.format({
+      { Text = " \u{eab8} " },
+    }),
   }
 else
   config.hide_tab_bar_if_only_one_tab = true
