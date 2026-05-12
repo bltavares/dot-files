@@ -8,8 +8,13 @@ return {
   },
   {
     "Wansmer/treesj", -- Semantic split/join
-    cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
+    cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
+    keys = {
+      { "<leader>tlj", "<Cmd>TSJJoin<CR>",   desc = "join" },
+      { "<leader>tll", "<Cmd>TSJToggle<CR>", desc = "toggle" },
+      { "<leader>tls", "<Cmd>TSJSplit<CR>",  desc = "split" },
+    },
     opts = {
       use_default_keymaps = false,
     },

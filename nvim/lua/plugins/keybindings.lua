@@ -125,12 +125,6 @@ return {
           { "<leader>ta{", "vi{<C-v>$:EasyAlign\\ g/^\\S/<CR>", desc = "{}" },
         },
         {
-          { "<leader>tl", group = "line" },
-          { "<leader>tlj", "<Cmd>TSJJoin<CR>", desc = "join" },
-          { "<leader>tll", "<Cmd>TSJToggle<CR>", desc = "toggle" },
-          { "<leader>tls", "<Cmd>TSJSplit<CR>", desc = "split" },
-        },
-        {
           { "<leader>w", group = "window" },
           { "<leader>wc", "<C-w>c", desc = "close" },
           { "<leader>wh", "<C-w>h", desc = "move left" },
@@ -149,8 +143,9 @@ return {
         },
         -- groups from other plugins
         { "cr", group = "coercion" }, -- vim-abolish
-        { "<localleader>d", group = "debug" },
-        { "<leader>k", group = "s-exp" },
+        { "<localleader>d", group = "debug" }, -- dap
+        { "<leader>k", group = "s-exp" }, -- vim-sexp
+        { "<leader>tl", group = "line" }, -- treesJ
       })
 
       if vim.g.neovide then
