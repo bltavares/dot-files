@@ -3,6 +3,9 @@ return {
     "npxbr/glow.nvim", -- Preview .md rendering
     cmd = { "Glow" },
     ft = "markdown",
-  -- TODO add keybinds
+    keys = {
+      { "<localleader>P", "<CMD>Glow<CR>", desc = "Preview", ft = "markdown" },
+    },
+    opts = {},
   },
 }
