@@ -61,4 +61,9 @@ return {
     },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
+  {
+    "windwp/nvim-ts-autotag", -- Automatically add closing tags for HTML and JSX
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {},
+  },
 }
