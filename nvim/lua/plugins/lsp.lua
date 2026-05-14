@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig", -- Bult-in LSP configs
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       local capabilities = require("config.lsp.capabilities").create()
       local on_attach = require("config.lsp.on_attach")
@@ -36,11 +37,12 @@ return {
       "folke/which-key.nvim",
       "j-hui/fidget.nvim",
       "saghen/blink.cmp",
-      "VidocqH/lsp-lens.nvim",
+      "VidocqH/lsp-lens.nvim", -- lsp fn references virtualtext
     },
   },
   {
     "nvimtools/none-ls.nvim", -- LSP for non-lsp tools
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     dependencies = {
       "nvim-lua/plenary.nvim",
       "neovim/nvim-lspconfig",
@@ -75,8 +77,8 @@ return {
   },
   -- ui
   {
-    "j-hui/fidget.nvim", -- LSP progress status
-    event = { "VeryLazy" },
+    "j-hui/fidget.nvim", -- LSP $/progress status
+    lazy = true,
     opts = {
       notification = {
         window = {

@@ -40,6 +40,7 @@ return {
   {
     "saghen/blink.cmp",
     version = "1.*", -- required to download pre-built bins
+    event = { "InsertEnter", "CmdlineEnter" },
     opts = {
       keymap = {
         preset = "default",
@@ -55,7 +56,7 @@ return {
           draw = {
             columns = {
               { "kind_icon" },
-              { "label", "label_description", gap = 1 },
+              { "label",      "label_description", gap = 1 },
               { "source_name" }, -- additional source field
             },
           },
