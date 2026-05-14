@@ -44,7 +44,7 @@ return {
         group_empty = true,
         indent_markers = { enable = true },
         icons = {
-          show = { git = true, folder = true, file = false },
+          show = { git = true, folder = true, file = true },
           glyphs = {
             git = {
               unstaged = "~",
