@@ -16,12 +16,8 @@ return {
         signs = true,
       })
 
-      -- Does not work, client is not fully attached when event triggers
-      -- vim.api.nvim_create_autocmd('LspAttach', {
-      --   callback = function(ev)
-      --     on_attach(ev.data.client_id, ev.buf)
-      --   end
-      -- })
+      -- builtin support not very useful as plugin
+      -- vim.lsp.codelens.enable(true)
 
       vim.lsp.enable({
         "clojure_lsp",
@@ -95,7 +91,9 @@ return {
   {
     "VidocqH/lsp-lens.nvim", -- lsp fn references virtualtext
     cmd = { "LspLensToggle", "LspLensOn", "LspLensOff" },
-    event = { "VeryLazy" },
+    keys = {
+      { "<leader>Tr", "<Cmd>LspLensToggle<CR>", desc = "Fn references" },
+    },
     opts = {
       sections = {
         git_authors = function(latest_author, count)

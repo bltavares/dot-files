@@ -22,10 +22,10 @@ local on_attach = function(client, bufnr)
       { "gs",    "<cmd>lua vim.lsp.buf.signature_help()<CR>", desc = "preview definition" },
     },
     {
-      { "<localleader>p",  group = "project" },
-      { "<localleader>pa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",    desc = "add workspace" },
-      { "<localleader>pl", "<cmd>lua vim.lsp.buf.list_workspace_folders()<CR>",  desc = "list workspace" },
-      { "<localleader>pr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", desc = "remove workspace" },
+      { "<localleader>w",  group = "workspace" },
+      { "<localleader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",    desc = "add LSP workspace" },
+      { "<localleader>wl", "<cmd>lua= vim.lsp.buf.list_workspace_folders()<CR>", desc = "list LSP workspace" },
+      { "<localleader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", desc = "remove LSP workspace" },
     },
     {
       { "<localleader>r",  group = "refactor" },

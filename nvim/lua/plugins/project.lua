@@ -22,6 +22,11 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFindFile", "NvimTreeRefresh" },
+    keys = {
+      { "<leader>pT", "<Cmd>NvimTreeFindFile<CR>", desc = "show on tree" },
+      { "<leader>pr", "<Cmd>NvimTreeRefresh<CR>", desc = "refresh tree" },
+      { "<leader>pt", "<Cmd>NvimTreeToggle<CR>", desc = "project tree" },
+    },
     opts = {
       -- allow nvim .
       -- https://github.com/kyazdani42/nvim-tree.lua/issues/248
@@ -68,7 +73,11 @@ return {
   },
 
   {
-    "DrKJeff16/project.nvim", -- auto cwd
+    "DrKJeff16/project.nvim", -- auto cwd to .git projects
+    event = { "VeryLazy" },
+    keys = {
+      { "<leader>ps", "<Cmd>ProjectSnacks<CR>", desc = "switch" },
+    },
     opts = {
       snacks = { enabled = true },
     },
@@ -76,9 +85,10 @@ return {
   {
     "folke/lsp-trouble.nvim", -- LSP based problem list
     cmd = { "Trouble", "TroubleToggle" },
-    opts = {
-      icons = {},
+    keys = {
+      { "<leader>pd", "<Cmd>Trouble diagnostics<CR>", desc = "diagnostics" },
     },
+    opts = {},
   },
   {
     "hedyhli/outline.nvim", -- LSP based buffer object/fn outlines - alternative to `gO`
@@ -88,21 +98,45 @@ return {
   },
   {
     "folke/todo-comments.nvim", -- Colorize and find things to do
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     cmd = { "TodoTrouble", "TodoQuickFix", "TodoLocList" },
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       signs = false,
+    },
+    keys = {
+      { "<leader>p?", "<Cmd>TodoTrouble<CR>", desc = "TODOs" },
+      {
+        "]t",
+        function()
+          require("todo-comments").jump_next()
+        end,
+        desc = "Next todo comment",
+      },
+      {
+        "[t",
+        function()
+          require("todo-comments").jump_prev()
+        end,
+        desc = "Previous todo comment",
+      },
     },
   },
   {
     "linrongbin16/gitlinker.nvim",
     cmd = { "GitLink" },
     opts = {},
+    keys = {
+      { "<leader>gl", "<Cmd>GitLink<CR>", desc = "link", mode = { "n", "v" } },
+    },
   },
   {
     "lewis6991/gitsigns.nvim", -- TODO keymaps
-    cmd = { "Gitsigns" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    keys = {
+      { "<leader>gb", "<Cmd>Gitsigns toggle_current_line_blame<CR>", desc = "blame" },
+      { "<leader>gs", "<Cmd>Gitsigns toggle_signs<CR>", desc = "signs" },
+    },
     opts = {},
-    dependencies = { "folke/lsp-trouble.nvim" },
   },
 }

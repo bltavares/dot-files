@@ -10,54 +10,49 @@ return {
     config = function()
       local wk = require("which-key")
       wk.add({
-        { "<C-p>", "<Cmd>lua Snacks.picker.commands()<CR>", desc = "commands", remap = false },
-      })
-
-      -- TODO: git/fugitive keybindings
-      -- TODO: session keybindings
-      -- TODO: mode-mapping of localleader
-      -- TODO: dap-debug keybindings
-      -- TODO: access localleader maps over normal leader through m
-      wk.add({
+        { "<leader>;", "gcc", desc = "comment" },
+        { "<localleader>=", "gg=G``", desc = "format" },
         {
-          {
-            "<leader><space>",
-            "<Cmd>lua Snacks.picker.resume()<CR>",
-            desc = "resume panel",
-          },
-          {
-            "<leader>*",
-            "<Cmd>lua Snacks.picker.grep_word()<CR>",
-            desc = "find word in project",
-          },
-          {
-            "<leader>/",
-            "<Cmd>lua Snacks.picker.grep()<CR>",
-            desc = "grep",
-          },
-          {
-            "<leader>;",
-            "<Cmd>CommentToggle<CR>",
-            desc = "comment",
-          },
+          "gy",
+          '"+y',
+          desc = "Copy to system clipboard",
+          mode = { "n", "x" },
         },
         {
-          { "<leader>T", group = "toggle" },
-          {
-            "<leader>TI",
-            "<Cmd>IlluminateToggle<CR>",
-            desc = "Illuminate reference",
-          },
-          {
-            "<leader>Tr",
-            "<Cmd>LspLensToggle<CR>",
-            desc = "Fn references",
-          },
+          "gp",
+          '"+p',
+          desc = "Paste from system clipboard",
+          mode = { "n" },
         },
+        {
+          "gp",
+          '"+P',
+          desc = "Paste from system clipboard",
+          mode = { "x" },
+        },
+        {
+          "gV",
+          '"g`[" . strpart(getregtype(), 0, 1) . "g`]"',
+          expr = true,
+          replace_keycodes = false,
+          desc = "Visually select changed text",
+        },
+        {
+          "g/",
+          "<esc>/\\%V",
+          silent = false,
+          desc = "Search inside visual selection",
+          mode = { "x" },
+        },
+        { "<leader>T", group = "toggle" },
+        { "<leader>f", group = "find" },
+        { "<leader>fc", group = "commands" },
+        { "<leader>fg", group = "git" },
+        { "<leader>g", group = "git" },
+        { "<leader>p", group = "project" },
         {
           { "<leader>b", group = "buffers" },
           { "<leader>bD", ":bufdo bd<CR>", desc = "do" },
-          { "<leader>bb", "<Cmd>lua Snacks.picker.buffers()<CR>", desc = "buffers" },
         },
         {
           { "<leader>e", group = "editor" },
@@ -73,55 +68,13 @@ return {
           },
         },
         {
-          { "<leader>f", group = "find" },
-          { "<leader>fb", "<Cmd>lua Snacks.picker.buffers()<CR>", desc = "buffers" },
-        },
-        {
-          { "<leader>fc", group = "commands" },
-          { "<leader>fcc", "<Cmd>lua Snacks.picker.commands()<CR>", desc = "commands" },
-          { "<leader>fch", "<Cmd>lua Snacks.picker.command_history()<CR>", desc = "history" },
-          { "<leader>ff", "<Cmd>lua Snacks.picker.files()<CR>", desc = "files" },
-        },
-        {
-          { "<leader>fg", group = "git" },
-          { "<leader>fgb", "<Cmd>lua Snacks.picker.git_branches()<CR>", desc = "branches" },
-          { "<leader>fgc", "<Cmd>lua Snacks.picker.git_bcommits()<CR>", desc = "bcommits" },
-          { "<leader>fgg", "<Cmd>lua Snacks.picker.git_commits()<CR>", desc = "commits" },
-          { "<leader>fgs", "<Cmd>lua Snacks.picker.git_status()<CR>", desc = "status" },
-          { "<leader>fh", "<Cmd>lua Snacks.picker.help()<CR>", desc = "help tags" },
-          { "<leader>fq", "<Cmd>lua Snacks.picker.qflist()<CR>", desc = "quickfix" },
-        },
-        {
-          { "<leader>g", group = "git" },
-          { "<leader>gb", "<Cmd>Gitsigns toggle_current_line_blame<CR>", desc = "blame" },
-          { "<leader>gs", "<Cmd>Gitsigns toggle_signs<CR>", desc = "signs" },
-          { "<leader>gl", "<Cmd>GitLink<CR>", desc = "link" },
-        },
-        {
-          { "<leader>p", group = "project" },
-          { "<leader>p/", "<Cmd>lua Snacks.picker.live_grep()<CR>", desc = "grep" },
-          { "<leader>p?", "<Cmd>TodoTrouble<CR>", desc = "todos" },
-          { "<leader>pT", "<Cmd>NvimTreeFindFile<CR>", desc = "show on tree" },
-          { "<leader>pf", "<Cmd>lua Snacks.picker.files()<CR>", desc = "files" },
-          { "<leader>pr", "<Cmd>NvimTreeRefresh<CR>", desc = "refresh tree" },
-          { "<leader>ps", "<Cmd>ProjectSnacks<CR>", desc = "switch" },
-          { "<leader>pt", "<Cmd>NvimTreeToggle<CR>", desc = "project tree" },
-        },
-        {
           { "<leader>q", group = "vim" },
           { "<leader>qq", "<Cmd>qa!<CR>", desc = "Quit!" },
           { "<leader>qr", "<Cmd>lua loadfile(vim.fn.stdpath('config') .. 'init.lua')<CR>", desc = "Reload" },
         },
         {
           { "<leader>t", group = "text" },
-          { "<leader>t/", "<Cmd>CommentToggle<CR>", desc = "comment" },
-        },
-        {
-          { "<leader>ta", group = "align" },
-          { "<leader>ta(", "vi(<C-v>$:EasyAlign\\ g/^\\S/<CR>", desc = "()" },
-          { "<leader>ta[", "vi[<C-v>$:EasyAlign\\ g/^\\S/<CR>", desc = "[]" },
-          { "<leader>taa", "<PLUG>(EasyAlign)", desc = "interactive" },
-          { "<leader>ta{", "vi{<C-v>$:EasyAlign\\ g/^\\S/<CR>", desc = "{}" },
+          { "<leader>t;", "gcc", desc = "comment" },
         },
         {
           { "<leader>w", group = "window" },
@@ -130,15 +83,17 @@ return {
           { "<leader>wj", "<C-w>j", desc = "move down" },
           { "<leader>wk", "<C-w>k", desc = "move top" },
           { "<leader>wl", "<C-w>l", desc = "move right" },
-          { "<leader>wm", "<Cmd>only<CR>", desc = "maximize split" },
+          { "<leader>w=", "<C-w>=", desc = "rebalance" },
+          { "<leader>wm", "<Cmd>only<CR>", desc = "close others" },
           { "<leader>ws", "<Cmd>split<CR>", desc = "horizontal split" },
+          { "<leader>wv", "<Cmd>vsplit<CR>", desc = "vertical split" },
+          { "<leader>wn", "<Cmd>split<CR>", desc = "new" },
         },
         {
           { "<leader>wt", group = "tab" },
-          { "<leader>wtc", ":tabclose<CR>", desc = "close" },
-          { "<leader>wtn", ":tabnew<CR>", desc = "new" },
-          { "<leader>wtt", ":tabnext<CR>", desc = "next" },
-          { "<leader>wv", "<Cmd>vsplit<CR>", desc = "vertical split" },
+          { "<leader>wtc", "<Cmd>tabclose<CR>", desc = "close" },
+          { "<leader>wtn", "<Cmd>tabnew<CR>", desc = "new" },
+          { "<leader>wtt", "<Cmd>tabnext<CR>", desc = "next" },
         },
         -- groups from other plugins
         { "cr", group = "coercion" }, -- vim-abolish

@@ -28,6 +28,14 @@ return {
       "mrcjkb/rustaceanvim",
       "nvim-neotest/neotest-go",
     },
+    keys = {
+      { "<localleader>tO", "<Cmd>Neotest output-panel<CR>", desc = "output" },
+      { "<localleader>tf", "<Cmd>Neotest run file<CR>", desc = "file" },
+      { "<localleader>tl", "<Cmd>Neotest run last<CR>", desc = "last" },
+      { "<localleader>to", "<Cmd>Neotest output<CR>", desc = "output" },
+      { "<localleader>ts", "<Cmd>Neotest summary<CR>", desc = "summary" },
+      { "<localleader>tt", "<Cmd>Neotest run<CR>", desc = "nearest" },
+    },
     config = function()
       require("neotest").setup({
         -- log_level = vim.log.levels.DEBUG,

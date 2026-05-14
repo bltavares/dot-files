@@ -1,8 +1,8 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter", -- Syntax highlighting and query engine (archived as of 2026-04)
+    event = { "BufReadPre", "BufNewFile", "VeryLazy" },
     build = ":TSUpdate",
-    dependencies = { "HiPhish/rainbow-delimiters.nvim" },
     config = function()
       local ensure_installed = {
         "comment",
