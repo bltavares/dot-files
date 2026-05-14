@@ -39,7 +39,7 @@ return {
       vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
       -- vim.o.foldlevel = 0
       -- vim.o.foldlevelstart = 0
-      vim.o.foldnestmax = 3    -- Maximum nested folds
+      vim.o.foldnestmax = 3 -- Maximum nested folds
       vim.o.foldenable = false -- dont fold by default
     end,
   },

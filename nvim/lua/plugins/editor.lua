@@ -14,9 +14,9 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
     keys = {
-      { "<leader>tlj", "<Cmd>TSJJoin<CR>",   desc = "join",   mode = { "n", "x" } },
+      { "<leader>tlj", "<Cmd>TSJJoin<CR>", desc = "join", mode = { "n", "x" } },
       { "<leader>tll", "<Cmd>TSJToggle<CR>", desc = "toggle", mode = { "n", "x" } },
-      { "<leader>tls", "<Cmd>TSJSplit<CR>",  desc = "split" },
+      { "<leader>tls", "<Cmd>TSJSplit<CR>", desc = "split" },
     },
     opts = {
       use_default_keymaps = false,
@@ -30,8 +30,8 @@ return {
   {
     "guns/vim-sexp", -- TODO: lua version
     keys = {
-      { "<leader>kr", "<Plug>(sexp_raise_element)",        desc = "raise" },
-      { "<leader>kR", "<Plug>(sexp_raise_list)",           desc = "RAISE" },
+      { "<leader>kr", "<Plug>(sexp_raise_element)", desc = "raise" },
+      { "<leader>kR", "<Plug>(sexp_raise_list)", desc = "RAISE" },
       { "<leader>ks", "<Plug>(sexp_capture_next_element)", desc = "slurp" },
     },
   },
@@ -56,7 +56,7 @@ return {
           draw = {
             columns = {
               { "kind_icon" },
-              { "label",      "label_description", gap = 1 },
+              { "label", "label_description", gap = 1 },
               { "source_name" }, -- additional source field
             },
           },
