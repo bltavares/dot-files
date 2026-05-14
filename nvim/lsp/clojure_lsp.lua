@@ -1,9 +1,7 @@
 local wk = require("which-key")
 local on_attach = require("config.lsp.on_attach")
 
--- TODO
--- https://github.com/guns/vim-sexp
--- https://github.com/eraserhd/parinfer-rust
+-- TODO: https://github.com/eraserhd/parinfer-rust
 return {
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)

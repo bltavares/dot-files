@@ -28,7 +28,7 @@ return {
   },
 
   {
-    "guns/vim-sexp", -- TODO lua version
+    "guns/vim-sexp", -- TODO: lua version
     keys = {
       { "<leader>kr", "<Plug>(sexp_raise_element)",        desc = "raise" },
       { "<leader>kR", "<Plug>(sexp_raise_list)",           desc = "RAISE" },

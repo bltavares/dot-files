@@ -131,7 +131,7 @@ return {
     },
   },
   {
-    "lewis6991/gitsigns.nvim", -- TODO keymaps
+    "lewis6991/gitsigns.nvim",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     keys = {
       { "<leader>gb", "<Cmd>Gitsigns toggle_current_line_blame<CR>", desc = "blame" },
