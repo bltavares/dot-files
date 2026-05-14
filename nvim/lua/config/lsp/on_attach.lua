@@ -11,9 +11,10 @@ local on_attach = function(client, bufnr)
     remap = false,
     {
       { "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", desc = "signature help" },
-      { "K",     "<cmd>Lspsaga hover_doc<CR>",                desc = "show docs" },
-      { "[d",    "<cmd>Lspsaga diagnostic_jump_prev<CR>",     desc = "previous diagnostic" },
-      { "]d",    "<cmd>Lspsaga diagnostic_jump_next<CR>",     desc = "next diagnostic" },
+      { "K",     "<cmd>lua vim.lsp.buf.hover()<CR>",          desc = "show docs" },
+      -- builtin
+      -- { "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", desc = "previous diagnostic" },
+      -- { "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", desc = "next diagnostic" },
       { "gD",    "<Cmd>lua vim.lsp.buf.declaration()<CR>",    desc = "goto declaration" },
       { "gd",    "<Cmd>lua vim.lsp.buf.definition()<CR>",     desc = "goto definition" },
       { "gi",    "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "goto iplementations" },
@@ -34,16 +35,25 @@ local on_attach = function(client, bufnr)
         desc = "format",
         cond = client.server_capabilities.documentFormattingProvider,
       },
-      { "<localleader>r?", "<cmd>Trouble document_diagnostics<CR>",                      desc = "current troubles" },
-      { "<localleader>rE", "<cmd>Lspsaga show_cursor_diagnostics<CR>",                   desc = "current diagnostic" },
-      { "<localleader>rL", "<cmd>lua vim.diagnostic.setloclist({workspace = true})<CR>", desc = "workspace list" },
-      { "<localleader>ra", "<cmd>Lspsaga code_action<CR>",                               desc = "action" },
-      { "<localleader>rd", "<cmd>lua vim.lsp.buf.type_definition()<CR>",                 desc = "type definitions" },
-      { "<localleader>re", "<cmd>Lspsaga show_line_diagnostics<CR>",                     desc = "line diagnostic" },
-      { "<localleader>rh", "<cmd>Lspsaga lsp_finder<CR>",                                desc = "find reference" },
-      { "<localleader>rl", "<cmd>lua vim.diagnostic.setloclist()<CR>",                   desc = "loc list" },
-      { "<localleader>ro", "<cmd>SymbolsOutline<CR>",                                    desc = "outline" },
-      { "<localleader>rr", "<cmd>Lspsaga rename<CR>",                                    desc = "rename" },
+      { "<localleader>r?", "<cmd>Trouble diagnostics <CR>",                  desc = "current troubles" },
+      { "<localleader>rE", "<cmd>Trouble diagnostics open filter.buf=0<CR>", desc = "buf diagnostic" },
+      {
+        "<localleader>rL",
+        "<cmd>lua vim.diagnostic.setloclist({workspace = true})<CR>",
+        desc = "workspace diagnostics loc list",
+      },
+      --{ "<localleader>ra", "<cmd>lua vim.lsp.buf.code_action()<CR>",     desc = "action" },
+      { "<localleader>ra", "<cmd>lua require('tiny-code-action').code_action()<CR>", desc = "action" },
+      { "<localleader>rd", "<cmd>lua vim.lsp.buf.type_definition()<CR>",         desc = "type definitions" },
+      { "<localleader>re", "<cmd>lua vim.diagnostic.open_float()<CR>",           desc = "line diagnostic" },
+      { "<localleader>rh", "<cmd>lua vim.lsp.buf.references()<CR>",              desc = "find reference" },
+      {
+        "<localleader>rl",
+        "<cmd>lua vim.diagnostic.setloclist()<CR>",
+        desc = "diagnostics loc list",
+      },
+      { "<localleader>ro", "<cmd>Outline<CR>",                  desc = "outline" },
+      { "<localleader>rr", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "rename" },
     },
   })
 
@@ -58,7 +68,8 @@ local on_attach = function(client, bufnr)
       desc = "format",
       cond = client.server_capabilities.documentRangeFormattingProvider,
     },
-    { "<localleader>ra", "<cmd>Lspsaga code_action<CR>", desc = "action" },
+    -- { "<localleader>ra", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "action" },
+      { "<localleader>ra", "<cmd>lua require('tiny-code-action').code_action()<CR>", desc = "action" },
   })
 
   -- Shows documentation on cursor movement

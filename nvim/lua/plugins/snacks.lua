@@ -38,6 +38,17 @@ return {
           Snacks.toggle.dim():map("<leader>TD")
           Snacks.toggle.zen():map("<leader>Tz")
           Snacks.toggle.zoom():map("<leader>TZ")
+          Snacks.toggle
+            .new({
+              name = "Code Lens",
+              get = function()
+                return vim.lsp.codelens.is_enabled()
+              end,
+              set = function(state)
+                vim.lsp.codelens.enable(state)
+              end,
+            })
+            :map("<leader>TL")
         end,
       })
     end,

@@ -63,13 +63,20 @@ return {
         sources = {
           null_ls.builtins.formatting.shfmt,
           null_ls.builtins.formatting.stylua,
+          null_ls.builtins.code_actions.gitsigns,
         },
         on_attach = on_attach,
         capabilities = capabilities,
       })
     end,
   },
-
+  {
+    "rachartier/tiny-code-action.nvim",
+    event = "LspAttach",
+    opts = {
+      picker = "snacks",
+    },
+  },
   -- ui
   {
     "j-hui/fidget.nvim", -- LSP progress status
@@ -97,84 +104,13 @@ return {
       },
     },
   },
-
   {
-    "nvimdev/lspsaga.nvim", -- cute UI LSP
+    "SmiteshP/nvim-navic",
+    event = "LspAttach",
     opts = {
-      -- diagnostic_header_icon = '»',
-      -- error, warn, info, hint
-      symbol_in_winbar = { separator = "»" },
-      diagnostic_header = { "•e", "•w", "•i", "•h" },
-      code_action_icon = "?",
-      code_action_lightbulb = {
-        enable = true,
-        sign = true,
-        sign_priority = 20,
-        virtual_text = true,
-      },
-      code_action_keys = { quit = "<esc>", exec = "<CR>" },
-      finder_icons = {
-        def = "•d",
-        ref = "•r",
-        link = "•l",
-      },
-      finder_action_keys = {
-        open = "o",
-        vsplit = "s",
-        split = "i",
-        quit = "<esc>",
-        scroll_down = "<C-n>",
-        scroll_up = "<C-p>",
-      },
-      ui = {
-        -- Reset the icons as I dont like them
-        kind = {
-          File = "",
-          Module = "",
-          Namespace = "",
-          Package = "",
-          Class = "",
-          Method = "",
-          Property = "",
-          Field = "",
-          Constructor = "",
-          Enum = "",
-          Interface = "",
-          Function = "",
-          Variable = "",
-          Constant = "",
-          String = "",
-          Number = "",
-          Boolean = "",
-          Array = "",
-          Object = "",
-          Key = "",
-          Null = "",
-          EnumMember = "",
-          Struct = "",
-          Event = "",
-          Operator = "",
-          TypeParameter = "",
-          TypeAlias = "",
-          Parameter = "",
-          StaticMethod = "",
-          Macro = "",
-          Text = "",
-          Snippet = "",
-          Folder = "",
-          Unit = "",
-          Value = "",
-        },
-      },
-      -- behaviour
-      code_action = {
-        extend_gitsigns = true,
-      },
-    },
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      "nvim-treesitter/nvim-treesitter",
-      "lewis6991/gitsigns.nvim",
+      lsp = {
+        auto_attach = true,
+      }
     },
   },
 }

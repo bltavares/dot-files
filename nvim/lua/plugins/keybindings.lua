@@ -1,4 +1,3 @@
--- TODO move to plugins
 return {
   {
     "folke/which-key.nvim", -- Keybindings helper
