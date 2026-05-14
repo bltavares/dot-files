@@ -72,7 +72,7 @@ repo_root_format = ' [$before_root_path]($before_repo_root_style)[$repo_root]($r
 
 [cmd_duration]
 min_time = 500
-format = "[ $duration](italic bright-yellow)"
+format = "[$duration ](italic bright-yellow)"
 
 [jobs]
 format = "[ $symbol$number]($style)"
@@ -171,10 +171,10 @@ style = "bold red"
 # Mine
 [mise]
 disabled = false
-format = '[\([mise]($style dimmed)\)](grey)'
+format = '[\([mise]($style dimmed)\)](grey) '
 
 [env_var.X_COLOR_PS1]
 format = '$env_value '
 
 [env_var.MISE_ENV]
-format = ' \([env: $env_value](fg:green dimmed)\)'
+format = '\([env: $env_value](fg:green dimmed)\) '
