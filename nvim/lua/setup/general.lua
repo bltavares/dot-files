@@ -65,4 +65,15 @@ vim.o.mouse = "a" -- Enable mouse
 vim.g.mousehide = true -- Hide mouse after chars typed
 
 -- highlight on yank
-vim.cmd("au TextYankPost * silent! lua vim.highlight.on_yank()")
+vim.api.nvim_create_autocmd("TextYankPost", {
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  desc = "Highlights yanked text",
+})
+
+vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
+vim.o.pumblend = 10 -- Make builtin completion menus slightly transparent
+vim.o.pumheight = 10 -- Make popup menu smaller
+vim.o.winblend = 10 -- Make floating windows slightly transparent

@@ -145,6 +145,9 @@ return {
         { "<localleader>d", group = "debug" }, -- dap
         { "<leader>k", group = "s-exp" }, -- vim-sexp
         { "<leader>tl", group = "line" }, -- treesJ
+        { "<leader>ta", group = "align", mode = { "n", "v" } }, -- mini.align
+        { "s", group = "surround" }, -- mini.surround
+        { "<localleader>t", group = "test" }, -- neotest
       })
 
       if vim.g.neovide then
@@ -158,38 +161,9 @@ return {
 
       wk.add({
         mode = { "v" },
-        { "<leader>;", ":CommentToggle<cr>", desc = "comment" },
-        {
-          { "<leader>g", group = "git" },
-          { "<leader>gl", "<Cmd>GitLink<CR>", desc = "git link" },
-        },
-        {
-          { "<leader>t", group = "text" },
-        },
-        {
-          { "<leader>ta", group = "align" },
-          { "<leader>ta(", ":EasyAlign\\ g/^\\S/<CR>", desc = "()" },
-          { "<leader>ta,", ":Tabularize /,<CR>", desc = "," },
-          { "<leader>ta-", ":Tabularize /-<CR>", desc = "-" },
-          { "<leader>ta=", ":Tabularize /=<CR>", desc = "=" },
-          { "<leader>ta[", ":EasyAlign\\ g/^\\S/<CR>", desc = "[]" },
-          { "<leader>taa", "<PLUG>(EasyAlign)", desc = "interactive" },
-          { "<leader>ta{", ":EasyAlign\\ g/^\\S/<CR>", desc = "{}" },
-          { "<leader>ta|", ":Tabularize /|<CR>", desc = "|" },
-        },
-      })
-
-      wk.add({
-        { "<localleader>=", "gg=G``", desc = "format", remap = false },
-        {
-          { "<localleader>t", group = "test", remap = false },
-          { "<localleader>tO", "<Cmd>Neotest output-panel<CR>", desc = "output", remap = false },
-          { "<localleader>tf", "<Cmd>Neotest run file<CR>", desc = "file", remap = false },
-          { "<localleader>tl", "<Cmd>Neotest run last<CR>", desc = "last", remap = false },
-          { "<localleader>to", "<Cmd>Neotest output<CR>", desc = "output", remap = false },
-          { "<localleader>ts", "<Cmd>Neotest summary<CR>", desc = "summary", remap = false },
-          { "<localleader>tt", "<Cmd>Neotest run<CR>", desc = "nearest", remap = false },
-        },
+        { "<leader>;", "gc", desc = "comment" },
+        { "<leader>g", group = "git" },
+        { "<leader>t", group = "text" },
       })
     end,
   },

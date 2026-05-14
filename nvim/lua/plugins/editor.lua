@@ -1,69 +1,38 @@
 return {
   -- Text manupulation
-  { "godlygeek/tabular", cmd = "Tabularize" }, -- TODO lua version
-  { "junegunn/vim-easy-align" }, -- TODO: lazy loading and lua version
   {
-    "johmsalas/text-case.nvim", -- change text cases TODO replace with vim-abolish?
-    setup = {}, -- TODO check for snacks integration in the future/for-
+    -- TODO: check for snacks integration in the future
+    "johmsalas/text-case.nvim", -- change text cases
+    cmd = { "Subs" },
+    keys = { "<leader>tc" },
+    opts = {
+      prefix = "<leader>tc",
+    },
   },
   {
     "Wansmer/treesj", -- Semantic split/join
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
     keys = {
-      { "<leader>tlj", "<Cmd>TSJJoin<CR>",   desc = "join" },
-      { "<leader>tll", "<Cmd>TSJToggle<CR>", desc = "toggle" },
+      { "<leader>tlj", "<Cmd>TSJJoin<CR>",   desc = "join",   mode = { "n", "x" } },
+      { "<leader>tll", "<Cmd>TSJToggle<CR>", desc = "toggle", mode = { "n", "x" } },
       { "<leader>tls", "<Cmd>TSJSplit<CR>",  desc = "split" },
     },
     opts = {
       use_default_keymaps = false,
     },
   },
-  -- TODO search for lua versions
-  "tpope/vim-surround", -- surround motions
-  "tpope/vim-sleuth", -- use correct expandtab/shiftwidth
   {
-    "tpope/vim-abolish", -- smarter search/replace
-    cmd = { "Abolish", "Subvert", "S" },
-    keys = {
-      { "crs", desc = "Snake Case" },
-      { "cr_", desc = "Snake Case" },
-      { "crm", desc = "Mixed Case" },
-      { "crc", desc = "Camel Case" },
-      { "cru", desc = "Snake Upper Case" },
-      { "crU", desc = "Snake Upper Case" },
-      { "crk", desc = "Kebab Case" },
-      { "crt", desc = "Title Case (not reversible)" },
-      { "cr-", desc = "Kebab Case (not reversible)" },
-      { "cr.", desc = "Dot Case (not reversible)" },
-      { "cr<space>", desc = "Space Case (not reversible)" },
-    },
+    "Darazaki/indent-o-matic", -- quick correct expandtab/shiftwidth
+    event = { "BufReadPre" },
   },
-
-  "tpope/vim-unimpaired", -- better % pairing
 
   {
     "guns/vim-sexp", -- TODO lua version
     keys = {
-      { "<leader>kr", "<Plug>(sexp_raise_element)", desc = "raise" },
-      { "<leader>kR", "<Plug>(sexp_raise_list)", desc = "RAISE" },
+      { "<leader>kr", "<Plug>(sexp_raise_element)",        desc = "raise" },
+      { "<leader>kR", "<Plug>(sexp_raise_list)",           desc = "RAISE" },
       { "<leader>ks", "<Plug>(sexp_capture_next_element)", desc = "slurp" },
-    },
-  },
-
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring", -- changes comment string based on location for embedded langs in same file
-    opts = { enable_autocmd = false },
-  },
-  {
-    "terrortylor/nvim-comment",
-    cmd = { "CommentToggle" },
-    main = "nvim_comment",
-    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
-    opts = {
-      hook = function()
-        require("ts_context_commentstring").update_commentstring()
-      end,
     },
   },
 

@@ -44,6 +44,16 @@ return {
     end,
   },
   {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+  },
+  {
+    "folke/ts-comments.nvim", -- changes comment string based on location for embedded langs in same file
+    opts = {},
+    event = "VeryLazy",
+    enabled = vim.fn.has("nvim-0.10.0") == 1,
+  },
+  {
     "code-biscuits/nvim-biscuits", -- scope context virtual text
     opts = {
       cursor_line_only = true,
