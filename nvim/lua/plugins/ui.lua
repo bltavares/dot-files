@@ -9,8 +9,8 @@ end
 return {
   {
     "folke/tokyonight.nvim", -- theme
-    lazy = false,            -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000,         -- make sure to load this before all the other start plugins
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       vim.cmd("colorscheme tokyonight")
     end,
@@ -51,7 +51,7 @@ return {
           { "filename", file_status = true },
           {
             "project",
-            format = "name",
+            format = "short", -- name is better, but windows issues
             enclose_pair = { "<", ">" },
           },
         },
@@ -69,14 +69,14 @@ return {
           {
             "filename",
             cond = function()
-              return require('nvim-navic').is_available()
-            end
-          }
+              return require("nvim-navic").is_available()
+            end,
+          },
         },
         lualine_c = {
-          { "navic" }
-        }
-      }
+          { "navic" },
+        },
+      },
     },
   },
 }
