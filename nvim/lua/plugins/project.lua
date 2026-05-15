@@ -75,6 +75,7 @@ return {
   {
     "DrKJeff16/project.nvim", -- auto cwd to .git projects
     event = { "VeryLazy" },
+    cmd = { "ProjectSnacks" },
     keys = {
       { "<leader>ps", "<Cmd>ProjectSnacks<CR>", desc = "switch" },
     },

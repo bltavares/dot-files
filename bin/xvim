@@ -1,0 +1,24 @@
+#!/bin/bash
+if ! which devcontainer; then
+  echo "Missing devcontainer-cli"
+  exit 1;
+fi
+
+sockdir="$(mktemp -d)"
+devcontainer up \
+  --mount "type=bind,source=$sockdir,target=/tmp/xvim" \
+  --mount "type=bind,source=${HOME}/.config/nvim,target=/tmp/nvim-config" > "$sockdir/container.json"
+
+devcontainer exec bash -c "mise trust" |& tee $sockdir/build.log
+devcontainer exec bash -c "mise cfg" |& tee -a $sockdir/build.log
+devcontainer exec bash -c "mise install" |& tee -a $sockdir/build.log
+devcontainer exec bash -c 'mkdir -p ~/.config'
+devcontainer exec bash -c 'ln -s /tmp/nvim-config ${HOME}/.config/nvim'
+nohup devcontainer exec bash -c 'eval "$(mise activate)"; nvim --headless --listen /tmp/xvim/nvim.sock 2> /dev/null > /dev/null' > /dev/null 2> /dev/null &
+
+echo connect to $sockdir/nvim.sock
+read -r -p "press to continue"
+nvim -u NONE -c "connect $sockdir/nvim.sock"
+
+kill %1
+docker rm -f $(jq -r .containerId < $sockdir/container.json)

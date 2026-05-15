@@ -14,6 +14,7 @@ return {
         "markdown_inline",
         "rust",
         "yaml",
+        "json",
       }
       vim.defer_fn(function()
         require("nvim-treesitter").install(ensure_installed)

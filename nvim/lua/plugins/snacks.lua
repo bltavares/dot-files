@@ -21,6 +21,8 @@ return {
     },
     keys = {
       { "<C-p>", "<Cmd>lua Snacks.picker.commands()<CR>", desc = "commands" },
+      { "<leader>qn", "<Cmd>lua Snacks.picker.notifications()<CR>", desc = "notifications" },
+      { "<leader>qN", "<Cmd>lua Snacks.notifier.show_history()<CR>", desc = "Last notification" },
       { "<leader><space>", "<Cmd>lua Snacks.picker.resume()<CR>", desc = "resume panel" },
       { "<leader>*", "<Cmd>lua Snacks.picker.grep_word()<CR>", desc = "find word in project" },
       { "<leader>/", "<Cmd>lua Snacks.picker.grep()<CR>", desc = "grep" },
