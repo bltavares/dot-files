@@ -26,6 +26,13 @@ if is_windows() then
   }
 end
 
+if is_linux() then
+  config.keys = {
+    -- wayland clipboard workaround
+    { key = "v", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom 'PrimarySelection' },
+  }
+end
+
 -- This is where you actually apply your config choices
 --
 config.font = wezterm.font("FiraCode Nerd Font Mono")
