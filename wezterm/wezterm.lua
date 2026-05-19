@@ -84,7 +84,7 @@ if is_windows() then
   }
 else
   config.hide_tab_bar_if_only_one_tab = true
-  config.window_background_opacity = 0.9666666
+  config.window_background_opacity = 0.8666666
   config.window_padding = {
     top = "1.5cell",
     left = "1.5cell",
