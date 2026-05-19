@@ -1,0 +1,44 @@
+    window-rule {
+        geometry-corner-radius 6 // Set every window radius to 20
+        clip-to-geometry true
+    }
+
+    // if you use steam you will probably like these
+    window-rule {
+        match app-id="steam"
+        exclude title=r#"^[Ss]team$"#
+        open-floating true
+    }
+
+    window-rule {
+        match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+        default-floating-position x=10 y=10 relative-to="bottom-right"
+        open-focused false
+    }
+
+    layer-rule {
+        match namespace="^noctalia-wallpaper*"
+        place-within-backdrop true
+    }
+
+    window-rule {
+        // This app-id regular expression will work for both:
+        // - host Firefox (app-id is "firefox")
+        // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+        match app-id=r#"zen-browser$"# title="^Picture-in-Picture$"
+        open-floating true
+    }
+
+    // Work around WezTerm's initial configure bug
+    // by setting an empty default-column-width.
+    // Supposed fixed on nightly
+    window-rule {
+        match app-id=r#"^org\.wezfurlong\.wezterm$"#
+        default-column-width {}
+    }
+
+    switch-events {
+        lid-close {
+            spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"
+        }
+    }
