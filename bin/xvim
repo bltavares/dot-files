@@ -1,24 +1,54 @@
 #!/bin/bash
+set -e
+
+KEEP_CONTAINER=false
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --keep) KEEP_CONTAINER=true ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    shift
+done
+
 if ! which devcontainer; then
   echo "Missing devcontainer-cli"
   exit 1;
 fi
 
 sockdir="$(mktemp -d)"
+
+cleanup() {
+  if [ "$KEEP_CONTAINER" = false ] && [ -f "$sockdir/container.json" ]; then
+    # Extract container ID and remove it
+    local cid=$(jq -r .containerId < "$sockdir/container.json")
+    if [ -n "$cid" ] && [ "$cid" != "null" ]; then
+      docker rm -f "$cid" > /dev/null 2>&1
+    fi
+  fi
+  # Cleanup temp directory if not keeping container (or always cleanup local tmp)
+  rm -rf "$sockdir"
+}
+
+trap cleanup SIGINT SIGTERM SIGHUP EXIT
+
 devcontainer up \
   --mount "type=bind,source=$sockdir,target=/tmp/xvim" \
   --mount "type=bind,source=${HOME}/.config/nvim,target=/tmp/nvim-config" > "$sockdir/container.json"
 
-devcontainer exec bash -c "mise trust" |& tee $sockdir/build.log
-devcontainer exec bash -c "mise cfg" |& tee -a $sockdir/build.log
-devcontainer exec bash -c "mise install" |& tee -a $sockdir/build.log
+devcontainer exec bash -c "mise trust" |& tee "$sockdir/build.log"
+devcontainer exec bash -c "mise cfg" |& tee -a "$sockdir/build.log"
+devcontainer exec bash -c "mise install" |& tee -a "$sockdir/build.log"
 devcontainer exec bash -c 'mkdir -p ~/.config'
 devcontainer exec bash -c 'ln -s /tmp/nvim-config ${HOME}/.config/nvim'
-nohup devcontainer exec bash -c 'eval "$(mise activate)"; nvim --headless --listen /tmp/xvim/nvim.sock 2> /dev/null > /dev/null' > /dev/null 2> /dev/null &
 
-echo connect to $sockdir/nvim.sock
-read -r -p "press to continue"
+# Start nvim in listen mode inside the container
+nohup devcontainer exec bash -c 'eval "$(mise activate)"; nvim --headless --listen /tmp/xvim/nvim.sock 2> /dev/null > /dev/null' > /dev/null 2>&1 &
+NVIM_PID=$!
+
+echo "Connect to $sockdir/nvim.sock"
+read -r -p "Press Enter to start nvim (or Ctrl+C to exit)..."
+
+# Launch host nvim and connect to the socket
 nvim -u NONE -c "connect $sockdir/nvim.sock"
 
-kill %1
-docker rm -f $(jq -r .containerId < $sockdir/container.json)
+# Note: cleanup is handled by the trap on EXIT
