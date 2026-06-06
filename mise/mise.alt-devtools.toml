@@ -6,3 +6,4 @@ bottom = "latest"  # top
 "github:dalance/amber" = "latest"  # text replace
 fd = "latest"  # find
 yj = "latest"  # json/yaml converter
+dust = "latest" # disk usage cli
