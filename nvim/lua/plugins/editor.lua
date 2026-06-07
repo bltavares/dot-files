@@ -64,4 +64,13 @@ return {
       },
     },
   },
+  -- editor narrowing
+  {
+    "tkancf/narrowing-nvim",
+    cmd = { "Narrowing" },
+    keys = {
+      { "<leader>tn", "<Plug>(narrowing-narrow)", desc = "narrow", mode = "v" },
+    },
+    opts = {},
+  },
 }
