@@ -15,6 +15,7 @@ return {
         "rust",
         "yaml",
         "json",
+        "ini",
       }
       vim.defer_fn(function()
         require("nvim-treesitter").install(ensure_installed)
