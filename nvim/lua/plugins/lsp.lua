@@ -25,13 +25,10 @@ return {
         "gleam",
         "gopls",
         "lua_ls",
-        "nomad_lsp",
+        "nomad_lsp", -- bltavares/nomad_lsp
         "terraformls",
         "tombi",
       })
-
-      -- incomplete lsp
-      -- require 'config.lsp.lang.nomad'
     end,
     dependencies = {
       "folke/which-key.nvim",
