@@ -25,3 +25,8 @@ docker-info() {
     --format='{{.Config.Image}}, {{.NetworkSettings.IPAddress}}, {{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}' \
     <<<"$containers"
 }
+
+scopy () {
+	echo "Sync: $1"
+	skopeo copy docker://$1 docker://registry.lab.bltavares.com/${2:-$1}
+}
