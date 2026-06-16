@@ -75,9 +75,9 @@ return {
   {
     "DrKJeff16/project.nvim", -- auto cwd to .git projects
     event = { "VeryLazy" },
-    cmd = { "ProjectSnacks" },
+    cmd = { "Project" },
     keys = {
-      { "<leader>ps", "<Cmd>ProjectSnacks<CR>", desc = "switch" },
+      { "<leader>ps", "<Cmd>Project snacks<CR>", desc = "switch" },
     },
     opts = {
       snacks = { enabled = true },
