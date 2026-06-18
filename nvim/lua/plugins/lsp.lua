@@ -27,6 +27,7 @@ return {
         "lua_ls",
         "nomad_lsp", -- bltavares/nomad_lsp
         "terraformls",
+        "terragrunt_ls",
         "tombi",
       })
     end,
