@@ -5,6 +5,7 @@ return {
     build = ":TSUpdate",
     config = function()
       local ensure_installed = {
+        "bash",
         "comment",
         "dart",
         "go",
