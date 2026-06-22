@@ -31,10 +31,13 @@ return {
     keys = {
       { "<localleader>tO", "<Cmd>Neotest output-panel<CR>", desc = "output" },
       { "<localleader>tf", "<Cmd>Neotest run file<CR>", desc = "file" },
+      { "<localleader>tF", "<Cmd>Neotest run file strategy=dap<CR>", desc = "debug file" },
       { "<localleader>tl", "<Cmd>Neotest run last<CR>", desc = "last" },
+      { "<localleader>tL", "<Cmd>Neotest run last strategy=dap<CR>", desc = "debug last" },
       { "<localleader>to", "<Cmd>Neotest output<CR>", desc = "output" },
       { "<localleader>ts", "<Cmd>Neotest summary<CR>", desc = "summary" },
       { "<localleader>tt", "<Cmd>Neotest run<CR>", desc = "nearest" },
+      { "<localleader>tT", "<Cmd>Neotest run strategy=dap<CR>", desc = "debug nearest" },
     },
     config = function()
       require("neotest").setup({

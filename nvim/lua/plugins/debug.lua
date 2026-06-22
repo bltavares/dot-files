@@ -51,4 +51,9 @@ return {
       { "<localleader>dw", "<cmd>DapViewWatch<CR>", desc = "watch" },
     },
   },
+  {
+    'leoluz/nvim-dap-go',
+    ft = { 'go' },
+    opts = {},
+  }
 }
