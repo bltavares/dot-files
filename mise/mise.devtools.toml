@@ -15,3 +15,5 @@ cargo-binstall = "latest"
 "cargo:cargo-wipe" = "latest"  # reduce disk usage
 # TODO: Find a crossplat to moreutils
 # moreutils = "latest" TODO: find in register
+
+"github:openpubkey/opkssh" = "latest"
