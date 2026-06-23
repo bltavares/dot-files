@@ -1,3 +1,4 @@
 [tools]
 neovim = "latest"
 tree-sitter = "latest"
+"github:BIRSAx2/mdcat" = "latest" # markdown rendering

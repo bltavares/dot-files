@@ -1,11 +1,16 @@
 return {
   {
-    "npxbr/glow.nvim", -- Preview .md rendering
-    cmd = { "Glow" },
+    "topazape/md-preview.nvim",
+    cmd = { "MPToggle" },
     ft = "markdown",
     keys = {
-      { "<localleader>P", "<CMD>Glow<CR>", desc = "Preview", ft = "markdown" },
+      { "<localleader>P", "<CMD>MPToggle<CR>", desc = "Preview", ft = "markdown" },
     },
-    opts = {},
+    opts = {
+      viewer = {
+        exec = "mdcat",
+        args = { "--local" },
+      },
+    },
   },
 }
