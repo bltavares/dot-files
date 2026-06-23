@@ -1,0 +1,18 @@
+linux|darwin:
+  links:
+    zsh: ~/.zsh
+    zsh/zshrc: ~/.zshrc
+  installs: |-
+    [[ -d $HOME/.oh-my-zsh ]] || git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+
+global:
+  links:
+    gitignore_global: ~/.gitignore_global
+    mise: ~/.config/mise
+    # Needs https://github.com/volllly/rotz/pull/415
+    nvim: |-
+      {{ dirs.base.config_local }}/nvim
+    starship.toml: ~/.config/starship.toml
+    wezterm: ~/.config/wezterm
+    zellij: |-
+      {{ dirs.base.config }}/zellij

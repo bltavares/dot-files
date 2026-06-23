@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export PATH="$HOME/go/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/repos/dot-files/bin:$PATH"

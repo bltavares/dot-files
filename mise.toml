@@ -6,3 +6,7 @@ shellcheck = "latest"
 shfmt = "latest"
 
 tombi = "latest"
+
+"cargo:https://github.com/bltavares/rotz" = "branch:expose_dirs_config_local_dir"
+# https://github.com/volllly/rotz/pull/415
+# "github:volllly/rotz" = "latest"
