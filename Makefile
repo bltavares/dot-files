@@ -6,6 +6,6 @@ update:
 
 # Symlink files in the correct place
 install:
-	mise x -- rotz install
-	mise x -- rotz link --force
+	mise x -- rotz --dotfiles ${PWD} install
+	mise x -- rotz --dotfiles ${PWD} link --force
 .PHONY: install
