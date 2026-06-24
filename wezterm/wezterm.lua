@@ -24,6 +24,14 @@ if is_windows() then
     { key = "#", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab({ DomainName = "SSH:gibson.internal" }) },
     { key = " ", mods = "CTRL", action = wezterm.action.SendKey({ key = " ", mods = "CTRL" }) }, -- workaround for native nvim.exe shortcut
   }
+  --
+  -- Remove wezterm symlinking populating SSH_AUTH_SOCK from env to make ssh.exe use default windows named socket
+  config.mux_enable_ssh_agent = false
+  config.ssh_domains = wezterm.default_ssh_domains()
+  for _, dom in ipairs(config.ssh_domains) do
+    -- point wezterm internal ssh session to ssh-agent Unix socket file provided by OmniSSHAgent
+    dom.ssh_option.identityagent = string.format('%s\\OmniSSHAgent.sock', os.getenv('USERPROFILE'))
+  end
 end
 
 if is_linux() then
