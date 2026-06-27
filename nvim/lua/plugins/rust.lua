@@ -18,7 +18,7 @@ return {
           on_attach = function(client, bufnr)
             on_attach(client, bufnr)
             wk.add({
-              { buffer = bufnr, remap = false },
+              buffer = bufnr, remap = false,
               { "<localleader>e", group = "eval" },
               { "<localleader>eR", "<Cmd>RustLsp! runnables<CR>", desc = "last" },
               { "<localleader>er", "<Cmd>RustLsp runnables<CR>", desc = "run" },

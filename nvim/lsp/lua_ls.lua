@@ -23,7 +23,7 @@ return {
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
     wk.add({
-      { buffer = bufnr, remap = false },
+      buffer = bufnr, remap = false,
       { "<localleader>e", group = "eval" },
       { "<localleader>ef", "<cmd>luafile %<CR><cmd>echo 'Evaled' @%<cr>", desc = "file" },
     })

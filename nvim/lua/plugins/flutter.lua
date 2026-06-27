@@ -10,7 +10,7 @@ return {
         on_attach(client, bufnr)
         local wk = require("which-key")
         wk.add({
-          { buffer = bufnr, remap = false },
+          buffer = bufnr, remap = false,
           {
             -- https://github.com/nvim-flutter/flutter-tools.nvim/pull/512
             --{ "<localleader>c", "<cmd>lua require('telescope').extensions.flutter.commands()<CR>", desc = "commands" },
