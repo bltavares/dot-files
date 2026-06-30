@@ -17,6 +17,20 @@ return {
         signs = true,
       })
 
+      -- HACK: https://github.com/neovim/nvim-lspconfig/pull/4462
+      vim.lsp.config('svelte', {
+        cmd = function(dispatchers, config)
+          local cmd = 'svelteserver'
+          if (config or {}).root_dir then
+            local local_cmd = vim.fs.joinpath(config.root_dir, 'node_modules/.bin', cmd)
+            if vim.fn.executable(local_cmd) == 1 then
+              cmd = local_cmd
+            end
+          end
+          return vim.lsp.rpc.start({ cmd, '--stdio' }, dispatchers)
+        end,
+      })
+
       -- builtin support not very useful as plugin
       -- vim.lsp.codelens.enable(true)
 
@@ -29,6 +43,11 @@ return {
         "terraformls",
         "terragrunt_ls",
         "tombi",
+        -- svelte
+        'svelte',
+        'oxfmt',
+        'oxlint',
+        'tsgo',
       })
     end,
     dependencies = {
