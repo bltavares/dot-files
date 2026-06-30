@@ -21,11 +21,11 @@ checkout-branch() {
 p() { cd $(find ~/dev/* ~/repos -type d -maxdepth 1 | hs); }
 
 ssh-login() {
-	(
-		set -e
-		ssh-add -D
-		opkssh login --provider https://id.bltavares.com/auth/v1/,opkssh
-		ssh-add
-		opkssh logout
-	)
+  (
+    set -e
+    ssh-add -D
+    opkssh login --provider https://id.bltavares.com/auth/v1/,opkssh
+    ssh-add
+    opkssh logout
+  )
 }
