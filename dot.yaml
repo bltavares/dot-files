@@ -5,6 +5,10 @@ linux|darwin:
   installs: |-
     [[ -d $HOME/.oh-my-zsh ]] || git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 
+windows:
+  installs: |-
+    git config --global core.autocrlf false
+
 global:
   links:
     gitignore_global: ~/.gitignore_global
