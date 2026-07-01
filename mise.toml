@@ -1,0 +1,8 @@
+[settings]
+# needed to enable bootstrap/dotfiles
+experimental = true
+
+[dotfiles]
+"~/.config/mise" = "mise"
+"~/.config/starship" = "starship"
+"~/.config/wezterm" = "wezterm"

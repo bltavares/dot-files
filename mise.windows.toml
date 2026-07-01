@@ -1,0 +1,9 @@
+[dotfiles]
+"~/AppData/Local/nvim" = "nvim"
+"~/AppData/Roaming/zellij" = "zellij"
+
+[tasks.bootstrap]
+run = [
+  "git config --global core.autocrlf false",
+  "git config --global core.eol lf",
+]

@@ -1,0 +1,8 @@
+[dotfiles]
+"~/.config/nvim" = "nvim"
+"~/.config/zellij" = "zellij"
+"~/.zsh" = "zsh"
+"~/.zshrc" = "zsh/zshrc"
+
+[bootstrap.repos]
+"~/.oh-my-zsh" = { url = "https://github.com/ohmyzsh/ohmyzsh.git" }

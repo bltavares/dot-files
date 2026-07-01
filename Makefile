@@ -6,6 +6,5 @@ update:
 
 # Symlink files in the correct place
 install:
-	mise x -- rotz --dotfiles ${CURDIR} install
-	mise x -- rotz --dotfiles ${CURDIR} link --force
+	mise bootstrap
 .PHONY: install

@@ -1,0 +1,3 @@
+# loads mise.windows and mise.linux.toml in addition to env
+# default on "2027.6"
+auto_env = true
