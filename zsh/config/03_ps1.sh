@@ -22,6 +22,8 @@ function colored_ps1() {
 
 if which starship >/dev/null 2>&1; then
 	export X_COLOR_PS1="$(colored_ps1)"
+	# HACK: https://github.com/starship/starship/pull/6690
+	export STARSHIP_CONFIG="${HOME}/.config/starship/config.toml"
 	eval "$(starship init zsh)"
 fi
 

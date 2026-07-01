@@ -17,6 +17,8 @@ Catch {
 
 }
 
+# HACK: https://github.com/starship/starship/pull/6690
+$ENV:STARSHIP_CONFIG="${ENV:USERPROFILE}/.config/starship/config.toml"
 Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
 
