@@ -26,27 +26,34 @@ New-Alias -Name vim -Value nvim
 
 function x {
   param (
-  [string[]]$MiseEnv
+  [System.Collections.Generic.HashSet[string]]$MiseEnv
   )
+
+  $env = [System.Collections.Generic.HashSet[string]]@()
+  Get-ChildItem mise.toml,mise.*.toml -ErrorAction SilentlyContinue | % {
+    $null = $env.Add($_.Name.Replace(".toml", "").Replace("mise.", ""))
+  }
+  Get-ChildItem ~/.config/mise/mise.*.toml | % {
+    $null = $env.Add($_.Name.Replace(".toml", "").Replace("mise.", ""))
+  }
 
   if ($MiseEnv.Length -eq 0) {
     echo "Available envs:`n"
-    $local_mise = mise cfg ls --silent --no-header | Select-String -NotMatch -SimpleMatch -Pattern "${ENV:USERPROFILE}\.config\mise" | Measure-Object -Line
-    if ($local_mise.Lines -gt 0) {
-      echo "(local)"
-    }
-    Get-ChildItem ~/.config/mise/mise.*.toml | % {
-      echo $_.Name.Replace("mise.", "").Replace(".toml", "")
-    }
+    echo $env
     return
+  }
+
+  if (-not $MiseEnv.IsProperSubsetOf($env)) {
+    echo "Invalid mise env in ($env)"
+    return 1
   }
 
   $env = [System.Collections.Generic.HashSet[string]]@()
   if ($ENV:MISE_ENV) {
-  $curr = $ENV:MISE_ENV.split(",")
-  $curr | % {
-    $null = $env.Add($_)
-  }
+    $curr = $ENV:MISE_ENV.split(",")
+    $curr | % {
+      $null = $env.Add($_)
+    }
   }
   $MiseEnv | % {
     $null = $env.Add($_)

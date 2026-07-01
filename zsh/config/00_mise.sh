@@ -8,15 +8,22 @@ if [[ -z "$X_MISE_GLOBAL" && -d "$MISE_SYSTEM_CONFIG_DIR" ]]; then
 fi
 
 x() {
+	declare -aU VALID_ENVS
+	local local_mise="$(ls mise.toml mise.*.toml)"
+	if [[ $(wc -l <<<"$local_mise") -gt 0 ]]; then
+		while read f; do
+			f=$(cut -d' ' -f1 <<<"$f")
+			f=$(basename "$f" .toml)
+			VALID_ENVS+=("${f//mise./}")
+		done <<<"$local_mise"
+	fi
+	for f in ~/.config/mise/mise.*.toml; do
+		VALID_ENVS+=$(basename "${f//mise./}" .toml)
+	done
+
 	if [[ $# -eq 0 ]]; then
-		local local_mise="$(mise cfg ls --silent --no-header | grep -v "~/.config/mise" | wc -l)"
 		printf "Available envs:\n\n"
-		if [[ "$local_mise" -gt 0 ]]; then
-			echo "(local)"
-		fi
-		for f in ~/.config/mise/mise.*.toml; do
-			basename "${f//mise./}" .toml
-		done
+		echo "${VALID_ENVS// /\n}"
 		return
 	fi
 
@@ -28,9 +35,14 @@ x() {
 		X_MISE_ENV+=("$@")
 	fi
 
+	if [[ ${#${X_MISE_ENV:|VALID_ENVS}} != 0 ]]; then
+		echo "Contains invalid env: (${X_MISE_ENV})"
+		return 1
+	fi
+
 	if [[ -n "$X_MISE_LOCAL" ]]; then
-		# exec to replace a (x .) active
-		echo replacing mise en
+		# exec to replace a x on active session
+		echo 'appending `mise en`' $MISE_ENV with $@
 		X_MISE_LOCAL=on MISE_ENV="${X_MISE_ENV[*]// /,}" MISE_SHELL=zsh exec mise en
 	fi
 
