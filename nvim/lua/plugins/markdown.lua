@@ -1,9 +1,6 @@
 return {
   {
-    --"topazape/md-preview.nvim",
-    -- HACK: https://github.com/topazape/md-preview.nvim/pull/1
-    "bltavares/md-preview.nvim",
-    branch = 'fix-win-11-support',
+    "topazape/md-preview.nvim",
     cmd = { "MPToggle" },
     ft = "markdown",
     keys = {
