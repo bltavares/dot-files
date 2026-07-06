@@ -24,6 +24,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 -- indentation
+vim.o.fileformats = 'unix,dos' -- prefer unix lineendings on windows unless file already in dos
 vim.cmd("filetype plugin indent on")
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
