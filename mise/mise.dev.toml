@@ -1,0 +1,4 @@
+# Placeholder env to make `x dev` always work
+
+[tools]
+tombi = "latest" # to edit mise.toml
