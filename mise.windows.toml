@@ -1,6 +1,6 @@
 [dotfiles]
 "~/AppData/Local/nvim" = "nvim"
-"~/AppData/Roaming/zellij" = "zellij"
+"~/AppData/Roaming/Zellij/config" = "zellij"
 
 [tasks.bootstrap]
 run = [
