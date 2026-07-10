@@ -23,6 +23,9 @@ Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
 
 New-Alias -Name vim -Value nvim
+function z {
+  zellij attach --create dev
+}
 
 function x {
   param (
