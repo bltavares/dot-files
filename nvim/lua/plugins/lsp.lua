@@ -40,7 +40,7 @@ return {
       "folke/which-key.nvim",
       "j-hui/fidget.nvim",
       "saghen/blink.cmp",
-      "VidocqH/lsp-lens.nvim", -- lsp fn references virtualtext
+      "tkolleh/lsp-lens.nvim",
     },
   },
   {
@@ -94,7 +94,8 @@ return {
     },
   },
   {
-    "VidocqH/lsp-lens.nvim", -- lsp fn references virtualtext
+    -- "VidocqH/lsp-lens.nvim", -- lsp fn references virtualtext
+    "tkolleh/lsp-lens.nvim", -- https://github.com/tkolleh/lsp-lens.nvim/pull/1
     cmd = { "LspLensToggle", "LspLensOn", "LspLensOff" },
     keys = {
       { "<leader>Tr", "<Cmd>LspLensToggle<CR>", desc = "Fn references" },
