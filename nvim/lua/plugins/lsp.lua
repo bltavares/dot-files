@@ -34,6 +34,7 @@ return {
         'oxfmt',
         'oxlint',
         'tsgo',
+        'superhtml',
       })
     end,
     dependencies = {
