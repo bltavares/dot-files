@@ -69,7 +69,7 @@ return {
                 vim.lsp.codelens.enable(state)
               end,
             })
-            :map("<leader>TL")
+            :map("<leader>TC")
         end,
       })
     end,
